@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Jiro-BEACONS Engineering | Engineering Better Information</title>
+
+  <meta name="description" content="Jiro-BEACONS Engineering delivers integrated engineering, Digital QA/QC, engineering documentation, digital asset information, geospatial and Scan-to-BIM solutions.">
+
+  <style>
+    :root {
+      --navy: #0b1f3a;
+      --gold: #d4a72c;
+      --white: #ffffff;
+      --light: #f5f7fa;
+      --text: #263445;
+      --muted: #657386;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background: var(--white);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    header {
+      background: var(--white);
+      border-bottom: 1px solid #e5e9ee;
+      padding: 20px 0;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      color: var(--navy);
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: 1px;
+    }
+
+    .brand span {
+      display: block;
+      color: var(--gold);
+      font-size: 9px;
+      letter-spacing: 3px;
+      margin-top: -2px;
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    .hero {
+      background:
+        linear-gradient(120deg, rgba(11,31,58,.96), rgba(11,31,58,.78)),
+        linear-gradient(135deg, #0b1f3a, #1d3557);
+      color: var(--white);
+      padding: 120px 0;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      max-width: 900px;
+      font-size: clamp(42px, 6vw, 70px);
+      line-height: 1.08;
+      margin-bottom: 25px;
+    }
+
+    .hero p {
+      max-width: 760px;
+      font-size: 19px;
+      color: #e2e8f0;
+      margin-bottom: 32px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 13px 23px;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+
+    .button-gold {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    .button-outline {
+      border: 1px solid #d7dee8;
+      color: var(--white);
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      color: var(--navy);
+      font-size: 38px;
+      margin-bottom: 15px;
+    }
+
+    .section-intro {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 18px;
+      margin-bottom: 40px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      border: 1px solid #e1e6ec;
+      padding: 30px;
+      background: var(--white);
+    }
+
+    .card-number {
+      color: var(--gold);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      color: var(--navy);
+      margin-bottom: 10px;
+      font-size: 21px;
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .dark-section {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .dark-section h2 {
+      color: var(--white);
+    }
+
+    .dark-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .dark-grid p {
+      color: #d9e1eb;
+      font-size: 18px;
+    }
+
+    .solutions {
+      background: var(--light);
+    }
+
+    .solution-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .solution {
+      background: var(--white);
+      padding: 28px;
+      border-left: 4px solid var(--gold);
+    }
+
+    .solution h3 {
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .cta {
+      text-align: center;
+      background: #f8f4e8;
+    }
+
+    .cta h2 {
+      color: var(--navy);
+      font-size: 38px;
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    footer {
+      background: #07172b;
+      color: #cbd5e1;
+      padding: 50px 0 20px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    footer .brand {
+      color: var(--white);
+    }
+
+    footer h4 {
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    footer a {
+      display: block;
+      margin: 7px 0;
+      color: #cbd5e1;
+    }
+
+    .copyright {
+      border-top: 1px solid #263750;
+      margin-top: 40px;
+      padding-top: 18px;
+      font-size: 12px;
+      color: #94a3b8;
+    }
+
+    @media (max-width: 800px) {
+      nav {
+        display: none;
+      }
+
+      .hero {
+        padding: 80px 0;
+      }
+
+      .hero h1 {
+        font-size: 44px;
+      }
+
+      .services,
+      .solution-grid,
+      .dark-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .section-title {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container header-inner">
+
+    <a href="/" class="brand">
+      JIRO-BEACONS
+      <span>ENGINEERING</span>
+    </a>
+
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/services.html">Services</a>
+      <a href="/solutions.html">Solutions</a>
+      <a href="/projects.html">Projects</a>
+      <a href="/insights.html">Insights</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="container">
+
+    <p class="eyebrow">
+      INTEGRATED ENGINEERING • DIGITAL QA/QC • DIGITAL ASSET DELIVERY
+    </p>
+
+    <h1>
+      Engineering better information for smarter infrastructure &amp; businesses.
+    </h1>
+
+    <p>
+      Jiro-BEACONS helps engineering and construction teams transform
+      project documentation, quality evidence, geospatial information
+      and as-built records into structured digital assets.
+    </p>
+
+    <div class="buttons">
+      <a class="button button-gold" href="/services.html">
+        Explore Our Services
+      </a>
+
+      <a class="button button-outline" href="/projects.html">
+        View Projects
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<section>
+  <div class="container">
+
+    <p class="eyebrow">WHAT WE DO</p>
+
+    <h2 class="section-title">
+      Engineering information beyond handover.
+    </h2>
+
+    <p class="section-intro">
+      Modern infrastructure generates enormous amounts of engineering
+      information. We structure that information so it remains
+      traceable, accessible and useful throughout the asset lifecycle.
+    </p>
+
+    <div class="services">
+
+      <div class="card">
+        <div class="card-number">01</div>
+        <h3>Digital QA/QC</h3>
+        <p>
+          Digital QA/QC oversight, evidence tracking, inspection
+          records and quality documentation for project delivery.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-number">02</div>
+        <h3>Engineering Documentation</h3>
+        <p>
+          Structured project documentation, document control,
+          test packs, registers and digital handover information.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-number">03</div>
+        <h3>Digital Asset Information</h3>
+        <p>
+          Transforming as-built and engineering records into
+          information that supports asset operations and management.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<section class="dark-section">
+  <div class="container dark-grid">
+
+    <div>
+      <p class="eyebrow">OUR PHILOSOPHY</p>
+
+      <h2 class="section-title">
+        We don't just build infrastructure.
+        We engineer the data.
+      </h2>
+    </div>
+
+    <div>
+      <p>
+        Every project should leave behind more than a physical asset.
+        It should leave a reliable digital engineering legacy —
+        structured documentation, quality evidence, as-built information,
+        spatial records and intelligent asset information.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="solutions">
+  <div class="container">
+
+    <p class="eyebrow">SOLUTIONS</p>
+
+    <h2 class="section-title">
+      Information-led solutions for modern assets.
+    </h2>
+
+    <div class="solution-grid">
+
+      <div class="solution">
+        <h3>Construction &amp; EPC</h3>
+        <p>
+          Digital project documentation, QA/QC evidence and
+          structured handover workflows.
+        </p>
+      </div>
+
+      <div class="solution">
+        <h3>Energy &amp; Infrastructure</h3>
+        <p>
+          Engineering information and digital asset records
+          for complex infrastructure projects.
+        </p>
+      </div>
+
+      <div class="solution">
+        <h3>Real Estate &amp; Property</h3>
+        <p>
+          Building information, as-built records and digital
+          asset information for property owners and managers.
+        </p>
+      </div>
+
+      <div class="solution">
+        <h3>Asset Owners &amp; Operators</h3>
+        <p>
+          Organised engineering information that supports
+          operational visibility and lifecycle management.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<section class="cta">
+  <div class="container">
+
+    <h2>
+      Let's turn your information into a digital asset.
+    </h2>
+
+    <p>
+      Discuss your project documentation, Digital QA/QC,
+      digital handover or asset-information requirements.
+    </p>
+
+    <a class="button button-gold"
+       href="mailto:giftedafe@jirobeacons.com">
+      Contact Jiro-BEACONS
+    </a>
+
+  </div>
+</section>
+
+</main>
+
+
+<footer>
+
+  <div class="container footer-grid">
+
+    <div>
+      <a href="/" class="brand">
+        JIRO-BEACONS
+        <span>ENGINEERING</span>
+      </a>
+
+      <p style="margin-top:15px;">
+        Engineering better information for smarter
+        infrastructure &amp; businesses.
+      </p>
+    </div>
+
+    <div>
+      <h4>Navigate</h4>
+      <a href="/about.html">About</a>
+      <a href="/services.html">Services</a>
+      <a href="/solutions.html">Solutions</a>
+      <a href="/projects.html">Projects</a>
+      <a href="/insights.html">Insights</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+
+    <div>
+      <h4>Connect</h4>
+      <a href="#">LinkedIn</a>
+      <a href="#">YouTube</a>
+      <a href="#">X</a>
+      <a href="#">WhatsApp</a>
+    </div>
+
+  </div>
+
+  <div class="container copyright">
+    © 2026 Jiro-BEACONS Engineering Nigeria Limited.
+    All rights reserved.
+  </div>
+
+</footer>
+
+</body>
+  </html>
