@@ -1,690 +1,1731 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Jiro-BEACONS Engineering | Integrated Engineering & Digital Infrastructure</title>
+  <title>Jiro-BEACONS Engineering | Engineering Better Information</title>
 
-<meta name="description" content="Jiro-BEACONS is an integrated engineering and digital infrastructure company delivering surveying, engineering, construction, QA/QC, digital engineering and asset information solutions across real estate, construction, energy, oil & gas and infrastructure.">
+  <meta
+    name="description"
+    content="Jiro-BEACONS Engineering delivers integrated engineering, surveying, construction, QA/QC, digital engineering and asset information solutions for smarter infrastructure and businesses."
+  >
 
-<style>
+  <style>
+    :root {
+      --wine: #2B0714;
+      --wine-light: #3A0A1B;
+      --wine-dark: #18040B;
+      --gold: #D4AF37;
+      --white: #FFFFFF;
+      --soft: #F7F5F3;
+      --text: #222222;
+      --muted: #686868;
+      --border: rgba(43, 7, 20, 0.14);
+      --max-width: 1440px;
+    }
 
-* {
-    box-sizing: border-box;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #ffffff;
-    color: #333333;
-    line-height: 1.7;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-header {
-    background: #2B0714;
-    color: #ffffff;
-    padding: 22px 7%;
-}
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
 
-.logo {
-    font-size: 23px;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
+    img {
+      display: block;
+      width: 100%;
+    }
 
-.logo span {
-    color: #D4AF37;
-}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-nav {
-    margin-top: 15px;
-}
+    button {
+      font: inherit;
+    }
 
-nav a {
-    color: #ffffff;
-    text-decoration: none;
-    margin-right: 18px;
-    font-size: 14px;
-}
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
 
-nav a:hover {
-    color: #D4AF37;
-}
+    /* =========================
+       HEADER
+    ========================= */
 
-/* HERO */
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(43, 7, 20, 0.96);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.18);
+    }
 
-.hero {
-    background: linear-gradient(
-        rgba(90,16,36,0.94),
-        rgba(90,16,36,0.94)
-    );
+    .nav {
+      min-height: 92px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 40px;
+    }
 
-    color: #ffffff;
-    padding: 100px 7%;
-}
+    .brand {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
 
-.hero-content {
-    max-width: 900px;
-}
+    .brand img {
+      width: auto;
+      max-width: 220px;
+      height: 58px;
+      object-fit: contain;
+    }
 
-.hero h1 {
-    font-size: 48px;
-    line-height: 1.15;
-    margin: 0 0 25px;
-}
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      white-space: nowrap;
+    }
 
-.hero h1 span {
-    color: #D4AF37;
-}
+    .nav-links a {
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      transition: color 0.25s ease;
+    }
 
-.hero p {
-    font-size: 20px;
-    max-width: 780px;
-    margin-bottom: 30px;
-}
+    .nav-links a:hover {
+      color: var(--gold);
+    }
 
-.button {
-    display: inline-block;
-    padding: 14px 28px;
-    background: #D4AF37;
-    color: #2B0714;
-    text-decoration: none;
-    font-weight: bold;
-    margin-right: 10px;
-}
+    .nav-action {
+      display: flex;
+      justify-content: flex-end;
+    }
 
-.button.secondary {
-    background: transparent;
-    border: 1px solid #D4AF37;
-    color: #ffffff;
-}
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 125px;
+      padding: 13px 20px;
+      border: 1px solid var(--gold);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: all 0.25s ease;
+    }
 
-/* INTRO */
+    .contact-btn:hover {
+      background: var(--gold);
+      color: var(--wine);
+    }
 
-.intro {
-    padding: 75px 7%;
-    text-align: center;
-}
+    .menu-toggle {
+      display: none;
+      border: 1px solid rgba(255,255,255,0.35);
+      background: transparent;
+      color: var(--white);
+      width: 44px;
+      height: 44px;
+      cursor: pointer;
+      font-size: 22px;
+    }
 
-.intro h2 {
-    color: #2B0714;
-    font-size: 34px;
-    margin-bottom: 20px;
-}
-
-.intro p {
-    max-width: 850px;
-    margin: auto;
-    font-size: 17px;
-}
-
-/* LIFECYCLE */
-
-.lifecycle {
-    background: #F7F5F3;
-    padding: 75px 7%;
-}
-
-.section-title {
-    text-align: center;
-    color: #2B0714;
-    font-size: 32px;
-    margin-bottom: 15px;
-}
-
-.section-intro {
-    max-width: 800px;
-    text-align: center;
-    margin: 0 auto 40px;
-}
-
-.lifecycle-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 15px;
-}
-
-.lifecycle-item {
-    background: #ffffff;
-    border-top: 4px solid #D4AF37;
-    padding: 25px 18px;
-    text-align: center;
-}
-
-.lifecycle-item h3 {
-    color: #2B0714;
-    font-size: 17px;
-    margin-bottom: 8px;
-}
-
-.lifecycle-item p {
-    font-size: 14px;
-    margin: 0;
-}
-
-/* CAPABILITIES */
-
-.capabilities {
-    padding: 75px 7%;
-}
-
-.capability-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 25px;
-    margin-top: 40px;
-}
-
-.capability {
-    border: 1px solid #E2E2E2;
-    padding: 30px;
-    background: #ffffff;
-}
-
-.capability h3 {
-    color: #2B0714;
-    margin-top: 0;
-}
-
-.capability p {
-    font-size: 15px;
-}
-
-/* SECTORS */
-
-.sectors {
-    background: #2B0714;
-    color: #ffffff;
-    padding: 75px 7%;
-}
-
-.sectors .section-title {
-    color: #ffffff;
-}
-
-.sector-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-    gap: 15px;
-    margin-top: 35px;
-}
-
-.sector {
-    border: 1px solid rgba(255,255,255,0.25);
-    padding: 25px;
-    text-align: center;
-}
-
-.sector h3 {
-    color: #D4AF37;
-    margin: 0;
-}
-
-/* DIFFERENTIATOR */
-
-.differentiator {
-    padding: 80px 7%;
-    text-align: center;
-}
-
-.differentiator h2 {
-    color: #2B0714;
-    font-size: 34px;
-}
-
-.differentiator p {
-    max-width: 850px;
-    margin: auto;
-    font-size: 19px;
-}
-
-.statement {
-    margin-top: 35px;
-    font-size: 26px;
-    font-weight: bold;
-    color: #2B0714;
-}
-
-/* CTA */
-
-.cta {
-    background: #F7F5F3;
-    padding: 70px 7%;
-    text-align: center;
-}
-
-.cta h2 {
-    color: #2B0714;
-    font-size: 32px;
-}
-
-.cta p {
-    max-width: 700px;
-    margin: auto;
-}
-
-/* FOOTER */
-
-footer {
-    background: #18040B;
-    color: #ffffff;
-    padding: 30px 7%;
-    font-size: 14px;
-}
-
-footer a {
-    color: #D4AF37;
-    text-decoration: none;
-    margin-right: 15px;
-}
-
-/* MOBILE */
-
-@media (max-width: 700px) {
+    /* =========================
+       HERO
+    ========================= */
 
     .hero {
-        padding: 70px 7%;
+      position: relative;
+      min-height: 92vh;
+      background: var(--wine);
+      overflow: hidden;
+    }
+
+    .hero picture,
+    .hero picture img {
+      width: 100%;
+      height: 92vh;
+    }
+
+    .hero picture img {
+      object-fit: cover;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(24, 4, 11, 0.86) 0%,
+          rgba(43, 7, 20, 0.65) 38%,
+          rgba(43, 7, 20, 0.15) 75%,
+          rgba(43, 7, 20, 0.08) 100%
+        );
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: absolute;
+      z-index: 2;
+      left: 4%;
+      bottom: 13%;
+      max-width: 720px;
+      color: var(--white);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 22px;
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
     }
 
     .hero h1 {
-        font-size: 36px;
+      font-size: clamp(46px, 6vw, 88px);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+      font-weight: 700;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
     }
 
     .hero p {
-        font-size: 17px;
+      max-width: 650px;
+      font-size: clamp(17px, 1.5vw, 21px);
+      line-height: 1.55;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 34px;
     }
 
-    nav a {
-        display: inline-block;
-        margin-bottom: 8px;
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
     }
 
-    .intro h2,
-    .differentiator h2 {
-        font-size: 28px;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 27px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: all 0.25s ease;
     }
 
-}
+    .btn-primary {
+      background: var(--gold);
+      color: var(--wine);
+    }
 
-</style>
+    .btn-primary:hover {
+      background: var(--white);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.7);
+      color: var(--white);
+    }
+
+    .btn-outline:hover {
+      background: var(--white);
+      color: var(--wine);
+    }
+
+    /* =========================
+       INTRO
+    ========================= */
+
+    .intro {
+      padding: 110px 0;
+      background: var(--white);
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 90px;
+      align-items: start;
+    }
+
+    .section-label {
+      color: var(--wine);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .intro h2 {
+      margin-top: 20px;
+      font-size: clamp(38px, 4.2vw, 64px);
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+      color: var(--wine);
+    }
+
+    .intro-copy {
+      padding-top: 5px;
+    }
+
+    .intro-copy p {
+      font-size: 19px;
+      line-height: 1.75;
+      margin-bottom: 22px;
+      color: #444;
+    }
+
+    .intro-copy strong {
+      color: var(--wine);
+    }
+
+    /* =========================
+       LIFECYCLE
+    ========================= */
+
+    .lifecycle {
+      padding: 100px 0;
+      background: var(--soft);
+    }
+
+    .section-heading {
+      max-width: 800px;
+      margin-bottom: 60px;
+    }
+
+    .section-heading h2 {
+      margin-top: 15px;
+      font-size: clamp(38px, 4vw, 60px);
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+      color: var(--wine);
+    }
+
+    .section-heading p {
+      margin-top: 20px;
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 700px;
+    }
+
+    .lifecycle-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--border);
+      border-left: 1px solid var(--border);
+    }
+
+    .life-item {
+      min-height: 190px;
+      padding: 28px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--white);
+      transition: transform 0.25s ease, background 0.25s ease;
+    }
+
+    .life-item:hover {
+      transform: translateY(-5px);
+      background: var(--wine);
+      color: var(--white);
+    }
+
+    .life-number {
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+    }
+
+    .life-item h3 {
+      margin-top: 30px;
+      font-size: 21px;
+      color: var(--wine);
+    }
+
+    .life-item:hover h3 {
+      color: var(--white);
+    }
+
+    .life-item p {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .life-item:hover p {
+      color: rgba(255,255,255,0.75);
+    }
+
+    /* =========================
+       IMAGE FEATURE
+    ========================= */
+
+    .feature {
+      background: var(--white);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      min-height: 650px;
+    }
+
+    .feature-image {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-image picture,
+    .feature-image picture img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .feature-image img {
+      object-fit: cover;
+    }
+
+    .feature-content {
+      display: flex;
+      align-items: center;
+      padding: 80px 8%;
+      background: var(--wine);
+      color: var(--white);
+    }
+
+    .feature-content h2 {
+      margin: 18px 0 24px;
+      font-size: clamp(36px, 4vw, 58px);
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+    }
+
+    .feature-content p {
+      color: rgba(255,255,255,0.78);
+      font-size: 17px;
+      line-height: 1.75;
+      margin-bottom: 28px;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin-bottom: 30px;
+    }
+
+    .feature-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      font-size: 14px;
+    }
+
+    .feature-list li::before {
+      content: "—";
+      color: var(--gold);
+      margin-right: 12px;
+    }
+
+    /* =========================
+       CAPABILITIES
+    ========================= */
+
+    .capabilities {
+      padding: 110px 0;
+      background: var(--white);
+    }
+
+    .capability-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .capability {
+      padding: 38px;
+      background: var(--white);
+      min-height: 250px;
+    }
+
+    .capability span {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+    }
+
+    .capability h3 {
+      margin-top: 25px;
+      color: var(--wine);
+      font-size: 22px;
+    }
+
+    .capability p {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* =========================
+       DIGITAL FEATURE
+    ========================= */
+
+    .digital {
+      background: var(--soft);
+    }
+
+    .digital .feature-grid {
+      grid-template-columns: 0.85fr 1.15fr;
+    }
+
+    .digital .feature-content {
+      order: 1;
+      background: var(--white);
+      color: var(--text);
+    }
+
+    .digital .feature-image {
+      order: 2;
+    }
+
+    .digital .feature-content h2 {
+      color: var(--wine);
+    }
+
+    .digital .feature-content p {
+      color: var(--muted);
+    }
+
+    .digital .feature-list li {
+      border-color: var(--border);
+    }
+
+    /* =========================
+       SECTORS
+    ========================= */
+
+    .sectors {
+      padding: 110px 0;
+      background: var(--wine);
+      color: var(--white);
+    }
+
+    .sectors .section-label {
+      color: var(--gold);
+    }
+
+    .sectors .section-heading h2 {
+      color: var(--white);
+    }
+
+    .sectors .section-heading p {
+      color: rgba(255,255,255,0.72);
+    }
+
+    .sector-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .sector {
+      min-height: 180px;
+      padding: 30px;
+      border: 1px solid rgba(255,255,255,0.16);
+      display: flex;
+      align-items: flex-end;
+      transition: background 0.25s ease, border-color 0.25s ease;
+    }
+
+    .sector:hover {
+      background: var(--wine-light);
+      border-color: var(--gold);
+    }
+
+    .sector h3 {
+      font-size: 20px;
+      line-height: 1.2;
+    }
+
+    /* =========================
+       PROJECTS
+    ========================= */
+
+    .projects {
+      padding: 110px 0;
+      background: var(--white);
+    }
+
+    .project-card {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      min-height: 540px;
+      background: var(--soft);
+    }
+
+    .project-image picture,
+    .project-image picture img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .project-image {
+      overflow: hidden;
+    }
+
+    .project-image img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .project-info {
+      padding: 65px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .project-tag {
+      color: var(--gold);
+      background: var(--wine);
+      display: inline-block;
+      width: fit-content;
+      padding: 7px 12px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .project-info h3 {
+      margin-top: 25px;
+      color: var(--wine);
+      font-size: clamp(30px, 3vw, 46px);
+      line-height: 1.08;
+    }
+
+    .project-info p {
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .project-link {
+      margin-top: 30px;
+      color: var(--wine);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .project-link:hover {
+      color: var(--gold);
+    }
+
+    /* =========================
+       PHILOSOPHY
+    ========================= */
+
+    .philosophy {
+      padding: 120px 0;
+      background: var(--soft);
+      text-align: center;
+    }
+
+    .philosophy blockquote {
+      max-width: 1000px;
+      margin: 25px auto 0;
+      color: var(--wine);
+      font-size: clamp(32px, 4.5vw, 62px);
+      line-height: 1.1;
+      letter-spacing: -0.035em;
+      font-weight: 700;
+    }
+
+    .philosophy blockquote span {
+      color: var(--gold);
+    }
+
+    /* =========================
+       CTA
+    ========================= */
+
+    .cta {
+      padding: 100px 0;
+      background: var(--wine);
+      color: var(--white);
+    }
+
+    .cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+    }
+
+    .cta h2 {
+      font-size: clamp(36px, 4vw, 58px);
+      line-height: 1.05;
+      max-width: 760px;
+      letter-spacing: -0.035em;
+    }
+
+    .cta p {
+      margin-top: 18px;
+      max-width: 650px;
+      color: rgba(255,255,255,0.72);
+      font-size: 17px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: var(--wine-dark);
+      color: var(--white);
+      padding: 70px 0 25px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr 0.8fr 0.8fr;
+      gap: 50px;
+      padding-bottom: 60px;
+    }
+
+    .footer-brand img {
+      width: auto;
+      max-width: 220px;
+      height: 58px;
+      object-fit: contain;
+    }
+
+    .footer-brand p {
+      max-width: 390px;
+      margin-top: 22px;
+      color: rgba(255,255,255,0.62);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .footer-column h4 {
+      color: var(--gold);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .footer-column a,
+    .footer-column p {
+      display: block;
+      color: rgba(255,255,255,0.7);
+      font-size: 13px;
+      margin-bottom: 11px;
+    }
+
+    .footer-column a:hover {
+      color: var(--gold);
+    }
+
+    .footer-bottom {
+      padding-top: 22px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: rgba(255,255,255,0.45);
+      font-size: 11px;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 1050px) {
+      .nav {
+        grid-template-columns: 1fr auto;
+      }
+
+      .nav-links,
+      .nav-action {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav.mobile-open {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      .nav.mobile-open .nav-links {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 20px 0;
+        border-top: 1px solid rgba(255,255,255,0.12);
+      }
+
+      .nav.mobile-open .nav-links a {
+        width: 100%;
+        padding: 14px 0;
+      }
+
+      .nav.mobile-open .nav-action {
+        display: block;
+        width: 100%;
+        padding-bottom: 25px;
+      }
+
+      .nav.mobile-open .nav-action .contact-btn {
+        width: 100%;
+      }
+
+      .lifecycle-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .sector-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 800px) {
+      .container {
+        width: 90%;
+      }
+
+      header {
+        background: rgba(43, 7, 20, 0.98);
+      }
+
+      .nav {
+        min-height: 78px;
+      }
+
+      .brand img {
+        max-width: 180px;
+        height: 48px;
+      }
+
+      .hero {
+        min-height: 100svh;
+      }
+
+      .hero picture,
+      .hero picture img {
+        height: 100svh;
+      }
+
+      .hero::after {
+        background:
+          linear-gradient(
+            180deg,
+            rgba(24,4,11,0.28) 0%,
+            rgba(24,4,11,0.5) 42%,
+            rgba(24,4,11,0.9) 100%
+          );
+      }
+
+      .hero-content {
+        left: 5%;
+        right: 5%;
+        bottom: 8%;
+        max-width: none;
+      }
+
+      .hero h1 {
+        font-size: clamp(42px, 12vw, 64px);
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .intro,
+      .lifecycle,
+      .capabilities,
+      .projects,
+      .sectors {
+        padding: 80px 0;
+      }
+
+      .intro-grid,
+      .feature-grid,
+      .digital .feature-grid,
+      .project-card {
+        grid-template-columns: 1fr;
+      }
+
+      .intro-grid {
+        gap: 40px;
+      }
+
+      .feature-grid {
+        min-height: auto;
+      }
+
+      .feature-image {
+        min-height: 500px;
+      }
+
+      .feature-content {
+        padding: 70px 8%;
+      }
+
+      .digital .feature-content {
+        order: 2;
+      }
+
+      .digital .feature-image {
+        order: 1;
+      }
+
+      .capability-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-image {
+        min-height: 400px;
+      }
+
+      .project-info {
+        padding: 50px 35px;
+      }
+
+      .cta-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .lifecycle-grid,
+      .sector-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .life-item {
+        min-height: 160px;
+      }
+
+      .feature-image {
+        min-height: 430px;
+      }
+
+      .project-image {
+        min-height: 380px;
+      }
+
+      .philosophy {
+        padding: 90px 0;
+      }
+
+      .philosophy blockquote {
+        font-size: 38px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
+  <!-- =========================
+       HEADER
+  ========================== -->
 
-    <div class="logo">
-        JIRO-BEACONS <span>ENGINEERING</span>
+  <header>
+    <div class="container">
+      <nav class="nav" id="mainNav">
+
+        <a href="index.html" class="brand" aria-label="Jiro-BEACONS Engineering home">
+          <img src="images/logo.png" alt="Jiro-BEACONS Engineering">
+        </a>
+
+        <div class="nav-links">
+          <a href="index.html">HOME</a>
+          <a href="about.html">ABOUT</a>
+          <a href="services.html">SERVICES</a>
+          <a href="solutions.html">SOLUTIONS</a>
+          <a href="projects.html">PROJECTS</a>
+          <a href="insights.html">INSIGHTS</a>
+        </div>
+
+        <div class="nav-action">
+          <a href="contact.html" class="contact-btn">CONTACT</a>
+        </div>
+
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+
+      </nav>
     </div>
-
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="solutions.html">Solutions</a>
-        <a href="projects.html">Projects</a>
-        <a href="insights.html">Insights</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-
-</header>
+  </header>
 
 
-<!-- HERO -->
+  <!-- =========================
+       HERO
+  ========================== -->
 
-<section class="hero">
+  <main>
 
-    <div class="hero-content">
+    <section class="hero">
+
+      <picture>
+        <source
+          media="(max-width: 767px)"
+          srcset="images/hero-mobile.png"
+        >
+        <img
+          src="images/hero-desktop.png"
+          alt="Engineers reviewing physical infrastructure and digital engineering information"
+        >
+      </picture>
+
+      <div class="hero-content">
+
+        <span class="eyebrow">
+          Integrated Engineering & Digital Infrastructure
+        </span>
 
         <h1>
-            Integrated Engineering for
-            <span>Smarter Infrastructure</span>
+          Engineering better information for
+          <span>smarter infrastructure.</span>
         </h1>
 
         <p>
-            Jiro-BEACONS brings together engineering, surveying, construction,
-            quality assurance and digital engineering to help create,
-            verify and manage better infrastructure and property assets.
+          We bring engineering, surveying, construction, quality assurance
+          and digital asset information together to help infrastructure and
+          businesses perform with greater clarity, control and confidence.
         </p>
 
-        <a class="button" href="services.html">
-            Explore Our Capabilities
-        </a>
+        <div class="hero-buttons">
+          <a href="services.html" class="btn btn-primary">
+            Explore Our Services
+          </a>
 
-        <a class="button secondary" href="projects.html">
+          <a href="projects.html" class="btn btn-outline">
             View Projects
+          </a>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         INTRO
+    ========================== -->
+
+    <section class="intro">
+
+      <div class="container intro-grid">
+
+        <div>
+          <span class="section-label">Who We Are</span>
+
+          <h2>
+            More than documentation.
+            <br>
+            Integrated engineering.
+          </h2>
+        </div>
+
+        <div class="intro-copy">
+
+          <p>
+            <strong>Jiro-BEACONS Engineering</strong> is an integrated
+            engineering and digital infrastructure company supporting the
+            full lifecycle of physical assets — from survey and evaluation
+            through planning, design, construction, verification,
+            digitalization and handover.
+          </p>
+
+          <p>
+            Our work connects what is physically built with the structured
+            information required to control, verify, manage and operate it.
+          </p>
+
+          <p>
+            We don't simply record project information.
+            <strong>We engineer the information behind the infrastructure.</strong>
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         LIFECYCLE
+    ========================== -->
+
+    <section class="lifecycle">
+
+      <div class="container">
+
+        <div class="section-heading">
+          <span class="section-label">Our Engineering Lifecycle</span>
+
+          <h2>
+            From the ground to the digital asset.
+          </h2>
+
+          <p>
+            A connected approach to understanding, delivering, verifying
+            and managing infrastructure.
+          </p>
+        </div>
+
+        <div class="lifecycle-grid">
+
+          <div class="life-item">
+            <span class="life-number">01</span>
+            <h3>Survey & Evaluate</h3>
+            <p>
+              Land, property, existing-asset and as-built assessment.
+            </p>
+          </div>
+
+          <div class="life-item">
+            <span class="life-number">02</span>
+            <h3>Quantity & Cost</h3>
+            <p>
+              Measurement, BOQ, cost planning and commercial support.
+            </p>
+          </div>
+
+          <div class="life-item">
+            <span class="life-number">03</span>
+            <h3>Plan</h3>
+            <p>
+              Engineering planning and project delivery strategy.
+            </p>
+          </div>
+
+          <div class="life-item">
+            <span class="life-number">04</span>
+            <h3>Design</h3>
+            <p>
+              Engineering and multidisciplinary design coordination.
+            </p>
+          </div>
+
+          <div class="life-item">
+            <span class="life-number">05</span>
+            <h3>Build</h3>
+            <p>
+              Construction and project delivery support.
+            </p>
+          </div>
+
+          <div class="life-item">
+            <span class="life-number">06</span>
+            <h3>Verify & Assure</h3>
+            <p>
+              QA/QC, inspection, testing and traceable quality evidence.
+            </p>
+          </div>
+
+          <div class="life-item">
+            <span class="life-number">07</span>
+            <h3>Digitalize</h3>
+            <p>
+              Scan-to-BIM, digital engineering and structured asset data.
+            </p>
+          </div>
+
+          <div class="life-item">
+            <span class="life-number">08</span>
+            <h3>Handover & Operate</h3>
+            <p>
+              Digital handover, asset information and lifecycle support.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         ENGINEERING FEATURE
+    ========================== -->
+
+    <section class="feature">
+
+      <div class="feature-grid">
+
+        <div class="feature-image">
+
+          <picture>
+            <source
+              media="(max-width: 767px)"
+              srcset="images/project-mobile.png"
+            >
+            <img
+              src="images/project-desktop.png"
+              alt="Engineering professionals working with construction and project information"
+              loading="lazy"
+            >
+          </picture>
+
+        </div>
+
+        <div class="feature-content">
+
+          <div>
+
+            <span class="section-label" style="color:#D4AF37;">
+              Engineering Delivery
+            </span>
+
+            <h2>
+              Connecting field reality with engineering control.
+            </h2>
+
+            <p>
+              Infrastructure is only as reliable as the information used
+              to make decisions about it. Our multidisciplinary approach
+              connects field activities, engineering requirements,
+              inspection and testing with structured project records.
+            </p>
+
+            <ul class="feature-list">
+              <li>Surveying & Existing-Asset Evaluation</li>
+              <li>Quantity Surveying & Cost Support</li>
+              <li>Construction & Project Delivery</li>
+              <li>QA/QC & Inspection</li>
+              <li>Engineering Documentation</li>
+            </ul>
+
+            <a href="services.html" class="btn btn-primary">
+              Explore Capabilities
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CAPABILITIES
+    ========================== -->
+
+    <section class="capabilities">
+
+      <div class="container">
+
+        <div class="section-heading">
+          <span class="section-label">What We Do</span>
+
+          <h2>
+            Engineering capability built around real project needs.
+          </h2>
+
+          <p>
+            From physical project delivery to the information systems that
+            support long-term asset management.
+          </p>
+        </div>
+
+        <div class="capability-grid">
+
+          <article class="capability">
+            <span>01</span>
+            <h3>Surveying & Geospatial</h3>
+            <p>
+              Surveying, as-built capture, spatial data and existing-asset
+              information for planning, construction and asset management.
+            </p>
+          </article>
+
+          <article class="capability">
+            <span>02</span>
+            <h3>Quantity & Cost</h3>
+            <p>
+              Measurement, quantity take-off, BOQ development, cost planning
+              and commercial project support.
+            </p>
+          </article>
+
+          <article class="capability">
+            <span>03</span>
+            <h3>Engineering & Construction</h3>
+            <p>
+              Engineering planning, design coordination and construction
+              delivery support across infrastructure and buildings.
+            </p>
+          </article>
+
+          <article class="capability">
+            <span>04</span>
+            <h3>QA/QC & Testing</h3>
+            <p>
+              Inspection, testing, quality records and traceable evidence
+              supporting construction control and verification.
+            </p>
+          </article>
+
+          <article class="capability">
+            <span>05</span>
+            <h3>Digital Engineering</h3>
+            <p>
+              Digital Engineering Packages, Scan-to-BIM, structured
+              engineering information and digital as-built environments.
+            </p>
+          </article>
+
+          <article class="capability">
+            <span>06</span>
+            <h3>Asset Information</h3>
+            <p>
+              Digital asset registers, handover information and structured
+              data supporting operation, maintenance and future decisions.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         DIGITAL ENGINEERING
+    ========================== -->
+
+    <section class="feature digital">
+
+      <div class="feature-grid">
+
+        <div class="feature-content">
+
+          <div>
+
+            <span class="section-label">
+              Digital Engineering
+            </span>
+
+            <h2>
+              Turn physical infrastructure into usable information.
+            </h2>
+
+            <p>
+              We help transform existing and newly constructed assets into
+              structured digital information that can support project
+              control, handover, maintenance and future decision-making.
+            </p>
+
+            <ul class="feature-list">
+              <li>Digital Engineering Packages</li>
+              <li>Digital As-Built Information</li>
+              <li>Scan-to-BIM & Point Clouds</li>
+              <li>Digital Asset Registers</li>
+              <li>Digital Handover & Lifecycle Information</li>
+            </ul>
+
+            <a href="solutions.html" class="btn btn-primary">
+              Explore Digital Solutions
+            </a>
+
+          </div>
+
+        </div>
+
+        <div class="feature-image">
+
+          <picture>
+            <source
+              media="(max-width: 767px)"
+              srcset="images/digital-mobile.png"
+            >
+            <img
+              src="images/digital-desktop.png"
+              alt="Digital engineering and BIM representation of physical infrastructure"
+              loading="lazy"
+            >
+          </picture>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         SECTORS
+    ========================== -->
+
+    <section class="sectors">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <span class="section-label">
+            Sectors
+          </span>
+
+          <h2>
+            Built for infrastructure, property and asset-intensive businesses.
+          </h2>
+
+          <p>
+            Our multidisciplinary approach allows us to work across
+            projects where physical assets, engineering decisions and
+            information need to work together.
+          </p>
+
+        </div>
+
+        <div class="sector-grid">
+
+          <div class="sector">
+            <h3>Real Estate & Property</h3>
+          </div>
+
+          <div class="sector">
+            <h3>Construction & EPC</h3>
+          </div>
+
+          <div class="sector">
+            <h3>Energy & Power</h3>
+          </div>
+
+          <div class="sector">
+            <h3>Oil & Gas</h3>
+          </div>
+
+          <div class="sector">
+            <h3>Infrastructure</h3>
+          </div>
+
+          <div class="sector">
+            <h3>Hospitality & Resorts</h3>
+          </div>
+
+          <div class="sector">
+            <h3>Asset Owners & Operators</h3>
+          </div>
+
+          <div class="sector">
+            <h3>Businesses & Organizations</h3>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROJECTS
+    ========================== -->
+
+    <section class="projects">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <span class="section-label">
+            Selected Project Work
+          </span>
+
+          <h2>
+            Evidence that connects engineering with information.
+          </h2>
+
+          <p>
+            A selection of project work across construction, QA/QC,
+            digital engineering and asset information.
+          </p>
+
+        </div>
+
+        <div class="project-card">
+
+          <div class="project-image">
+
+            <picture>
+              <source
+                media="(max-width: 767px)"
+                srcset="images/project-mobile.png"
+              >
+              <img
+                src="images/project-desktop.png"
+                alt="Engineering and construction project work"
+                loading="lazy"
+              >
+            </picture>
+
+          </div>
+
+          <div class="project-info">
+
+            <span class="project-tag">
+              Ongoing Project
+            </span>
+
+            <h3>
+              IMO CITY COMPUTER VILLAGE HUB
+            </h3>
+
+            <p>
+              Digital QA/QC & Project Documentation supporting project
+              control, material information, quality documentation and
+              construction evidence for future handover.
+            </p>
+
+            <a href="projects.html" class="project-link">
+              View Project Portfolio →
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PHILOSOPHY
+    ========================== -->
+
+    <section class="philosophy">
+
+      <div class="container">
+
+        <span class="section-label">
+          Our Philosophy
+        </span>
+
+        <blockquote>
+          “We don't just build infrastructure.
+          <span>We engineer the data behind it.</span>”
+        </blockquote>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CTA
+    ========================== -->
+
+    <section class="cta">
+
+      <div class="container cta-inner">
+
+        <div>
+
+          <h2>
+            Building something that needs better engineering information?
+          </h2>
+
+          <p>
+            Let's discuss the engineering, project control, quality or
+            digital asset challenge behind your next project.
+          </p>
+
+        </div>
+
+        <a href="contact.html" class="btn btn-primary">
+          Start a Conversation
         </a>
 
-    </div>
+      </div>
 
-</section>
+    </section>
 
-
-<!-- INTRO -->
-
-<section class="intro">
-
-    <h2>
-        Engineering Across the Asset Lifecycle
-    </h2>
-
-    <p>
-        From understanding an existing property or site to planning,
-        design, construction, verification, digital delivery and future
-        operations, Jiro-BEACONS provides integrated engineering support
-        across the lifecycle of physical assets.
-    </p>
-
-</section>
+  </main>
 
 
-<!-- LIFECYCLE -->
+  <!-- =========================
+       FOOTER
+  ========================== -->
 
-<section class="lifecycle">
+  <footer>
 
-    <h2 class="section-title">
-        Our Integrated Engineering Lifecycle
-    </h2>
+    <div class="container">
 
-    <p class="section-intro">
-        We connect multidisciplinary engineering activities so that
-        information generated at one stage can continue to support
-        decisions at the next.
-    </p>
+      <div class="footer-grid">
 
-    <div class="lifecycle-grid">
+        <div class="footer-brand">
 
-        <div class="lifecycle-item">
-            <h3>01. Survey & Evaluate</h3>
-            <p>
-                Surveying, geospatial information, property assessment
-                and existing-asset evaluation.
-            </p>
+          <img
+            src="images/logo.png"
+            alt="Jiro-BEACONS Engineering"
+          >
+
+          <p>
+            Engineering better information for smarter infrastructure
+            & businesses.
+          </p>
+
         </div>
 
-        <div class="lifecycle-item">
-            <h3>02. Quantity & Cost</h3>
-            <p>
-                Measurement, quantity surveying, cost information and
-                commercial project support.
-            </p>
+        <div class="footer-column">
+
+          <h4>Company</h4>
+
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="solutions.html">Solutions</a>
+          <a href="projects.html">Projects</a>
+
         </div>
 
-        <div class="lifecycle-item">
-            <h3>03. Plan</h3>
-            <p>
-                Engineering planning, scope definition and project
-                delivery requirements.
-            </p>
+        <div class="footer-column">
+
+          <h4>Explore</h4>
+
+          <a href="insights.html">Insights</a>
+          <a href="contact.html">Contact</a>
+
         </div>
 
-        <div class="lifecycle-item">
-            <h3>04. Design</h3>
-            <p>
-                Civil, structural and building engineering design
-                coordination and technical development.
-            </p>
+        <div class="footer-column">
+
+          <h4>Positioning</h4>
+
+          <p>Integrated Engineering</p>
+          <p>Digital Engineering</p>
+          <p>Asset Information</p>
+          <p>QA/QC & Project Control</p>
+
         </div>
 
-        <div class="lifecycle-item">
-            <h3>05. Build</h3>
-            <p>
-                Construction and engineering delivery support across
-                building and infrastructure projects.
-            </p>
-        </div>
+      </div>
 
-        <div class="lifecycle-item">
-            <h3>06. Verify & Assure</h3>
-            <p>
-                QA/QC, inspection, testing, NDT and construction
-                quality verification.
-            </p>
-        </div>
+      <div class="footer-bottom">
 
-        <div class="lifecycle-item">
-            <h3>07. Digitalize</h3>
-            <p>
-                Digital engineering, BIM, Scan-to-BIM, as-built and
-                structured asset information.
-            </p>
-        </div>
+        <span>
+          © 2026 Jiro-BEACONS Engineering Nigeria Limited. All rights reserved.
+        </span>
 
-        <div class="lifecycle-item">
-            <h3>08. Handover & Operate</h3>
-            <p>
-                Digital handover, asset information and lifecycle
-                support for future operations.
-            </p>
-        </div>
+        <span>
+          Engineering better information.
+        </span>
+
+      </div>
 
     </div>
 
-</section>
-
-
-<!-- CAPABILITIES -->
-
-<section class="capabilities">
-
-    <h2 class="section-title">
-        Integrated Capabilities
-    </h2>
-
-    <p class="section-intro">
-        Our multidisciplinary approach allows projects and asset owners
-        to bring related engineering requirements together through one
-        coordinated delivery framework.
-    </p>
-
-    <div class="capability-grid">
-
-        <div class="capability">
-
-            <h3>
-                Surveying & Property Evaluation
-            </h3>
-
-            <p>
-                Land and property surveying, as-built surveying,
-                geospatial information, existing-asset assessment and
-                property evaluation.
-            </p>
-
-        </div>
-
-
-        <div class="capability">
-
-            <h3>
-                Engineering & Construction
-            </h3>
-
-            <p>
-                Civil and structural engineering, engineering planning,
-                design support, construction and project delivery.
-            </p>
-
-        </div>
-
-
-        <div class="capability">
-
-            <h3>
-                Quantity Surveying & Cost
-            </h3>
-
-            <p>
-                Measurement, quantity surveying, cost planning and
-                commercial information supporting project decisions.
-            </p>
-
-        </div>
-
-
-        <div class="capability">
-
-            <h3>
-                QA/QC & Testing
-            </h3>
-
-            <p>
-                Inspection, material verification, concrete testing,
-                NDT, QA/QC records and progressive construction-quality
-                evidence.
-            </p>
-
-        </div>
-
-
-        <div class="capability">
-
-            <h3>
-                Digital Engineering
-            </h3>
-
-            <p>
-                Digital Engineering Packages, engineering documentation,
-                digital as-built information, BIM and Scan-to-BIM.
-            </p>
-
-        </div>
-
-
-        <div class="capability">
-
-            <h3>
-                Digital Asset Information
-            </h3>
-
-            <p>
-                Structured asset information, digital records, asset
-                registers and information prepared for future
-                operations and lifecycle management.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- SECTORS -->
-
-<section class="sectors">
-
-    <h2 class="section-title">
-        Sectors We Serve
-    </h2>
-
-    <p class="section-intro">
-        Our engineering capabilities can be applied across diverse
-        asset classes and project environments.
-    </p>
-
-    <div class="sector-grid">
-
-        <div class="sector">
-            <h3>Real Estate & Property</h3>
-        </div>
-
-        <div class="sector">
-            <h3>Construction</h3>
-        </div>
-
-        <div class="sector">
-            <h3>Energy & Power</h3>
-        </div>
-
-        <div class="sector">
-            <h3>Oil & Gas</h3>
-        </div>
-
-        <div class="sector">
-            <h3>Infrastructure</h3>
-        </div>
-
-        <div class="sector">
-            <h3>Hospitality & Resorts</h3>
-        </div>
-
-        <div class="sector">
-            <h3>Asset Owners & Operators</h3>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- DIFFERENTIATOR -->
-
-<section class="differentiator">
-
-    <h2>
-        Engineering the Physical Asset and the Information Behind It
-    </h2>
-
-    <p>
-        Every project generates valuable engineering information.
-        Our role is to help ensure that information is captured,
-        verified, structured and preserved so it can continue to
-        create value beyond the construction phase.
-    </p>
-
-    <div class="statement">
-        We don't just record progress.<br>
-        We engineer the data behind the infrastructure.
-    </div>
-
-</section>
-
-
-<!-- CTA -->
-
-<section class="cta">
-
-    <h2>
-        Have a project that requires integrated engineering support?
-    </h2>
-
-    <p>
-        Whether you are developing, constructing, evaluating,
-        upgrading or managing an asset, Jiro-BEACONS can bring
-        multidisciplinary engineering and digital capabilities
-        together around your project.
-    </p>
-
-    <br>
-
-    <a class="button" href="mailto:giftedafe@jirobeacons.com">
-        Start a Conversation
-    </a>
-
-</section>
-
-
-<footer>
-
-    <p>
-        © 2026 Jiro-BEACONS Engineering Nigeria Limited.
-    </p>
-
-    <p>
-        Engineering better information for smarter infrastructure & businesses.
-    </p>
-
-    <p>
-        <a href="#">LinkedIn</a>
-        <a href="#">YouTube</a>
-        <a href="#">X</a>
-        <a href="#">WhatsApp</a>
-    </p>
-
-</footer>
+  </footer>
+
+
+  <!-- =========================
+       MOBILE MENU SCRIPT
+  ========================== -->
+
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const mainNav = document.getElementById("mainNav");
+
+    menuToggle.addEventListener("click", function () {
+      const isOpen = mainNav.classList.toggle("mobile-open");
+
+      menuToggle.setAttribute(
+        "aria-expanded",
+        isOpen ? "true" : "false"
+      );
+
+      menuToggle.innerHTML = isOpen ? "✕" : "☰";
+    });
+
+    document.querySelectorAll(".nav-links a, .nav-action a").forEach(link => {
+      link.addEventListener("click", function () {
+        mainNav.classList.remove("mobile-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.innerHTML = "☰";
+      });
+    });
+  </script>
 
 </body>
-</html>
+    </html>
