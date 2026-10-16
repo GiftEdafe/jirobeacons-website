@@ -769,12 +769,19 @@ section { position: relative; }
       </div>
 
       <article class="project-card">
-        <div class="project-visual">
-          <picture>
-            <source media="(max-width:767px)" srcset="images/project-mobile.jpg">
-            <img src="images/imo-city-computer-village-hub.jpg" alt="Imo City Computer Village Hub project" loading="lazy">
-          </picture>
-        </div>
+  <div class="project-visual">
+    <img
+      src="./images/imo-city-computer-village-hub.jpg"
+      alt="Imo City Computer Village Hub project"
+      style="display:block; width:100%; height:auto; min-height:200px; object-fit:cover;"
+      loading="eager"
+      onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+    >
+    <p style="display:none; padding:20px; background:#f7f5f3; color:#2B0714;">
+      Image not found. Please check the filename and location in GitHub.
+    </p>
+  </div>
+</article>
 
         <div class="project-details">
           <span class="status">Ongoing project</span>
