@@ -848,63 +848,73 @@ section{position:relative}
   const year = document.getElementById("year");
   if(year) year.textContent = new Date().getFullYear();
 
-  /* Play the four real hero videos in sequence.
-     If a video cannot load, retain the image fallback. */
+  /* Scroll-triggered section-based video switching */
   const video = document.getElementById("hero-video");
   const fallback = document.getElementById("hero-fallback");
   const videoStatus = document.getElementById("video-status");
-  const videoFiles = [
-    "videos/scene-01-physical-infrastructure.mp4",
-    "videos/scene-02-engineering-delivery.mp4", // Or match your exact filename in the folder
-    "videos/scene-03-digital-engineering.mp4",
-    "videos/scene-04-handover-operations.mp4"
+
+  // Mapped to your exact filenames from your GitHub folder
+  const sectionVideos = [
+    { selector: ".hero", src: "videos/scene-01-physical-infrastructure.mp4", label: "Scene 1: Physical Infrastructure" },
+    { selector: ".intro-section", src: "videos/scene-02-engineering-delivery.mp4", label: "Scene 2: Engineering Delivery" },
+    { selector: ".lifecycle-section", src: "videos/scene-03-digital-engineering.mp4", label: "Scene 3: Digital Engineering" },
+    { selector: ".feature-section", src: "videos/scene-04-handover-operations.mp4", label: "Scene 4: Handover & Operations" }
   ];
-  let currentVideo = 0;
-  let videoWorking = false;
 
-  function loadVideo(index){
-    if(!video || index < 0 || index >= videoFiles.length) return;
-    currentVideo = index;
-    videoWorking = false;
-    video.src = videoFiles[currentVideo];
-    video.load();
-    const playAttempt = video.play();
-    if(playAttempt && typeof playAttempt.catch === "function"){
-      playAttempt.catch(function(){
-        if(videoStatus) videoStatus.textContent = "Engineering · Assurance · Digital Infrastructure";
-      });
-    }
-  }
+  let activeVideoIndex = 0;
 
-  if(video){
+  if (video) {
     video.muted = true;
     video.defaultMuted = true;
     video.playsInline = true;
 
-    video.addEventListener("playing",function(){
-      videoWorking = true;
-      video.style.opacity = "1";
-      if(fallback) fallback.style.opacity = "0";
-      if(videoStatus) videoStatus.textContent = "Engineering in action · Scene " + (currentVideo + 1) + " of 4";
-    });
+    function switchVideo(index) {
+      if (activeVideoIndex === index && !video.paused) return;
+      activeVideoIndex = index;
+      
+      video.src = sectionVideos[index].src;
+      video.load();
+      
+      let playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          console.log("Autoplay prevented:", error);
+        });
+      }
 
-    video.addEventListener("ended",function(){
-      loadVideo((currentVideo + 1) % videoFiles.length);
-    });
+      if (videoStatus) {
+        videoStatus.textContent = sectionVideos[index].label;
+      }
+      if (fallback) {
+        fallback.style.opacity = "0";
+      }
+    }
 
-    video.addEventListener("error",function(){
-      if(!videoWorking){
-        video.style.opacity = "0";
-        if(fallback) fallback.style.opacity = "1";
-        if(videoStatus) videoStatus.textContent = "Engineering · Assurance · Digital Infrastructure";
-      }else{
-        loadVideo((currentVideo + 1) % videoFiles.length);
+    const observerOptions = {
+      root: null,
+      threshold: 0.3
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const matchedIndex = sectionVideos.findIndex(item => entry.target.classList.contains(item.selector.replace('.', '')));
+          if (matchedIndex !== -1) {
+            switchVideo(matchedIndex);
+          }
+        }
+      });
+    }, observerOptions);
+
+    sectionVideos.forEach(item => {
+      const sectionEl = document.querySelector(item.selector);
+      if (sectionEl) {
+        observer.observe(sectionEl);
       }
     });
 
-    loadVideo(0);
+    switchVideo(0);
   }
-})();
 </script>
 </body>
 </html>
