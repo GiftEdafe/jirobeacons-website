@@ -417,7 +417,7 @@ section{position:relative}
         <img id="hero-fallback" src="images/hero-desktop.png" alt="">
       </picture>
       <video id="hero-video" autoplay muted playsinline webkit-playsinline preload="auto" poster="images/hero-desktop.png" aria-hidden="true">
-        <source src="assets/videos/scene-01-physical-infrastructure.mp4" type="video/mp4">
+        <source src="videos/Scene-01-physical-infrastructure.mp4" type="video/mp4">
       </video>
     </div>
     <div class="hero-shade"></div>
@@ -848,7 +848,7 @@ section{position:relative}
   const year = document.getElementById("year");
   if(year) year.textContent = new Date().getFullYear();
 
-  /* Scroll-Position Tracked Section Video Switching */
+  /* Bulletproof Scroll-Driven Video Switching */
   const video = document.getElementById("hero-video");
   const fallback = document.getElementById("hero-fallback");
   const videoStatus = document.getElementById("video-status");
@@ -867,33 +867,26 @@ section{position:relative}
     video.defaultMuted = true;
     video.playsInline = true;
 
+    // Force hide fallback immediately if video starts playing natively
+    video.addEventListener("playing", function() {
+      if (fallback) fallback.style.opacity = "0";
+    });
+
     function switchVideo(index) {
       if (activeVideoIndex === index) return;
       activeVideoIndex = index;
       
-      video.src = sectionVideos[index].src;
-      video.load();
-      
-      let playPromise = video.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(error => {
-          console.log("Autoplay prevented:", error);
-          if (fallback) fallback.style.opacity = "1";
-        });
+      const targetSrc = sectionVideos[index].src;
+      if (!video.src.includes(targetSrc)) {
+        video.src = targetSrc;
+        video.load();
+        video.play().catch(err => console.log("Play error:", err));
       }
 
       if (videoStatus) {
         videoStatus.textContent = sectionVideos[index].label;
       }
     }
-
-    video.addEventListener("playing", function() {
-      if (fallback) fallback.style.opacity = "0";
-    });
-
-    video.addEventListener("error", function() {
-      if (fallback) fallback.style.opacity = "1";
-    });
 
     function checkScrollSection() {
       const scrollPosition = window.pageYOffset + window.innerHeight * 0.4;
