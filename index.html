@@ -135,7 +135,7 @@ section{position:relative}
   width: 100%;
   overflow: hidden;
   color: #fff;
-  background: var(--wine-deep);
+  background: transparent; /* Removed blocking solid background color */
   display: flex;
   align-items: center;
 }
@@ -151,7 +151,7 @@ section{position:relative}
   inset: 0;
   z-index: 1;
   overflow: hidden;
-  background: var(--wine-deep);
+  background: transparent;
 }
 
 .section-media video {
@@ -162,7 +162,6 @@ section{position:relative}
   object-fit: cover;
   object-position: center;
   z-index: 2;
-  background: var(--wine-deep);
 }
 
 .section-shade {
@@ -900,7 +899,7 @@ section{position:relative}
   const year = document.getElementById("year");
   if(year) year.textContent = new Date().getFullYear();
 
-  /* ROBUST VIDEO FORCED PLAY INIT FOR ALL DEVICES */
+  /* AGGRESSIVE ENGINE TO KICKSTART VIDEO PLAYBACK */
   function forcePlayVideos() {
     const videos = document.querySelectorAll("video.sec-video");
     videos.forEach(video => {
@@ -913,22 +912,19 @@ section{position:relative}
       
       const playPromise = video.play();
       if (playPromise !== undefined) {
-        playPromise.catch(error => {
-          // If browser policy blocks initial autoplay, trigger on the first touch/click/scroll interaction anywhere
-          const resumePlay = () => {
+        playPromise.catch(() => {
+          const kickstart = () => {
             videos.forEach(v => {
               v.muted = true;
               v.play().catch(() => {});
             });
-            window.removeEventListener('click', resumePlay);
-            window.removeEventListener('scroll', resumePlay);
-            window.removeEventListener('touchstart', resumePlay);
-            window.removeEventListener('keydown', resumePlay);
+            window.removeEventListener('pointerdown', kickstart);
+            window.removeEventListener('touchstart', kickstart);
+            window.removeEventListener('scroll', kickstart);
           };
-          window.addEventListener('click', resumePlay);
-          window.addEventListener('scroll', resumePlay);
-          window.addEventListener('touchstart', resumePlay);
-          window.addEventListener('keydown', resumePlay);
+          window.addEventListener('pointerdown', kickstart, {once: true});
+          window.addEventListener('touchstart', kickstart, {once: true});
+          window.addEventListener('scroll', kickstart, {once: true});
         });
       }
     });
