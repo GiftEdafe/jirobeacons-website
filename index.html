@@ -220,7 +220,7 @@ section{position:relative}
 .check-list li{position:relative;padding-left:18px;color:#fff;font-size:.84rem;font-weight:700}
 .check-list li:before{position:absolute;top:.55em;left:0;width:7px;height:7px;background:var(--gold);content:""}
 
-/* NORMAL FLOW SECTIONS (Scrolls naturally over the video stack) */
+/* NORMAL FLOW SECTIONS */
 .capabilities-section, .digital-section, .sectors-section, .project-section, .statement-section, .cta-section, .site-footer {
   position: relative;
   z-index: 100;
@@ -263,14 +263,22 @@ section{position:relative}
 .digital-section .check-list li{color:#fff}
 .digital-section .feature-image{background:var(--wine-deep)}
 
-/* SECTORS */
-.sectors-section{background:var(--paper)}
+/* SECTORS SECTION */
+.sectors-section{background:var(--paper);padding:70px 0}
+.sectors-section .section-label{color:#927631}
+.sectors-section .section-heading h2{color:var(--wine);margin-bottom:8px}
+.sectors-section .section-heading p{color:var(--muted)}
 .sector-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .sector-card{min-height:135px;display:flex;align-items:flex-end;padding:25px;background:#fff;border-bottom:3px solid var(--gold)}
 .sector-card h3{margin:0;color:var(--wine);font-size:1.15rem}
 
-/* PROJECT PREVIEW */
-.project-section{background:#fff}
+/* PROJECT PREVIEW SECTION (Tighter padding & closed gap) */
+.project-section{background:#fff;padding:45px 0}
+.project-section .section-heading{margin-bottom:20px}
+.project-section .section-label{color:#927631}
+.project-section .section-heading h2{color:var(--wine);margin-bottom:6px}
+.project-section .section-heading p{color:var(--muted)}
+
 .project-card{display:grid;grid-template-columns:1fr 1fr;overflow:hidden;background:var(--paper)}
 .project-visual{min-height:420px;background:var(--wine)}
 .project-visual img{width:100%;height:100%;min-height:420px;object-fit:cover}
@@ -418,12 +426,13 @@ section{position:relative}
 </header>
 
 <main>
-  <!-- SECTION 1: HERO (Sticky Stacking Block 1) -->
+  <!-- SECTION 1: HERO -->
   <section class="hero section-with-video">
     <div class="section-media" aria-hidden="true">
       <video class="sec-video" autoplay muted loop playsinline preload="auto">
         <source src="videos/Scene-01-physical-infrastructure.mp4" type="video/mp4">
       </video>
+      <div style="position:absolute; inset:0; background:var(--wine-deep); z-index:1;"></div>
       <div class="section-shade"></div>
     </div>
     <div class="container">
@@ -440,12 +449,13 @@ section{position:relative}
     </div>
   </section>
 
-  <!-- SECTION 2: INTRO (Sticky Stacking Block 2) -->
+  <!-- SECTION 2: INTRO -->
   <section class="intro-section section-pad section-with-video">
     <div class="section-media" aria-hidden="true">
       <video class="sec-video" autoplay muted loop playsinline preload="auto">
         <source src="videos/scene-02-engineering-delivery.mp4" type="video/mp4">
       </video>
+      <div style="position:absolute; inset:0; background:var(--wine-deep); z-index:1;"></div>
       <div class="section-shade"></div>
     </div>
     <div class="container two-col">
@@ -466,12 +476,13 @@ section{position:relative}
     </div>
   </section>
 
-  <!-- SECTION 3: LIFECYCLE (Sticky Stacking Block 3) -->
+  <!-- SECTION 3: LIFECYCLE -->
   <section class="lifecycle-section section-pad section-with-video">
     <div class="section-media" aria-hidden="true">
       <video class="sec-video" autoplay muted loop playsinline preload="auto">
         <source src="videos/scene-03-digital-engineering.mp4" type="video/mp4">
       </video>
+      <div style="position:absolute; inset:0; background:var(--wine-deep); z-index:1;"></div>
       <div class="section-shade"></div>
     </div>
     <div class="container">
@@ -526,12 +537,13 @@ section{position:relative}
     </div>
   </section>
 
-  <!-- SECTION 4: FEATURE (Sticky Stacking Block 4) -->
+  <!-- SECTION 4: FEATURE -->
   <section class="feature-section section-pad section-with-video">
     <div class="section-media" aria-hidden="true">
       <video class="sec-video" autoplay muted loop playsinline preload="auto">
         <source src="videos/scene-04-handover-operations.mp4" type="video/mp4">
       </video>
+      <div style="position:absolute; inset:0; background:var(--wine-deep); z-index:1;"></div>
       <div class="section-shade"></div>
     </div>
     <div class="container two-col">
@@ -559,7 +571,7 @@ section{position:relative}
     </div>
   </section>
 
-  <!-- CAPABILITIES SECTION (Uniform 4-Column Grid) -->
+  <!-- CAPABILITIES SECTION -->
   <section class="capabilities-section section-pad" id="what-we-do">
     <div class="container">
       <div class="section-heading">
@@ -644,6 +656,7 @@ section{position:relative}
     </div>
   </section>
 
+  <!-- SECTORS SECTION -->
   <section class="sectors-section section-pad">
     <div class="container">
       <div class="section-heading">
@@ -662,7 +675,8 @@ section{position:relative}
     </div>
   </section>
 
-  <section class="project-section section-pad">
+  <!-- PROJECT PREVIEW SECTION (Gap closed) -->
+  <section class="project-section">
     <div class="container">
       <div class="section-heading">
         <span class="section-label">Selected Project Experience</span>
@@ -874,16 +888,28 @@ section{position:relative}
   const year = document.getElementById("year");
   if(year) year.textContent = new Date().getFullYear();
 
-  /* Force Guaranteed Immediate Play for Videos */
-  window.addEventListener("DOMContentLoaded", function() {
-    const allVideos = document.querySelectorAll(".sec-video");
-    allVideos.forEach(vid => {
-      vid.muted = true;
-      vid.playsInline = true;
-      vid.play().catch(e => {
-        console.log("Autoplay retry triggered:", e);
-        document.addEventListener('click', () => vid.play(), { once: true });
-      });
+  /* AGGRESSIVE VIDEO PLAYBACK */
+  window.addEventListener("load", function() {
+    const videos = document.querySelectorAll("video.sec-video");
+    videos.forEach(video => {
+      video.muted = true;
+      video.defaultMuted = true;
+      video.playsInline = true;
+      
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          const resumePlay = () => {
+            video.play();
+            window.removeEventListener('click', resumePlay);
+            window.removeEventListener('scroll', resumePlay);
+            window.removeEventListener('touchstart', resumePlay);
+          };
+          window.addEventListener('click', resumePlay);
+          window.addEventListener('scroll', resumePlay);
+          window.addEventListener('touchstart', resumePlay);
+        });
+      }
     });
   });
 
