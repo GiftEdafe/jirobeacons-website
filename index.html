@@ -49,7 +49,7 @@ section{position:relative}
 .button-outline:hover{color:var(--wine);background:#fff}
 .arrow{font-size:1.1rem}
 
-/* FLOATING BOXED HEADER (NO GOLD BORDER, DYNAMIC BACKGROUND) */
+/* FLOATING BOXED HEADER */
 .site-header {
   position: absolute;
   z-index: 10000;
@@ -67,14 +67,13 @@ section{position:relative}
   align-items: center;
   gap: 20px;
   padding: 0 25px;
-  background: rgba(43, 7, 20, 0.35); /* Transparent over video sections */
+  background: rgba(43, 7, 20, 0.35);
   backdrop-filter: blur(8px);
-  border: none; /* Yellow gold border removed */
+  border: none;
   border-radius: 4px;
   transition: background .3s ease, backdrop-filter .3s ease;
 }
 
-/* Solid dark background state when scrolled down over white sections */
 .site-header.scrolled-down .header-inner {
   background: var(--wine);
   backdrop-filter: none;
@@ -132,7 +131,6 @@ section{position:relative}
 .icon-button:hover,.icon-button:focus-visible { color: var(--gold-light); border-color: var(--gold); }
 .icon-button svg { width: 18px; height: 18px; }
 
-/* MOBILE MENU TOGGLE BUTTON */
 .menu-toggle {
   display: none; flex-direction: column; justify-content:space-between;
   width: 38px; height: 38px; padding: 9px; background: transparent;
@@ -156,11 +154,11 @@ section{position:relative}
 .search-feedback { margin: 10px 0 0; color: rgba(255,255,255,.8); font-size: .84rem; }
 .search-feedback a { color: var(--gold-light); }
 
-/* STICKY STACKING VIDEO SECTIONS */
+/* STICKY STACKING VIDEO SECTIONS (EXPANDED HEIGHT TO PREVENT TEXT CUTOFF) */
 .section-with-video {
   position: sticky;
   top: 0;
-  height: 140vh;
+  height: 165vh;
   width: 100%;
   overflow: hidden;
   color: #fff;
@@ -168,8 +166,8 @@ section{position:relative}
   display: flex;
   align-items: center;
   isolation: isolate;
-  padding-top: 70px;
-  padding-bottom: 180px;
+  padding-top: 100px;
+  padding-bottom: 220px;
 }
 
 /* Stacking Order */
@@ -314,7 +312,7 @@ section{position:relative}
 .sector-card{min-height:135px;display:flex;align-items:flex-end;padding:25px;background:#fff;border-bottom:3px solid var(--gold)}
 .sector-card h3{margin:0;color:var(--wine);font-size:1.15rem}
 
-/* PROJECT PREVIEW SECTION - FULL SIZE IMAGE FIX */
+/* PROJECT PREVIEW SECTION */
 .project-section{background:#fff;padding:45px 0}
 .project-section .section-heading{margin-bottom:20px}
 .project-section .section-label{color:#927631}
