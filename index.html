@@ -119,14 +119,27 @@ section{position:relative}
 .search-feedback{margin:12px 0 0;color:rgba(255,255,255,.8);font-size:.86rem}
 .search-feedback a{color:var(--gold-light)}
 
-/* HERO: actual video backgrounds with image fallbacks */
+/* STICKY VIDEO WRAPPER & BACKGROUND STYLING */
+.video-stack-wrapper {
+  position: relative;
+}
+
+/* HERO: sticky background video container spanning the first 4 sections */
 .hero{
   position:relative;display:flex;align-items:center;
   min-height:min(790px,100svh);padding:160px 0 88px;
-  overflow:hidden;color:#fff;background:var(--wine-deep)
+  overflow:hidden;color:#fff;background:transparent
 }
-.hero-media,.hero-shade{position:absolute;inset:0}
-.hero-media{overflow:hidden;background:var(--wine-deep)}
+.hero-media{
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: -1;
+  overflow: hidden;
+  background: var(--wine-deep);
+  margin-bottom: -100vh;
+}
 .hero-media video,.hero-media img{
   position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
   object-position:center
@@ -134,6 +147,7 @@ section{position:relative}
 .hero-media video{z-index:2}
 .hero-media img{z-index:1}
 .hero-shade{
+  position:absolute;inset:0;
   z-index:3;
   background:linear-gradient(90deg,rgba(24,4,11,.91),rgba(43,7,20,.73) 45%,rgba(24,4,11,.24)),
   linear-gradient(0deg,rgba(24,4,11,.58),transparent 58%);
@@ -149,40 +163,41 @@ section{position:relative}
 .hero-note:before{content:"";width:42px;height:1px;background:var(--gold)}
 .video-status{position:absolute;z-index:5;right:24px;bottom:22px;color:rgba(255,255,255,.7);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase}
 
-/* INTRODUCTION */
-.intro-section{background:var(--paper)}
+/* INTRODUCTION (Translucent dark theme so video plays behind text) */
+.intro-section{background:rgba(24,4,11,.84);color:#fff}
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,100px);align-items:center}
-.intro-copy h2{max-width:630px}
-.intro-copy p{max-width:680px}
-.intro-copy strong{color:var(--wine)}
-.intro-statement{margin-top:28px;padding:20px 0 20px 22px;border-left:3px solid var(--gold);color:var(--wine);font-size:1.12rem;font-weight:750}
-.intro-panel{position:relative;padding:clamp(28px,4vw,48px);color:#fff;background:var(--wine);box-shadow:0 18px 50px rgba(24,4,11,.12)}
+.intro-copy h2{max-width:630px;color:#fff}
+.intro-copy p{max-width:680px;color:rgba(255,255,255,.85)}
+.intro-copy strong{color:var(--gold-light)}
+.intro-statement{margin-top:28px;padding:20px 0 20px 22px;border-left:3px solid var(--gold);color:#fff;font-size:1.12rem;font-weight:750}
+.intro-panel{position:relative;padding:clamp(28px,4vw,48px);color:#fff;background:rgba(43,7,20,.9);box-shadow:0 18px 50px rgba(24,4,11,.12)}
 .intro-panel:after{position:absolute;right:0;bottom:0;width:84px;height:84px;border-top:1px solid rgba(212,175,55,.65);border-left:1px solid rgba(212,175,55,.65);content:""}
 .panel-kicker{color:var(--gold-light);font-size:.75rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
-.intro-panel h3{max-width:420px;margin:18px 0;font-size:clamp(1.65rem,3vw,2.5rem)}
+.intro-panel h3{max-width:420px;margin:18px 0;font-size:clamp(1.65rem,3vw,2.5rem);color:#fff}
 .intro-panel p{color:rgba(255,255,255,.78)}
 .panel-line{display:flex;align-items:center;gap:14px;margin-top:28px;color:var(--gold-light);font-size:.8rem;font-weight:800}
 .panel-line:before{width:34px;height:1px;background:var(--gold);content:""}
 
-/* LIFECYCLE */
-.lifecycle-section{background:#fff}
+/* LIFECYCLE (Translucent dark theme) */
+.lifecycle-section{background:rgba(24,4,11,.86);color:#fff}
 .section-heading{max-width:780px;margin-bottom:42px}
-.section-heading p{max-width:680px;margin-bottom:0;font-size:1.02rem}
-.lifecycle-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
-.lifecycle-card{min-height:215px;padding:27px 24px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
-.step-number{display:block;margin-bottom:26px;color:#927631;font-size:.8rem;font-weight:800;letter-spacing:.1em}
-.lifecycle-card h3{margin-bottom:10px;color:var(--wine);font-size:1.15rem}
-.lifecycle-card p{margin-bottom:0;font-size:.9rem}
+.section-heading h2{color:#fff}
+.section-heading p{max-width:680px;margin-bottom:0;font-size:1.02rem;color:rgba(255,255,255,.8)}
+.lifecycle-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(212,175,55,.2);border-left:1px solid rgba(212,175,55,.2)}
+.lifecycle-card{min-height:215px;padding:27px 24px;border-right:1px solid rgba(212,175,55,.2);border-bottom:1px solid rgba(212,175,55,.2);background:rgba(43,7,20,.85)}
+.step-number{display:block;margin-bottom:26px;color:var(--gold-light);font-size:.8rem;font-weight:800;letter-spacing:.1em}
+.lifecycle-card h3{margin-bottom:10px;color:#fff;font-size:1.15rem}
+.lifecycle-card p{margin-bottom:0;font-size:.9rem;color:rgba(255,255,255,.75)}
 
-/* ENGINEERING & PROJECT DELIVERY */
-.feature-section{background:var(--paper)}
+/* ENGINEERING & PROJECT DELIVERY (Translucent dark theme) */
+.feature-section{background:rgba(24,4,11,.84);color:#fff}
 .feature-image{position:relative;min-height:480px;overflow:hidden;background:var(--wine)}
 .feature-image img{width:100%;height:100%;min-height:480px;object-fit:cover}
 .feature-image:after{position:absolute;inset:0;border:1px solid rgba(212,175,55,.42);content:"";pointer-events:none}
-.feature-copy h2{max-width:590px}
-.feature-copy>p{max-width:600px}
+.feature-copy h2{max-width:590px;color:#fff}
+.feature-copy>p{max-width:600px;color:rgba(255,255,255,.85)}
 .check-list{display:grid;grid-template-columns:1fr 1fr;gap:13px 24px;margin:26px 0 30px;padding:0;list-style:none}
-.check-list li{position:relative;padding-left:22px;color:var(--ink);font-size:.9rem;font-weight:700}
+.check-list li{position:relative;padding-left:22px;color:#fff;font-size:.9rem;font-weight:700}
 .check-list li:before{position:absolute;top:.55em;left:0;width:9px;height:9px;background:var(--gold);content:""}
 
 /* CAPABILITIES 01-08 */
@@ -410,129 +425,133 @@ section{position:relative}
 </header>
 
 <main>
-  <section class="hero">
-    <div class="hero-media" aria-hidden="true">
-      <picture>
-        <source media="(max-width:767px)" srcset="images/hero-mobile.png">
-        <img id="hero-fallback" src="images/hero-desktop.png" alt="">
-      </picture>
-      <video id="hero-video" autoplay muted playsinline webkit-playsinline preload="auto" poster="images/hero-desktop.png" aria-hidden="true">
-        <source src="videos/Scene-01-physical-infrastructure.mp4" type="video/mp4">
-      </video>
-    </div>
-    <div class="hero-shade"></div>
-    <div class="container">
-      <div class="hero-content">
-        <span class="eyebrow">Integrated Engineering · Digital Infrastructure</span>
-        <h1>Engineering better information <span>for smarter infrastructure.</span></h1>
-        <p class="hero-copy">From surveying and project delivery to quality assurance and digital asset information, we connect engineering activities with the evidence and data that support better decisions.</p>
-        <div class="hero-buttons">
-          <a class="button button-gold" href="services.html">Explore Our Services <span class="arrow">↗</span></a>
-          <a class="button button-outline" href="projects.html">View Project Experience <span class="arrow">↗</span></a>
-        </div>
-        <div class="hero-note">Engineering · Assurance · Digital Infrastructure</div>
-      </div>
-    </div>
-    <div class="video-status" id="video-status">Integrated engineering in action</div>
-  </section>
-
-  <section class="intro-section section-pad">
-    <div class="container two-col">
-      <div class="intro-copy">
-        <span class="section-label">Who We Are</span>
-        <h2>Engineering delivery and information, working as one.</h2>
-        <p>Jiro-BEACONS Engineering brings together surveying, quantity and cost support, engineering coordination, construction delivery, QA/QC and digital engineering.</p>
-        <p>We help project teams organize field information, quality evidence and asset records so that critical decisions are supported by clearer, more traceable information.</p>
-        <div class="intro-statement">Engineering better information for smarter infrastructure &amp; businesses.</div>
-        <a class="button button-dark" href="about.html">Discover Jiro-BEACONS <span class="arrow">↗</span></a>
-      </div>
-      <div class="intro-panel">
-        <span class="panel-kicker">Our Approach</span>
-        <h3>We connect the physical asset to the information behind it.</h3>
-        <p>From early surveying and project planning through verification, digital handover and asset information, our work is tailored to the agreed project scope.</p>
-        <div class="panel-line">Practical engineering. Traceable information.</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="lifecycle-section section-pad">
-    <div class="container">
-      <div class="section-heading">
-        <span class="section-label">Our Engineering Lifecycle</span>
-        <h2>From initial assessment to informed operations.</h2>
-        <p>Connected capabilities designed to support the project lifecycle, with services aligned to each client's requirements and scope.</p>
-      </div>
-
-      <div class="lifecycle-grid">
-        <article class="lifecycle-card">
-          <span class="step-number">01 / ASSESS</span>
-          <h3>Survey &amp; Evaluate</h3>
-          <p>Land, property, existing-asset and as-built assessment to establish a reliable starting point.</p>
-        </article>
-        <article class="lifecycle-card">
-          <span class="step-number">02 / QUANTIFY</span>
-          <h3>Quantity &amp; Cost</h3>
-          <p>Measurement, quantity take-offs, BOQs, cost planning and commercial support.</p>
-        </article>
-        <article class="lifecycle-card">
-          <span class="step-number">03 / PLAN</span>
-          <h3>Plan</h3>
-          <p>Engineering planning, delivery strategy, coordination and project information requirements.</p>
-        </article>
-        <article class="lifecycle-card">
-          <span class="step-number">04 / DESIGN</span>
-          <h3>Design</h3>
-          <p>Engineering inputs and multidisciplinary design coordination appropriate to the agreed scope.</p>
-        </article>
-        <article class="lifecycle-card">
-          <span class="step-number">05 / DELIVER</span>
-          <h3>Build</h3>
-          <p>Construction and project delivery support, coordinated with the project team and contract scope.</p>
-        </article>
-        <article class="lifecycle-card">
-          <span class="step-number">06 / VERIFY</span>
-          <h3>Verify &amp; Assure</h3>
-          <p>QA/QC, inspection, testing and traceable evidence supporting construction quality and control.</p>
-        </article>
-        <article class="lifecycle-card">
-          <span class="step-number">07 / DIGITALIZE</span>
-          <h3>Smart Building Telemetry &amp; Integration</h3>
-          <p>Connected building systems and structured facility data to support visibility into asset performance.</p>
-        </article>
-        <article class="lifecycle-card">
-          <span class="step-number">08 / OPERATE</span>
-          <h3>EdgeCarbon Compliance &amp; ESG Data Platforms</h3>
-          <p>Organized asset information and analytics workflows to support energy, carbon and compliance decisions.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="feature-section section-pad">
-    <div class="container two-col">
-      <div class="feature-copy">
-        <span class="section-label">Engineering &amp; Project Delivery</span>
-        <h2>Connecting field reality with engineering control.</h2>
-        <p>Infrastructure delivery involves people, materials, measurements, inspections, tests and decisions. We help organize these activities around clear requirements and reliable project information — with services tailored to the agreed scope.</p>
-        <ul class="check-list">
-          <li>Surveying &amp; Existing-Asset Evaluation</li>
-          <li>Quantity Surveying &amp; Cost Support</li>
-          <li>Engineering &amp; Project Coordination</li>
-          <li>Construction Delivery Support</li>
-          <li>QA/QC, Inspection &amp; Testing</li>
-          <li>Engineering Information Management</li>
-          <li>Smart Building Telemetry &amp; Integration (BAS)</li>
-          <li>EdgeCarbon Compliance &amp; ESG Data Platforms</li>
-        </ul>
-      </div>
-      <div class="feature-image">
+  <!-- WRAPPER ENCLOSING THE FIRST 4 SECTIONS SO VIDEO STAYS PINNED BEHIND THEM -->
+  <div class="video-stack-wrapper">
+    <section class="hero">
+      <div class="hero-media" aria-hidden="true">
         <picture>
-          <source media="(max-width:767px)" srcset="images/project-mobile.png">
-          <img src="images/project-desktop.png" alt="Engineering and construction project environment" loading="lazy">
+          <source media="(max-width:767px)" srcset="images/hero-mobile.png">
+          <img id="hero-fallback" src="images/hero-desktop.png" alt="">
         </picture>
+        <video id="hero-video" autoplay muted playsinline webkit-playsinline preload="auto" poster="images/hero-desktop.png" aria-hidden="true">
+          <source src="videos/Scene-01-physical-infrastructure.mp4" type="video/mp4">
+        </video>
       </div>
-    </div>
-  </section>
+      <div class="hero-shade"></div>
+      <div class="container">
+        <div class="hero-content">
+          <span class="eyebrow">Integrated Engineering · Digital Infrastructure</span>
+          <h1>Engineering better information <span>for smarter infrastructure.</span></h1>
+          <p class="hero-copy">From surveying and project delivery to quality assurance and digital asset information, we connect engineering activities with the evidence and data that support better decisions.</p>
+          <div class="hero-buttons">
+            <a class="button button-gold" href="services.html">Explore Our Services <span class="arrow">↗</span></a>
+            <a class="button button-outline" href="projects.html">View Project Experience <span class="arrow">↗</span></a>
+          </div>
+          <div class="hero-note">Engineering · Assurance · Digital Infrastructure</div>
+        </div>
+      </div>
+      <div class="video-status" id="video-status">Integrated engineering in action</div>
+    </section>
+
+    <section class="intro-section section-pad">
+      <div class="container two-col">
+        <div class="intro-copy">
+          <span class="section-label">Who We Are</span>
+          <h2>Engineering delivery and information, working as one.</h2>
+          <p>Jiro-BEACONS Engineering brings together surveying, quantity and cost support, engineering coordination, construction delivery, QA/QC and digital engineering.</p>
+          <p>We help project teams organize field information, quality evidence and asset records so that critical decisions are supported by clearer, more traceable information.</p>
+          <div class="intro-statement">Engineering better information for smarter infrastructure &amp; businesses.</div>
+          <a class="button button-dark" href="about.html">Discover Jiro-BEACONS <span class="arrow">↗</span></a>
+        </div>
+        <div class="intro-panel">
+          <span class="panel-kicker">Our Approach</span>
+          <h3>We connect the physical asset to the information behind it.</h3>
+          <p>From early surveying and project planning through verification, digital handover and asset information, our work is tailored to the agreed project scope.</p>
+          <div class="panel-line">Practical engineering. Traceable information.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lifecycle-section section-pad">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-label">Our Engineering Lifecycle</span>
+          <h2>From initial assessment to informed operations.</h2>
+          <p>Connected capabilities designed to support the project lifecycle, with services aligned to each client's requirements and scope.</p>
+        </div>
+
+        <div class="lifecycle-grid">
+          <article class="lifecycle-card">
+            <span class="step-number">01 / ASSESS</span>
+            <h3>Survey &amp; Evaluate</h3>
+            <p>Land, property, existing-asset and as-built assessment to establish a reliable starting point.</p>
+          </article>
+          <article class="lifecycle-card">
+            <span class="step-number">02 / QUANTIFY</span>
+            <h3>Quantity &amp; Cost</h3>
+            <p>Measurement, quantity take-offs, BOQs, cost planning and commercial support.</p>
+          </article>
+          <article class="lifecycle-card">
+            <span class="step-number">03 / PLAN</span>
+            <h3>Plan</h3>
+            <p>Engineering planning, delivery strategy, coordination and project information requirements.</p>
+          </article>
+          <article class="lifecycle-card">
+            <span class="step-number">04 / DESIGN</span>
+            <h3>Design</h3>
+            <p>Engineering inputs and multidisciplinary design coordination appropriate to the agreed scope.</p>
+          </article>
+          <article class="lifecycle-card">
+            <span class="step-number">05 / DELIVER</span>
+            <h3>Build</h3>
+            <p>Construction and project delivery support, coordinated with the project team and contract scope.</p>
+          </article>
+          <article class="lifecycle-card">
+            <span class="step-number">06 / VERIFY</span>
+            <h3>Verify &amp; Assure</h3>
+            <p>QA/QC, inspection, testing and traceable evidence supporting construction quality and control.</p>
+          </article>
+          <article class="lifecycle-card">
+            <span class="step-number">07 / DIGITALIZE</span>
+            <h3>Smart Building Telemetry &amp; Integration</h3>
+            <p>Connected building systems and structured facility data to support visibility into asset performance.</p>
+          </article>
+          <article class="lifecycle-card">
+            <span class="step-number">08 / OPERATE</span>
+            <h3>EdgeCarbon Compliance &amp; ESG Data Platforms</h3>
+            <p>Organized asset information and analytics workflows to support energy, carbon and compliance decisions.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature-section section-pad">
+      <div class="container two-col">
+        <div class="feature-copy">
+          <span class="section-label">Engineering &amp; Project Delivery</span>
+          <h2>Connecting field reality with engineering control.</h2>
+          <p>Infrastructure delivery involves people, materials, measurements, inspections, tests and decisions. We help organize these activities around clear requirements and reliable project information — with services tailored to the agreed scope.</p>
+          <ul class="check-list">
+            <li>Surveying &amp; Existing-Asset Evaluation</li>
+            <li>Quantity Surveying &amp; Cost Support</li>
+            <li>Engineering &amp; Project Coordination</li>
+            <li>Construction Delivery Support</li>
+            <li>QA/QC, Inspection &amp; Testing</li>
+            <li>Engineering Information Management</li>
+            <li>Smart Building Telemetry &amp; Integration (BAS)</li>
+            <li>EdgeCarbon Compliance &amp; ESG Data Platforms</li>
+          </ul>
+        </div>
+        <div class="feature-image">
+          <picture>
+            <source media="(max-width:767px)" srcset="images/project-mobile.png">
+            <img src="images/project-desktop.png" alt="Engineering and construction project environment" loading="lazy">
+          </picture>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- END OF WRAPPER: Normal solid sections resume below -->
 
   <section class="capabilities-section section-pad" id="what-we-do">
     <div class="container">
@@ -848,7 +867,7 @@ section{position:relative}
   const year = document.getElementById("year");
   if(year) year.textContent = new Date().getFullYear();
 
-  /* Targeted Hero Section Video Manager */
+  /* Scroll-Synced Video Manager */
   const video = document.getElementById("hero-video");
   const fallback = document.getElementById("hero-fallback");
   const videoStatus = document.getElementById("video-status");
@@ -893,7 +912,7 @@ section{position:relative}
         const sectionEl = document.querySelector("." + sectionVideos[i].targetClass);
         if (sectionEl) {
           const rect = sectionEl.getBoundingClientRect();
-          if (rect.top <= window.innerHeight * 0.4 && rect.bottom >= 0) {
+          if (rect.top <= window.innerHeight * 0.5 && rect.bottom >= 0) {
             currentIdx = i;
           }
         }
