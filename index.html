@@ -127,11 +127,12 @@ section{position:relative}
 .search-feedback{margin:10px 0 0;color:rgba(255,255,255,.8);font-size:.84rem}
 .search-feedback a{color:var(--gold-light)}
 
-/* STICKY STACKING BLOCKS - GAP AT TOP, EXTRA BUFFER AT BOTTOM */
+/* STICKY STACKING BLOCKS - CLEAN TOP, GENEROUS BOTTOM BUFFER */
 .section-with-video {
   position: sticky;
   top: 0;
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   width: 100%;
   overflow: hidden;
   color: #fff;
@@ -139,6 +140,8 @@ section{position:relative}
   display: flex;
   align-items: center;
   isolation: isolate;
+  padding-top: 95px; /* Clean header clearance at top */
+  padding-bottom: 140px; /* Generous bottom gap so content never gets cut off early */
 }
 
 /* Stacking Order */
@@ -184,15 +187,13 @@ section{position:relative}
   z-index: 3;
   width: min(var(--max), calc(100% - 48px));
   margin: auto;
-  padding-top: 110px; /* Gap at the top under the header */
-  padding-bottom: 90px; /* Generous gap at the bottom so text displays fully */
 }
 
 /* HERO SECTION */
 .hero{
-  padding-top: 0;
+  padding-top: 95px;
 }
-.hero-content{max-width:760px; padding-top: 40px;}
+.hero-content{max-width:760px}
 .hero .eyebrow{color:var(--gold-light);margin-bottom:14px}
 .hero h1{margin-bottom:16px;font-size:clamp(2.3rem,5vw,5.2rem);color:#fff}
 .hero h1 span{display:block;color:var(--gold-light)}
