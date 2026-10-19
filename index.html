@@ -35,7 +35,7 @@ h1,h2,h3{line-height:1.12;letter-spacing:-.035em}
 h2{margin-bottom:15px;font-size:clamp(2rem,4vw,3.45rem)}
 p{color:var(--muted)}
 section{position:relative}
-.section-pad{padding:90px 0}
+.section-pad{padding:70px 0}
 .section-label,.eyebrow{display:inline-block;font-size:.76rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase}
 .section-label{color:var(--gold-light);margin-bottom:12px}
 .section-label:before{content:"";display:inline-block;width:26px;height:2px;margin:0 10px 4px 0;background:var(--gold)}
@@ -157,18 +157,27 @@ section{position:relative}
 .search-feedback { margin: 10px 0 0; color: rgba(255,255,255,.8); font-size: .84rem; }
 .search-feedback a { color: var(--gold-light); }
 
-/* VIDEO SECTIONS */
+/* STICKY STACKING VIDEO SECTIONS */
 .section-with-video {
-  position: relative;
-  min-height: 110vh;
+  position: sticky;
+  top: 0;
+  height: 140vh;
   width: 100%;
   overflow: hidden;
   color: #fff;
   background: var(--wine-deep);
   display: flex;
   align-items: center;
-  padding: 130px 0 140px;
+  isolation: isolate;
+  padding-top: 70px;
+  padding-bottom: 180px;
 }
+
+/* Stacking Order */
+.hero { z-index: 10; }
+.intro-section { z-index: 20; }
+.lifecycle-section { z-index: 30; }
+.feature-section { z-index: 40; }
 
 .section-media {
   position: absolute;
@@ -394,6 +403,7 @@ section{position:relative}
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*:before,*:after{transition:none!important}
+  .section-with-video{position:relative;height:auto}
 }
 </style>
 </head>
