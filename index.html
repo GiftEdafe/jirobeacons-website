@@ -102,7 +102,15 @@ section{position:relative}
 }
 .icon-button:hover,.icon-button:focus-visible{color:var(--gold-light);border-color:var(--gold)}
 .icon-button svg{width:20px;height:20px}
-.menu-toggle{display:none}
+
+/* MOBILE MENU TOGGLE BUTTON (Restored) */
+.menu-toggle{
+  display:none;flex-direction:column;justify-content:space-between;
+  width:40px;height:40px;padding:10px;background:transparent;
+  border:1px solid rgba(255,255,255,.35);border-radius:2px
+}
+.menu-toggle span{display:block;width:100%;height:2px;background:#fff;transition:transform .2s}
+
 .search-panel{
   position:absolute;top:100%;left:0;right:0;z-index:1200;
   display:none;padding:20px 0;background:var(--wine-deep);
@@ -272,7 +280,7 @@ section{position:relative}
 .sector-card{min-height:135px;display:flex;align-items:flex-end;padding:25px;background:#fff;border-bottom:3px solid var(--gold)}
 .sector-card h3{margin:0;color:var(--wine);font-size:1.15rem}
 
-/* PROJECT PREVIEW SECTION (Tighter padding & closed gap) */
+/* PROJECT PREVIEW SECTION */
 .project-section{background:#fff;padding:45px 0}
 .project-section .section-heading{margin-bottom:20px}
 .project-section .section-label{color:#927631}
@@ -312,15 +320,23 @@ section{position:relative}
 .footer-bottom{display:flex;justify-content:space-between;gap:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,.2)}
 .footer-bottom p{margin:0;color:rgba(255,255,255,.62);font-size:.75rem}
 
+/* RESPONSIVE STYLES */
 @media(min-width:1101px){
   .nav-dropdown:hover .nav-dropdown-menu,
   .nav-dropdown:focus-within .nav-dropdown-menu{display:grid}
 }
 @media(max-width:1100px){
-  .header-inner{grid-template-columns:minmax(0,1fr) auto;gap:12px;min-height:76px}
+  .header-inner{grid-template-columns:auto minmax(0,1fr) auto;gap:12px;min-height:76px}
   .brand img{width:165px;max-height:52px}
-  .header-tools{gap:8px}
-  .menu-toggle{display:none}
+  .main-nav{
+    position:absolute;top:100%;left:0;right:0;z-index:1150;
+    display:none;flex-direction:column;align-items:flex-start;
+    padding:20px 24px;background:var(--wine-deep);
+    border-top:1px solid rgba(255,255,255,.12);
+    box-shadow:0 15px 30px rgba(0,0,0,.3)
+  }
+  .main-nav.is-open{display:flex}
+  .menu-toggle{display:flex}
   .capability-grid{grid-template-columns:repeat(2,1fr)}
   .lifecycle-grid{grid-template-columns:repeat(2,1fr)}
 }
@@ -675,7 +691,7 @@ section{position:relative}
     </div>
   </section>
 
-  <!-- PROJECT PREVIEW SECTION (Gap closed) -->
+  <!-- PROJECT PREVIEW SECTION -->
   <section class="project-section">
     <div class="container">
       <div class="section-heading">
