@@ -37,7 +37,7 @@ p{color:var(--muted)}
 section{position:relative}
 .section-pad{padding:100px 0}
 .section-label,.eyebrow{display:inline-block;font-size:.76rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase}
-.section-label{color:var(--wine);margin-bottom:18px}
+.section-label{color:var(--gold-light);margin-bottom:18px}
 .section-label:before{content:"";display:inline-block;width:26px;height:2px;margin:0 10px 4px 0;background:var(--gold)}
 .button{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:50px;padding:13px 21px;border:1px solid transparent;border-radius:2px;font-size:.83rem;font-weight:800;letter-spacing:.04em;text-decoration:none;transition:background .2s,transform .2s}
 .button:hover{transform:translateY(-2px)}
@@ -119,90 +119,104 @@ section{position:relative}
 .search-feedback{margin:12px 0 0;color:rgba(255,255,255,.8);font-size:.86rem}
 .search-feedback a{color:var(--gold-light)}
 
-/* STICKY VIDEO WRAPPER & BACKGROUND STYLING */
+/* SUFFOLK-STYLE STICKY VIDEO WRAPPER ARCHITECTURE */
 .video-stack-wrapper {
   position: relative;
-  width: 100%;
+  background: var(--wine-deep);
 }
 
-/* HERO: actual video backgrounds with image fallbacks */
-.hero{
-  position:relative;display:flex;align-items:center;
-  min-height:min(790px,100svh);padding:160px 0 88px;
-  overflow:hidden;color:#fff;background:transparent
-}
-.hero-media{
-  position: absolute;
+.hero-media {
+  position: sticky;
   top: 0;
-  left: 0;
   height: 100vh;
-  width: 100vw;
-  z-index: -1;
+  width: 100%;
+  z-index: 1;
   overflow: hidden;
   background: var(--wine-deep);
 }
-.hero-media video,.hero-media img{
-  position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;
-  object-position:center
+.hero-media video, .hero-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
-.hero-media video{z-index:2}
-.hero-media img{z-index:1}
-.hero-shade{
-  position:absolute;inset:0;
-  z-index:3;
-  background:linear-gradient(90deg,rgba(24,4,11,.91),rgba(43,7,20,.73) 45%,rgba(24,4,11,.24)),
-  linear-gradient(0deg,rgba(24,4,11,.58),transparent 58%);
-  pointer-events:none
-}
-.hero-content{position:relative;z-index:4;max-width:760px}
-.hero .eyebrow{color:var(--gold-light);margin-bottom:24px}
-.hero h1{margin-bottom:24px;font-size:clamp(2.8rem,6.1vw,5.7rem)}
-.hero h1 span{display:block;color:var(--gold-light)}
-.hero-copy{max-width:670px;margin-bottom:32px;color:rgba(255,255,255,.88);font-size:1.1rem}
-.hero-buttons{display:flex;flex-wrap:wrap;gap:13px}
-.hero-note{display:flex;align-items:center;gap:12px;margin-top:42px;color:rgba(255,255,255,.82);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase}
-.hero-note:before{content:"";width:42px;height:1px;background:var(--gold)}
-.video-status{position:absolute;z-index:5;right:24px;bottom:22px;color:rgba(255,255,255,.7);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase}
+.hero-media video { z-index: 2; }
+.hero-media img { z-index: 1; }
 
-/* INTRODUCTION (Translucent dark theme so video plays behind text) */
-.intro-section{background:rgba(24,4,11,.84);color:#fff}
+.hero-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: linear-gradient(90deg, rgba(24,4,11,.88), rgba(43,7,20,.65) 55%, rgba(24,4,11,.3)),
+              linear-gradient(0deg, rgba(24,4,11,.6), transparent 60%);
+  pointer-events: none;
+}
+
+/* Ensure the first 4 sections sit above the sticky video and have transparent backgrounds */
+.video-stack-wrapper section {
+  position: relative;
+  z-index: 4;
+  background: transparent !important;
+  color: #fff;
+}
+
+/* HERO SECTION */
+.hero{
+  display:flex;align-items:center;
+  min-height:min(790px,100svh);padding:160px 0 88px;
+  overflow:hidden;color:#fff;
+}
+.hero-content{position:relative;z-index:5;max-width:760px}
+.hero .eyebrow{color:var(--gold-light);margin-bottom:24px}
+.hero h1{margin-bottom:24px;font-size:clamp(2.8rem,6.1vw,5.7rem);color:#fff}
+.hero h1 span{display:block;color:var(--gold-light)}
+.hero-copy{max-width:670px;margin-bottom:32px;color:rgba(255,255,255,.9);font-size:1.1rem}
+.hero-buttons{display:flex;flex-wrap:wrap;gap:13px}
+.hero-note{display:flex;align-items:center;gap:12px;margin-top:42px;color:rgba(255,255,255,.85);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase}
+.hero-note:before{content:"";width:42px;height:1px;background:var(--gold)}
+.video-status{position:absolute;z-index:6;right:24px;bottom:22px;color:rgba(255,255,255,.75);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase}
+
+/* INTRODUCTION SECTION */
+.intro-section{color:#fff}
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,100px);align-items:center}
 .intro-copy h2{max-width:630px;color:#fff}
-.intro-copy p{max-width:680px;color:rgba(255,255,255,.85)}
+.intro-copy p{max-width:680px;color:rgba(255,255,255,.88)}
 .intro-copy strong{color:var(--gold-light)}
 .intro-statement{margin-top:28px;padding:20px 0 20px 22px;border-left:3px solid var(--gold);color:#fff;font-size:1.12rem;font-weight:750}
-.intro-panel{position:relative;padding:clamp(28px,4vw,48px);color:#fff;background:rgba(43,7,20,.9);box-shadow:0 18px 50px rgba(24,4,11,.12)}
+.intro-panel{position:relative;padding:clamp(28px,4vw,48px);color:#fff;background:rgba(43,7,20,0.78);backdrop-filter:blur(6px);box-shadow:0 18px 50px rgba(24,4,11,.3)}
 .intro-panel:after{position:absolute;right:0;bottom:0;width:84px;height:84px;border-top:1px solid rgba(212,175,55,.65);border-left:1px solid rgba(212,175,55,.65);content:""}
 .panel-kicker{color:var(--gold-light);font-size:.75rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
 .intro-panel h3{max-width:420px;margin:18px 0;font-size:clamp(1.65rem,3vw,2.5rem);color:#fff}
-.intro-panel p{color:rgba(255,255,255,.78)}
+.intro-panel p{color:rgba(255,255,255,.82)}
 .panel-line{display:flex;align-items:center;gap:14px;margin-top:28px;color:var(--gold-light);font-size:.8rem;font-weight:800}
 .panel-line:before{width:34px;height:1px;background:var(--gold);content:""}
 
-/* LIFECYCLE (Translucent dark theme) */
-.lifecycle-section{background:rgba(24,4,11,.86);color:#fff}
+/* LIFECYCLE SECTION */
+.lifecycle-section{color:#fff}
 .section-heading{max-width:780px;margin-bottom:42px}
 .section-heading h2{color:#fff}
-.section-heading p{max-width:680px;margin-bottom:0;font-size:1.02rem;color:rgba(255,255,255,.8)}
-.lifecycle-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(212,175,55,.2);border-left:1px solid rgba(212,175,55,.2)}
-.lifecycle-card{min-height:215px;padding:27px 24px;border-right:1px solid rgba(212,175,55,.2);border-bottom:1px solid rgba(212,175,55,.2);background:rgba(43,7,20,.85)}
+.section-heading p{max-width:680px;margin-bottom:0;font-size:1.02rem;color:rgba(255,255,255,.85)}
+.lifecycle-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(212,175,55,.3);border-left:1px solid rgba(212,175,55,.3)}
+.lifecycle-card{min-height:215px;padding:27px 24px;border-right:1px solid rgba(212,175,55,.3);border-bottom:1px solid rgba(212,175,55,.3);background:rgba(43,7,20,0.78);backdrop-filter:blur(6px)}
 .step-number{display:block;margin-bottom:26px;color:var(--gold-light);font-size:.8rem;font-weight:800;letter-spacing:.1em}
 .lifecycle-card h3{margin-bottom:10px;color:#fff;font-size:1.15rem}
-.lifecycle-card p{margin-bottom:0;font-size:.9rem;color:rgba(255,255,255,.75)}
+.lifecycle-card p{margin-bottom:0;font-size:.9rem;color:rgba(255,255,255,.8)}
 
-/* ENGINEERING & PROJECT DELIVERY (Translucent dark theme) */
-.feature-section{background:rgba(24,4,11,.84);color:#fff}
-.feature-image{position:relative;min-height:480px;overflow:hidden;background:var(--wine)}
+/* ENGINEERING & PROJECT DELIVERY */
+.feature-section{color:#fff}
+.feature-image{position:relative;min-height:480px;overflow:hidden;background:rgba(43,7,20,0.8)}
 .feature-image img{width:100%;height:100%;min-height:480px;object-fit:cover}
 .feature-image:after{position:absolute;inset:0;border:1px solid rgba(212,175,55,.42);content:"";pointer-events:none}
 .feature-copy h2{max-width:590px;color:#fff}
-.feature-copy>p{max-width:600px;color:rgba(255,255,255,.85)}
+.feature-copy>p{max-width:600px;color:rgba(255,255,255,.88)}
 .check-list{display:grid;grid-template-columns:1fr 1fr;gap:13px 24px;margin:26px 0 30px;padding:0;list-style:none}
 .check-list li{position:relative;padding-left:22px;color:#fff;font-size:.9rem;font-weight:700}
 .check-list li:before{position:absolute;top:.55em;left:0;width:9px;height:9px;background:var(--gold);content:""}
 
-/* CAPABILITIES 01-08 */
-.capabilities-section{background:#fff}
+/* CAPABILITIES 01-08 (Normal solid sections following below the wrapper) */
+.capabilities-section{background:#fff;position:relative;z-index:10}
 .capability-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
 .capability-card{min-height:260px;padding:30px;background:#fff;transition:background .2s}
 .capability-card:hover{background:#FCFAF7}
@@ -214,7 +228,7 @@ section{position:relative}
 .edgecarbon-features li:before{position:absolute;left:12px;top:10px;color:#927631;content:"■";font-size:.72rem}
 
 /* DIGITAL ENGINEERING */
-.digital-section{color:#fff;background:var(--wine)}
+.digital-section{color:#fff;background:var(--wine);position:relative;z-index:10}
 .digital-section .section-label{color:var(--gold-light)}
 .digital-section h2{color:#fff}
 .digital-section p{color:rgba(255,255,255,.78)}
@@ -222,13 +236,13 @@ section{position:relative}
 .digital-section .feature-image{background:var(--wine-deep)}
 
 /* SECTORS */
-.sectors-section{background:var(--paper)}
+.sectors-section{background:var(--paper);position:relative;z-index:10}
 .sector-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .sector-card{min-height:135px;display:flex;align-items:flex-end;padding:25px;background:#fff;border-bottom:3px solid var(--gold)}
 .sector-card h3{margin:0;color:var(--wine);font-size:1.15rem}
 
 /* PROJECT PREVIEW */
-.project-section{background:#fff}
+.project-section{background:#fff;position:relative;z-index:10}
 .project-card{display:grid;grid-template-columns:1fr 1fr;overflow:hidden;background:var(--paper)}
 .project-visual{min-height:420px;background:var(--wine)}
 .project-visual img{width:100%;height:100%;min-height:420px;object-fit:cover}
@@ -240,19 +254,19 @@ section{position:relative}
 .project-meta strong{color:var(--ink)}
 
 /* BRAND STATEMENT */
-.statement-section{padding:90px 0;color:#fff;background:var(--wine-deep)}
+.statement-section{padding:90px 0;color:#fff;background:var(--wine-deep);position:relative;z-index:10}
 .statement-section blockquote{max-width:950px;margin:0;font-size:clamp(2rem,5vw,4rem);font-weight:750;line-height:1.15;letter-spacing:-.04em}
 .statement-section blockquote span{color:var(--gold-light)}
 .statement-section p{margin:24px 0 0;color:rgba(255,255,255,.7);font-size:.82rem;letter-spacing:.1em;text-transform:uppercase}
 
 /* CONTACT CTA */
-.cta-section{padding:82px 0;background:var(--paper)}
+.cta-section{padding:82px 0;background:var(--paper);position:relative;z-index:10}
 .cta-inner{display:flex;align-items:center;justify-content:space-between;gap:40px}
 .cta-inner h2{max-width:740px;margin-bottom:12px;color:var(--wine-deep);font-size:clamp(1.9rem,3.8vw,3.2rem)}
 .cta-inner p{max-width:650px;margin-bottom:0}
 
 /* FOOTER */
-.site-footer{padding:65px 0 22px;color:#fff;background:var(--wine)}
+.site-footer{padding:65px 0 22px;color:#fff;background:var(--wine);position:relative;z-index:10}
 .footer-main{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:55px;padding-bottom:48px}
 .footer-brand p{max-width:300px;margin-top:22px;color:rgba(255,255,255,.72);font-size:.9rem}
 .footer-heading{margin-bottom:18px;color:var(--gold-light);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
@@ -426,19 +440,22 @@ section{position:relative}
 </header>
 
 <main>
-  <!-- WRAPPER ENCLOSING THE FIRST 4 SECTIONS SO VIDEO STAYS PINNED BEHIND THEM -->
+  <!-- SUFFOLK-STYLE STICKY BACKGROUND WRAPPER -->
   <div class="video-stack-wrapper">
-    <section class="hero">
-      <div class="hero-media" aria-hidden="true">
-        <picture>
-          <source media="(max-width:767px)" srcset="images/hero-mobile.png">
-          <img id="hero-fallback" src="images/hero-desktop.png" alt="">
-        </picture>
-        <video id="hero-video" autoplay muted playsinline webkit-playsinline preload="auto" poster="images/hero-desktop.png" aria-hidden="true">
-          <source src="videos/Scene-01-physical-infrastructure.mp4" type="video/mp4">
-        </video>
-      </div>
+    <!-- Sticky Background Video Container -->
+    <div class="hero-media" aria-hidden="true">
+      <picture>
+        <source media="(max-width:767px)" srcset="images/hero-mobile.png">
+        <img id="hero-fallback" src="images/hero-desktop.png" alt="">
+      </picture>
+      <video id="hero-video" autoplay muted playsinline webkit-playsinline preload="auto" poster="images/hero-desktop.png" aria-hidden="true">
+        <source src="videos/Scene-01-physical-infrastructure.mp4" type="video/mp4">
+      </video>
       <div class="hero-shade"></div>
+    </div>
+
+    <!-- Section 1: Hero -->
+    <section class="hero">
       <div class="container">
         <div class="hero-content">
           <span class="eyebrow">Integrated Engineering · Digital Infrastructure</span>
@@ -454,6 +471,7 @@ section{position:relative}
       <div class="video-status" id="video-status">Integrated engineering in action</div>
     </section>
 
+    <!-- Section 2: Intro -->
     <section class="intro-section section-pad">
       <div class="container two-col">
         <div class="intro-copy">
@@ -473,6 +491,7 @@ section{position:relative}
       </div>
     </section>
 
+    <!-- Section 3: Lifecycle -->
     <section class="lifecycle-section section-pad">
       <div class="container">
         <div class="section-heading">
@@ -526,6 +545,7 @@ section{position:relative}
       </div>
     </section>
 
+    <!-- Section 4: Feature -->
     <section class="feature-section section-pad">
       <div class="container two-col">
         <div class="feature-copy">
@@ -552,7 +572,7 @@ section{position:relative}
       </div>
     </section>
   </div>
-  <!-- END OF WRAPPER -->
+  <!-- END OF WRAPPER: Video scrolls away, normal site sections resume below -->
 
   <section class="capabilities-section section-pad" id="what-we-do">
     <div class="container">
@@ -868,7 +888,7 @@ section{position:relative}
   const year = document.getElementById("year");
   if(year) year.textContent = new Date().getFullYear();
 
-  /* Instant-Play Scroll-Synced Video Manager */
+  /* Suffolk-Style Sticky Scroll-Synced Video Manager */
   const video = document.getElementById("hero-video");
   const fallback = document.getElementById("hero-fallback");
   const videoStatus = document.getElementById("video-status");
