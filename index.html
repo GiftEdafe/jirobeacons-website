@@ -848,7 +848,7 @@ section{position:relative}
   const year = document.getElementById("year");
   if(year) year.textContent = new Date().getFullYear();
 
-  /* True Background Scroll-Synced Video Manager */
+  /* Targeted Hero Section Video Manager */
   const video = document.getElementById("hero-video");
   const fallback = document.getElementById("hero-fallback");
   const videoStatus = document.getElementById("video-status");
@@ -888,14 +888,12 @@ section{position:relative}
     }
 
     function updateVideoOnScroll() {
-      // Find which section is currently crossing the middle/top threshold of the screen
       let currentIdx = 0;
       for (let i = 0; i < sectionVideos.length; i++) {
         const sectionEl = document.querySelector("." + sectionVideos[i].targetClass);
         if (sectionEl) {
           const rect = sectionEl.getBoundingClientRect();
-          // If the top of this section has reached the upper half of the screen
-          if (rect.top <= window.innerHeight * 0.5) {
+          if (rect.top <= window.innerHeight * 0.4 && rect.bottom >= 0) {
             currentIdx = i;
           }
         }
