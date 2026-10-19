@@ -49,13 +49,14 @@ section{position:relative}
 .button-outline:hover{color:var(--wine);background:#fff}
 .arrow{font-size:1.1rem}
 
-/* FLOATING BOXED HEADER (SUFFOLK STYLE) */
+/* DYNAMIC FLOATING BOXED HEADER */
 .site-header {
   position: absolute;
   z-index: 1000;
   inset: 20px 0 auto 0;
   background: transparent;
   border-bottom: 0;
+  transition: background .3s ease;
 }
 .header-inner {
   max-width: var(--max);
@@ -66,11 +67,20 @@ section{position:relative}
   align-items: center;
   gap: 20px;
   padding: 0 25px;
-  background: rgba(43, 7, 20, 0.72);
+  background: rgba(43, 7, 20, 0.35); /* Translucent over video sections */
   backdrop-filter: blur(8px);
   border: 1px solid rgba(212, 175, 55, 0.35);
   border-radius: 4px;
+  transition: background .3s ease, border-color .3s ease, backdrop-filter .3s ease;
 }
+
+/* Solid state when scrolled over white/light sections */
+.site-header.scrolled-down .header-inner {
+  background: var(--wine);
+  border-color: rgba(212, 175, 55, 0.6);
+  backdrop-filter: none;
+}
+
 .brand { justify-self: center; display: inline-flex; align-items: center; text-decoration: none; }
 .brand img { width: 170px; max-height: 50px; object-fit: contain; }
 
@@ -147,7 +157,7 @@ section{position:relative}
 .search-feedback { margin: 10px 0 0; color: rgba(255,255,255,.8); font-size: .84rem; }
 .search-feedback a { color: var(--gold-light); }
 
-/* VIDEO SECTIONS (SMOOTH SCROLL FLOW) */
+/* VIDEO SECTIONS WITH LIGHT WINE TRANSPARENT OVERLAYS */
 .section-with-video {
   position: relative;
   min-height: 110vh;
@@ -187,8 +197,8 @@ section{position:relative}
   position: absolute;
   inset: 0;
   z-index: 2;
-  background: linear-gradient(90deg, rgba(24,4,11,.88), rgba(43,7,20,.65) 55%, rgba(24,4,11,.3)),
-              linear-gradient(0deg, rgba(24,4,11,.6), transparent 60%);
+  background: linear-gradient(90deg, rgba(43,7,20,.65), rgba(43,7,20,.4) 55%, rgba(24,4,11,.2)),
+              linear-gradient(0deg, rgba(43,7,20,.4), transparent 60%);
   pointer-events: none;
 }
 
@@ -920,6 +930,24 @@ section{position:relative}
 
   const year = document.getElementById("year");
   if(year) year.textContent = new Date().getFullYear();
+
+  /* DYNAMIC HEADER THEME SWITCHER */
+  const siteHeader = document.querySelector(".site-header");
+  const videoSections = document.querySelectorAll(".section-with-video");
+
+  if (siteHeader && videoSections.length > 0) {
+    const headerObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          siteHeader.classList.add("scrolled-down");
+        } else {
+          siteHeader.classList.remove("scrolled-down");
+        }
+      });
+    }, { threshold: 0.1 });
+
+    headerObserver.observe(videoSections[videoSections.length - 1]);
+  }
 
   /* ROBUST VIDEO PLAYBACK INITIALIZER */
   function forcePlayVideos() {
