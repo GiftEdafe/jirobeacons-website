@@ -127,7 +127,7 @@ section{position:relative}
 .search-feedback{margin:10px 0 0;color:rgba(255,255,255,.8);font-size:.84rem}
 .search-feedback a{color:var(--gold-light)}
 
-/* EXACT EXCEL / SUFFOLK CONSTRUCTION STICKY STACKING BLOCKS */
+/* STICKY STACKING BLOCKS */
 .section-with-video {
   position: sticky;
   top: 0;
@@ -183,15 +183,15 @@ section{position:relative}
 
 /* HERO SECTION */
 .hero{
-  padding-top: 40px;
+  padding-top: 110px;
 }
 .hero-content{max-width:760px}
-.hero .eyebrow{color:var(--gold-light);margin-bottom:18px}
-.hero h1{margin-bottom:20px;font-size:clamp(2.5rem,5.5vw,5.2rem);color:#fff}
+.hero .eyebrow{color:var(--gold-light);margin-bottom:14px}
+.hero h1{margin-bottom:16px;font-size:clamp(2.3rem,5vw,5.2rem);color:#fff}
 .hero h1 span{display:block;color:var(--gold-light)}
-.hero-copy{max-width:670px;margin-bottom:28px;color:rgba(255,255,255,.9);font-size:1.05rem}
+.hero-copy{max-width:670px;margin-bottom:24px;color:rgba(255,255,255,.9);font-size:1.02rem}
 .hero-buttons{display:flex;flex-wrap:wrap;gap:12px}
-.hero-note{display:flex;align-items:center;gap:12px;margin-top:32px;color:rgba(255,255,255,.85);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase}
+.hero-note{display:flex;align-items:center;gap:12px;margin-top:24px;color:rgba(255,255,255,.85);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase}
 .hero-note:before{content:"";width:42px;height:1px;background:var(--gold)}
 
 /* INTRODUCTION SECTION */
@@ -235,7 +235,7 @@ section{position:relative}
   background: #fff;
 }
 
-/* CAPABILITIES SECTION (Uniform 4-Column Grid) */
+/* CAPABILITIES SECTION */
 .capabilities-section{padding:70px 0}
 .capabilities-section .section-heading{margin-bottom:20px}
 .capabilities-section .section-label{color:#927631}
@@ -442,10 +442,10 @@ section{position:relative}
 </header>
 
 <main>
-  <!-- SECTION 1: HERO (Fallback background removed so video shows directly) -->
+  <!-- SECTION 1: HERO -->
   <section class="hero section-with-video">
     <div class="section-media" aria-hidden="true">
-      <video class="sec-video" autoplay muted loop playsinline preload="auto">
+      <video class="sec-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
         <source src="videos/Scene-01-physical-infrastructure.mp4" type="video/mp4">
       </video>
       <div class="section-shade"></div>
@@ -467,7 +467,7 @@ section{position:relative}
   <!-- SECTION 2: INTRO -->
   <section class="intro-section section-pad section-with-video">
     <div class="section-media" aria-hidden="true">
-      <video class="sec-video" autoplay muted loop playsinline preload="auto">
+      <video class="sec-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
         <source src="videos/scene-02-engineering-delivery.mp4" type="video/mp4">
       </video>
       <div class="section-shade"></div>
@@ -493,7 +493,7 @@ section{position:relative}
   <!-- SECTION 3: LIFECYCLE -->
   <section class="lifecycle-section section-pad section-with-video">
     <div class="section-media" aria-hidden="true">
-      <video class="sec-video" autoplay muted loop playsinline preload="auto">
+      <video class="sec-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
         <source src="videos/scene-03-digital-engineering.mp4" type="video/mp4">
       </video>
       <div class="section-shade"></div>
@@ -553,7 +553,7 @@ section{position:relative}
   <!-- SECTION 4: FEATURE -->
   <section class="feature-section section-pad section-with-video">
     <div class="section-media" aria-hidden="true">
-      <video class="sec-video" autoplay muted loop playsinline preload="auto">
+      <video class="sec-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
         <source src="videos/scene-04-handover-operations.mp4" type="video/mp4">
       </video>
       <div class="section-shade"></div>
@@ -900,30 +900,46 @@ section{position:relative}
   const year = document.getElementById("year");
   if(year) year.textContent = new Date().getFullYear();
 
-  /* AGGRESSIVE VIDEO PLAYBACK */
-  window.addEventListener("load", function() {
+  /* ROBUST VIDEO FORCED PLAY INIT FOR ALL DEVICES */
+  function forcePlayVideos() {
     const videos = document.querySelectorAll("video.sec-video");
     videos.forEach(video => {
       video.muted = true;
       video.defaultMuted = true;
       video.playsInline = true;
+      video.setAttribute("muted", "");
+      video.setAttribute("playsinline", "");
+      video.setAttribute("webkit-playsinline", "");
       
       const playPromise = video.play();
       if (playPromise !== undefined) {
         playPromise.catch(error => {
+          // If browser policy blocks initial autoplay, trigger on the first touch/click/scroll interaction anywhere
           const resumePlay = () => {
-            video.play();
+            videos.forEach(v => {
+              v.muted = true;
+              v.play().catch(() => {});
+            });
             window.removeEventListener('click', resumePlay);
             window.removeEventListener('scroll', resumePlay);
             window.removeEventListener('touchstart', resumePlay);
+            window.removeEventListener('keydown', resumePlay);
           };
           window.addEventListener('click', resumePlay);
           window.addEventListener('scroll', resumePlay);
           window.addEventListener('touchstart', resumePlay);
+          window.addEventListener('keydown', resumePlay);
         });
       }
     });
-  });
+  }
+
+  if (document.readyState === "complete" || document.readyState === "interactive") {
+    forcePlayVideos();
+  } else {
+    window.addEventListener("DOMContentLoaded", forcePlayVideos);
+    window.addEventListener("load", forcePlayVideos);
+  }
 
 })();
 </script>
