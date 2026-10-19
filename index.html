@@ -127,17 +127,20 @@ section{position:relative}
 .search-feedback{margin:10px 0 0;color:rgba(255,255,255,.8);font-size:.84rem}
 .search-feedback a{color:var(--gold-light)}
 
-/* STICKY STACKING BLOCKS */
+/* STICKY STACKING BLOCKS - CORRECTED FOR VIDEO RENDERING & FULL CONTENT DISPLAY */
 .section-with-video {
   position: sticky;
   top: 0;
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   width: 100%;
   overflow: hidden;
   color: #fff;
-  background: transparent; /* Removed blocking solid background color */
+  background: var(--wine-deep);
   display: flex;
   align-items: center;
+  padding: 100px 0 80px;
+  isolation: isolate;
 }
 
 /* Stacking Order */
@@ -149,9 +152,9 @@ section{position:relative}
 .section-media {
   position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: 0;
   overflow: hidden;
-  background: transparent;
+  background: var(--wine-deep);
 }
 
 .section-media video {
@@ -161,13 +164,13 @@ section{position:relative}
   height: 100%;
   object-fit: cover;
   object-position: center;
-  z-index: 2;
+  z-index: 1;
 }
 
 .section-shade {
   position: absolute;
   inset: 0;
-  z-index: 3;
+  z-index: 2;
   background: linear-gradient(90deg, rgba(24,4,11,.88), rgba(43,7,20,.65) 55%, rgba(24,4,11,.3)),
               linear-gradient(0deg, rgba(24,4,11,.6), transparent 60%);
   pointer-events: none;
@@ -175,14 +178,17 @@ section{position:relative}
 
 .section-with-video .container {
   position: relative;
-  z-index: 4;
+  z-index: 3;
   width: min(var(--max), calc(100% - 48px));
   margin: auto;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  padding: 10px 0;
 }
 
 /* HERO SECTION */
 .hero{
-  padding-top: 110px;
+  padding-top: 120px;
 }
 .hero-content{max-width:760px}
 .hero .eyebrow{color:var(--gold-light);margin-bottom:14px}
@@ -445,7 +451,7 @@ section{position:relative}
   <section class="hero section-with-video">
     <div class="section-media" aria-hidden="true">
       <video class="sec-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
-        <source src="videos/Scene-01-physical-infrastructure.mp4" type="video/mp4">
+        <source src="./videos/scene-01-physical-infrastructure.mp4" type="video/mp4">
       </video>
       <div class="section-shade"></div>
     </div>
@@ -467,7 +473,7 @@ section{position:relative}
   <section class="intro-section section-pad section-with-video">
     <div class="section-media" aria-hidden="true">
       <video class="sec-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
-        <source src="videos/scene-02-engineering-delivery.mp4" type="video/mp4">
+        <source src="./videos/scene-02-engineering-delivery.mp4" type="video/mp4">
       </video>
       <div class="section-shade"></div>
     </div>
@@ -493,7 +499,7 @@ section{position:relative}
   <section class="lifecycle-section section-pad section-with-video">
     <div class="section-media" aria-hidden="true">
       <video class="sec-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
-        <source src="videos/scene-03-digital-engineering.mp4" type="video/mp4">
+        <source src="./videos/scene-03-digital-engineering.mp4" type="video/mp4">
       </video>
       <div class="section-shade"></div>
     </div>
@@ -553,7 +559,7 @@ section{position:relative}
   <section class="feature-section section-pad section-with-video">
     <div class="section-media" aria-hidden="true">
       <video class="sec-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
-        <source src="videos/scene-04-handover-operations.mp4" type="video/mp4">
+        <source src="./videos/scene-04-handover-operations.mp4" type="video/mp4">
       </video>
       <div class="section-shade"></div>
     </div>
@@ -899,7 +905,7 @@ section{position:relative}
   const year = document.getElementById("year");
   if(year) year.textContent = new Date().getFullYear();
 
-  /* AGGRESSIVE ENGINE TO KICKSTART VIDEO PLAYBACK */
+  /* ROBUST VIDEO PLAYBACK INITIALIZER */
   function forcePlayVideos() {
     const videos = document.querySelectorAll("video.sec-video");
     videos.forEach(video => {
