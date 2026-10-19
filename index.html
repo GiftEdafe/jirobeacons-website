@@ -49,7 +49,7 @@ section{position:relative}
 .button-outline:hover{color:var(--wine);background:#fff}
 .arrow{font-size:1.1rem}
 
-/* TRUE FLOATING PERMANENT FIXED HEADER */
+/* FIXED FLOATING HEADER */
 .site-header {
   position: fixed;
   z-index: 10000;
@@ -58,7 +58,7 @@ section{position:relative}
   right: 0;
   background: transparent;
   border-bottom: 0;
-  transition: background .3s ease, top .3s ease;
+  transition: background .3s ease;
 }
 .header-inner {
   max-width: var(--max);
@@ -69,16 +69,16 @@ section{position:relative}
   align-items: center;
   gap: 20px;
   padding: 0 25px;
-  background: rgba(43, 7, 20, 0.35);
-  backdrop-filter: blur(8px);
+  background: var(--wine); /* Starts solid wine by default */
   border: none;
   border-radius: 4px;
   transition: background .3s ease, backdrop-filter .3s ease;
 }
 
-.site-header.scrolled-down .header-inner {
-  background: var(--wine);
-  backdrop-filter: none;
+/* Becomes transparent when scrolled down past the first 2 sections */
+.site-header.transparent-header .header-inner {
+  background: rgba(43, 7, 20, 0.35);
+  backdrop-filter: blur(8px);
 }
 
 .brand { justify-self: center; display: inline-flex; align-items: center; text-decoration: none; }
@@ -156,7 +156,7 @@ section{position:relative}
 .search-feedback { margin: 10px 0 0; color: rgba(255,255,255,.8); font-size: .84rem; }
 .search-feedback a { color: var(--gold-light); }
 
-/* STICKY STACKING SECTIONS WITH UWARD TEXT SHIFT */
+/* STICKY STACKING SECTIONS WITH UPWARD TEXT SHIFT */
 .section-with-video {
   position: sticky;
   top: 0;
@@ -938,22 +938,29 @@ section{position:relative}
   const year = document.getElementById("year");
   if(year) year.textContent = new Date().getFullYear();
 
-  /* DYNAMIC HEADER THEME SWITCHER */
+  /* HEADER TRANSPARENCY SWITCHER (TRANSPARENT AFTER SECTION 2) */
   const siteHeader = document.querySelector(".site-header");
   const videoSections = document.querySelectorAll(".section-with-video");
 
-  if (siteHeader && videoSections.length > 0) {
+  if (siteHeader && videoSections.length >= 3) {
+    // We observe the 3rd video section (index 2) so the header stays solid through section 1 & 2
+    const targetSection = videoSections[2];
+    
     const headerObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (!entry.isIntersecting) {
-          siteHeader.classList.add("scrolled-down");
+        // When the 3rd section scrolls into view, make the header transparent
+        if (entry.isIntersecting) {
+          siteHeader.classList.add("transparent-header");
         } else {
-          siteHeader.classList.remove("scrolled-down");
+          // If we scroll back up to section 1 or 2, header turns solid wine again
+          if (window.scrollY < targetSection.offsetTop) {
+            siteHeader.classList.remove("transparent-header");
+          }
         }
       });
     }, { threshold: 0.1 });
 
-    headerObserver.observe(videoSections[videoSections.length - 1]);
+    headerObserver.observe(targetSection);
   }
 
   /* ROBUST VIDEO PLAYBACK INITIALIZER */
