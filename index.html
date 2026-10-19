@@ -154,11 +154,11 @@ section{position:relative}
 .search-feedback { margin: 10px 0 0; color: rgba(255,255,255,.8); font-size: .84rem; }
 .search-feedback a { color: var(--gold-light); }
 
-/* STICKY STACKING VIDEO SECTIONS (EXPANDED HEIGHT TO PREVENT TEXT CUTOFF) */
+/* STICKY STACKING VIDEO SECTIONS (EXACT TOP ALIGNMENT + BOTTOM READING BUFFER) */
 .section-with-video {
   position: sticky;
   top: 0;
-  height: 165vh;
+  height: 160vh;
   width: 100%;
   overflow: hidden;
   color: #fff;
@@ -166,8 +166,8 @@ section{position:relative}
   display: flex;
   align-items: center;
   isolation: isolate;
-  padding-top: 100px;
-  padding-bottom: 220px;
+  padding-top: 80px;  /* Clean normal top spacing right under header */
+  padding-bottom: 280vh; /* Generous bottom buffer so text clears fully before next section */
 }
 
 /* Stacking Order */
@@ -216,7 +216,7 @@ section{position:relative}
 }
 
 /* HERO SECTION */
-.hero{ padding-top: 150px; }
+.hero{ padding-top: 130px; }
 .hero-content{max-width:760px}
 .hero .eyebrow{color:var(--gold-light);margin-bottom:14px}
 .hero h1{margin-bottom:16px;font-size:clamp(2.3rem,5vw,5.2rem);color:#fff}
