@@ -49,10 +49,10 @@ section{position:relative}
 .button-outline:hover{color:var(--wine);background:#fff}
 .arrow{font-size:1.1rem}
 
-/* DYNAMIC FLOATING BOXED HEADER */
+/* FLOATING BOXED HEADER (NO GOLD BORDER, DYNAMIC BACKGROUND) */
 .site-header {
   position: absolute;
-  z-index: 1000;
+  z-index: 10000;
   inset: 20px 0 auto 0;
   background: transparent;
   border-bottom: 0;
@@ -67,17 +67,16 @@ section{position:relative}
   align-items: center;
   gap: 20px;
   padding: 0 25px;
-  background: rgba(43, 7, 20, 0.35);
+  background: rgba(43, 7, 20, 0.35); /* Transparent over video sections */
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(212, 175, 55, 0.35);
+  border: none; /* Yellow gold border removed */
   border-radius: 4px;
-  transition: background .3s ease, border-color .3s ease, backdrop-filter .3s ease;
+  transition: background .3s ease, backdrop-filter .3s ease;
 }
 
-/* Solid state when scrolled over white/light sections */
+/* Solid dark background state when scrolled down over white sections */
 .site-header.scrolled-down .header-inner {
   background: var(--wine);
-  border-color: rgba(212, 175, 55, 0.6);
   backdrop-filter: none;
 }
 
@@ -104,7 +103,7 @@ section{position:relative}
 }
 .dropdown-caret { color: var(--gold-light); font-size: 1rem; }
 .nav-dropdown-menu {
-  position: absolute; top: 100%; left: 50%; z-index: 1100;
+  position: absolute; top: 100%; left: 50%; z-index: 11000;
   display: none; grid-template-columns: 1.1fr 1fr; gap: 26px;
   width: min(690px, 88vw); padding: 25px;
   transform: translateX(-50%); background: var(--wine-deep);
@@ -142,7 +141,7 @@ section{position:relative}
 .menu-toggle span { display: block; width: 100%; height: 2px; background: #fff; transition: transform .2s; }
 
 .search-panel {
-  position: absolute; top: calc(100% + 20px); left: 0; right: 0; z-index: 1200;
+  position: absolute; top: calc(100% + 20px); left: 0; right: 0; z-index: 12000;
   display: none; padding: 20px 0; background: var(--wine-deep);
   border-top: 1px solid rgba(255,255,255,.12);
   box-shadow: 0 18px 35px rgba(0,0,0,.22);
@@ -315,16 +314,16 @@ section{position:relative}
 .sector-card{min-height:135px;display:flex;align-items:flex-end;padding:25px;background:#fff;border-bottom:3px solid var(--gold)}
 .sector-card h3{margin:0;color:var(--wine);font-size:1.15rem}
 
-/* PROJECT PREVIEW SECTION */
+/* PROJECT PREVIEW SECTION - FULL SIZE IMAGE FIX */
 .project-section{background:#fff;padding:45px 0}
 .project-section .section-heading{margin-bottom:20px}
 .project-section .section-label{color:#927631}
 .project-section .section-heading h2{color:var(--wine);margin-bottom:6px}
 .project-section .section-heading p{color:var(--muted)}
 
-.project-card{display:grid;grid-template-columns:1fr 1fr;overflow:hidden;background:var(--paper)}
-.project-visual{min-height:420px;background:var(--wine)}
-.project-visual img{width:100%;height:100%;min-height:420px;object-fit:cover}
+.project-card{display:grid;grid-template-columns:1fr 1fr;overflow:hidden;background:var(--paper);align-items:center}
+.project-visual{display:flex;align-items:center;justify-content:center;background:var(--wine-deep);padding:20px;min-height:100%}
+.project-visual img{width:100%;height:auto;max-height:450px;object-fit:contain}
 .project-details{padding:clamp(28px,5vw,58px)}
 .status{display:inline-block;margin-bottom:20px;padding:6px 10px;color:var(--wine);background:#E8DDB7;font-size:.72rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase}
 .project-details h3{margin-bottom:18px;color:var(--wine);font-size:1.8rem}
@@ -364,7 +363,7 @@ section{position:relative}
   .header-inner{grid-template-columns:auto minmax(0,1fr) auto;gap:12px;min-height:70px;padding:0 15px;}
   .brand img{width:140px;max-height:44px}
   .main-nav{
-    position:absolute;top:100%;left:0;right:0;z-index:1150;
+    position:absolute;top:100%;left:0;right:0;z-index:11500;
     display:none;flex-direction:column;align-items:flex-start;
     padding:20px 24px;background:var(--wine-deep);
     border-top:1px solid rgba(255,255,255,.12);
@@ -393,7 +392,7 @@ section{position:relative}
   .capability-grid{grid-template-columns:1fr}
   .sector-grid{grid-template-columns:1fr 1fr;gap:10px}
   .project-card{grid-template-columns:1fr}
-  .project-visual,.project-visual img{min-height:240px}
+  .project-visual{min-height:240px}
   .project-details{padding:24px 20px}
   .cta-inner{align-items:flex-start;flex-direction:column;gap:22px}
   .footer-main{grid-template-columns:1fr 1fr;gap:30px 20px}
