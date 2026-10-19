@@ -125,8 +125,8 @@ section{position:relative}
   min-height:min(790px,100svh);padding:160px 0 88px;
   overflow:hidden;color:#fff;background:var(--wine-deep)
 }
-.hero-media,.hero-shade{position:absolute;inset:0}
-.hero-media{overflow:hidden;background:var(--wine-deep)}
+.hero-media, .hero-shade{position:fixed;inset:0}
+.hero-media{overflow:hidden;background:var(--wine-deep);z-index:-1;}
 .hero-media video,.hero-media img{
   position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
   object-position:center
@@ -848,16 +848,16 @@ section{position:relative}
   const year = document.getElementById("year");
   if(year) year.textContent = new Date().getFullYear();
 
-  /* Bulletproof Scroll-Driven Video Switching */
+  /* True Background Scroll-Synced Video Manager */
   const video = document.getElementById("hero-video");
   const fallback = document.getElementById("hero-fallback");
   const videoStatus = document.getElementById("video-status");
 
   const sectionVideos = [
-    { selector: ".hero", src: "videos/Scene-01-physical-infrastructure.mp4", label: "Scene 1: Physical Infrastructure" },
-    { selector: ".intro-section", src: "videos/scene-02-engineering-delivery.mp4", label: "Scene 2: Engineering Delivery" },
-    { selector: ".lifecycle-section", src: "videos/scene-03-digital-engineering.mp4", label: "Scene 3: Digital Engineering" },
-    { selector: ".feature-section", src: "videos/scene-04-handover-operations.mp4", label: "Scene 4: Handover & Operations" }
+    { targetClass: "hero", src: "videos/Scene-01-physical-infrastructure.mp4", label: "Scene 1: Physical Infrastructure" },
+    { targetClass: "intro-section", src: "videos/scene-02-engineering-delivery.mp4", label: "Scene 2: Engineering Delivery" },
+    { targetClass: "lifecycle-section", src: "videos/scene-03-digital-engineering.mp4", label: "Scene 3: Digital Engineering" },
+    { targetClass: "feature-section", src: "videos/scene-04-handover-operations.mp4", label: "Scene 4: Handover & Operations" }
   ];
 
   let activeVideoIndex = -1;
@@ -867,7 +867,6 @@ section{position:relative}
     video.defaultMuted = true;
     video.playsInline = true;
 
-    // Force hide fallback immediately if video starts playing natively
     video.addEventListener("playing", function() {
       if (fallback) fallback.style.opacity = "0";
     });
@@ -888,24 +887,24 @@ section{position:relative}
       }
     }
 
-    function checkScrollSection() {
-      const scrollPosition = window.pageYOffset + window.innerHeight * 0.4;
-      
-      for (let i = sectionVideos.length - 1; i >= 0; i--) {
-        const el = document.querySelector(sectionVideos[i].selector);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          const elTop = rect.top + window.pageYOffset;
-          if (scrollPosition >= elTop) {
-            switchVideo(i);
-            break;
+    function updateVideoOnScroll() {
+      // Find which section is currently crossing the middle/top threshold of the screen
+      let currentIdx = 0;
+      for (let i = 0; i < sectionVideos.length; i++) {
+        const sectionEl = document.querySelector("." + sectionVideos[i].targetClass);
+        if (sectionEl) {
+          const rect = sectionEl.getBoundingClientRect();
+          // If the top of this section has reached the upper half of the screen
+          if (rect.top <= window.innerHeight * 0.5) {
+            currentIdx = i;
           }
         }
       }
+      switchVideo(currentIdx);
     }
 
-    window.addEventListener("scroll", checkScrollSection, { passive: true });
-    checkScrollSection();
+    window.addEventListener("scroll", updateVideoOnScroll, { passive: true });
+    updateVideoOnScroll();
   }
 
 })();
