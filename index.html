@@ -35,7 +35,7 @@ h1,h2,h3{line-height:1.12;letter-spacing:-.035em}
 h2{margin-bottom:15px;font-size:clamp(2rem,4vw,3.45rem)}
 p{color:var(--muted)}
 section{position:relative}
-.section-pad{padding:70px 0}
+.section-pad{padding:90px 0}
 .section-label,.eyebrow{display:inline-block;font-size:.76rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase}
 .section-label{color:var(--gold-light);margin-bottom:12px}
 .section-label:before{content:"";display:inline-block;width:26px;height:2px;margin:0 10px 4px 0;background:var(--gold)}
@@ -49,14 +49,13 @@ section{position:relative}
 .button-outline:hover{color:var(--wine);background:#fff}
 .arrow{font-size:1.1rem}
 
-/* DYNAMIC FLOATING BOXED HEADER */
+/* FLOATING BOXED HEADER (SUFFOLK STYLE) */
 .site-header {
   position: absolute;
   z-index: 1000;
   inset: 20px 0 auto 0;
   background: transparent;
   border-bottom: 0;
-  transition: background .3s ease;
 }
 .header-inner {
   max-width: var(--max);
@@ -67,20 +66,11 @@ section{position:relative}
   align-items: center;
   gap: 20px;
   padding: 0 25px;
-  background: rgba(43, 7, 20, 0.35);
+  background: rgba(43, 7, 20, 0.72);
   backdrop-filter: blur(8px);
   border: 1px solid rgba(212, 175, 55, 0.35);
   border-radius: 4px;
-  transition: background .3s ease, border-color .3s ease, backdrop-filter .3s ease;
 }
-
-/* Solid state when scrolled over white/light sections */
-.site-header.scrolled-down .header-inner {
-  background: var(--wine);
-  border-color: rgba(212, 175, 55, 0.6);
-  backdrop-filter: none;
-}
-
 .brand { justify-self: center; display: inline-flex; align-items: center; text-decoration: none; }
 .brand img { width: 170px; max-height: 50px; object-fit: contain; }
 
@@ -157,27 +147,18 @@ section{position:relative}
 .search-feedback { margin: 10px 0 0; color: rgba(255,255,255,.8); font-size: .84rem; }
 .search-feedback a { color: var(--gold-light); }
 
-/* STICKY STACKING VIDEO SECTIONS */
+/* VIDEO SECTIONS (SMOOTH SCROLL FLOW) */
 .section-with-video {
-  position: sticky;
-  top: 0;
-  height: 140vh;
+  position: relative;
+  min-height: 110vh;
   width: 100%;
   overflow: hidden;
   color: #fff;
   background: var(--wine-deep);
   display: flex;
   align-items: center;
-  isolation: isolate;
-  padding-top: 70px;
-  padding-bottom: 180px;
+  padding: 130px 0 140px;
 }
-
-/* Stacking Order */
-.hero { z-index: 10; }
-.intro-section { z-index: 20; }
-.lifecycle-section { z-index: 30; }
-.feature-section { z-index: 40; }
 
 .section-media {
   position: absolute;
@@ -206,8 +187,8 @@ section{position:relative}
   position: absolute;
   inset: 0;
   z-index: 2;
-  background: linear-gradient(90deg, rgba(43,7,20,.65), rgba(43,7,20,.4) 55%, rgba(24,4,11,.2)),
-              linear-gradient(0deg, rgba(43,7,20,.4), transparent 60%);
+  background: linear-gradient(90deg, rgba(24,4,11,.88), rgba(43,7,20,.65) 55%, rgba(24,4,11,.3)),
+              linear-gradient(0deg, rgba(24,4,11,.6), transparent 60%);
   pointer-events: none;
 }
 
@@ -403,7 +384,6 @@ section{position:relative}
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*:before,*:after{transition:none!important}
-  .section-with-video{position:relative;height:auto}
 }
 </style>
 </head>
@@ -940,24 +920,6 @@ section{position:relative}
 
   const year = document.getElementById("year");
   if(year) year.textContent = new Date().getFullYear();
-
-  /* DYNAMIC HEADER THEME SWITCHER */
-  const siteHeader = document.querySelector(".site-header");
-  const videoSections = document.querySelectorAll(".section-with-video");
-
-  if (siteHeader && videoSections.length > 0) {
-    const headerObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) {
-          siteHeader.classList.add("scrolled-down");
-        } else {
-          siteHeader.classList.remove("scrolled-down");
-        }
-      });
-    }, { threshold: 0.1 });
-
-    headerObserver.observe(videoSections[videoSections.length - 1]);
-  }
 
   /* ROBUST VIDEO PLAYBACK INITIALIZER */
   function forcePlayVideos() {
