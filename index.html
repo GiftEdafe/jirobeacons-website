@@ -103,7 +103,7 @@ section{position:relative}
 .icon-button:hover,.icon-button:focus-visible{color:var(--gold-light);border-color:var(--gold)}
 .icon-button svg{width:20px;height:20px}
 
-/* MOBILE MENU TOGGLE BUTTON (Restored) */
+/* MOBILE MENU TOGGLE BUTTON */
 .menu-toggle{
   display:none;flex-direction:column;justify-content:space-between;
   width:40px;height:40px;padding:10px;background:transparent;
@@ -442,13 +442,12 @@ section{position:relative}
 </header>
 
 <main>
-  <!-- SECTION 1: HERO -->
+  <!-- SECTION 1: HERO (Fallback background removed so video shows directly) -->
   <section class="hero section-with-video">
     <div class="section-media" aria-hidden="true">
       <video class="sec-video" autoplay muted loop playsinline preload="auto">
         <source src="videos/Scene-01-physical-infrastructure.mp4" type="video/mp4">
       </video>
-      <div style="position:absolute; inset:0; background:var(--wine-deep); z-index:1;"></div>
       <div class="section-shade"></div>
     </div>
     <div class="container">
@@ -471,7 +470,6 @@ section{position:relative}
       <video class="sec-video" autoplay muted loop playsinline preload="auto">
         <source src="videos/scene-02-engineering-delivery.mp4" type="video/mp4">
       </video>
-      <div style="position:absolute; inset:0; background:var(--wine-deep); z-index:1;"></div>
       <div class="section-shade"></div>
     </div>
     <div class="container two-col">
@@ -498,7 +496,6 @@ section{position:relative}
       <video class="sec-video" autoplay muted loop playsinline preload="auto">
         <source src="videos/scene-03-digital-engineering.mp4" type="video/mp4">
       </video>
-      <div style="position:absolute; inset:0; background:var(--wine-deep); z-index:1;"></div>
       <div class="section-shade"></div>
     </div>
     <div class="container">
@@ -559,7 +556,6 @@ section{position:relative}
       <video class="sec-video" autoplay muted loop playsinline preload="auto">
         <source src="videos/scene-04-handover-operations.mp4" type="video/mp4">
       </video>
-      <div style="position:absolute; inset:0; background:var(--wine-deep); z-index:1;"></div>
       <div class="section-shade"></div>
     </div>
     <div class="container two-col">
