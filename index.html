@@ -127,11 +127,11 @@ section{position:relative}
 .search-feedback{margin:10px 0 0;color:rgba(255,255,255,.8);font-size:.84rem}
 .search-feedback a{color:var(--gold-light)}
 
-/* STICKY STACKING BLOCKS - EXTENDED HEIGHT FOR SMOOTH READING TIME */
+/* STICKY STACKING BLOCKS - CLEAN TOP, EXTENDED DURATION & BOTTOM BUFFER */
 .section-with-video {
   position: sticky;
   top: 0;
-  height: 130vh;
+  height: 140vh; /* Keeps block sticky longer so text has ample time to display */
   width: 100%;
   overflow: hidden;
   color: #fff;
@@ -139,7 +139,8 @@ section{position:relative}
   display: flex;
   align-items: center;
   isolation: isolate;
-  padding-top: 95px;
+  padding-top: 70px; /* Minimal header breathing room at the top */
+  padding-bottom: 180px; /* Huge bottom buffer ensuring text finishes fully before next block covers it */
 }
 
 /* Stacking Order */
@@ -189,7 +190,7 @@ section{position:relative}
 
 /* HERO SECTION */
 .hero{
-  padding-top: 95px;
+  padding-top: 50px;
 }
 .hero-content{max-width:760px}
 .hero .eyebrow{color:var(--gold-light);margin-bottom:14px}
