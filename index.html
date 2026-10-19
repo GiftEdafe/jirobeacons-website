@@ -22,7 +22,7 @@
   --max:1240px;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:80px}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
 body{margin:0;color:var(--ink);background:#fff;font-family:Arial,Helvetica,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
 body.menu-open,body.search-open{overflow:hidden}
 img,video{display:block;max-width:100%}
@@ -49,14 +49,16 @@ section{position:relative}
 .button-outline:hover{color:var(--wine);background:#fff}
 .arrow{font-size:1.1rem}
 
-/* FLOATING BOXED HEADER */
+/* TRUE FLOATING PERMANENT FIXED HEADER */
 .site-header {
-  position: absolute;
+  position: fixed;
   z-index: 10000;
-  inset: 20px 0 auto 0;
+  top: 20px;
+  left: 0;
+  right: 0;
   background: transparent;
   border-bottom: 0;
-  transition: background .3s ease;
+  transition: background .3s ease, top .3s ease;
 }
 .header-inner {
   max-width: var(--max);
@@ -164,8 +166,8 @@ section{position:relative}
   color: #fff;
   background: var(--wine-deep);
   display: flex;
-  align-items: flex-start; /* Shifts content upward to close the top gap */
-  padding-top: 110px;      /* Positions text nicely right below the floating header */
+  align-items: flex-start;
+  padding-top: 120px;
   isolation: isolate;
 }
 
@@ -256,7 +258,7 @@ section{position:relative}
 .check-list li:before{position:absolute;top:.5em;left:0;width:6px;height:6px;background:var(--gold);content:""}
 .feature-image{position:relative;min-height:340px;overflow:hidden;background:rgba(43,7,20,0.8)}
 .feature-image img{width:100%;height:100%;min-height:340px;object-fit:cover}
-.feature-image:after{position:absolute;inset:0;border:1px solid rgba(212,175,55,.42);content:"";pointer-events:none}
+.feature-image:after{position:absolute;inset:0;border:1px solid rgba(212,175,55,.42);content:""}
 
 /* NORMAL FLOW SECTIONS */
 .capabilities-section, .digital-section, .sectors-section, .project-section, .statement-section, .cta-section, .site-footer {
@@ -970,7 +972,8 @@ section{position:relative}
         playPromise.catch(() => {
           const kickstart = () => {
             videos.forEach(v => {
-              v.blocks?.play ? v.play() : (v.muted = true, v.play().catch(() => {}));
+              v.muted = true;
+              v.play().catch(() => {});
             });
             window.removeEventListener('pointerdown', kickstart);
             window.removeEventListener('touchstart', kickstart);
