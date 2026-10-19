@@ -848,14 +848,14 @@ section{position:relative}
   const year = document.getElementById("year");
   if(year) year.textContent = new Date().getFullYear();
 
-  /* Scroll-triggered section-based video switching */
+    /* Scroll-triggered section-based video switching */
   const video = document.getElementById("hero-video");
   const fallback = document.getElementById("hero-fallback");
   const videoStatus = document.getElementById("video-status");
 
-  // Mapped to your exact filenames from your GitHub folder
+  // Using your exact filenames
   const sectionVideos = [
-    { selector: ".hero", src: "videos/scene-01-physical-infrastructure.mp4", label: "Scene 1: Physical Infrastructure" },
+    { selector: ".hero", src: "videos/Scene-01-physical-infrastructure.mp4", label: "Scene 1: Physical Infrastructure" },
     { selector: ".intro-section", src: "videos/scene-02-engineering-delivery.mp4", label: "Scene 2: Engineering Delivery" },
     { selector: ".lifecycle-section", src: "videos/scene-03-digital-engineering.mp4", label: "Scene 3: Digital Engineering" },
     { selector: ".feature-section", src: "videos/scene-04-handover-operations.mp4", label: "Scene 4: Handover & Operations" }
@@ -879,16 +879,22 @@ section{position:relative}
       if (playPromise !== undefined) {
         playPromise.catch(error => {
           console.log("Autoplay prevented:", error);
+          if (fallback) fallback.style.opacity = "1";
         });
       }
 
       if (videoStatus) {
         videoStatus.textContent = sectionVideos[index].label;
       }
-      if (fallback) {
-        fallback.style.opacity = "0";
-      }
     }
+
+    video.addEventListener("playing", function() {
+      if (fallback) fallback.style.opacity = "0";
+    });
+
+    video.addEventListener("error", function() {
+      if (fallback) fallback.style.opacity = "1";
+    });
 
     const observerOptions = {
       root: null,
@@ -915,6 +921,7 @@ section{position:relative}
 
     switchVideo(0);
   }
+
 </script>
 </body>
 </html>
