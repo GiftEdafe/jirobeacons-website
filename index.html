@@ -32,12 +32,12 @@ button{cursor:pointer}
 .container{width:min(var(--max),calc(100% - 48px));margin:auto}
 h1,h2,h3,p{margin-top:0}
 h1,h2,h3{line-height:1.12;letter-spacing:-.035em}
-h2{margin-bottom:20px;font-size:clamp(2rem,4vw,3.45rem)}
+h2{margin-bottom:15px;font-size:clamp(2rem,4vw,3.45rem)}
 p{color:var(--muted)}
 section{position:relative}
-.section-pad{padding:90px 0}
+.section-pad{padding:70px 0}
 .section-label,.eyebrow{display:inline-block;font-size:.76rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase}
-.section-label{color:var(--gold-light);margin-bottom:18px}
+.section-label{color:var(--gold-light);margin-bottom:12px}
 .section-label:before{content:"";display:inline-block;width:26px;height:2px;margin:0 10px 4px 0;background:var(--gold)}
 .button{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:50px;padding:13px 21px;border:1px solid transparent;border-radius:2px;font-size:.83rem;font-weight:800;letter-spacing:.04em;text-decoration:none;transition:background .2s,transform .2s}
 .button:hover{transform:translateY(-2px)}
@@ -51,7 +51,7 @@ section{position:relative}
 
 /* HEADER: fixed/absolute clean overlay */
 .site-header{
-  position:absolute;z-index:100;inset:0 0 auto;
+  position:absolute;z-index:1000;inset:0 0 auto;
   color:#fff;background:var(--wine);
   border-bottom:1px solid rgba(255,255,255,.16)
 }
@@ -75,7 +75,7 @@ section{position:relative}
 }
 .dropdown-caret{color:var(--gold-light);font-size:1rem}
 .nav-dropdown-menu{
-  position:absolute;top:100%;left:50%;z-index:110;
+  position:absolute;top:100%;left:50%;z-index:1100;
   display:none;grid-template-columns:1.1fr 1fr;gap:26px;
   width:min(690px,88vw);padding:25px;
   transform:translateX(-50%);background:var(--wine-deep);
@@ -104,7 +104,7 @@ section{position:relative}
 .icon-button svg{width:20px;height:20px}
 .menu-toggle{display:none}
 .search-panel{
-  position:absolute;top:100%;left:0;right:0;z-index:120;
+  position:absolute;top:100%;left:0;right:0;z-index:1200;
   display:none;padding:20px 0;background:var(--wine-deep);
   border-top:1px solid rgba(255,255,255,.12);
   box-shadow:0 18px 35px rgba(0,0,0,.22)
@@ -119,16 +119,23 @@ section{position:relative}
 .search-feedback{margin:10px 0 0;color:rgba(255,255,255,.8);font-size:.84rem}
 .search-feedback a{color:var(--gold-light)}
 
-/* INDEPENDENT CINEMATIC VIDEO BLOCKS (Tightened padding to remove empty space) */
+/* STICKY STACKING CINEMATIC VIDEO BLOCKS */
 .section-with-video {
-  position: relative;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
   overflow: hidden;
   color: #fff;
   background: var(--wine-deep);
-  min-height: 100vh;
   display: flex;
   align-items: center;
 }
+
+.hero { z-index: 1; }
+.intro-section { z-index: 2; }
+.lifecycle-section { z-index: 3; }
+.feature-section { z-index: 4; }
 
 .section-media {
   position: absolute;
@@ -164,7 +171,7 @@ section{position:relative}
   margin: auto;
 }
 
-/* HERO SECTION (Balanced spacing below header) */
+/* HERO SECTION */
 .hero{
   padding: 120px 0 60px;
 }
@@ -192,14 +199,14 @@ section{position:relative}
 .panel-line:before{width:30px;height:1px;background:var(--gold);content:""}
 
 /* LIFECYCLE SECTION */
-.section-heading{max-width:780px;margin-bottom:36px}
-.section-heading h2{color:#fff}
+.section-heading{max-width:780px;margin-bottom:20px}
+.section-heading h2{color:#fff;margin-bottom:10px}
 .section-heading p{max-width:680px;margin-bottom:0;font-size:1rem;color:rgba(255,255,255,.85)}
 .lifecycle-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(212,175,55,.3);border-left:1px solid rgba(212,175,55,.3)}
 .lifecycle-card{min-height:200px;padding:24px 20px;border-right:1px solid rgba(212,175,55,.3);border-bottom:1px solid rgba(212,175,55,.3);background:rgba(43,7,20,0.82);backdrop-filter:blur(6px)}
 .step-number{display:block;margin-bottom:20px;color:var(--gold-light);font-size:.78rem;font-weight:800;letter-spacing:.1em}
 .lifecycle-card h3{margin-bottom:8px;color:#fff;font-size:1.1rem}
-.lifecycle-card p{margin-bottom:0;font-size:.88rem;color:rgba(255,255,255,.8)}
+.lifecycle-card p{margin-bottom:0;font-size:.88rem;color:rgba(255,255,255,.8);text-align:justify}
 
 /* ENGINEERING & PROJECT DELIVERY */
 .feature-image{position:relative;min-height:450px;overflow:hidden;background:rgba(43,7,20,0.8)}
@@ -211,17 +218,40 @@ section{position:relative}
 .check-list li{position:relative;padding-left:20px;color:#fff;font-size:.88rem;font-weight:700}
 .check-list li:before{position:absolute;top:.55em;left:0;width:8px;height:8px;background:var(--gold);content:""}
 
-/* CAPABILITIES 01-08 */
-.capabilities-section{background:#fff}
-.capability-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-.capability-card{min-height:260px;padding:30px;background:#fff;transition:background .2s}
+/* NORMAL FLOW SECTIONS */
+.capabilities-section, .digital-section, .sectors-section, .project-section, .statement-section, .cta-section, .site-footer {
+  position: relative;
+  z-index: 100;
+  background: #fff;
+}
+
+/* CAPABILITIES SECTION 01-08 (Balanced 4-Column Uniform Grid) */
+.capabilities-section{padding:70px 0}
+.capabilities-section .section-heading{margin-bottom:20px}
+.capabilities-section .section-label{color:#927631}
+.capabilities-section .section-heading h2{color:var(--wine);margin-bottom:8px}
+.capabilities-section .section-heading p{color:var(--muted)}
+
+.capability-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+}
+.capability-card{
+  min-height:260px;
+  padding:24px;
+  background:#fff;
+  transition:background .2s;
+}
 .capability-card:hover{background:#FCFAF7}
-.capability-number{display:block;margin-bottom:24px;color:#927631;font-size:.77rem;font-weight:800;letter-spacing:.1em}
-.capability-card h3{margin-bottom:12px;color:var(--wine);font-size:1.27rem}
-.capability-card p{margin-bottom:0;font-size:.92rem}
-.edgecarbon-features{display:grid;gap:10px;margin:20px 0 0;padding:0;list-style:none}
-.edgecarbon-features li{position:relative;padding:10px 12px 10px 32px;background:var(--paper);color:var(--ink);font-size:.88rem;font-weight:600;line-height:1.5}
-.edgecarbon-features li:before{position:absolute;left:12px;top:10px;color:#927631;content:"■";font-size:.72rem}
+.capability-number{display:block;margin-bottom:14px;color:#927631;font-size:.74rem;font-weight:800;letter-spacing:.1em}
+.capability-card h3{margin-bottom:10px;color:var(--wine);font-size:1.15rem}
+.capability-card p{margin-bottom:0;font-size:.85rem;text-align:justify}
+.edgecarbon-features{display:grid;gap:6px;margin:12px 0 0;padding:0;list-style:none}
+.edgecarbon-features li{position:relative;padding:6px 8px 6px 24px;background:var(--paper);color:var(--ink);font-size:.8rem;font-weight:600;line-height:1.4;text-align:justify}
+.edgecarbon-features li:before{position:absolute;left:8px;top:7px;color:#927631;content:"■";font-size:.6rem}
 
 /* DIGITAL ENGINEERING */
 .digital-section{color:#fff;background:var(--wine)}
@@ -280,30 +310,7 @@ section{position:relative}
   .header-inner{grid-template-columns:minmax(0,1fr) auto;gap:12px;min-height:76px}
   .brand img{width:165px;max-height:52px}
   .header-tools{gap:8px}
-  .menu-toggle{display:inline-flex;flex-direction:column;gap:5px}
-  .menu-toggle span{display:block;width:21px;height:2px;background:currentColor;transition:transform .2s}
-  .menu-toggle[aria-expanded="true"] span:first-child{transform:translateY(7px) rotate(45deg)}
-  .menu-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
-  .menu-toggle[aria-expanded="true"] span:last-child{transform:translateY(-7px) rotate(-45deg)}
-  .main-nav{
-    position:absolute;top:100%;left:0;right:0;display:none;
-    align-items:stretch;flex-direction:column;gap:0;
-    max-height:calc(100svh - 76px);overflow-y:auto;
-    padding:12px 24px 25px;background:var(--wine-deep);
-    border-bottom:1px solid rgba(212,175,55,.35)
-  }
-  .main-nav.is-open{display:flex}
-  .main-nav>a,.nav-dropdown-toggle{display:flex;width:100%;padding:14px 0;font-size:.82rem;text-align:left}
-  .nav-dropdown-toggle{justify-content:space-between}
-  .nav-dropdown-menu{
-    position:static;display:none;grid-template-columns:1fr;gap:22px;
-    width:100%;padding:20px;transform:none;box-shadow:none
-  }
-  .nav-dropdown-menu.is-open{display:grid}
-  .nav-dropdown-group{gap:11px}
-  .main-nav .nav-dropdown-menu a{padding:3px 0;font-size:.85rem}
-  .two-col{gap:45px}
-  .lifecycle-grid{grid-template-columns:repeat(2,1fr)}
+  .menu-toggle{display:none}
   .capability-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:767px){
@@ -311,19 +318,7 @@ section{position:relative}
   .header-inner{min-height:70px}
   .brand img{width:145px;max-height:46px}
   .icon-button{width:38px;height:38px}
-  .main-nav{max-height:calc(100svh - 70px)}
-  .search-panel{padding:16px 0}
-  .search-form{flex-wrap:wrap}
-  .search-form input{flex-basis:100%}
-  .search-form button{flex:1}
-  .hero{padding:110px 0 50px}
-  .section-shade{background:linear-gradient(90deg,rgba(24,4,11,.84),rgba(24,4,11,.44)),linear-gradient(0deg,rgba(24,4,11,.7),transparent 80%)}
-  .hero h1{font-size:clamp(2.3rem,9.5vw,3.6rem)}
-  .hero-copy{font-size:.95rem}
-  .hero-buttons{align-items:stretch;flex-direction:column;max-width:310px}
-  .hero-buttons .button{width:100%}
-  .hero-note{margin-top:24px;font-size:.65rem}
-  .section-pad{padding:60px 0}
+  .section-pad{padding:50px 0}
   .two-col{grid-template-columns:1fr;gap:32px}
   .lifecycle-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .lifecycle-card{min-height:230px;padding:18px 15px}
@@ -333,33 +328,19 @@ section{position:relative}
   .feature-image,.feature-image img{min-height:280px}
   .check-list{grid-template-columns:1fr}
   .capability-grid{grid-template-columns:1fr}
-  .capability-card{min-height:auto;padding:24px}
-  .capability-number{margin-bottom:14px}
   .sector-grid{grid-template-columns:1fr 1fr;gap:10px}
-  .sector-card{min-height:115px;padding:16px}
-  .sector-card h3{font-size:.95rem}
   .project-card{grid-template-columns:1fr}
   .project-visual,.project-visual img{min-height:240px}
   .project-details{padding:24px 20px}
-  .project-meta{grid-template-columns:75px 1fr}
   .cta-inner{align-items:flex-start;flex-direction:column;gap:22px}
-  .cta-inner .button{width:100%}
   .footer-main{grid-template-columns:1fr 1fr;gap:30px 20px}
   .footer-brand{grid-column:1/-1}
   .footer-bottom{flex-direction:column;gap:8px}
 }
-@media(max-width:380px){
-  .container{width:calc(100% - 30px)}
-  .brand img{width:130px}
-  .header-tools{gap:5px}
-  .icon-button{width:34px;height:36px}
-  .lifecycle-card{padding:14px 10px}
-  .sector-grid,.footer-main{grid-template-columns:1fr}
-  .footer-brand{grid-column:auto}
-}
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*:before,*:after{transition:none!important}
+  .section-with-video{position:relative;height:auto}
 }
 </style>
 </head>
@@ -434,7 +415,7 @@ section{position:relative}
 </header>
 
 <main>
-  <!-- SECTION 1: HERO WITH DEDICATED SCENE 1 VIDEO BLOCK -->
+  <!-- SECTION 1: HERO (Sticky Stacking Block 1) -->
   <section class="hero section-with-video">
     <div class="section-media" aria-hidden="true">
       <video class="sec-video" autoplay muted loop playsinline preload="auto">
@@ -456,7 +437,7 @@ section{position:relative}
     </div>
   </section>
 
-  <!-- SECTION 2: INTRO WITH DEDICATED SCENE 2 VIDEO BLOCK -->
+  <!-- SECTION 2: INTRO (Sticky Stacking Block 2) -->
   <section class="intro-section section-pad section-with-video">
     <div class="section-media" aria-hidden="true">
       <video class="sec-video" autoplay muted loop playsinline preload="auto">
@@ -482,7 +463,7 @@ section{position:relative}
     </div>
   </section>
 
-  <!-- SECTION 3: LIFECYCLE WITH DEDICATED SCENE 3 VIDEO BLOCK -->
+  <!-- SECTION 3: LIFECYCLE (Sticky Stacking Block 3) -->
   <section class="lifecycle-section section-pad section-with-video">
     <div class="section-media" aria-hidden="true">
       <video class="sec-video" autoplay muted loop playsinline preload="auto">
@@ -542,7 +523,7 @@ section{position:relative}
     </div>
   </section>
 
-  <!-- SECTION 4: FEATURE WITH DEDICATED SCENE 4 VIDEO BLOCK -->
+  <!-- SECTION 4: FEATURE (Sticky Stacking Block 4) -->
   <section class="feature-section section-pad section-with-video">
     <div class="section-media" aria-hidden="true">
       <video class="sec-video" autoplay muted loop playsinline preload="auto">
@@ -575,7 +556,7 @@ section{position:relative}
     </div>
   </section>
 
-  <!-- REST OF THE SITE SECTIONS -->
+  <!-- CAPABILITIES SECTION (Uniform 4-Column Grid) -->
   <section class="capabilities-section section-pad" id="what-we-do">
     <div class="container">
       <div class="section-heading">
@@ -623,12 +604,12 @@ section{position:relative}
         <article class="capability-card" id="edgecarbon">
           <span class="capability-number">08 / OPERATIONS</span>
           <h3>EdgeCarbon Compliance &amp; ESG Data Platforms</h3>
-          <p>Organized handover frameworks backed by our proprietary analytics software to support real-time carbon tax forecasting, predictive peak demand shaving alerts, and automated audit-ready compliance ledger exports — showing how we activate that data.</p>
+          <p>Organized handover frameworks backed by our proprietary analytics software to support real-time carbon tax forecasting, predictive peak demand shaving alerts, and automated audit-ready compliance ledger exports.</p>
           <ul class="edgecarbon-features">
-            <li>Real-Time Hardware Telemetry Nodes</li>
-            <li>The Carbon Tax Shield (Financial Forecasting Engine)</li>
-            <li>Predictive Peak Demand Shaving Alerters</li>
-            <li>Anti-Greenwashing Audit Ledgering (Compliance Reporting)</li>
+            <li>Real-Time Hardware Nodes</li>
+            <li>Carbon Tax Shield</li>
+            <li>Peak Demand Alerters</li>
+            <li>Anti-Greenwashing Ledger</li>
           </ul>
         </article>
       </div>
@@ -848,8 +829,8 @@ section{position:relative}
       if(!query) return;
 
       const normalizedQuery = query.toLocaleLowerCase();
-      const sections = Array.from(document.querySelectorAll("main section"));
-      const match = sections.find(function(section){
+      const sectionsArr = Array.from(document.querySelectorAll("main section"));
+      const match = sectionsArr.find(function(section){
         return section.innerText.toLocaleLowerCase().includes(normalizedQuery);
       });
 
@@ -890,9 +871,14 @@ section{position:relative}
   const year = document.getElementById("year");
   if(year) year.textContent = new Date().getFullYear();
 
-  /* Intersection Observer for Independent Cinematic Blocks */
+  /* Instant Play on First Video & Intersection Observer for Rest */
   const videoBlocks = document.querySelectorAll(".section-with-video");
   
+  const firstVideo = document.querySelector(".hero .sec-video");
+  if(firstVideo){
+    firstVideo.play().catch(err => console.log("Hero autoplay waiting:", err));
+  }
+
   if ("IntersectionObserver" in window) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
