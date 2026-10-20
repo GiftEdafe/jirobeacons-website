@@ -49,7 +49,7 @@ section{position:relative}
 .button-outline:hover{color:#fff;background:rgba(255,255,255,0.15);border-color:#fff}
 .arrow{font-size:1.1rem}
 
-/* FIXED FLOATING HEADER */
+/* FIXED FLOATING HEADER (DESKTOP ORIGINAL) */
 .site-header {
   position: fixed;
   z-index: 10000;
@@ -408,7 +408,7 @@ section{position:relative}
   .nav-dropdown:focus-within .nav-dropdown-menu{display:grid}
 }
 @media(max-width:1100px){
-  /* Exact Suffolk-style full-width header flush against extreme edges */
+  /* Mobile/Tablet view: Suffolk-style full-width header flush against extreme edges */
   .site-header {
     top: 0;
     left: 0;
@@ -425,6 +425,7 @@ section{position:relative}
     min-height: 64px;
     padding: 0 12px;
   }
+  /* Explicitly scope brand/logo to extreme left on mobile ONLY */
   .header-inner .brand { 
     grid-column: 1; 
     justify-self: start; 
@@ -432,6 +433,7 @@ section{position:relative}
   }
   .header-inner .brand img{ width: 130px; max-height: 38px; }
   
+  /* Place tools on the extreme right */
   .header-tools {
     grid-column: 3;
     justify-self: end;
