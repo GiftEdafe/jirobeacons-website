@@ -408,10 +408,35 @@ section{position:relative}
   .nav-dropdown:focus-within .nav-dropdown-menu{display:grid}
 }
 @media(max-width:1100px){
-  /* Logo pushed flush to extreme left, tools flush to extreme right */
-  .header-inner{grid-template-columns:auto auto;justify-content:space-between;gap:12px;min-height:70px;padding:0 12px 0 6px;}
-  .brand { justify-self: start; margin-left: 0; }
-  .brand img{width:150px;max-height:44px}
+  /* Exact Suffolk-style full-width header flush against extreme edges */
+  .site-header {
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  .header-inner{
+    max-width: 100%;
+    width: 100%;
+    border-radius: 0;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 10px;
+    min-height: 64px;
+    padding: 0 12px;
+  }
+  .header-inner .brand { 
+    grid-column: 1; 
+    justify-self: start; 
+    margin-left: 0; 
+  }
+  .header-inner .brand img{ width: 130px; max-height: 38px; }
+  
+  .header-tools {
+    grid-column: 3;
+    justify-self: end;
+  }
+
   .main-nav{
     position:absolute;top:100%;left:0;right:0;z-index:11500;
     display:none;flex-direction:column;align-items:flex-start;
@@ -426,9 +451,9 @@ section{position:relative}
 }
 @media(max-width:767px){
   .container{width:calc(100% - 40px)}
-  .site-header{inset:10px 10px auto 10px;}
-  .header-inner{min-height:64px;padding:0 10px 0 4px;}
-  .brand img{width:135px;max-height:40px}
+  .site-header{inset:0 0 auto 0;}
+  .header-inner{min-height:58px;padding:0 10px;}
+  .brand img{width:120px;max-height:35px}
   .icon-button{width:34px;height:34px}
   .section-pad{padding:50px 0}
   .two-col{grid-template-columns:1fr;gap:32px}
@@ -460,7 +485,7 @@ section{position:relative}
 <body>
 <header class="site-header">
   <div class="header-inner">
-    <!-- Brand Logo (Extreme Left on Mobile) -->
+    <!-- Brand Logo (Centered on Desktop, Extreme Left on Mobile) -->
     <a class="brand" href="index.html" aria-label="Jiro-BEACONS Engineering home">
       <img src="images/logo-white.png" alt="Jiro-BEACONS Engineering">
     </a>
@@ -505,7 +530,7 @@ section{position:relative}
       <a href="contact.html">Contact</a>
     </nav>
 
-    <!-- Search & Menu Tools (Extreme Right on Mobile) -->
+    <!-- Search & Menu Tools -->
     <div class="header-tools">
       <button class="icon-button" id="search-toggle" type="button" aria-label="Open search" aria-expanded="false" aria-controls="search-panel">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
