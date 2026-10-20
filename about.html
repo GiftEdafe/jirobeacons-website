@@ -3,10 +3,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>About Jiro-BEACONS | Integrated Engineering & Digital Delivery</title>
-  <meta name="description" content="Discover Jiro-BEACONS Engineering's integrated approach to surveying, engineering, construction quality, digital engineering and intelligent asset information.">
+  <title>About Jiro-BEACONS Engineering | Integrated Engineering &amp; Digital Delivery</title>
+  <meta name="description" content="Discover Jiro-BEACONS Engineering's integrated approach to surveying, engineering delivery, construction quality, digital engineering and intelligent asset information.">
   <meta name="theme-color" content="#2B0714">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,6 +19,7 @@
       --wine-light: #3A0A1B;
       --wine-dark: #18040B;
       --gold: #D4AF37;
+      --gold-light: #E8D28A;
       --white: #FFFFFF;
       --off-white: #F7F5F3;
       --text: #242124;
@@ -45,6 +46,10 @@
       background: var(--white);
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
+    }
+
+    body.menu-open {
+      overflow: hidden;
     }
 
     img {
@@ -89,7 +94,7 @@
 
     .container {
       width: min(var(--container), calc(100% - 64px));
-      margin: auto;
+      margin-inline: auto;
     }
 
     .section {
@@ -142,7 +147,7 @@
       border-radius: 2px;
       font-size: 12px;
       font-weight: 700;
-      transition: .25s ease;
+      transition: background .2s ease, transform .2s ease;
     }
 
     .btn:hover {
@@ -164,7 +169,7 @@
     }
 
     .btn-gold:hover {
-      background: #E5CB68;
+      background: var(--gold-light);
     }
 
     .text-link {
@@ -179,6 +184,11 @@
 
     .text-link span {
       color: #98751B;
+      transition: transform .2s ease;
+    }
+
+    .text-link:hover span {
+      transform: translateX(4px);
     }
 
     /* HEADER */
@@ -188,9 +198,8 @@
       top: 0;
       z-index: 1000;
       height: var(--header-height);
-      background: rgba(255,255,255,.97);
-      border-bottom: 1px solid rgba(43,7,20,.08);
-      backdrop-filter: blur(12px);
+      background: var(--wine);
+      border-bottom: 1px solid rgba(255,255,255,.1);
     }
 
     .header-inner {
@@ -198,26 +207,45 @@
       display: grid;
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      gap: 24px;
+      gap: 22px;
       width: min(1440px, calc(100% - 64px));
       height: 100%;
       margin: auto;
     }
 
+    .brand {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 2;
+      transform: translate(-50%, -50%);
+    }
+
     .brand img {
-      width: 215px;
-      max-height: 61px;
+      width: 210px;
+      max-height: 60px;
       object-fit: contain;
     }
 
-    .main-nav {
+    .desktop-nav {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 22px;
+      gap: 23px;
+      min-width: 0;
     }
 
-    .main-nav > a,
+    .nav-left {
+      grid-column: 1;
+      justify-content: flex-start;
+    }
+
+    .nav-right {
+      grid-column: 3;
+      justify-content: flex-end;
+      gap: 19px;
+    }
+
+    .desktop-nav > a,
     .nav-trigger {
       display: inline-flex;
       align-items: center;
@@ -225,17 +253,18 @@
       padding: 13px 0;
       border: 0;
       background: transparent;
-      color: var(--wine);
+      color: rgba(255,255,255,.92);
       font-size: 11px;
       font-weight: 700;
       white-space: nowrap;
       cursor: pointer;
     }
 
-    .main-nav > a:hover,
-    .main-nav > a.active,
-    .nav-trigger:hover {
-      color: #98751B;
+    .desktop-nav > a:hover,
+    .desktop-nav > a.active,
+    .nav-trigger:hover,
+    .nav-trigger[aria-expanded="true"] {
+      color: var(--gold);
     }
 
     .nav-dropdown {
@@ -244,17 +273,17 @@
 
     .dropdown-menu {
       position: absolute;
-      top: calc(100% + 8px);
+      top: calc(100% + 12px);
       left: -18px;
-      width: 235px;
+      width: 255px;
       padding: 12px;
       background: var(--white);
       border: 1px solid var(--border);
-      box-shadow: 0 16px 38px rgba(24,4,11,.12);
+      box-shadow: 0 16px 38px rgba(24,4,11,.16);
       opacity: 0;
       visibility: hidden;
       transform: translateY(8px);
-      transition: .2s ease;
+      transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
     }
 
     .nav-dropdown:hover .dropdown-menu,
@@ -278,34 +307,43 @@
       color: var(--wine);
     }
 
-    .header-right {
+    .header-tools {
       display: flex;
       align-items: center;
-      justify-content: flex-end;
-      gap: 14px;
-    }
-
-    .header-contact {
-      padding: 11px 18px;
-      background: var(--wine);
-      color: var(--white);
-      font-size: 11px;
-      font-weight: 700;
-      white-space: nowrap;
+      gap: 13px;
+      margin-left: 2px;
     }
 
     .search-link {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 35px;
-      height: 35px;
-      color: var(--wine);
+      width: 34px;
+      height: 38px;
+      color: var(--white);
     }
 
     .search-link svg {
       width: 20px;
       height: 20px;
+    }
+
+    .header-contact {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 10px 15px;
+      background: var(--gold);
+      color: var(--wine-dark);
+      font-size: 11px;
+      font-weight: 800;
+      white-space: nowrap;
+      transition: background .2s ease;
+    }
+
+    .header-contact:hover {
+      background: var(--gold-light);
     }
 
     .menu-toggle {
@@ -314,9 +352,9 @@
       justify-content: center;
       width: 42px;
       height: 42px;
-      border: 1px solid var(--border);
-      background: var(--white);
-      color: var(--wine);
+      border: 1px solid rgba(255,255,255,.35);
+      background: transparent;
+      color: var(--white);
       cursor: pointer;
     }
 
@@ -325,13 +363,17 @@
       height: 23px;
     }
 
+    .mobile-nav {
+      display: none;
+    }
+
     /* PAGE HERO */
 
     .page-hero {
       position: relative;
       display: flex;
       align-items: center;
-      min-height: 520px;
+      min-height: 560px;
       overflow: hidden;
       background: var(--wine);
       color: var(--white);
@@ -351,9 +393,9 @@
       inset: 0;
       background: linear-gradient(
         90deg,
-        rgba(24,4,11,.93) 0%,
-        rgba(43,7,20,.82) 48%,
-        rgba(43,7,20,.35) 100%
+        rgba(24,4,11,.94) 0%,
+        rgba(43,7,20,.83) 48%,
+        rgba(43,7,20,.36) 100%
       );
     }
 
@@ -361,8 +403,8 @@
       position: relative;
       z-index: 2;
       width: min(var(--container), calc(100% - 64px));
-      margin: auto;
-      padding: 95px 0;
+      margin-inline: auto;
+      padding: 100px 0;
     }
 
     .page-hero .eyebrow {
@@ -370,7 +412,7 @@
     }
 
     .page-hero h1 {
-      max-width: 830px;
+      max-width: 850px;
       margin-bottom: 24px;
       color: var(--white);
     }
@@ -381,7 +423,7 @@
 
     .page-hero p {
       max-width: 650px;
-      color: rgba(255,255,255,.82);
+      color: rgba(255,255,255,.84);
       font-size: 16px;
       line-height: 1.9;
     }
@@ -528,7 +570,7 @@
     }
 
     .principles-section .section-heading p {
-      color: rgba(255,255,255,.72);
+      color: rgba(255,255,255,.74);
     }
 
     .principles-grid {
@@ -542,6 +584,12 @@
       padding: 29px 25px;
       border: 1px solid rgba(255,255,255,.16);
       background: rgba(255,255,255,.035);
+      transition: background .2s ease, border-color .2s ease;
+    }
+
+    .principle-card:hover {
+      border-color: rgba(212,175,55,.5);
+      background: rgba(255,255,255,.06);
     }
 
     .principle-card .number {
@@ -560,7 +608,7 @@
     }
 
     .principle-card p {
-      color: rgba(255,255,255,.72);
+      color: rgba(255,255,255,.74);
       font-size: 12px;
       line-height: 1.85;
     }
@@ -577,6 +625,12 @@
       padding: 25px 23px;
       border: 1px solid var(--border);
       background: var(--white);
+      transition: border-color .2s ease, transform .2s ease;
+    }
+
+    .industry-card:hover {
+      border-color: rgba(212,175,55,.75);
+      transform: translateY(-3px);
     }
 
     .industry-card .square {
@@ -651,7 +705,7 @@
 
     .footer-brand p {
       max-width: 360px;
-      color: rgba(255,255,255,.66);
+      color: rgba(255,255,255,.68);
       font-size: 12px;
       line-height: 1.9;
     }
@@ -672,7 +726,7 @@
     }
 
     .footer-links a {
-      color: rgba(255,255,255,.67);
+      color: rgba(255,255,255,.68);
       font-size: 12px;
     }
 
@@ -691,79 +745,137 @@
 
     .footer-bottom p,
     .footer-bottom a {
-      color: rgba(255,255,255,.5);
+      color: rgba(255,255,255,.52);
       font-size: 10px;
     }
 
-    /* TABLET AND MOBILE */
+    /* MOBILE NAVIGATION */
 
     @media (max-width: 1200px) {
+      :root {
+        --header-height: 78px;
+      }
+
       .header-inner {
-        grid-template-columns: 1fr auto;
+        display: flex;
+        justify-content: space-between;
+        width: calc(100% - 40px);
       }
 
       .brand {
-        grid-column: 1;
-        grid-row: 1;
+        position: static;
+        transform: none;
+        flex-shrink: 0;
       }
 
-      .header-right {
-        grid-column: 2;
-        grid-row: 1;
+      .brand img {
+        width: 180px;
+        max-height: 53px;
       }
 
-      .main-nav {
+      .desktop-nav {
+        display: none;
+      }
+
+      .header-tools {
+        gap: 10px;
+        margin-left: auto;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .mobile-nav {
         position: fixed;
         top: var(--header-height);
         right: 0;
         bottom: 0;
         left: 0;
         z-index: 999;
-        display: none;
-        align-items: stretch;
-        flex-direction: column;
-        justify-content: flex-start;
-        gap: 0;
-        padding: 20px 32px 45px;
-        overflow-y: auto;
-        background: var(--white);
-      }
-
-      .main-nav.is-open {
         display: flex;
+        flex-direction: column;
+        gap: 0;
+        padding: 15px 30px 40px;
+        overflow-y: auto;
+        background: var(--wine);
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-8px);
+        transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
       }
 
-      .main-nav > a,
-      .nav-trigger {
-        width: 100%;
+      .mobile-nav.is-open {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .mobile-nav > a,
+      .mobile-nav .nav-trigger {
+        display: flex;
+        align-items: center;
         justify-content: space-between;
-        padding: 17px 0;
-        border-bottom: 1px solid var(--border);
+        width: 100%;
+        padding: 16px 0;
+        border: 0;
+        border-bottom: 1px solid rgba(255,255,255,.15);
+        background: transparent;
+        color: var(--white);
+        text-align: left;
         font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
       }
 
-      .nav-dropdown {
+      .mobile-nav > a:hover,
+      .mobile-nav .nav-trigger:hover,
+      .mobile-nav > a.active {
+        color: var(--gold);
+      }
+
+      .mobile-nav .nav-dropdown {
         width: 100%;
       }
 
-      .dropdown-menu {
+      .mobile-nav .dropdown-menu {
         position: static;
         display: none;
         width: 100%;
-        padding: 5px 0 10px 15px;
+        padding: 6px 0 12px 15px;
         border: 0;
+        background: transparent;
         box-shadow: none;
         opacity: 1;
         visibility: visible;
         transform: none;
       }
 
-      .nav-dropdown.open .dropdown-menu {
+      .mobile-nav .nav-dropdown.open .dropdown-menu {
         display: block;
       }
 
-      .menu-toggle {
-        display: inline-flex;
+      .mobile-nav .dropdown-menu a {
+        padding: 11px 8px;
+        color: rgba(255,255,255,.78);
+        font-size: 13px;
+      }
+
+      .mobile-nav .dropdown-menu a:hover {
+        background: rgba(255,255,255,.06);
+        color: var(--gold);
+      }
+
+      .mobile-nav .mobile-contact {
+        justify-content: center;
+        margin-top: 25px;
+        padding: 15px 20px;
+        border: 0;
+        background: var(--gold);
+        color: var(--wine-dark);
+        font-weight: 800;
       }
 
       .lifecycle-grid {
@@ -772,42 +884,12 @@
     }
 
     @media (min-width: 1201px) {
-      .brand {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        z-index: 2;
-        transform: translate(-50%, -50%);
-      }
-
-      .main-nav {
-        grid-column: 1 / -1;
-        grid-row: 1;
-        justify-content: space-between;
-        width: 100%;
-        pointer-events: none;
-      }
-
-      .main-nav > * {
-        pointer-events: auto;
-      }
-
-      .header-right {
-        grid-column: 3;
-        grid-row: 1;
-        z-index: 3;
-      }
-
-      .main-nav > a:nth-last-child(-n+3) {
-        margin-left: 0;
+      .mobile-nav {
+        display: none !important;
       }
     }
 
     @media (max-width: 760px) {
-      :root {
-        --header-height: 74px;
-      }
-
       .container,
       .page-hero-content {
         width: calc(100% - 40px);
@@ -822,16 +904,20 @@
       }
 
       .brand img {
-        width: 155px;
-        max-height: 49px;
+        width: 150px;
+        max-height: 47px;
       }
 
-      .header-right {
-        gap: 7px;
+      .header-tools {
+        gap: 6px;
       }
 
       .header-contact {
         display: none;
+      }
+
+      .search-link {
+        width: 34px;
       }
 
       .page-hero {
@@ -839,7 +925,7 @@
       }
 
       .page-hero-content {
-        padding: 80px 0;
+        padding: 78px 0;
       }
 
       .page-hero h1 {
@@ -898,6 +984,11 @@
         flex-direction: column;
         gap: 9px;
       }
+
+      .mobile-nav {
+        padding-right: 22px;
+        padding-left: 22px;
+      }
     }
 
     @media (max-width: 390px) {
@@ -907,7 +998,7 @@
       }
 
       .brand img {
-        width: 135px;
+        width: 132px;
       }
 
       .footer-top {
@@ -935,44 +1026,54 @@
   <header class="site-header">
     <div class="header-inner">
 
-      <a class="brand" href="index.html" aria-label="Jiro-BEACONS home">
-        <img src="images/logo.png" alt="Jiro-BEACONS Engineering">
-      </a>
+      <nav class="desktop-nav nav-left" aria-label="Primary navigation">
 
-      <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+        <a href="about.html" class="active" aria-current="page">About</a>
 
         <div class="nav-dropdown">
           <button class="nav-trigger" type="button" aria-expanded="false">
-            About <span aria-hidden="true">⌄</span>
-          </button>
-          <div class="dropdown-menu">
-            <a href="about.html">Who We Are</a>
-            <a href="about.html#approach">Our Approach</a>
-            <a href="about.html#industries">Industries We Serve</a>
-          </div>
-        </div>
-
-        <div class="nav-dropdown">
-          <button class="nav-trigger" type="button" aria-expanded="false">
-            What We Do <span aria-hidden="true">⌄</span>
+            Services <span aria-hidden="true">⌄</span>
           </button>
           <div class="dropdown-menu">
             <a href="services.html">All Services</a>
-            <a href="services.html#engineering">Engineering & Project Delivery</a>
-            <a href="services.html#quality">QA/QC & Quality Assurance</a>
-            <a href="services.html#digital">Digital Engineering & BIM</a>
+            <a href="services.html#engineering">Engineering &amp; Project Delivery</a>
+            <a href="services.html#quality">QA/QC &amp; Quality Assurance</a>
+            <a href="services.html#digital">Digital Engineering &amp; BIM</a>
             <a href="services.html#asset-information">Asset Information</a>
           </div>
         </div>
 
-        <a href="projects.html">Projects</a>
-        <a href="careers.html">Careers</a>
-        <a href="insights.html">Insights</a>
-        <a href="contact.html">Contact</a>
+        <a href="solutions.html">Solutions</a>
 
       </nav>
 
-      <div class="header-right">
+      <a class="brand" href="index.html" aria-label="Jiro-BEACONS home">
+        <img src="images/logo-white.png"
+             alt="Jiro-BEACONS Engineering"
+             onerror="this.onerror=null;this.src='images/logo.png';">
+      </a>
+
+      <nav class="desktop-nav nav-right" aria-label="Additional navigation">
+
+        <a href="projects.html">Projects</a>
+        <a href="insights.html">Insights</a>
+        <a href="careers.html">Careers</a>
+
+        <div class="header-tools">
+          <a class="search-link" href="insights.html" aria-label="Explore insights">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+              <circle cx="10.8" cy="10.8" r="6.8"></circle>
+              <path d="m16 16 4.2 4.2"></path>
+            </svg>
+          </a>
+
+          <a class="header-contact" href="contact.html">Let's Talk</a>
+        </div>
+
+      </nav>
+
+      <div class="header-tools mobile-tools">
 
         <a class="search-link" href="insights.html" aria-label="Explore insights">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -982,10 +1083,9 @@
           </svg>
         </a>
 
-        <a class="header-contact" href="contact.html">Let's Talk</a>
-
         <button class="menu-toggle" id="menuToggle" type="button"
-                aria-label="Open navigation menu" aria-controls="mainNav"
+                aria-label="Open navigation menu"
+                aria-controls="mobileNav"
                 aria-expanded="false">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
@@ -994,7 +1094,35 @@
         </button>
 
       </div>
+
     </div>
+
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" inert>
+
+      <a href="about.html" class="active" aria-current="page">About</a>
+
+      <div class="nav-dropdown">
+        <button class="nav-trigger" type="button" aria-expanded="false">
+          Services <span aria-hidden="true">⌄</span>
+        </button>
+        <div class="dropdown-menu">
+          <a href="services.html">All Services</a>
+          <a href="services.html#engineering">Engineering &amp; Project Delivery</a>
+          <a href="services.html#quality">QA/QC &amp; Quality Assurance</a>
+          <a href="services.html#digital">Digital Engineering &amp; BIM</a>
+          <a href="services.html#asset-information">Asset Information</a>
+        </div>
+      </div>
+
+      <a href="solutions.html">Solutions</a>
+      <a href="projects.html">Projects</a>
+      <a href="insights.html">Insights</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Contact</a>
+
+      <a class="mobile-contact" href="contact.html">Let's Talk <span aria-hidden="true">→</span></a>
+
+    </nav>
   </header>
 
 
@@ -1135,19 +1263,19 @@
 
           <article class="lifecycle-card">
             <span class="lifecycle-number">01 / ASSESS</span>
-            <h3>Survey & Evaluate</h3>
+            <h3>Survey &amp; Evaluate</h3>
             <p>Surveying, geospatial measurement, site information and existing-condition assessment.</p>
           </article>
 
           <article class="lifecycle-card">
             <span class="lifecycle-number">02 / QUANTIFY</span>
-            <h3>Quantity & Cost</h3>
+            <h3>Quantity &amp; Cost</h3>
             <p>Quantity measurement, BOQs, cost planning and commercial information support.</p>
           </article>
 
           <article class="lifecycle-card">
             <span class="lifecycle-number">03 / PLAN</span>
-            <h3>Plan & Coordinate</h3>
+            <h3>Plan &amp; Coordinate</h3>
             <p>Project planning, engineering coordination and structured technical requirements.</p>
           </article>
 
@@ -1159,7 +1287,7 @@
 
           <article class="lifecycle-card">
             <span class="lifecycle-number">05 / VERIFY</span>
-            <h3>Verify & Assure</h3>
+            <h3>Verify &amp; Assure</h3>
             <p>Inspection records, test evidence, QA/QC registers and construction verification.</p>
           </article>
 
@@ -1285,25 +1413,25 @@
 
           <article class="industry-card">
             <span class="square"></span>
-            <h3>Real Estate & Property</h3>
+            <h3>Real Estate &amp; Property</h3>
             <p>Surveying, as-built information, construction records and digital property documentation.</p>
           </article>
 
           <article class="industry-card">
             <span class="square"></span>
-            <h3>Construction & EPC</h3>
+            <h3>Construction &amp; EPC</h3>
             <p>Project information, quality documentation, technical coordination and handover support.</p>
           </article>
 
           <article class="industry-card">
             <span class="square"></span>
-            <h3>Energy & Power</h3>
+            <h3>Energy &amp; Power</h3>
             <p>Engineering records, inspection and test information, asset data and digital handover.</p>
           </article>
 
           <article class="industry-card">
             <span class="square"></span>
-            <h3>Oil & Gas</h3>
+            <h3>Oil &amp; Gas</h3>
             <p>Technical documentation, project registers, quality evidence and turnover information.</p>
           </article>
 
@@ -1315,7 +1443,7 @@
 
           <article class="industry-card">
             <span class="square"></span>
-            <h3>Commercial & Hospitality</h3>
+            <h3>Commercial &amp; Hospitality</h3>
             <p>Building information, project documentation and digital foundations for asset operations.</p>
           </article>
 
@@ -1393,6 +1521,7 @@
   </main>
 
 
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container">
 
@@ -1448,12 +1577,13 @@
 
   <script>
     const menuToggle = document.getElementById("menuToggle");
-    const mainNav = document.getElementById("mainNav");
+    const mobileNav = document.getElementById("mobileNav");
     const dropdowns = document.querySelectorAll(".nav-dropdown");
 
-    function closeMenu() {
-      mainNav.classList.remove("is-open");
-      document.body.style.overflow = "";
+    function closeMobileMenu() {
+      mobileNav.classList.remove("is-open");
+      mobileNav.setAttribute("inert", "");
+      document.body.classList.remove("menu-open");
 
       menuToggle.setAttribute("aria-expanded", "false");
       menuToggle.setAttribute("aria-label", "Open navigation menu");
@@ -1466,35 +1596,43 @@
 
       dropdowns.forEach(dropdown => {
         dropdown.classList.remove("open");
-        dropdown.querySelector(".nav-trigger")
-          .setAttribute("aria-expanded", "false");
+
+        const trigger = dropdown.querySelector(".nav-trigger");
+        if (trigger) {
+          trigger.setAttribute("aria-expanded", "false");
+        }
       });
     }
 
+    function openMobileMenu() {
+      mobileNav.classList.add("is-open");
+      mobileNav.removeAttribute("inert");
+      document.body.classList.add("menu-open");
+
+      menuToggle.setAttribute("aria-expanded", "true");
+      menuToggle.setAttribute("aria-label", "Close navigation menu");
+
+      menuToggle.innerHTML = `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <path d="m6 6 12 12M18 6 6 18"></path>
+        </svg>`;
+    }
+
     menuToggle.addEventListener("click", () => {
-      const isOpen = mainNav.classList.toggle("is-open");
+      const isOpen = mobileNav.classList.contains("is-open");
 
-      document.body.style.overflow = isOpen ? "hidden" : "";
-
-      menuToggle.setAttribute("aria-expanded", String(isOpen));
-      menuToggle.setAttribute(
-        "aria-label",
-        isOpen ? "Close navigation menu" : "Open navigation menu"
-      );
-
-      menuToggle.innerHTML = isOpen
-        ? `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
-             <path d="m6 6 12 12M18 6 6 18"></path>
-           </svg>`
-        : `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
-             <path d="M4 7h16M4 12h16M4 17h16"></path>
-           </svg>`;
+      if (isOpen) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
     });
 
     dropdowns.forEach(dropdown => {
       const trigger = dropdown.querySelector(".nav-trigger");
+
+      if (!trigger) return;
 
       trigger.addEventListener("click", () => {
         const isOpen = dropdown.classList.toggle("open");
@@ -1502,17 +1640,20 @@
       });
     });
 
-    mainNav.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        if (window.innerWidth <= 1200) closeMenu();
-      });
+    mobileNav.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", closeMobileMenu);
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape" && mobileNav.classList.contains("is-open")) {
+        closeMobileMenu();
+        menuToggle.focus();
+      }
     });
 
     window.addEventListener("resize", () => {
       if (window.innerWidth > 1200) {
-        mainNav.classList.remove("is-open");
-        document.body.style.overflow = "";
-        menuToggle.setAttribute("aria-expanded", "false");
+        closeMobileMenu();
       }
     });
 
