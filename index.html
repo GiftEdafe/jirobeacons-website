@@ -155,7 +155,7 @@ section{position:relative}
 .search-feedback { margin: 10px 0 0; color: rgba(255,255,255,.8); font-size: .84rem; }
 .search-feedback a { color: var(--gold-light); }
 
-/* STICKY STACKING SECTIONS WITH LIGHT TRANSLUCENT CREAM SHADE */
+/* STICKY STACKING SECTIONS WITH CRYSTAL CLEAR VIDEO VISIBILITY */
 .section-with-video {
   position: sticky;
   top: 0;
@@ -163,7 +163,7 @@ section{position:relative}
   width: 100%;
   overflow: hidden;
   color: var(--ink);
-  background: var(--paper);
+  background: #000;
   display: flex;
   align-items: flex-start;
   padding-top: 120px;
@@ -183,7 +183,7 @@ section{position:relative}
   height: 100%;
   z-index: 0;
   overflow: hidden;
-  background: var(--paper);
+  background: #000;
 }
 
 .section-media video {
@@ -199,13 +199,13 @@ section{position:relative}
   z-index: 1;
 }
 
-/* ADJUSTED: Light translucent tint so the video underneath is clearly visible */
+/* Crystal-clear vignette: lets actual video colors shine through vividly */
 .section-shade {
   position: absolute;
   inset: 0;
   z-index: 2;
-  background: linear-gradient(90deg, rgba(247, 245, 243, 0.68), rgba(255, 255, 255, 0.52) 60%, rgba(247, 245, 243, 0.45)),
-              linear-gradient(0deg, rgba(255, 255, 255, 0.35), transparent 70%);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.2) 60%, rgba(255, 255, 255, 0.15)),
+              linear-gradient(0deg, rgba(255, 255, 255, 0.15), transparent 70%);
   pointer-events: none;
 }
 
