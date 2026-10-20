@@ -49,7 +49,7 @@ section{position:relative}
 .button-outline:hover{color:#fff;background:rgba(255,255,255,0.15);border-color:#fff}
 .arrow{font-size:1.1rem}
 
-/* FIXED FLOATING HEADER - DESKTOP BALANCED LAYOUT */
+/* FIXED FLOATING HEADER - TRUE SYMMETRICAL 3-COLUMN DESKTOP LAYOUT */
 .site-header {
   position: fixed;
   z-index: 10000;
@@ -65,10 +65,10 @@ section{position:relative}
   margin: 0 auto;
   min-height: 76px;
   display: grid;
-  /* About (1) Services (2) Solutions (3) Logo (4) Projects (5) Insights (6) Careers (7) Spacer (8) Tools (9) */
-  grid-template-columns: auto auto auto auto auto auto auto 1fr auto;
+  /* Left group (1fr) | Dead-center Logo (auto) | Right group + tools (1fr) */
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  gap: clamp(14px, 1.8vw, 24px);
+  gap: 20px;
   padding: 0 25px;
   background: var(--wine);
   border: none;
@@ -81,19 +81,36 @@ section{position:relative}
   backdrop-filter: blur(8px);
 }
 
-/* Explicit Desktop Grid Placement */
-.nav-item-about { grid-column: 1; }
-.nav-item-services { grid-column: 2; }
-.nav-item-solutions { grid-column: 3; }
-.brand { grid-column: 4; justify-self: center; display: inline-flex; align-items: center; text-decoration: none; }
-.brand img { width: 220px; max-height: 60px; object-fit: contain; }
-.nav-item-projects { grid-column: 5; }
-.nav-item-insights { grid-column: 6; }
-.nav-item-careers { grid-column: 7; }
-.header-tools { grid-column: 9; display: flex; align-items: center; gap: 10px; justify-self: end; }
+/* Left Navigation Group */
+.header-left-nav {
+  justify-self: start;
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 2vw, 28px);
+}
 
-.main-nav {
-  display: contents;
+/* Centered Brand Logo */
+.brand { 
+  grid-column: 2;
+  justify-self: center; 
+  display: inline-flex; 
+  align-items: center; 
+  text-decoration: none; 
+}
+.brand img { width: 220px; max-height: 60px; object-fit: contain; }
+
+/* Right Navigation Group & Tools combined on the right */
+.header-right-group {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 2vw, 28px);
+}
+
+.header-right-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 2vw, 28px);
 }
 
 .main-nav>a,.nav-dropdown-toggle {
@@ -127,6 +144,7 @@ section{position:relative}
 }
 .main-nav .nav-dropdown-menu a:hover { color: var(--gold-light); }
 
+.header-tools { display: flex; align-items: center; gap: 10px; }
 .icon-button {
   display: inline-flex; align-items: center; justify-content: center;
   width: 38px; height: 38px; padding: 0; color: #fff;
@@ -381,7 +399,7 @@ section{position:relative}
 
 /* BRAND STATEMENT */
 .statement-section{padding:90px 0;color:#fff;background:var(--wine-deep)}
-.statement-section blockquote{max-width:950px;margin:0;font-size:clamp(2rem,5vw,4rem);font-weight:750;line-height:1.15;letter-spacing:-.04em}
+.statement-section blockquote{max-width:950px;margin:0;font-size:clamp(2rem,5vw,4.0rem);font-weight:750;line-height:1.15;letter-spacing:-.04em}
 .statement-section blockquote span{color:var(--gold-light)}
 .statement-section p{margin:24px 0 0;color:rgba(255,255,255,.7);font-size:.82rem;letter-spacing:.1em;text-transform:uppercase}
 
@@ -485,11 +503,11 @@ section{position:relative}
 <body>
 <header class="site-header">
   <div class="header-inner">
-    <!-- Left Navigation Items -->
-    <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
-      <a class="nav-item-about" href="about.html">About</a>
+    <!-- Left Navigation Items (About, Services, Solutions) -->
+    <nav class="main-nav header-left-nav" id="main-navigation" aria-label="Main navigation">
+      <a href="about.html">About</a>
 
-      <div class="nav-dropdown nav-item-services">
+      <div class="nav-dropdown">
         <button class="nav-dropdown-toggle" id="services-toggle" aria-expanded="false" aria-controls="services-menu" type="button">
           Services <span class="dropdown-caret" aria-hidden="true">⌄</span>
         </button>
@@ -516,32 +534,33 @@ section{position:relative}
         </div>
       </div>
 
-      <a class="nav-item-solutions" href="solutions.html">Solutions</a>
+      <a href="solutions.html">Solutions</a>
     </nav>
 
-    <!-- Brand Logo (Centered on Desktop, Extreme Left on Mobile) -->
+    <!-- Brand Logo (Strictly Centered in Dead Center) -->
     <a class="brand" href="index.html" aria-label="Jiro-BEACONS Engineering home">
       <img src="images/logo-white.png" alt="Jiro-BEACONS Engineering">
     </a>
 
-    <!-- Right Navigation Items -->
-    <nav class="main-nav" aria-label="Secondary navigation">
-      <a class="nav-item-projects" href="projects.html">Projects</a>
-      <a class="nav-item-insights" href="insights.html">Insights</a>
-      <a class="nav-item-careers" href="careers.html">Careers</a>
-    </nav>
+    <!-- Right Group: Right Navigation (Projects, Insights, Careers) + Search/Menu Tools -->
+    <div class="header-right-group">
+      <nav class="main-nav header-right-nav" aria-label="Secondary navigation">
+        <a href="projects.html">Projects</a>
+        <a href="insights.html">Insights</a>
+        <a href="careers.html">Careers</a>
+      </nav>
 
-    <!-- Search & Menu Tools -->
-    <div class="header-tools">
-      <button class="icon-button" id="search-toggle" type="button" aria-label="Open search" aria-expanded="false" aria-controls="search-panel">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-          <circle cx="10.8" cy="10.8" r="6.8"></circle>
-          <path d="m16 16 5 5"></path>
-        </svg>
-      </button>
-      <button class="icon-button menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-navigation">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="header-tools">
+        <button class="icon-button" id="search-toggle" type="button" aria-label="Open search" aria-expanded="false" aria-controls="search-panel">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <circle cx="10.8" cy="10.8" r="6.8"></circle>
+            <path d="m16 16 5 5"></path>
+          </svg>
+        </button>
+        <button class="icon-button menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </div>
 
