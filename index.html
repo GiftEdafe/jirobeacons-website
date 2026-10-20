@@ -354,7 +354,7 @@ section{position:relative}
 .sector-card{min-height:135px;display:flex;align-items:flex-end;padding:25px;background:#fff;border-bottom:3px solid var(--gold)}
 .sector-card h3{margin:0;color:var(--wine);font-size:1.15rem}
 
-/* PROJECT PREVIEW SECTION */
+/* PROJECT PREVIEW SECTION WITH AUTO-SLIDESHOW */
 .project-section{background:#fff;padding:45px 0}
 .project-section .section-heading{margin-bottom:20px}
 .project-section .section-label{color:#927631}
@@ -372,25 +372,42 @@ section{position:relative}
   min-height: 100%;
   overflow: hidden;
 }
+
+/* Background container that switches based on active slide */
 .project-visual::before {
   content: "";
   position: absolute;
   inset: -15px;
-  background: url('images/imo-city-computer-village-hub.jpg') center/cover no-repeat;
+  background: var(--current-bg, url('images/imo-city-computer-village-hub.jpg')) center/cover no-repeat;
   filter: blur(4px) brightness(0.95);
   opacity: 0.9;
   z-index: 0;
   pointer-events: none;
+  transition: background-image 0.8s ease-in-out;
 }
-.project-visual img{
+
+/* Slideshow Image Stacking */
+.project-slideshow {
   position: relative;
   z-index: 1;
   width: 100%;
-  height: auto;
-  max-height: 420px;
+  height: 100%;
+  min-height: 320px;
+}
+.project-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
   box-shadow: 0 12px 35px rgba(0,0,0,0.35);
 }
+.project-slide.active {
+  opacity: 1;
+}
+
 .project-details{padding:clamp(28px,5vw,58px)}
 .status{display:inline-block;margin-bottom:20px;padding:6px 10px;color:var(--wine);background:#E8DDB7;font-size:.72rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase}
 .project-details h3{margin-bottom:18px;color:var(--wine);font-size:1.8rem}
@@ -823,7 +840,7 @@ section{position:relative}
     </div>
   </section>
 
-  <!-- PROJECT PREVIEW SECTION -->
+  <!-- PROJECT PREVIEW SECTION WITH AUTO-SLIDESHOW -->
   <section class="project-section">
     <div class="container">
       <div class="section-heading">
@@ -833,8 +850,13 @@ section{position:relative}
       </div>
 
       <article class="project-card">
-        <div class="project-visual">
-          <img src="images/imo-city-computer-village-hub.jpg" alt="Imo City Computer Village Hub project" loading="lazy" onerror="this.style.display='none'">
+        <div class="project-visual" id="project-visual">
+          <div class="project-slideshow">
+            <!-- Image 1 -->
+            <img class="project-slide active" src="images/imo-city-computer-village-hub.jpg" alt="Imo City Computer Village Hub project view 1" loading="lazy">
+            <!-- Image 2 -->
+            <img class="project-slide" src="images/imo-city-computer-village-hb.jpg" alt="Imo City Computer Village Hub project view 2" loading="lazy">
+          </div>
         </div>
         <div class="project-details">
           <span class="status">Ongoing project</span>
@@ -1035,6 +1057,22 @@ section{position:relative}
 
   const year = document.getElementById("year");
   if(year) year.textContent = new Date().getFullYear();
+
+  /* AUTOMATIC PROJECT SLIDESHOW SWITCHER */
+  const slides = document.querySelectorAll(".project-slide");
+  const visualContainer = document.getElementById("project-visual");
+  if(slides.length === 2 && visualContainer){
+    let currentSlide = 0;
+    setInterval(function(){
+      slides[currentSlide].classList.remove("active");
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add("active");
+      
+      // Sync the background blur container to match the active image src
+      const activeSrc = slides[currentSlide].getAttribute("src");
+      visualContainer.style.setProperty("--current-bg", `url('${activeSrc}')`);
+    }, 4500); // Switches every 4.5 seconds automatically
+  }
 
   /* HEADER TRANSPARENCY SWITCHER (TRANSPARENT AFTER SECTION 2) */
   const siteHeader = document.querySelector(".site-header");
