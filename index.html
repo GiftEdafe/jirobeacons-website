@@ -49,7 +49,7 @@ section{position:relative}
 .button-outline:hover{color:#fff;background:rgba(255,255,255,0.15);border-color:#fff}
 .arrow{font-size:1.1rem}
 
-/* FIXED FLOATING HEADER (DESKTOP ORIGINAL) */
+/* FIXED FLOATING HEADER - DESKTOP BALANCED LAYOUT */
 .site-header {
   position: fixed;
   z-index: 10000;
@@ -65,9 +65,10 @@ section{position:relative}
   margin: 0 auto;
   min-height: 76px;
   display: grid;
-  grid-template-columns: 1fr auto 1fr auto;
+  /* About (1) Services (2) Solutions (3) Logo (4) Projects (5) Insights (6) Careers (7) Spacer (8) Tools (9) */
+  grid-template-columns: auto auto auto auto auto auto auto 1fr auto;
   align-items: center;
-  gap: 20px;
+  gap: clamp(14px, 1.8vw, 24px);
   padding: 0 25px;
   background: var(--wine);
   border: none;
@@ -80,16 +81,20 @@ section{position:relative}
   backdrop-filter: blur(8px);
 }
 
-.brand { justify-self: center; display: inline-flex; align-items: center; text-decoration: none; }
-.brand img { width: 260px; max-height: 68px; object-fit: contain; }
+/* Explicit Desktop Grid Placement */
+.nav-item-about { grid-column: 1; }
+.nav-item-services { grid-column: 2; }
+.nav-item-solutions { grid-column: 3; }
+.brand { grid-column: 4; justify-self: center; display: inline-flex; align-items: center; text-decoration: none; }
+.brand img { width: 220px; max-height: 60px; object-fit: contain; }
+.nav-item-projects { grid-column: 5; }
+.nav-item-insights { grid-column: 6; }
+.nav-item-careers { grid-column: 7; }
+.header-tools { grid-column: 9; display: flex; align-items: center; gap: 10px; justify-self: end; }
 
 .main-nav {
-  display: flex;
-  align-items: center;
-  gap: clamp(12px, 1.8vw, 24px);
+  display: contents;
 }
-.header-left-nav { justify-content: flex-start; }
-.header-right-nav { justify-content: flex-end; }
 
 .main-nav>a,.nav-dropdown-toggle {
   color: rgba(255,255,255,.94); font-size: .7rem; font-weight: 800;
@@ -122,7 +127,6 @@ section{position:relative}
 }
 .main-nav .nav-dropdown-menu a:hover { color: var(--gold-light); }
 
-.header-tools { display: flex; align-items: center; gap: 10px; }
 .icon-button {
   display: inline-flex; align-items: center; justify-content: center;
   width: 38px; height: 38px; padding: 0; color: #fff;
@@ -199,7 +203,6 @@ section{position:relative}
   z-index: 1;
 }
 
-/* Clean neutral dark charcoal overlay (Suffolk style) */
 .section-shade {
   position: absolute;
   inset: 0;
@@ -216,7 +219,6 @@ section{position:relative}
   margin: auto;
 }
 
-/* FORCING CLEAN WHITE TEXT & SUFFOLK STYLE IN VIDEO SECTIONS */
 .section-with-video h1,
 .section-with-video h2,
 .section-with-video h3,
@@ -248,13 +250,12 @@ section{position:relative}
 .hero-note{display:flex;align-items:center;gap:12px;margin-top:16px;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;opacity:0.8}
 .hero-note:before{content:"";width:42px;height:1px;background:var(--gold-light)}
 
-/* INTRODUCTION SECTION & BORDERLESS INTRO PANEL */
+/* INTRODUCTION SECTION */
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,80px);align-items:center}
 .intro-copy h2{max-width:630px;font-size:clamp(1.8rem,3.2vw,2.8rem);margin-bottom:12px;font-weight:700}
 .intro-copy p{max-width:680px;margin-bottom:10px;font-size:0.95rem;opacity:0.9}
 .intro-statement{margin-top:14px;padding:12px 0 12px 16px;border-left:3px solid var(--gold);font-size:1rem;font-weight:750;color:#fff}
 
-/* INTRO PANEL WITH BORDER REMOVED */
 .intro-panel{position:relative;padding:clamp(20px,3vw,32px);color:#fff;background:rgba(10, 10, 12, 0.45);backdrop-filter:blur(8px);box-shadow:0 18px 50px rgba(0,0,0,.2);border:none;}
 .intro-panel:after{display:none;}
 .panel-kicker{color:var(--gold-light);font-size:.7rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
@@ -273,14 +274,13 @@ section{position:relative}
 .lifecycle-card h3{margin-bottom:4px;font-size:.9rem;color:#fff}
 .lifecycle-card p{margin-bottom:0;font-size:.75rem;color:rgba(255,255,255,0.85);text-align:justify}
 
-/* ENGINEERING & PROJECT DELIVERY */
+/* FEATURE SECTION */
 .feature-copy h2{max-width:590px;font-size:clamp(1.8rem,3.2vw,2.8rem);margin-bottom:12px;font-weight:700}
 .feature-copy>p{max-width:600px;font-size:0.95rem;margin-bottom:10px;opacity:0.9}
 .check-list{display:grid;grid-template-columns:1fr 1fr;gap:6px 16px;margin:10px 0 12px;padding:0;list-style:none}
 .check-list li{position:relative;padding-left:16px;font-size:.78rem;font-weight:700}
 .check-list li:before{position:absolute;top:.5em;left:0;width:6px;height:6px;background:var(--gold-light);content:""}
 
-/* REMOVED BORDER AROUND RIGHT IMAGE */
 .feature-image{position:relative;min-height:340px;overflow:hidden;background:transparent}
 .feature-image img{width:100%;height:100%;min-height:340px;object-fit:cover}
 
@@ -336,7 +336,7 @@ section{position:relative}
 .sector-card{min-height:135px;display:flex;align-items:flex-end;padding:25px;background:#fff;border-bottom:3px solid var(--gold)}
 .sector-card h3{margin:0;color:var(--wine);font-size:1.15rem}
 
-/* PROJECT PREVIEW SECTION - AMBIENT BLURRED BACKGROUND FILL */
+/* PROJECT PREVIEW SECTION */
 .project-section{background:#fff;padding:45px 0}
 .project-section .section-heading{margin-bottom:20px}
 .project-section .section-label{color:#927631}
@@ -425,7 +425,6 @@ section{position:relative}
     min-height: 64px;
     padding: 0 12px;
   }
-  /* Explicitly scope brand/logo to extreme left on mobile ONLY */
   .header-inner .brand { 
     grid-column: 1; 
     justify-self: start; 
@@ -433,7 +432,6 @@ section{position:relative}
   }
   .header-inner .brand img{ width: 130px; max-height: 38px; }
   
-  /* Place tools on the extreme right */
   .header-tools {
     grid-column: 3;
     justify-self: end;
@@ -487,17 +485,11 @@ section{position:relative}
 <body>
 <header class="site-header">
   <div class="header-inner">
-    <!-- Brand Logo (Centered on Desktop, Extreme Left on Mobile) -->
-    <a class="brand" href="index.html" aria-label="Jiro-BEACONS Engineering home">
-      <img src="images/logo-white.png" alt="Jiro-BEACONS Engineering">
-    </a>
+    <!-- Left Navigation Items -->
+    <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
+      <a class="nav-item-about" href="about.html">About</a>
 
-    <!-- Left & Right Nav (Hidden/Dropdown on Mobile) -->
-    <nav class="main-nav header-left-nav" id="main-navigation" aria-label="Main navigation">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-
-      <div class="nav-dropdown">
+      <div class="nav-dropdown nav-item-services">
         <button class="nav-dropdown-toggle" id="services-toggle" aria-expanded="false" aria-controls="services-menu" type="button">
           Services <span class="dropdown-caret" aria-hidden="true">⌄</span>
         </button>
@@ -523,13 +515,20 @@ section{position:relative}
           </div>
         </div>
       </div>
-      <a href="solutions.html">Solutions</a>
+
+      <a class="nav-item-solutions" href="solutions.html">Solutions</a>
     </nav>
 
-    <nav class="main-nav header-right-nav" aria-label="Secondary navigation">
-      <a href="projects.html">Projects</a>
-      <a href="insights.html">Insights</a>
-      <a href="contact.html">Contact</a>
+    <!-- Brand Logo (Centered on Desktop, Extreme Left on Mobile) -->
+    <a class="brand" href="index.html" aria-label="Jiro-BEACONS Engineering home">
+      <img src="images/logo-white.png" alt="Jiro-BEACONS Engineering">
+    </a>
+
+    <!-- Right Navigation Items -->
+    <nav class="main-nav" aria-label="Secondary navigation">
+      <a class="nav-item-projects" href="projects.html">Projects</a>
+      <a class="nav-item-insights" href="insights.html">Insights</a>
+      <a class="nav-item-careers" href="careers.html">Careers</a>
     </nav>
 
     <!-- Search & Menu Tools -->
