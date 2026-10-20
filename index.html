@@ -337,13 +337,36 @@ section{position:relative}
 .edgecarbon-features li{position:relative;padding:6px 8px 6px 24px;background:var(--paper);color:var(--ink);font-size:.8rem;font-weight:600;line-height:1.4;text-align:justify}
 .edgecarbon-features li:before{position:absolute;left:8px;top:7px;color:#927631;content:"■";font-size:.6rem}
 
-/* DIGITAL ENGINEERING */
+/* DIGITAL ENGINEERING SLIDESHOW STYLING */
 .digital-section{color:#fff;background:var(--wine)}
 .digital-section .section-label{color:var(--gold-light)}
 .digital-section h2{color:#fff}
 .digital-section p{color:rgba(255,255,255,.78)}
 .digital-section .check-list li{color:#fff}
-.digital-section .feature-image{background:var(--wine-deep)}
+.digital-section .feature-image{
+  position: relative;
+  min-height: 340px;
+  overflow: hidden;
+  background: var(--wine-deep);
+}
+.digital-slideshow {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 340px;
+}
+.digital-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+.digital-slide.active {
+  opacity: 1;
+}
 
 /* SECTORS SECTION */
 .sectors-section{background:var(--paper);padding:70px 0}
@@ -796,6 +819,7 @@ section{position:relative}
     </div>
   </section>
 
+  <!-- DIGITAL ENGINEERING SECTION WITH 3-IMAGE SLIDESHOW -->
   <section class="digital-section section-pad">
     <div class="container two-col">
       <div class="feature-copy">
@@ -813,10 +837,11 @@ section{position:relative}
         <a class="button button-gold" href="solutions.html">Explore Digital Solutions <span class="arrow">↗</span></a>
       </div>
       <div class="feature-image">
-        <picture>
-          <source media="(max-width:767px)" srcset="images/digital-mobile.png">
-          <img src="images/digital-desktop.png" alt="Digital engineering model connecting a physical asset with structured information" loading="lazy">
-        </picture>
+        <div class="digital-slideshow">
+          <img class="digital-slide active" src="images/Bess-1.jpg" alt="Digital engineering slideshow view 1" loading="lazy">
+          <img class="digital-slide" src="images/Bess-2.jpg" alt="Digital engineering slideshow view 2" loading="lazy">
+          <img class="digital-slide" src="images/Bess-3.jpg" alt="Digital engineering slideshow view 3" loading="lazy">
+        </div>
       </div>
     </div>
   </section>
@@ -1059,19 +1084,29 @@ section{position:relative}
   if(year) year.textContent = new Date().getFullYear();
 
   /* AUTOMATIC PROJECT SLIDESHOW SWITCHER */
-  const slides = document.querySelectorAll(".project-slide");
+  const projectSlides = document.querySelectorAll(".project-slide");
   const visualContainer = document.getElementById("project-visual");
-  if(slides.length === 2 && visualContainer){
-    let currentSlide = 0;
+  if(projectSlides.length > 0 && visualContainer){
+    let currentProjectSlide = 0;
     setInterval(function(){
-      slides[currentSlide].classList.remove("active");
-      currentSlide = (currentSlide + 1) % slides.length;
-      slides[currentSlide].classList.add("active");
+      projectSlides[currentProjectSlide].classList.remove("active");
+      currentProjectSlide = (currentProjectSlide + 1) % projectSlides.length;
+      projectSlides[currentProjectSlide].classList.add("active");
       
-      // Sync the background blur container to match the active image src
-      const activeSrc = slides[currentSlide].getAttribute("src");
+      const activeSrc = projectSlides[currentProjectSlide].getAttribute("src");
       visualContainer.style.setProperty("--current-bg", `url('${activeSrc}')`);
-    }, 4500); // Switches every 4.5 seconds automatically
+    }, 4500);
+  }
+
+  /* AUTOMATIC DIGITAL ENGINEERING SLIDESHOW SWITCHER */
+  const digitalSlides = document.querySelectorAll(".digital-slide");
+  if(digitalSlides.length > 0){
+    let currentDigitalSlide = 0;
+    setInterval(function(){
+      digitalSlides[currentDigitalSlide].classList.remove("active");
+      currentDigitalSlide = (currentDigitalSlide + 1) % digitalSlides.length;
+      digitalSlides[currentDigitalSlide].classList.add("active");
+    }, 4500);
   }
 
   /* HEADER TRANSPARENCY SWITCHER (TRANSPARENT AFTER SECTION 2) */
