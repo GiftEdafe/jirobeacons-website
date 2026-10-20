@@ -69,13 +69,12 @@ section{position:relative}
   align-items: center;
   gap: 20px;
   padding: 0 25px;
-  background: var(--wine); /* Starts solid wine by default */
+  background: var(--wine);
   border: none;
   border-radius: 4px;
   transition: background .3s ease, backdrop-filter .3s ease;
 }
 
-/* Becomes transparent when scrolled down past the first 2 sections */
 .site-header.transparent-header .header-inner {
   background: rgba(43, 7, 20, 0.35);
   backdrop-filter: blur(8px);
@@ -156,15 +155,15 @@ section{position:relative}
 .search-feedback { margin: 10px 0 0; color: rgba(255,255,255,.8); font-size: .84rem; }
 .search-feedback a { color: var(--gold-light); }
 
-/* STICKY STACKING SECTIONS WITH UPWARD TEXT SHIFT */
+/* STICKY STACKING SECTIONS WITH BRIGHT CREAM/WHITE SHADING */
 .section-with-video {
   position: sticky;
   top: 0;
   height: 100vh;
   width: 100%;
   overflow: hidden;
-  color: #fff;
-  background: var(--wine-deep);
+  color: var(--ink); /* Adjusted for bright background aesthetic */
+  background: var(--paper);
   display: flex;
   align-items: flex-start;
   padding-top: 120px;
@@ -184,7 +183,7 @@ section{position:relative}
   height: 100%;
   z-index: 0;
   overflow: hidden;
-  background: var(--wine-deep);
+  background: var(--paper);
 }
 
 .section-media video {
@@ -200,12 +199,13 @@ section{position:relative}
   z-index: 1;
 }
 
+/* Bright Cream / Off-White Light Overlay (Suffolk-style clean look) */
 .section-shade {
   position: absolute;
   inset: 0;
   z-index: 2;
-  background: linear-gradient(90deg, rgba(43,7,20,.65), rgba(43,7,20,.4) 55%, rgba(24,4,11,.2)),
-              linear-gradient(0deg, rgba(43,7,20,.4), transparent 60%);
+  background: linear-gradient(90deg, rgba(247, 245, 243, 0.92), rgba(255, 255, 255, 0.85) 60%, rgba(247, 245, 243, 0.7)),
+              linear-gradient(0deg, rgba(255, 255, 255, 0.6), transparent 70%);
   pointer-events: none;
 }
 
@@ -216,47 +216,47 @@ section{position:relative}
   margin: auto;
 }
 
-/* HERO SECTION */
+/* HERO SECTION (Dark text for bright cream background) */
 .hero-content{max-width:760px}
-.hero .eyebrow{color:var(--gold-light);margin-bottom:10px}
-.hero h1{margin-bottom:12px;font-size:clamp(2.2rem,4.5vw,4.8rem);color:#fff}
-.hero h1 span{display:block;color:var(--gold-light)}
-.hero-copy{max-width:670px;margin-bottom:18px;color:rgba(255,255,255,.9);font-size:0.98rem}
+.hero .eyebrow{color: #927631;margin-bottom:10px}
+.hero h1{margin-bottom:12px;font-size:clamp(2.2rem,4.5vw,4.8rem);color:var(--wine)}
+.hero h1 span{display:block;color:#927631}
+.hero-copy{max-width:670px;margin-bottom:18px;color:var(--muted);font-size:0.98rem}
 .hero-buttons{display:flex;flex-wrap:wrap;gap:12px}
-.hero-note{display:flex;align-items:center;gap:12px;margin-top:16px;color:rgba(255,255,255,.85);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase}
-.hero-note:before{content:"";width:42px;height:1px;background:var(--gold)}
+.hero-note{display:flex;align-items:center;gap:12px;margin-top:16px;color:var(--muted);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase}
+.hero-note:before{content:"";width:42px;height:1px;background:#927631}
 
 /* INTRODUCTION SECTION */
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,80px);align-items:center}
-.intro-copy h2{max-width:630px;color:#fff;font-size:clamp(1.8rem,3.2vw,2.8rem);margin-bottom:12px}
-.intro-copy p{max-width:680px;color:rgba(255,255,255,.88);margin-bottom:10px;font-size:0.92rem}
-.intro-copy strong{color:var(--gold-light)}
-.intro-statement{margin-top:14px;padding:12px 0 12px 16px;border-left:3px solid var(--gold);color:#fff;font-size:1rem;font-weight:750}
-.intro-panel{position:relative;padding:clamp(20px,3vw,32px);color:#fff;background:rgba(43,7,20,0.82);backdrop-filter:blur(6px);box-shadow:0 18px 50px rgba(24,4,11,.3)}
+.intro-copy h2{max-width:630px;color:var(--wine);font-size:clamp(1.8rem,3.2vw,2.8rem);margin-bottom:12px}
+.intro-copy p{max-width:680px;color:var(--muted);margin-bottom:10px;font-size:0.92rem}
+.intro-copy strong{color:#927631}
+.intro-statement{margin-top:14px;padding:12px 0 12px 16px;border-left:3px solid var(--gold);color:var(--wine);font-size:1rem;font-weight:750}
+.intro-panel{position:relative;padding:clamp(20px,3vw,32px);color:var(--ink);background:rgba(255, 255, 255, 0.9);backdrop-filter:blur(6px);box-shadow:0 18px 50px rgba(43,7,20,.1);border:1px solid rgba(212,175,55,.3)}
 .intro-panel:after{position:absolute;right:0;bottom:0;width:60px;height:60px;border-top:1px solid rgba(212,175,55,.65);border-left:1px solid rgba(212,175,55,.65);content:""}
-.panel-kicker{color:var(--gold-light);font-size:.7rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
-.intro-panel h3{max-width:420px;margin:10px 0;font-size:clamp(1.3rem,2.4vw,1.9rem);color:#fff}
-.intro-panel p{color:rgba(255,255,255,.82);font-size:0.88rem;margin-bottom:0}
-.panel-line{display:flex;align-items:center;gap:12px;margin-top:16px;color:var(--gold-light);font-size:.75rem;font-weight:800}
+.panel-kicker{color:#927631;font-size:.7rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+.intro-panel h3{max-width:420px;margin:10px 0;font-size:clamp(1.3rem,2.4vw,1.9rem);color:var(--wine)}
+.intro-panel p{color:var(--muted);font-size:0.88rem;margin-bottom:0}
+.panel-line{display:flex;align-items:center;gap:12px;margin-top:16px;color:#927631;font-size:.75rem;font-weight:800}
 .panel-line:before{width:25px;height:1px;background:var(--gold);content:""}
 
 /* LIFECYCLE SECTION */
 .section-heading{max-width:780px;margin-bottom:14px}
-.section-heading h2{color:#fff;margin-bottom:6px;font-size:clamp(1.8rem,3.2vw,2.8rem)}
-.section-heading p{max-width:680px;margin-bottom:0;font-size:0.92rem;color:rgba(255,255,255,.85)}
-.lifecycle-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(212,175,55,.3);border-left:1px solid rgba(212,175,55,.3)}
-.lifecycle-card{min-height:140px;padding:14px 12px;border-right:1px solid rgba(212,175,55,.3);border-bottom:1px solid rgba(212,175,55,.3);background:rgba(43,7,20,0.85);backdrop-filter:blur(6px)}
-.step-number{display:block;margin-bottom:6px;color:var(--gold-light);font-size:.68rem;font-weight:800;letter-spacing:.1em}
-.lifecycle-card h3{margin-bottom:4px;color:#fff;font-size:.9rem}
-.lifecycle-card p{margin-bottom:0;font-size:.75rem;color:rgba(255,255,255,.8);text-align:justify}
+.section-heading h2{color:var(--wine);margin-bottom:6px;font-size:clamp(1.8rem,3.2vw,2.8rem)}
+.section-heading p{max-width:680px;margin-bottom:0;font-size:0.92rem;color:var(--muted)}
+.lifecycle-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(212,175,55,.4);border-left:1px solid rgba(212,175,55,.4)}
+.lifecycle-card{min-height:140px;padding:14px 12px;border-right:1px solid rgba(212,175,55,.4);border-bottom:1px solid rgba(212,175,55,.4);background:rgba(255, 255, 255, 0.88);backdrop-filter:blur(6px)}
+.step-number{display:block;margin-bottom:6px;color:#927631;font-size:.68rem;font-weight:800;letter-spacing:.1em}
+.lifecycle-card h3{margin-bottom:4px;color:var(--wine);font-size:.9rem}
+.lifecycle-card p{margin-bottom:0;font-size:.75rem;color:var(--muted);text-align:justify}
 
 /* ENGINEERING & PROJECT DELIVERY */
-.feature-copy h2{max-width:590px;color:#fff;font-size:clamp(1.8rem,3.2vw,2.8rem);margin-bottom:12px}
-.feature-copy>p{max-width:600px;color:rgba(255,255,255,.88);font-size:0.92rem;margin-bottom:10px}
+.feature-copy h2{max-width:590px;color:var(--wine);font-size:clamp(1.8rem,3.2vw,2.8rem);margin-bottom:12px}
+.feature-copy>p{max-width:600px;color:var(--muted);font-size:0.92rem;margin-bottom:10px}
 .check-list{display:grid;grid-template-columns:1fr 1fr;gap:6px 16px;margin:10px 0 12px;padding:0;list-style:none}
-.check-list li{position:relative;padding-left:16px;color:#fff;font-size:.78rem;font-weight:700}
+.check-list li{position:relative;padding-left:16px;color:var(--ink);font-size:.78rem;font-weight:700}
 .check-list li:before{position:absolute;top:.5em;left:0;width:6px;height:6px;background:var(--gold);content:""}
-.feature-image{position:relative;min-height:340px;overflow:hidden;background:rgba(43,7,20,0.8)}
+.feature-image{position:relative;min-height:340px;overflow:hidden;background:rgba(255,255,255,0.8)}
 .feature-image img{width:100%;height:100%;min-height:340px;object-fit:cover}
 .feature-image:after{position:absolute;inset:0;border:1px solid rgba(212,175,55,.42);content:""}
 
@@ -495,7 +495,7 @@ section{position:relative}
         <p class="hero-copy">From surveying and project delivery to quality assurance and digital asset information, we connect engineering activities with the evidence and data that support better decisions.</p>
         <div class="hero-buttons">
           <a class="button button-gold" href="services.html">Explore Our Services <span class="arrow">↗</span></a>
-          <a class="button button-outline" href="projects.html">View Project Experience <span class="arrow">↗</span></a>
+          <a class="button button-outline" href="projects.html" style="color:var(--wine);border-color:var(--wine);">View Project Experience <span class="arrow">↗</span></a>
         </div>
         <div class="hero-note">Engineering · Assurance · Digital Infrastructure</div>
       </div>
@@ -943,16 +943,13 @@ section{position:relative}
   const videoSections = document.querySelectorAll(".section-with-video");
 
   if (siteHeader && videoSections.length >= 3) {
-    // We observe the 3rd video section (index 2) so the header stays solid through section 1 & 2
     const targetSection = videoSections[2];
     
     const headerObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        // When the 3rd section scrolls into view, make the header transparent
         if (entry.isIntersecting) {
           siteHeader.classList.add("transparent-header");
         } else {
-          // If we scroll back up to section 1 or 2, header turns solid wine again
           if (window.scrollY < targetSection.offsetTop) {
             siteHeader.classList.remove("transparent-header");
           }
