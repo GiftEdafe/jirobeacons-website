@@ -114,22 +114,39 @@ section{position:relative}
   letter-spacing: .055em; text-decoration: none; text-transform: uppercase; white-space: nowrap;
 }
 .main-nav>a:hover,.nav-dropdown-toggle:hover { color: var(--gold-light); }
-.nav-dropdown { position: relative; }
+.nav-dropdown { position: static; }
 .nav-dropdown-toggle {
   display: inline-flex; align-items: center; gap: 7px; padding: 12px 0;
   background: transparent; border: 0;
 }
 .dropdown-caret { color: var(--gold-light); font-size: 1rem; }
+
+/* FULL-WIDTH ALIGNED DROPDOWN MENU */
 .nav-dropdown-menu {
-  position: absolute; top: 100%; left: 50%; z-index: 11000;
-  display: none; grid-template-columns: 1.1fr 1fr; gap: 26px;
-  width: min(690px, 88vw); padding: 25px;
-  transform: translateX(-50%); background: var(--wine-deep);
-  border: 1px solid rgba(212,175,55,.38);
-  box-shadow: 0 18px 50px rgba(24,4,11,.3)
+  position: absolute; 
+  top: 100%; 
+  left: 0; 
+  right: 0; 
+  width: 100%; 
+  z-index: 11000;
+  display: none; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 40px;
+  padding: 35px 40px; 
+  background: var(--wine-deep);
+  border-top: 1px solid rgba(212,175,55,.25);
+  box-shadow: 0 18px 50px rgba(24,4,11,.35);
 }
 .nav-dropdown-menu.is-open { display: grid; }
 .nav-dropdown-group { display: flex; flex-direction: column; align-items: flex-start; gap: 11px; }
+
+/* PUSHES THE RIGHT COLUMN CLEANLY TO THE END */
+.nav-dropdown-group:last-child {
+  justify-self: end;
+  align-items: flex-end;
+  text-align: right;
+}
+
 .nav-dropdown-heading {
   margin: 0 0 5px; color: var(--gold-light); font-size: .72rem;
   font-weight: 800; letter-spacing: .06em; line-height: 1.5; text-transform: uppercase;
@@ -504,6 +521,7 @@ section{position:relative}
   .menu-toggle{display:flex}
   .capability-grid{grid-template-columns:repeat(2,1fr)}
   .lifecycle-grid{grid-template-columns:repeat(2,1fr)}
+  .nav-dropdown-group:last-child { justify-self: start; align-items: flex-start; text-align: left; }
 }
 @media(max-width:767px){
   .container{width:calc(100% - 24px); padding: 0 4px;}
