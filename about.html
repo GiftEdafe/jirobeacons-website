@@ -11,7 +11,7 @@
     :root {
       --wine: #2B0714;
       --wine-mid: #3A0A1B;
-      --wine-dark: #18040B;
+      --wine-deep: #18040B;
       --gold: #D4AF37;
       --gold-light: #E8D28A;
       --white: #FFFFFF;
@@ -19,7 +19,7 @@
       --ink: #222222;
       --muted: #625D60;
       --line: rgba(43, 7, 20, 0.13);
-      --max-width: 1440px;
+      --max-width: 1240px;
     }
 
     * {
@@ -28,7 +28,7 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 100px;
+      scroll-padding-top: 120px;
     }
 
     body {
@@ -40,7 +40,8 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    body.menu-open {
+    body.menu-open,
+    body.search-open {
       overflow: hidden;
     }
 
@@ -72,7 +73,7 @@
     }
 
     .container {
-      width: min(calc(100% - 64px), var(--max-width));
+      width: min(calc(100% - 48px), var(--max-width));
       margin-inline: auto;
     }
 
@@ -107,110 +108,149 @@
       padding-block: clamp(76px, 9vw, 132px);
     }
 
-    /* Header */
-
+    /* Floating Header - True Symmetrical 3-Column Layout */
     .site-header {
-      position: sticky;
-      z-index: 1000;
-      top: 0;
-      width: 100%;
-      color: var(--white);
-      background: rgba(43, 7, 20, 0.98);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+      position: fixed;
+      z-index: 10000;
+      top: 20px;
+      left: 0;
+      right: 0;
+      background: transparent;
+      border-bottom: 0;
+      transition: background 0.3s ease;
     }
 
     .header-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      min-height: 76px;
       display: grid;
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      min-height: 88px;
-      gap: 24px;
+      gap: 20px;
+      padding: 0 25px;
+      background: var(--wine);
+      border: none;
+      border-radius: 4px;
+      box-shadow: 0 12px 30px rgba(24, 4, 11, 0.22);
+      transition: background 0.3s ease, backdrop-filter 0.3s ease;
     }
 
-    .nav-side {
+    .header-left-nav {
+      justify-self: start;
       display: flex;
       align-items: center;
-      gap: clamp(15px, 2vw, 30px);
-    }
-
-    .nav-left {
-      justify-content: flex-end;
-    }
-
-    .nav-right {
-      justify-content: flex-start;
+      gap: clamp(14px, 2vw, 28px);
     }
 
     .brand {
+      grid-column: 2;
+      justify-self: center;
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      width: 190px;
+      text-decoration: none;
     }
 
     .brand img {
-      width: 100%;
-      max-height: 60px;
+      width: 220px;
+      max-height: 50px;
       object-fit: contain;
     }
 
-    .nav-link,
-    .search-toggle {
-      padding: 8px 0;
-      color: rgba(255, 255, 255, 0.9);
-      background: transparent;
-      border: 0;
-      cursor: pointer;
-      font-size: 0.81rem;
-      font-weight: 650;
+    .header-right-group {
+      justify-self: end;
+      display: flex;
+      align-items: center;
+      gap: clamp(14px, 2vw, 28px);
+    }
+
+    .header-right-nav {
+      display: flex;
+      align-items: center;
+      gap: clamp(14px, 2vw, 28px);
+    }
+
+    .main-nav > a,
+    .nav-dropdown-toggle {
+      color: rgba(255, 255, 255, 0.94);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.055em;
+      text-decoration: none;
+      text-transform: uppercase;
       white-space: nowrap;
       transition: color 0.2s ease;
     }
 
-    .nav-link:hover,
-    .search-toggle:hover {
+    .main-nav > a:hover,
+    .main-nav > a.active,
+    .nav-dropdown-toggle:hover {
       color: var(--gold-light);
     }
 
-    .nav-link.active {
-      color: var(--gold-light);
-    }
-
-    .header-actions {
+    .header-tools {
       display: flex;
       align-items: center;
-      gap: 18px;
+      gap: 10px;
     }
 
-    .contact-button {
+    .icon-button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 43px;
-      padding: 10px 17px;
-      color: var(--wine);
-      background: var(--gold);
-      border: 1px solid var(--gold);
-      font-size: 0.8rem;
-      font-weight: 800;
-      white-space: nowrap;
-      transition: background 0.2s ease, color 0.2s ease;
-    }
-
-    .contact-button:hover {
-      color: var(--white);
+      width: 38px;
+      height: 38px;
+      padding: 0;
+      color: #fff;
       background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 2px;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s;
     }
 
-    .mobile-actions,
-    .mobile-nav,
+    .icon-button:hover,
+    .icon-button:focus-visible {
+      color: var(--gold-light);
+      border-color: var(--gold);
+    }
+
+    .icon-button svg {
+      width: 18px;
+      height: 18px;
+    }
+
     .menu-toggle {
       display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 38px;
+      height: 38px;
+      padding: 9px;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 2px;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: #fff;
+      transition: transform 0.2s;
     }
 
     .search-panel {
+      position: absolute;
+      top: calc(100% + 15px);
+      left: 0;
+      right: 0;
+      z-index: 12000;
       display: none;
-      padding: 0 0 18px;
+      padding: 20px 0;
+      background: var(--wine-deep);
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 18px 35px rgba(0, 0, 0, 0.22);
     }
 
     .search-panel.is-open {
@@ -219,32 +259,60 @@
 
     .search-form {
       display: flex;
-      width: min(100%, 700px);
-      margin-left: auto;
       gap: 10px;
+      max-width: 780px;
+      margin: auto;
     }
 
     .search-form input {
-      flex: 1;
       min-width: 0;
-      padding: 12px 14px;
+      flex: 1;
+      padding: 12px 16px;
       color: var(--ink);
-      background: var(--white);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      border-radius: 0;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 2px;
     }
 
     .search-form button {
-      padding: 12px 18px;
-      color: var(--wine);
-      background: var(--gold);
-      border: 1px solid var(--gold);
-      cursor: pointer;
-      font-weight: 750;
+      border: 0;
+    }
+
+    /* Mobile Menu Drawer */
+    .mobile-nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      z-index: 11500;
+      display: none;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 25px 24px;
+      background: var(--wine-deep);
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .mobile-nav.is-open {
+      display: flex;
+    }
+
+    .mobile-nav a {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      width: 100%;
+    }
+
+    .mobile-nav a.active {
+      color: var(--gold-light);
     }
 
     /* Hero slideshow */
-
     .about-hero {
       position: relative;
       display: flex;
@@ -254,7 +322,8 @@
       overflow: hidden;
       isolation: isolate;
       color: var(--white);
-      background: var(--wine-dark);
+      background: var(--wine-deep);
+      padding-top: 100px;
     }
 
     .hero-slides {
@@ -262,7 +331,7 @@
       z-index: -2;
       inset: 0;
       overflow: hidden;
-      background: var(--wine-dark);
+      background: var(--wine-deep);
     }
 
     .hero-slide {
@@ -274,9 +343,7 @@
       object-position: center;
       opacity: 0;
       transform: scale(1.025);
-      transition:
-        opacity 1.35s ease-in-out,
-        transform 6s ease;
+      transition: opacity 1.35s ease-in-out, transform 6s ease;
     }
 
     .hero-slide.is-active {
@@ -288,22 +355,12 @@
       position: absolute;
       z-index: -1;
       inset: 0;
-      background:
-        linear-gradient(
-          90deg,
-          rgba(24, 4, 11, 0.91) 0%,
-          rgba(24, 4, 11, 0.72) 42%,
-          rgba(24, 4, 11, 0.2) 100%
-        ),
-        linear-gradient(
-          0deg,
-          rgba(24, 4, 11, 0.5) 0%,
-          transparent 65%
-        );
+      background: linear-gradient(90deg, rgba(24, 4, 11, 0.91) 0%, rgba(24, 4, 11, 0.72) 42%, rgba(24, 4, 11, 0.2) 100%),
+                  linear-gradient(0deg, rgba(24, 4, 11, 0.5) 0%, transparent 65%);
     }
 
     .hero-content {
-      width: min(calc(100% - 64px), var(--max-width));
+      width: min(calc(100% - 48px), var(--max-width));
       margin: 0 auto;
       padding-block: clamp(90px, 12vw, 160px);
     }
@@ -346,18 +403,19 @@
       padding: 12px 22px;
       font-size: 0.85rem;
       font-weight: 800;
+      border-radius: 2px;
       transition: background 0.2s ease, color 0.2s ease;
     }
 
     .button-primary {
-      color: var(--wine);
+      color: var(--wine-deep);
       background: var(--gold);
       border: 1px solid var(--gold);
     }
 
     .button-primary:hover {
       color: var(--white);
-      background: transparent;
+      background: var(--gold-light);
     }
 
     .button-outline {
@@ -367,12 +425,11 @@
     }
 
     .button-outline:hover {
-      color: var(--wine);
+      color: var(--wine-deep);
       background: var(--white);
     }
 
     /* Who we are */
-
     .intro-grid {
       display: grid;
       grid-template-columns: 0.85fr 1.15fr;
@@ -418,7 +475,6 @@
     }
 
     /* Philosophy */
-
     .philosophy {
       background: var(--paper);
     }
@@ -470,7 +526,6 @@
     }
 
     /* Lifecycle */
-
     .lifecycle-header {
       display: flex;
       align-items: flex-end;
@@ -526,7 +581,6 @@
     }
 
     /* Principles */
-
     .principles {
       color: var(--white);
       background: var(--wine);
@@ -582,7 +636,6 @@
     }
 
     /* Industries */
-
     .industries {
       background: var(--paper);
     }
@@ -616,7 +669,6 @@
     }
 
     /* Forward direction */
-
     .forward-grid {
       display: grid;
       grid-template-columns: 0.8fr 1.2fr;
@@ -672,7 +724,6 @@
     }
 
     /* CTA */
-
     .closing-cta {
       padding-block: clamp(75px, 9vw, 115px);
       color: var(--white);
@@ -712,11 +763,10 @@
     }
 
     /* Footer */
-
     .site-footer {
       padding: 62px 0 25px;
       color: var(--white);
-      background: var(--wine-dark);
+      background: var(--wine-deep);
     }
 
     .footer-main {
@@ -794,152 +844,48 @@
     }
 
     /* Responsive */
+    @media (max-width: 1100px) {
+      .site-header {
+        top: 0;
+      }
 
-    @media (max-width: 1200px) {
       .header-inner {
-        min-height: 80px;
-        gap: 16px;
+        max-width: 100%;
+        width: 100%;
+        border-radius: 0;
+        grid-template-columns: auto 1fr auto;
+        min-height: 64px;
+        padding: 0 12px;
       }
 
       .brand {
-        width: 160px;
+        grid-column: 1;
+        justify-self: start;
       }
 
-      .nav-side {
-        gap: 16px;
+      .brand img {
+        width: 130px;
+        max-height: 38px;
       }
 
-      .nav-link,
-      .search-toggle {
-        font-size: 0.76rem;
+      .header-left-nav,
+      .header-right-nav {
+        display: none;
       }
 
-      .header-actions {
-        gap: 12px;
+      .header-tools {
+        grid-column: 3;
+        justify-self: end;
       }
 
-      .contact-button {
-        min-height: 40px;
-        padding-inline: 12px;
-      }
-
-      .lifecycle-card {
-        padding: 23px 19px;
+      .menu-toggle {
+        display: flex;
       }
     }
 
     @media (max-width: 900px) {
       .container {
         width: min(calc(100% - 40px), var(--max-width));
-      }
-
-      .desktop-nav,
-      .desktop-actions {
-        display: none;
-      }
-
-      .header-inner {
-        display: flex;
-        justify-content: space-between;
-        min-height: 76px;
-      }
-
-      .brand {
-        width: 165px;
-        justify-content: flex-start;
-      }
-
-      .brand img {
-        max-height: 54px;
-      }
-
-      .mobile-actions {
-        display: flex;
-        align-items: center;
-        gap: 17px;
-      }
-
-      .menu-toggle {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 44px;
-        height: 44px;
-        padding: 0;
-        color: var(--white);
-        background: transparent;
-        border: 1px solid rgba(255, 255, 255, 0.28);
-        cursor: pointer;
-      }
-
-      .menu-toggle svg {
-        width: 23px;
-        height: 23px;
-      }
-
-      .mobile-nav {
-        position: fixed;
-        z-index: 1001;
-        inset: 76px 0 0;
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        padding: 25px 24px 45px;
-        overflow-y: auto;
-        background: var(--wine);
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-8px);
-        transition:
-          opacity 0.25s ease,
-          transform 0.25s ease,
-          visibility 0.25s ease;
-      }
-
-      .mobile-nav.is-open {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-      }
-
-      .mobile-nav > a {
-        padding: 16px 0;
-        color: var(--white);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.13);
-        font-size: 1.06rem;
-        font-weight: 650;
-      }
-
-      .mobile-nav > a.active {
-        color: var(--gold-light);
-      }
-
-      .mobile-nav .contact-button {
-        align-self: flex-start;
-        margin-top: 25px;
-      }
-
-      .mobile-search {
-        display: flex;
-        margin-top: 24px;
-        gap: 8px;
-      }
-
-      .mobile-search input {
-        width: 100%;
-        min-width: 0;
-        padding: 12px;
-        color: var(--ink);
-        background: var(--white);
-        border: 0;
-      }
-
-      .mobile-search button {
-        padding: 0 14px;
-        color: var(--wine);
-        background: var(--gold);
-        border: 0;
-        font-weight: 800;
       }
 
       .intro-grid,
@@ -1008,13 +954,7 @@
       }
 
       .hero-overlay {
-        background:
-          linear-gradient(
-            0deg,
-            rgba(24, 4, 11, 0.94) 0%,
-            rgba(24, 4, 11, 0.66) 60%,
-            rgba(24, 4, 11, 0.3) 100%
-          );
+        background: linear-gradient(0deg, rgba(24, 4, 11, 0.94) 0%, rgba(24, 4, 11, 0.66) 60%, rgba(24, 4, 11, 0.3) 100%);
       }
 
       .hero-actions {
@@ -1090,13 +1030,15 @@
 
 <body>
   <header class="site-header">
-    <div class="container header-inner">
-      <nav class="nav-side nav-left desktop-nav" aria-label="Primary navigation">
-        <a class="nav-link active" href="about.html" aria-current="page">About</a>
-        <a class="nav-link" href="services.html">Services</a>
-        <a class="nav-link" href="solutions.html">Solutions</a>
+    <div class="header-inner">
+      <!-- Left Navigation Group -->
+      <nav class="main-nav header-left-nav" aria-label="Main navigation">
+        <a class="active" href="about.html" aria-current="page">About</a>
+        <a href="services.html">Services</a>
+        <a href="solutions.html">Solutions</a>
       </nav>
 
+      <!-- Centered Brand Logo -->
       <a class="brand" href="index.html" aria-label="Jiro-BEACONS Engineering home">
         <img
           src="images/logo-white.png"
@@ -1105,63 +1047,40 @@
         >
       </a>
 
-      <nav class="nav-side nav-right desktop-nav" aria-label="Secondary navigation">
-        <a class="nav-link" href="projects.html">Projects</a>
-        <a class="nav-link" href="insights.html">Insights</a>
-        <a class="nav-link" href="careers.html">Careers</a>
+      <!-- Right Navigation Group & Tools -->
+      <div class="header-right-group">
+        <nav class="main-nav header-right-nav" aria-label="Secondary navigation">
+          <a href="projects.html">Projects</a>
+          <a href="insights.html">Insights</a>
+          <a href="careers.html">Careers</a>
+        </nav>
 
-        <div class="header-actions desktop-actions">
-          <button
-            class="search-toggle"
-            id="desktopSearchToggle"
-            type="button"
-            aria-expanded="false"
-            aria-controls="desktopSearchPanel"
-            aria-label="Open search"
-          >Search</button>
-          <a class="contact-button" href="contact.html">Contact Us</a>
+        <div class="header-tools">
+          <button class="icon-button" id="search-toggle" type="button" aria-label="Open search" aria-expanded="false" aria-controls="search-panel">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <circle cx="10.8" cy="10.8" r="6.8"></circle>
+              <path d="m16 16 5 5"></path>
+            </svg>
+          </button>
+          <button class="icon-button menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-navigation">
+            <span></span><span></span><span></span>
+          </button>
         </div>
-      </nav>
-
-      <div class="mobile-actions">
-        <button
-          class="search-toggle"
-          id="mobileSearchToggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="desktopSearchPanel"
-          aria-label="Open search"
-        >Search</button>
-
-        <button
-          class="menu-toggle"
-          id="menuToggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="mobileNav"
-          aria-label="Open navigation menu"
-        >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-               stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
-            <path d="M4 7h16M4 12h16M4 17h16"></path>
-          </svg>
-        </button>
       </div>
     </div>
 
-    <div class="container search-panel" id="desktopSearchPanel">
-      <form class="search-form" id="siteSearchForm" role="search">
-        <input
-          id="siteSearchInput"
-          type="search"
-          placeholder="Search this page or explore our insights"
-          aria-label="Search website"
-        >
-        <button type="submit">Search</button>
-      </form>
+    <!-- Search Panel Dropdown -->
+    <div class="search-panel" id="search-panel" aria-label="Website search">
+      <div class="container">
+        <form class="search-form" id="search-form" role="search">
+          <input id="site-search-input" type="search" placeholder="Search this page or explore insights..." aria-label="Search website" required>
+          <button class="button button-primary" type="submit">Search</button>
+        </form>
+      </div>
     </div>
 
-    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" inert>
+    <!-- Mobile Navigation Drawer -->
+    <nav class="mobile-nav" id="main-navigation" aria-label="Mobile navigation">
       <a href="index.html">Home</a>
       <a class="active" href="about.html" aria-current="page">About</a>
       <a href="services.html">Services</a>
@@ -1170,18 +1089,6 @@
       <a href="insights.html">Insights</a>
       <a href="careers.html">Careers</a>
       <a href="contact.html">Contact</a>
-
-      <form class="mobile-search" id="mobileSearchForm" role="search">
-        <input
-          id="mobileSearchInput"
-          type="search"
-          placeholder="Search this page or insights"
-          aria-label="Search website"
-        >
-        <button type="submit">Go</button>
-      </form>
-
-      <a class="contact-button" href="contact.html">Start a Conversation</a>
     </nav>
   </header>
 
@@ -1264,7 +1171,7 @@
       </div>
     </section>
 
-    <!-- OUR PHILOSOPHY: image replaced with images/about-C.jpg -->
+    <!-- OUR PHILOSOPHY -->
     <section class="philosophy section-padding" id="our-philosophy">
       <div class="container philosophy-grid">
         <div class="philosophy-image">
@@ -1606,189 +1513,81 @@
     (() => {
       "use strict";
 
-      const menuToggle = document.getElementById("menuToggle");
-      const mobileNav = document.getElementById("mobileNav");
-      const desktopSearchToggle = document.getElementById("desktopSearchToggle");
-      const mobileSearchToggle = document.getElementById("mobileSearchToggle");
-      const searchPanel = document.getElementById("desktopSearchPanel");
-      const searchInput = document.getElementById("siteSearchInput");
-      const mobileSearchInput = document.getElementById("mobileSearchInput");
-      const searchForm = document.getElementById("siteSearchForm");
-      const mobileSearchForm = document.getElementById("mobileSearchForm");
+      const menuToggle = document.getElementById("menu-toggle");
+      const mobileNav = document.getElementById("main-navigation");
+      const searchToggle = document.getElementById("search-toggle");
+      const searchPanel = document.getElementById("search-panel");
+      const searchInput = document.getElementById("site-search-input");
+      const searchForm = document.getElementById("search-form");
       const yearElement = document.getElementById("currentYear");
 
       if (yearElement) {
         yearElement.textContent = new Date().getFullYear();
       }
 
-      /* Mobile navigation */
-
-      function closeMobileMenu() {
-        if (!menuToggle || !mobileNav) return;
-
-        mobileNav.classList.remove("is-open");
-        mobileNav.setAttribute("inert", "");
-        menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.setAttribute("aria-label", "Open navigation menu");
-        document.body.classList.remove("menu-open");
-      }
-
-      function openMobileMenu() {
-        if (!menuToggle || !mobileNav) return;
-
-        mobileNav.classList.add("is-open");
-        mobileNav.removeAttribute("inert");
-        menuToggle.setAttribute("aria-expanded", "true");
-        menuToggle.setAttribute("aria-label", "Close navigation menu");
-        document.body.classList.add("menu-open");
-      }
-
+      /* Mobile menu toggle */
       if (menuToggle && mobileNav) {
         menuToggle.addEventListener("click", () => {
-          const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
-
-          if (isOpen) {
-            closeMobileMenu();
-          } else {
-            openMobileMenu();
-          }
-        });
-
-        mobileNav.querySelectorAll("a").forEach((link) => {
-          link.addEventListener("click", closeMobileMenu);
-        });
-
-        document.addEventListener("keydown", (event) => {
-          if (event.key === "Escape") {
-            closeMobileMenu();
-            closeSearch();
-          }
-        });
-
-        window.addEventListener("resize", () => {
-          if (window.innerWidth > 900) {
-            closeMobileMenu();
-          }
+          const isOpen = mobileNav.classList.contains("is-open");
+          mobileNav.classList.toggle("is-open", !isOpen);
+          menuToggle.setAttribute("aria-expanded", String(!isOpen));
+          document.body.classList.toggle("menu-open", !isOpen);
+          if (!isOpen && searchPanel) searchPanel.classList.remove("is-open");
         });
       }
 
-      /* Search panel */
-
-      function openSearch() {
-        if (!searchPanel) return;
-
-        searchPanel.classList.add("is-open");
-
-        if (desktopSearchToggle) {
-          desktopSearchToggle.setAttribute("aria-expanded", "true");
-        }
-
-        if (mobileSearchToggle) {
-          mobileSearchToggle.setAttribute("aria-expanded", "true");
-        }
-
-        window.setTimeout(() => {
-          if (window.innerWidth <= 900 && mobileSearchInput) {
-            mobileSearchInput.focus();
-          } else if (searchInput) {
-            searchInput.focus();
-          }
-        }, 50);
-      }
-
-      function closeSearch() {
-        if (!searchPanel) return;
-
-        searchPanel.classList.remove("is-open");
-
-        if (desktopSearchToggle) {
-          desktopSearchToggle.setAttribute("aria-expanded", "false");
-        }
-
-        if (mobileSearchToggle) {
-          mobileSearchToggle.setAttribute("aria-expanded", "false");
-        }
-      }
-
-      [desktopSearchToggle, mobileSearchToggle].forEach((button) => {
-        if (!button) return;
-
-        button.addEventListener("click", () => {
+      /* Search panel toggle */
+      if (searchToggle && searchPanel) {
+        searchToggle.addEventListener("click", () => {
           const isOpen = searchPanel.classList.contains("is-open");
-
-          if (isOpen) {
-            closeSearch();
-          } else {
-            closeMobileMenu();
-            openSearch();
+          searchPanel.classList.toggle("is-open", !isOpen);
+          searchToggle.setAttribute("aria-expanded", String(!isOpen));
+          document.body.classList.toggle("search-open", !isOpen);
+          if (!isOpen && mobileNav) {
+            mobileNav.classList.remove("is-open");
+            document.body.classList.remove("menu-open");
+          }
+          if (!isOpen && searchInput) {
+            window.setTimeout(() => searchInput.focus(), 50);
           }
         });
-      });
-
-      function performSearch(value) {
-        const query = value.trim();
-
-        if (!query) return;
-
-        const normalizedQuery = query.toLowerCase();
-        const searchableElements = Array.from(
-          document.querySelectorAll(
-            "main h1, main h2, main h3, main p, main li"
-          )
-        );
-
-        const match = searchableElements.find((element) =>
-          element.textContent.toLowerCase().includes(normalizedQuery)
-        );
-
-        if (match) {
-          const targetSection = match.closest("section") || match;
-          closeSearch();
-          closeMobileMenu();
-
-          targetSection.scrollIntoView({
-            behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
-              ? "auto"
-              : "smooth",
-            block: "start"
-          });
-
-          if (match.matches("h1, h2, h3")) {
-            match.setAttribute("tabindex", "-1");
-            match.focus({ preventScroll: true });
-          }
-
-          return;
-        }
-
-        window.location.href =
-          "insights.html?search=" + encodeURIComponent(query);
       }
 
-      if (searchForm) {
+      /* Search implementation */
+      if (searchForm && searchInput) {
         searchForm.addEventListener("submit", (event) => {
           event.preventDefault();
-          performSearch(searchInput ? searchInput.value : "");
+          const query = searchInput.value.trim();
+          if (!query) return;
+
+          const normalizedQuery = query.toLowerCase();
+          const searchableElements = Array.from(
+            document.querySelectorAll("main h1, main h2, main h3, main p, main li")
+          );
+
+          const match = searchableElements.find((element) =>
+            element.textContent.toLowerCase().includes(normalizedQuery)
+          );
+
+          if (match) {
+            const targetSection = match.closest("section") || match;
+            if (searchPanel) searchPanel.classList.remove("is-open");
+            document.body.classList.remove("search-open");
+
+            targetSection.scrollIntoView({
+              behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+              block: "start"
+            });
+            return;
+          }
+
+          window.location.href = "insights.html?search=" + encodeURIComponent(query);
         });
       }
 
-      if (mobileSearchForm) {
-        mobileSearchForm.addEventListener("submit", (event) => {
-          event.preventDefault();
-          performSearch(mobileSearchInput ? mobileSearchInput.value : "");
-        });
-      }
-
-      /* Automatic hero crossfade */
-
-      const heroSlides = Array.from(
-        document.querySelectorAll(".hero-slide")
-      );
-
-      const reduceMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-      );
-
+      /* Automatic hero crossfade slideshow */
+      const heroSlides = Array.from(document.querySelectorAll(".hero-slide"));
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
       let currentSlide = 0;
       let heroTimer = null;
 
@@ -1798,15 +1597,11 @@
           slide.classList.toggle("is-active", active);
           slide.setAttribute("aria-hidden", active ? "false" : "true");
         });
-
         currentSlide = index;
       }
 
       function startHeroSlideshow() {
-        if (heroSlides.length < 2 || reduceMotion.matches || heroTimer) {
-          return;
-        }
-
+        if (heroSlides.length < 2 || reduceMotion.matches || heroTimer) return;
         heroTimer = window.setInterval(() => {
           const nextSlide = (currentSlide + 1) % heroSlides.length;
           showHeroSlide(nextSlide);
@@ -1823,7 +1618,6 @@
       if (heroSlides.length) {
         showHeroSlide(0);
         startHeroSlideshow();
-
         if (typeof reduceMotion.addEventListener === "function") {
           reduceMotion.addEventListener("change", () => {
             if (reduceMotion.matches) {
