@@ -49,7 +49,7 @@ section{position:relative}
 .button-outline:hover{color:#fff;background:rgba(255,255,255,0.15);border-color:#fff}
 .arrow{font-size:1.1rem}
 
-/* EXACT FIXED FLOATING HEADER FROM INDEX.HTML */
+/* FIXED FLOATING HEADER WITH NEUTRAL TRANSPARENT BACKGROUND */
 .site-header {
   position: fixed;
   z-index: 10000;
@@ -69,10 +69,12 @@ section{position:relative}
   align-items: center;
   gap: 20px;
   padding: 0 25px;
-  background: var(--wine);
-  border: none;
+  background: rgba(24, 4, 11, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 4px;
-  box-shadow: 0 12px 30px rgba(24, 4, 11, 0.22);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
   transition: background .3s ease, backdrop-filter .3s ease;
 }
 
