@@ -272,7 +272,6 @@
     .nav-dropdown-menu.is-open { display: grid; }
     .nav-dropdown-group { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
     
-    /* Pushes right group cleanly to the right end */
     .nav-dropdown-group:last-child {
       justify-self: end;
       align-items: flex-end;
@@ -323,7 +322,7 @@
     .search-feedback { margin: 10px 0 0; color: rgba(255,255,255,.8); font-size: .84rem; }
     .search-feedback a { color: var(--gold-light); }
 
-    /* HERO WITH VISIBLE BACKGROUND IMAGE & NEUTRAL OVERLAY */
+    /* HERO CROSSFADE SLIDESHOW FIX */
     .hero {
       position: relative;
       min-height: 100vh;
@@ -332,23 +331,34 @@
       overflow: hidden;
       background: #181818;
       color: var(--white);
-      isolation: isolate;
     }
 
-    .hero-image {
+    .hero-slides {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .hero-slide {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center;
-      z-index: -2;
+      opacity: 0;
+      transition: opacity 1.2s ease-in-out;
+    }
+
+    .hero-slide.is-active {
+      opacity: 1;
     }
 
     .hero-overlay {
       position: absolute;
       inset: 0;
-      z-index: -1;
+      z-index: 1;
       background:
         linear-gradient(90deg,
           rgba(34, 34, 34, 0.88) 0%,
@@ -532,6 +542,8 @@
       padding: 65px 0 24px;
       background: var(--wine-dark);
       color: var(--white);
+      position: relative;
+      z-index: 10;
     }
 
     .footer-top {
@@ -711,13 +723,12 @@
 
   <main>
 
-    <!-- HERO -->
+    <!-- HERO WITH CROSSFADE SLIDESHOW -->
     <section class="hero">
-      <img class="hero-image"
-           src="images/site-4.jpg"
-           alt="Urban and infrastructure environment showing smart cities and digital engineering"
-           fetchpriority="high">
-
+      <div class="hero-slides" aria-hidden="true">
+        <img class="hero-slide is-active" src="images/site-4.jpg" alt="" fetchpriority="high">
+        <img class="hero-slide" src="images/Bess-4.jpg" alt="" loading="eager">
+      </div>
       <div class="hero-overlay"></div>
 
       <div class="hero-content">
@@ -812,7 +823,7 @@
     <section class="section">
       <div class="container about-split">
         <div class="about-image-wrap">
-          <img src="images/about-preview.jpg" alt="Engineers reviewing project information" loading="lazy">
+          <img src="images/about-C.jpg" alt="Engineers reviewing project information" loading="lazy">
         </div>
 
         <div class="about-copy">
@@ -1053,6 +1064,17 @@
 
     const year = document.getElementById("currentYear");
     if(year) year.textContent = new Date().getFullYear();
+
+    /* Hero Crossfade Slideshow Script */
+    const heroSlides = document.querySelectorAll(".hero-slide");
+    if(heroSlides.length > 0){
+      let currentHeroSlide = 0;
+      setInterval(function(){
+        heroSlides[currentHeroSlide].classList.remove("is-active");
+        currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
+        heroSlides[currentHeroSlide].classList.add("is-active");
+      }, 5000);
+    }
   })();
   </script>
 
