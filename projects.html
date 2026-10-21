@@ -79,7 +79,7 @@
     }
 
     section {
-      padding: 100px 0;
+      padding: 90px 0;
     }
 
     .eyebrow {
@@ -313,7 +313,7 @@
       position: relative;
       background: #0b0f14 url('https://raw.githubusercontent.com/GiftEdafe/jirobeacons-website/main/images/solution.jpg') center/cover no-repeat;
       color: var(--white);
-      padding: 180px 0 120px;
+      padding: 160px 0 100px;
       overflow: hidden;
     }
 
@@ -352,7 +352,7 @@
       margin-bottom: 0;
     }
 
-    /* PREMIUM EDITORIAL PORTFOLIO STYLING */
+    /* EDITORIAL PORTFOLIO STYLING */
     .portfolio-section {
       background: var(--off-white);
     }
@@ -362,12 +362,12 @@
 
     .section-intro {
       max-width: 750px;
-      margin-bottom: 50px;
+      margin-bottom: 40px;
     }
     .section-intro h2 {
       color: var(--wine);
       font-size: 36px;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
     }
 
     .projects-grid {
@@ -395,15 +395,16 @@
       box-shadow: 0 12px 30px rgba(0,0,0,0.08);
     }
 
-    /* EDITORIAL HEADER STRIP */
     .editorial-strip {
       background: var(--wine-deep);
       color: var(--white);
-      padding: 20px 30px;
+      padding: 18px 26px;
       border-bottom: 2px solid var(--gold);
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
     .editorial-category {
@@ -427,14 +428,15 @@
       padding: 5px 10px;
       border-radius: 2px;
       border: 1px solid rgba(212, 175, 55, 0.3);
+      white-space: nowrap;
     }
-    .project-badge.ongoing {
+    .project-badge.active-status {
       background: var(--gold);
       color: var(--wine-deep);
     }
 
     .project-body {
-      padding: 30px;
+      padding: 28px;
       display: flex;
       flex-direction: column;
       flex: 1;
@@ -443,16 +445,16 @@
     .project-body h3 {
       font-size: 22px;
       color: var(--wine);
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .project-details {
       list-style: none;
-      margin: 15px 0 0 0;
-      padding-top: 15px;
+      margin: 14px 0 0 0;
+      padding-top: 14px;
       border-top: 1px solid var(--border);
       display: grid;
-      gap: 10px;
+      gap: 8px;
     }
 
     .project-details li {
@@ -578,7 +580,7 @@
       color: var(--gold);
     }
 
-    /* RESPONSIVE STYLES */
+    /* RESPONSIVE STYLES & MOBILE MENU FIXES */
     @media(min-width:1101px){
       .nav-dropdown:hover .nav-dropdown-menu,
       .nav-dropdown:focus-within .nav-dropdown-menu{display:grid}
@@ -595,21 +597,39 @@
       .header-inner .brand img{ width: 130px; max-height: 38px; }
       .header-tools { grid-column: 3; justify-self: end; }
 
+      /* Fixed mobile menu scrolling and full-height access */
       .main-nav{
-        position:absolute;top:100%;left:0;right:0;z-index:11500;
-        display:none;flex-direction:column;align-items:flex-start;
-        padding:20px 24px;background:var(--wine-light);
-        box-shadow:0 15px 30px rgba(0,0,0,.3)
+        position:absolute; top:100%; left:0; right:0; z-index:11500;
+        display:none; flex-direction:column; align-items:flex-start;
+        padding:20px 24px; background:var(--wine-light);
+        box-shadow:0 15px 30px rgba(0,0,0,.3);
+        max-height: calc(100vh - 80px);
+        overflow-y: auto;
       }
       .main-nav.is-open{display:flex}
       .menu-toggle{display:flex}
+
+      /* Stack dropdown menu vertically on mobile to prevent clipping */
+      .nav-dropdown-menu {
+        position: static;
+        display: none;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 15px 0;
+        background: transparent;
+        box-shadow: none;
+        width: 100%;
+      }
+      .nav-dropdown-menu.is-open { display: flex; flex-direction: column; }
+      .nav-dropdown-group:last-child { justify-self: start; align-items: flex-start; text-align: left; }
+
       .projects-grid {
         grid-template-columns: 1fr;
       }
-      .nav-dropdown-group:last-child { justify-self: start; align-items: flex-start; text-align: left; }
       .footer-top { grid-template-columns: 1fr 1fr; gap: 20px; }
     }
     @media(max-width:767px){
+      section { padding: 60px 0; }
       .container{width:calc(100% - 24px); padding: 0 4px;}
       .site-header{inset:0 0 auto 0;}
       .header-inner{min-height:54px;padding:0 8px;}
@@ -799,7 +819,7 @@
       <div class="project-card">
         <div class="editorial-strip">
           <span class="editorial-category">Sector: Commercial Real Estate</span>
-          <span class="project-badge ongoing">Ongoing</span>
+          <span class="project-badge active-status">Active / Ongoing</span>
         </div>
         <div class="project-body">
           <h3>Imo City Computer Village Hub — Digital QA/QC &amp; Documentation</h3>
@@ -817,7 +837,7 @@
       <div class="project-card">
         <div class="editorial-strip">
           <span class="editorial-category">Sector: Residential Development</span>
-          <span class="project-badge ongoing">In Progress</span>
+          <span class="project-badge active-status">In Progress</span>
         </div>
         <div class="project-body">
           <h3>Real Estate Construction &amp; Digital Engineering Package</h3>
@@ -835,7 +855,7 @@
       <div class="project-card">
         <div class="editorial-strip">
           <span class="editorial-category">Sector: Hospitality Development</span>
-          <span class="project-badge ongoing">In Progress</span>
+          <span class="project-badge active-status">In Progress</span>
         </div>
         <div class="project-body">
           <h3>Hotel &amp; Resort Construction — Digital Engineering Package</h3>
