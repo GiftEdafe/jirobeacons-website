@@ -16,7 +16,7 @@
     :root {
       --wine: #2B0714;
       --wine-light: #2B0714;
-      --wine-deep: #18040B;
+      --wine-deep: #2B0714;
       --gold: #D4AF37;
       --gold-light: #E8D28A;
       --white: #FFFFFF;
@@ -166,7 +166,7 @@
 
     .btn-gold {
       background: var(--gold);
-      color: var(--wine-deep);
+      color: var(--wine);
     }
 
     .btn-gold:hover {
@@ -184,7 +184,7 @@
       color: var(--wine);
     }
 
-    /* SOLID WINE HEADER & BALANCED BORDERLESS DROPDOWN */
+    /* SOLID WINE HEADER */
     .site-header {
       position: fixed;
       z-index: 10000;
@@ -322,14 +322,14 @@
     .search-feedback { margin: 10px 0 0; color: rgba(255,255,255,.8); font-size: .84rem; }
     .search-feedback a { color: var(--gold-light); }
 
-    /* HERO CROSSFADE SLIDESHOW WITH NEUTRAL OVERLAY */
+    /* HERO CROSSFADE SLIDESHOW */
     .hero {
       position: relative;
       min-height: 100vh;
       display: flex;
       align-items: center;
       overflow: hidden;
-      background: #0b0f14;
+      background: var(--wine);
       color: var(--white);
     }
 
@@ -503,7 +503,7 @@
 
     /* DIGITAL INFRASTRUCTURE SECTION */
     .digital-section {
-      background: var(--wine-deep);
+      background: var(--wine);
       color: var(--white);
     }
 
@@ -539,9 +539,9 @@
       font-size: 15px;
     }
 
-    /* FOOTER */
+    /* FOOTER - COMPACT & UNIFIED WINE */
     .site-footer {
-      padding: 65px 0 24px;
+      padding: 40px 0 20px;
       background: var(--wine);
       color: var(--white);
       position: relative;
@@ -551,27 +551,27 @@
     .footer-top {
       display: grid;
       grid-template-columns: 1.4fr 0.8fr 0.8fr;
-      gap: 65px;
-      padding-bottom: 45px;
+      gap: 40px;
+      padding-bottom: 30px;
     }
 
     .footer-brand img {
-      width: 205px;
-      max-height: 65px;
+      width: 180px;
+      max-height: 50px;
       object-fit: contain;
       object-position: left center;
-      margin-bottom: 22px;
+      margin-bottom: 15px;
     }
 
     .footer-brand p {
       max-width: 340px;
       color: rgba(255, 255, 255, 0.67);
       font-size: 13px;
-      line-height: 1.9;
+      line-height: 1.7;
     }
 
     .footer-column h4 {
-      margin-bottom: 20px;
+      margin-bottom: 14px;
       color: var(--white);
       font-family: "DM Sans", sans-serif;
       font-size: 12px;
@@ -581,7 +581,7 @@
 
     .footer-links {
       display: grid;
-      gap: 10px;
+      gap: 8px;
       list-style: none;
     }
 
@@ -600,7 +600,7 @@
       justify-content: space-between;
       align-items: center;
       gap: 20px;
-      padding-top: 22px;
+      padding-top: 18px;
       border-top: 1px solid rgba(255, 255, 255, 0.14);
     }
 
@@ -614,10 +614,11 @@
       color: var(--gold);
     }
 
-    /* RESPONSIVE STYLES */
+    /* RESPONSIVE STYLES & MOBILE COMBINED NAVIGATION DRAWER */
     @media(min-width:1101px){
       .nav-dropdown:hover .nav-dropdown-menu,
       .nav-dropdown:focus-within .nav-dropdown-menu{display:grid}
+      .mobile-nav-group { display: contents; }
     }
     @media(max-width:1100px){
       .site-header { top: 0; left: 0; right: 0; }
@@ -631,30 +632,44 @@
       .header-inner .brand img{ width: 130px; max-height: 38px; }
       .header-tools { grid-column: 3; justify-self: end; }
 
+      /* COMBINES BOTH LEFT AND RIGHT NAV INTO ONE SCROLLABLE MOBILE DRAWER */
       .main-nav{
-        position:absolute;top:100%;left:0;right:0;z-index:11500;
-        display:none;flex-direction:column;align-items:flex-start;
-        padding:20px 24px;background:var(--wine);
-        box-shadow:0 15px 30px rgba(0,0,0,.3);
-        max-height: calc(100vh - 80px);
+        position:absolute; top:100%; left:0; right:0; z-index:11500;
+        display:none; flex-direction:column; align-items:flex-start;
+        padding:20px 24px; background:var(--wine);
+        box-shadow:0 15px 30px rgba(0,0,0,.4);
+        max-height: calc(100vh - 70px);
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
+        gap: 16px;
+      }
+      .header-left-nav, .header-right-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: 16px;
       }
       .main-nav.is-open{display:flex}
       .menu-toggle{display:flex}
 
+      /* MOBILE DROPDOWN STYLING */
+      .nav-dropdown { width: 100%; }
+      .nav-dropdown-toggle { width: 100%; justify-content: space-between; padding: 0; }
+      
       .nav-dropdown-menu {
         position: static;
         display: none;
         grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 15px 0 15px 15px;
+        gap: 15px;
+        padding: 10px 0 10px 15px;
         background: transparent;
         box-shadow: none;
         width: 100%;
         border-left: 2px solid var(--gold);
       }
       .nav-dropdown-menu.is-open { display: flex; flex-direction: column; }
+      .nav-dropdown-group { width: 100%; align-items: flex-start !important; text-align: left !important; }
       .nav-dropdown-group:last-child { justify-self: start; align-items: flex-start; text-align: left; }
 
       .services-grid, .about-split, .digital-grid { grid-template-columns: 1fr; }
@@ -667,7 +682,7 @@
       .header-inner{min-height:54px;padding:0 8px;}
       .brand img{width:110px;max-height:32px}
       .icon-button{width:32px;height:32px}
-      .footer-top { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; gap: 25px; }
     }
   </style>
 </head>
@@ -677,30 +692,37 @@
   <!-- HEADER -->
   <header class="site-header">
     <div class="header-inner">
-      <nav class="main-nav header-left-nav" id="main-navigation" aria-label="Main navigation">
-        <a href="about.html" class="active" style="color:var(--gold-light);">About</a>
-        <div class="nav-dropdown">
-          <button class="nav-dropdown-toggle" id="services-toggle" aria-expanded="false" aria-controls="services-menu" type="button">
-            Services <span class="dropdown-caret" aria-hidden="true">⌄</span>
-          </button>
-          <div class="nav-dropdown-menu" id="services-menu">
-            <div class="nav-dropdown-group">
-              <h2 class="nav-dropdown-heading">Core Infrastructure Engineering</h2>
-              <a href="services.html#surveying">Surveying &amp; Geospatial</a>
-              <a href="services.html#quantity-surveying">Quantity Surveying &amp; Cost Support</a>
-              <a href="services.html#engineering-coordination">Engineering &amp; Project Coordination</a>
-              <a href="services.html#construction-delivery">Construction Delivery Support</a>
-              <a href="services.html#quality-assurance">QA/QC, Inspection &amp; Testing</a>
-              <a href="services.html#information-management">Engineering Information Management</a>
-            </div>
-            <div class="nav-dropdown-group">
-              <h2 class="nav-dropdown-heading">Smart Building &amp; Compliance Analytics</h2>
-              <a href="index.html#automation">Smart Building Telemetry &amp; Integration</a>
-              <a href="index.html#edgecarbon">EdgeCarbon Compliance &amp; ESG Data Platforms</a>
+      <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
+        <div class="header-left-nav">
+          <a href="about.html" class="active" style="color:var(--gold-light);">About</a>
+          <div class="nav-dropdown">
+            <button class="nav-dropdown-toggle" id="services-toggle" aria-expanded="false" aria-controls="services-menu" type="button">
+              Services <span class="dropdown-caret" aria-hidden="true">⌄</span>
+            </button>
+            <div class="nav-dropdown-menu" id="services-menu">
+              <div class="nav-dropdown-group">
+                <h2 class="nav-dropdown-heading">Core Infrastructure Engineering</h2>
+                <a href="services.html#surveying">Surveying &amp; Geospatial</a>
+                <a href="services.html#quantity-surveying">Quantity Surveying &amp; Cost Support</a>
+                <a href="services.html#engineering-coordination">Engineering &amp; Project Coordination</a>
+                <a href="services.html#construction-delivery">Construction Delivery Support</a>
+                <a href="services.html#quality-assurance">QA/QC, Inspection &amp; Testing</a>
+                <a href="services.html#information-management">Engineering Information Management</a>
+              </div>
+              <div class="nav-dropdown-group">
+                <h2 class="nav-dropdown-heading">Smart Building &amp; Compliance Analytics</h2>
+                <a href="index.html#automation">Smart Building Telemetry &amp; Integration</a>
+                <a href="index.html#edgecarbon">EdgeCarbon Compliance &amp; ESG Data Platforms</a>
+              </div>
             </div>
           </div>
+          <a href="solutions.html">Solutions</a>
         </div>
-        <a href="solutions.html">Solutions</a>
+        <div class="header-right-nav">
+          <a href="projects.html">Projects</a>
+          <a href="insights.html">Insights</a>
+          <a href="careers.html">Careers</a>
+        </div>
       </nav>
 
       <a class="brand" href="index.html" aria-label="Jiro-BEACONS Engineering home">
@@ -708,11 +730,6 @@
       </a>
 
       <div class="header-right-group">
-        <nav class="main-nav header-right-nav" aria-label="Secondary navigation">
-          <a href="projects.html">Projects</a>
-          <a href="insights.html">Insights</a>
-          <a href="careers.html">Careers</a>
-        </nav>
         <div class="header-tools">
           <button class="icon-button" id="search-toggle" type="button" aria-label="Open search" aria-expanded="false" aria-controls="search-panel">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
@@ -1070,7 +1087,7 @@
          searchPanel.classList.contains("is-open") &&
          !searchPanel.contains(event.target) &&
          !searchToggle.contains(event.target)){
-        closeSearch();
+      closeSearch();
       }
     });
 
