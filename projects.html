@@ -6,7 +6,7 @@
 
   <title>Projects &amp; Portfolio | Jiro-BEACONS Engineering</title>
 
-  <meta name="description" content="Explore Jiro-BEACONS engineering projects, including substation digital handovers, estate as-built surveys, digital QA/QC workflows, and Digital Engineering Packages.">
+  <meta name="description" content="Explore Jiro-BEACONS engineering portfolio, featuring verified digital handovers, as-built asset records, QA/QC oversight, and Digital Engineering Packages.">
   <meta name="theme-color" content="#2B0714">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -352,7 +352,7 @@
       margin-bottom: 0;
     }
 
-    /* PROJECT PORTFOLIO SECTIONS */
+    /* EVIDENCE-LED PORTFOLIO STYLING */
     .portfolio-section {
       background: var(--off-white);
     }
@@ -383,6 +383,7 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      border-top: 4px solid var(--wine);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
     .portfolio-section:nth-of-type(even) .project-card {
@@ -394,37 +395,37 @@
       box-shadow: 0 12px 30px rgba(0,0,0,0.08);
     }
 
-    .project-img-wrapper {
-      position: relative;
-      width: 100%;
-      height: 240px;
-      overflow: hidden;
-      background: #18040B;
+    /* EVIDENCE ARTEFACT CONTAINER (Replaces stock photo dependency) */
+    .evidence-box {
+      background: var(--wine-deep);
+      color: var(--white);
+      padding: 24px 30px;
+      border-bottom: 2px solid var(--gold);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    .project-img-wrapper img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s ease;
-    }
-
-    .project-card:hover .project-img-wrapper img {
-      transform: scale(1.03);
+    .evidence-type {
+      font-family: "Manrope", sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--gold-light);
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .project-badge {
-      position: absolute;
-      top: 15px;
-      right: 15px;
       background: var(--wine);
       color: var(--gold-light);
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 1px;
       text-transform: uppercase;
-      padding: 6px 12px;
+      padding: 5px 10px;
       border-radius: 2px;
+      border: 1px solid rgba(212, 175, 55, 0.3);
     }
     .project-badge.ongoing {
       background: var(--gold);
@@ -455,11 +456,11 @@
 
     .project-details {
       list-style: none;
-      margin: 15px 0 20px 0;
+      margin: 15px 0 0 0;
       padding-top: 15px;
       border-top: 1px solid var(--border);
       display: grid;
-      gap: 8px;
+      gap: 10px;
     }
 
     .project-details li {
@@ -699,11 +700,11 @@
 <section class="page-hero">
   <div class="hero-overlay"></div>
   <div class="container hero-content">
-    <p class="eyebrow" style="color:var(--gold-light);">PROJECT PORTFOLIO &amp; ENGAGEMENTS</p>
-    <h1>Track record in infrastructure, asset information &amp; delivery.</h1>
+    <p class="eyebrow" style="color:var(--gold-light);">PROJECT PORTFOLIO &amp; DELIVERABLES</p>
+    <h1>Evidence-led engineering execution and asset records.</h1>
     <p>
-      Explore our completed assignments, ongoing quality control engagements, and digital engineering packages 
-      demonstrating our commitment to structured information and technical execution.
+      We believe a genuine engineering deliverable is more persuasive than a stock photograph. 
+      Explore our verified handovers, digital quality registers, and structured asset records across energy, real estate, and infrastructure.
     </p>
   </div>
 </section>
@@ -713,28 +714,31 @@
   <div class="container">
     <div class="section-intro">
       <p class="eyebrow">ENERGY &amp; POWER INFRASTRUCTURE</p>
-      <h2>Electrical Substation Handover</h2>
+      <h2>Substation Expansion &amp; Handover</h2>
       <p>
-        Demonstrating rigorous engineering records organization and digital handover support for critical power transmission assets.
+        Rigorous organization of technical registers and digital handover frameworks for high-voltage electrical grid infrastructure.
       </p>
     </div>
 
     <div class="projects-grid">
       <div class="project-card">
-        <div class="project-img-wrapper">
-          <img src="https://images.openai.com/static-rsc-4/EoxmsCogEscg6IcGDPnh12Nc3YSMXy3xxCbr1aBfC5tTGvEybsA5npWzwzI0tspbgvZgUeIqJbEkNJitsIEznAFSBegKlf7GYwxW97feAFmN195y99igk-tzUxcg0YOEKGHpKacXqjNxOFASabolw3GakGa4Bi6hZvnU7n50cr_JdF7fU1BuRnNUHbJoSwj3?purpose=fullsize" alt="132/33kV Substation Expansion" loading="lazy">
+        <div class="evidence-box">
+          <span class="evidence-type">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            Digital Handover Register &amp; Index
+          </span>
           <span class="project-badge">Completed</span>
         </div>
         <div class="project-body">
           <span class="project-meta">Energy &amp; Power Infrastructure</span>
           <h3>132/33kV Substation Expansion — Digital Handover</h3>
           <p>
-            Digital handover support and comprehensive organization of engineering and project records for major substation expansion works.
+            Provided structured digital handover support and technical document organization for the substation expansion, ensuring complete traceability and compliance with approved client standards.
           </p>
           <ul class="project-details">
             <li><strong>Completion Date:</strong> June 9, 2026</li>
-            <li><strong>Core Scope:</strong> Structured engineering information, commissioning evidence, and final asset handover index.</li>
-            <li><strong>Value Proposition:</strong> Ensured full compliance and traceability for critical electrical grid infrastructure.</li>
+            <li><strong>Core Deliverables:</strong> Commissioning evidence indexing, QA/QC verification files, and structured as-built records.</li>
+            <li><strong>Value Proposition:</strong> Eliminated post-construction document gaps for critical electrical grid assets.</li>
           </ul>
         </div>
       </div>
@@ -747,47 +751,53 @@
   <div class="container">
     <div class="section-intro">
       <p class="eyebrow">REAL ESTATE &amp; ASSET INFORMATION</p>
-      <h2>As-Built Surveys &amp; Property Documentation</h2>
+      <h2>As-Built Documentation &amp; Property Records</h2>
       <p>
-        Delivering property transparency, spatial audits, and structured as-built records for residential estates and property portfolios.
+        Structuring spatial as-built datasets and test documentation for property transparency, compliance review, and asset management.
       </p>
     </div>
 
     <div class="projects-grid">
       <div class="project-card">
-        <div class="project-img-wrapper">
-          <img src="https://images.openai.com/static-rsc-4/KUbAExTdFE28Azmy7kMXtOy5QNASse_BVIsYDYezCylKZsn9etAlA9k4TwpG8XLGwTBsIREftz0QejmZLJIA4HVar57574Ka1SjGh4yLYZMFfYOdbJIY2QJeHuY6ujaH1ag3Q_nPGGCcRYyPgjwc7S5aKmQNdr0f6Dz1OtG-qaQMtuxqSOv5JhK7e_mlFC38?purpose=fullsize" alt="Abuja-FCT Estate" loading="lazy">
+        <div class="evidence-box">
+          <span class="evidence-type">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            As-Built &amp; Test Data Package
+          </span>
           <span class="project-badge">Completed</span>
         </div>
         <div class="project-body">
           <span class="project-meta">Real Estate &amp; Property</span>
           <h3>Abuja-FCT Estate — Digital As-Built &amp; Test Documentation</h3>
           <p>
-            Consolidation of digital as-built information and testing documentation into a structured record for property review and maintenance reference.
+            Consolidated project test documentation and digital as-built records into a unified, searchable register for property review, maintenance planning, and future reference.
           </p>
           <ul class="project-details">
             <li><strong>Location:</strong> Abuja-FCT, Nigeria</li>
-            <li><strong>Core Scope:</strong> As-built verification, test pack indexing, and property documentation.</li>
-            <li><strong>Value Proposition:</strong> Delivered reliable construction evidence for facility management and compliance review.</li>
+            <li><strong>Core Deliverables:</strong> Verified test packs, structured technical logs, and property reference archives.</li>
+            <li><strong>Value Proposition:</strong> Provided reliable construction evidence for property owners and facilities management.</li>
           </ul>
         </div>
       </div>
 
       <div class="project-card">
-        <div class="project-img-wrapper">
-          <img src="https://images.openai.com/static-rsc-4/n7EKMBEgos-GQQat0eVavSF3SYDwwOvS9F2Hs_VHn9PdhJei2b10YXNMlHo5ReeqsJgLcyl74zONLmoK_y4kJwXrFaa5iEzc1jtm4Sjn4KJbeyEhBoe8ZRXOU-wfLdfwdkl4VJlmW-ibdOlHBWfV0Sth2Ms-kTKGEe5zdmFgPk90n9FY1eUs3TSZfg6MJVsk?purpose=fullsize" alt="Existing Estate Assignments" loading="lazy">
+        <div class="evidence-box">
+          <span class="evidence-type">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+            Spatial Audit &amp; Risk Register
+          </span>
           <span class="project-badge">Completed</span>
         </div>
         <div class="project-body">
           <span class="project-meta">Surveying &amp; Asset Auditing</span>
           <h3>Existing Estate Digital As-Built Assignments (Three Estates)</h3>
           <p>
-            Comprehensive spatial and structural assessments across three established residential properties to identify compliance risks and future upgrade potential.
+            Executed comprehensive as-built surveys and compliance risk evaluations across three established residential properties to support future asset management.
           </p>
           <ul class="project-details">
-            <li><strong>Core Scope:</strong> Digital as-built surveys, structural data profiling, and risk identification.</li>
-            <li><strong>Confidentiality Note:</strong> Estate names, plot numbers, and tenant identities are restricted for privacy.</li>
-            <li><strong>Value Proposition:</strong> Enhanced asset transparency and informed capital expenditure planning.</li>
+            <li><strong>Core Deliverables:</strong> Spatial survey datasets, plot profiling, and compliance risk assessments.</li>
+            <li><strong>Confidentiality Note:</strong> Estate names, plot numbers, and buyer/tenant records are strictly withheld for privacy.</li>
+            <li><strong>Value Proposition:</strong> Established a trustworthy baseline for property transparency and capital improvement planning.</li>
           </ul>
         </div>
       </div>
@@ -800,66 +810,75 @@
   <div class="container">
     <div class="section-intro">
       <p class="eyebrow">CONSTRUCTION &amp; DIGITAL DELIVERY</p>
-      <h2>QA/QC, Site Reporting &amp; Digital Engineering Packages</h2>
+      <h2>QA/QC Oversight &amp; Digital Engineering Packages</h2>
       <p>
-        Combining field-level quality assurance, Sharepoint records management, and structured Digital Engineering Packages (DEP) across commercial, retail, and hospitality developments.
+        Deploying field quality control frameworks, SharePoint document workflows, and structured Digital Engineering Packages (DEP) for active developments.
       </p>
     </div>
 
     <div class="projects-grid">
       <div class="project-card">
-        <div class="project-img-wrapper">
-          <img src="https://images.openai.com/static-rsc-4/yu8NiDyOrhEKAOuXy_rVa2jAx2fC-Pm1xl5v2E7g79d7xFvtx8kFtWe47IeJw_gJXOwwXcILx-RtiVGiKgs6Nj62h7i5ACKz7upNKesgnAmJ_Ek1VKheqz0xcbyUC8eJJXm1EdSaIzi0gwDhZD1vWeusWoIq64U_xKrfQ1u0uwf-TkiDabXz-Oyc4kPdwGa2?purpose=fullsize" alt="Imo City Computer Village Hub" loading="lazy">
+        <div class="evidence-box">
+          <span class="evidence-type">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            QA/QC Tracking &amp; SharePoint Hub
+          </span>
           <span class="project-badge ongoing">Ongoing</span>
         </div>
         <div class="project-body">
           <span class="project-meta">Commercial Real Estate</span>
           <h3>Imo City Computer Village Hub — Digital QA/QC &amp; Documentation</h3>
           <p>
-            Digital QA/QC and construction document management supporting Shariff Plaza Management &amp; Facility Co. Ltd.
+            Establishing rigorous digital QA/QC systems and document control administration supporting Shariff Plaza Management &amp; Facility Co. Ltd.
           </p>
           <ul class="project-details">
             <li><strong>Location:</strong> Imo State, Nigeria</li>
-            <li><strong>Client / Partner:</strong> Shariff Plaza Management &amp; Facility Co. Ltd.</li>
-            <li><strong>Core Scope:</strong> Construction records organization, material logging, and SharePoint workflow administration.</li>
+            <li><strong>Partner:</strong> Shariff Plaza Management &amp; Facility Co. Ltd.</li>
+            <li><strong>Core Scope:</strong> Construction records organization, 19-column daily reporting workflows, and SharePoint permission management.</li>
           </ul>
         </div>
       </div>
 
       <div class="project-card">
-        <div class="project-img-wrapper">
-          <img src="https://images.openai.com/static-rsc-4/xX_Y_F5WmTITpx8NQaDt9us5J9z2ctL2r_o5ShcH1ZUnFLTwW2xQoXRFz37Mii4nOim84DP_bmH-uhQUP6QwuYXbUJaDaYciqgh0KnycD57Of4dO2CaGofBRkdElxs1uqYl3jcEyPwrvYxBKOqipAcZFNvPXlVigTBRPLd54lOh5e_ht2IEteHS1Jb7541na?purpose=fullsize" alt="Real Estate Construction" loading="lazy">
+        <div class="evidence-box">
+          <span class="evidence-type">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+            Digital Engineering Package (DEP)
+          </span>
           <span class="project-badge ongoing">In Progress</span>
         </div>
         <div class="project-body">
-          <span class="project-meta">Residential Real Estate</span>
+          <span class="project-meta">Residential Development</span>
           <h3>Real Estate Construction &amp; Digital Engineering Package</h3>
           <p>
-            Construction-related delivery support and Digital Engineering Package (DEP) implementation to structure project data and site documentation.
+            Integrating construction delivery oversight with a structured Digital Engineering Package (DEP) to ensure seamless project data flow from site activity to handover.
           </p>
           <ul class="project-details">
             <li><strong>Location:</strong> Lagos State, Nigeria</li>
             <li><strong>Contractor:</strong> Jiro-BEACONS Engineering Nigeria Limited</li>
-            <li><strong>Core Scope:</strong> Integrated delivery support, document indexing, and quality record tracking.</li>
+            <li><strong>Core Scope:</strong> Construction support, quality evidence logging, and technical document indexing.</li>
           </ul>
         </div>
       </div>
 
       <div class="project-card">
-        <div class="project-img-wrapper">
-          <img src="https://images.openai.com/static-rsc-4/gzkkRCHnxmoGhLCAfSopTrylzEBfH2WTP-1TJZoLC-jgdd2-DgZS6-hNqiqjByI9EeEzKXDvdSCrYAyp9jNkFhpEc_VTpQZcdxJSilGiidLHAvGsNQv8SlDYdkwbrK5PttjcsOOwxOtu213dtXY55TWH98ripCVzwzsEKg1b-XhRaJSA87Nqwdj21E9WavQF?purpose=fullsize" alt="Hotel &amp; Resort Construction" loading="lazy">
+        <div class="evidence-box">
+          <span class="evidence-type">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+            Digital Engineering Package (DEP)
+          </span>
           <span class="project-badge ongoing">In Progress</span>
         </div>
         <div class="project-body">
           <span class="project-meta">Hospitality Development</span>
           <h3>Hotel &amp; Resort Construction — Digital Engineering Package</h3>
           <p>
-            Specialized engineering delivery support and structured project documentation for hospitality infrastructure development.
+            Structuring technical project records and quality documentation for a resort development in partnership with Kjax Phadox Consults Limited.
           </p>
           <ul class="project-details">
             <li><strong>Location:</strong> Ondo State, Nigeria</li>
             <li><strong>Partner:</strong> Kjax Phadox Consults Limited</li>
-            <li><strong>Core Scope:</strong> Digital Engineering Package (DEP) and site record structuring for resort development.</li>
+            <li><strong>Core Scope:</strong> Digital Engineering Package (DEP) implementation and baseline record structuring.</li>
           </ul>
         </div>
       </div>
@@ -874,7 +893,7 @@
       <p class="eyebrow">ENGAGE OUR EXPERTISE</p>
       <h2>Ready to structure your project information and delivery?</h2>
       <p style="margin-bottom:0;">
-        Contact our team to discuss how our integrated AEC professionals and digital workflows can support your upcoming development.
+        Contact our team to discuss how our integrated AEC professionals and evidence-led digital workflows can support your upcoming development.
       </p>
     </div>
     <div>
