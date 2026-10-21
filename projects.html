@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Projects &amp; Portfolio | Jiro-BEACONS Engineering</title>
+  <title>Project Experience &amp; Case Studies | Jiro-BEACONS Engineering</title>
 
-  <meta name="description" content="Explore Jiro-BEACONS engineering portfolio, featuring verified digital handovers, as-built asset records, QA/QC oversight, and Digital Engineering Packages.">
+  <meta name="description" content="Explore Jiro-BEACONS Engineering's portfolio of infrastructure quality assurance, spatial surveying, digital twins, and project delivery experience.">
   <meta name="theme-color" content="#2B0714">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,7 +16,7 @@
   <style>
     :root {
       --wine: #2B0714;
-      --wine-light: #3A0A1B;
+      --wine-light: #2B0714;
       --wine-deep: #18040B;
       --gold: #D4AF37;
       --gold-light: #E8D28A;
@@ -192,7 +192,7 @@
       align-items: center;
       gap: 20px;
       padding: 0 25px;
-      background: var(--wine-light);
+      background: var(--wine);
       border: none;
       border-radius: 4px 4px 0 0;
       box-shadow: 0 12px 30px rgba(24, 4, 11, 0.25);
@@ -255,7 +255,7 @@
       grid-template-columns: 1fr 1fr;
       gap: 40px;
       padding: 35px 40px;
-      background: var(--wine-light);
+      background: var(--wine);
       border-radius: 0 0 4px 4px;
       box-shadow: 0 20px 40px rgba(24, 4, 11, 0.35);
     }
@@ -297,7 +297,7 @@
 
     .search-panel {
       position: absolute; top: calc(100% + 20px); left: 0; right: 0; z-index: 12000;
-      display: none; padding: 20px 0; background: var(--wine-light);
+      display: none; padding: 20px 0; background: var(--wine);
       box-shadow: 0 18px 35px rgba(0,0,0,.22);
     }
     .search-panel.is-open { display: block; }
@@ -352,118 +352,131 @@
       margin-bottom: 0;
     }
 
-    /* EDITORIAL PORTFOLIO STYLING */
-    .portfolio-section {
+    /* PROJECTS SECTION & FILTERS */
+    .projects-section {
       background: var(--off-white);
     }
-    .portfolio-section:nth-of-type(even) {
+    .projects-section:nth-of-type(even) {
       background: var(--white);
     }
 
-    .section-intro {
-      max-width: 750px;
-      margin-bottom: 40px;
-    }
-    .section-intro h2 {
-      color: var(--wine);
-      font-size: 36px;
-      margin-bottom: 12px;
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 45px;
     }
 
+    .filter-btn {
+      background: var(--white);
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 10px 18px;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--wine);
+      color: var(--gold-light);
+      border-color: var(--wine);
+    }
+
+    /* PROJECTS GRID & CARDS */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
+      gap: 35px;
     }
 
     .project-card {
       background: var(--white);
       border: 1px solid var(--border);
+      border-top: 4px solid var(--wine);
       border-radius: 2px;
-      overflow: hidden;
+      padding: 40px;
       display: flex;
       flex-direction: column;
-      border-top: 4px solid var(--wine);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
-    .portfolio-section:nth-of-type(even) .project-card {
+    .projects-section:nth-of-type(even) .project-card {
       background: var(--off-white);
     }
 
     .project-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.08);
     }
 
-    .editorial-strip {
-      background: var(--wine-deep);
-      color: var(--white);
-      padding: 18px 26px;
-      border-bottom: 2px solid var(--gold);
+    .project-meta-top {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
+      margin-bottom: 15px;
     }
 
-    .editorial-category {
-      font-family: "Manrope", sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--gold-light);
-      letter-spacing: 0.5px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .project-badge {
-      background: var(--wine);
-      color: var(--gold-light);
+    .project-sector {
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
-      padding: 5px 10px;
-      border-radius: 2px;
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      white-space: nowrap;
-    }
-    .project-badge.active-status {
-      background: var(--gold);
-      color: var(--wine-deep);
+      color: var(--gold);
     }
 
-    .project-body {
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
+    .project-location {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .project-card h3 {
+      font-size: 24px;
+      color: var(--wine);
+      margin-bottom: 16px;
+    }
+
+    .project-card p {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 24px;
       flex: 1;
     }
 
-    .project-body h3 {
-      font-size: 22px;
-      color: var(--wine);
-      margin-bottom: 12px;
-    }
-
-    .project-details {
-      list-style: none;
-      margin: 14px 0 0 0;
-      padding-top: 14px;
+    .project-deliverables {
       border-top: 1px solid var(--border);
-      display: grid;
+      padding-top: 20px;
+      margin-top: auto;
+    }
+
+    .project-deliverables h4 {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--wine);
+      margin-bottom: 8px;
+    }
+
+    .deliverables-list {
+      display: flex;
+      flex-wrap: wrap;
       gap: 8px;
+      list-style: none;
     }
 
-    .project-details li {
-      font-size: 14px;
-      color: var(--muted);
-    }
-
-    .project-details strong {
+    .deliverables-list li {
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 600;
       color: var(--text);
+      border-radius: 2px;
+    }
+    .projects-section:nth-of-type(even) .deliverables-list li {
+      background: var(--white);
     }
 
     .dark {
@@ -504,10 +517,10 @@
       transform: translateY(-2px);
     }
 
-    /* FOOTER */
+    /* FOOTER - UNIFIED SOLID WINE BACKGROUND */
     .site-footer {
       padding: 65px 0 24px;
-      background: var(--wine-light);
+      background: var(--wine);
       color: var(--white);
       position: relative;
       z-index: 10;
@@ -591,34 +604,34 @@
         max-width: 100%; width: 100%; border-radius: 0;
         display: grid; grid-template-columns: auto 1fr auto;
         align-items: center; gap: 10px; min-height: 64px; padding: 0 12px;
-        background: var(--wine-light);
+        background: var(--wine);
       }
       .header-inner .brand { grid-column: 1; justify-self: start; margin-left: 0; }
       .header-inner .brand img{ width: 130px; max-height: 38px; }
       .header-tools { grid-column: 3; justify-self: end; }
 
-      /* Fixed mobile menu scrolling and full-height access */
       .main-nav{
-        position:absolute; top:100%; left:0; right:0; z-index:11500;
-        display:none; flex-direction:column; align-items:flex-start;
-        padding:20px 24px; background:var(--wine-light);
-        box-shadow:0 15px 30px rgba(0,0,0,.3);
-        max-height: calc(100vh - 80px);
+        position: absolute; top: 100%; left: 0; right: 0; z-index: 11500;
+        display: none; flex-direction: column; align-items: flex-start;
+        padding: 24px; background: var(--wine);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        max-height: calc(100vh - 70px);
         overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
       }
       .main-nav.is-open{display:flex}
       .menu-toggle{display:flex}
 
-      /* Stack dropdown menu vertically on mobile to prevent clipping */
       .nav-dropdown-menu {
         position: static;
         display: none;
         grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 15px 0;
+        gap: 15px;
+        padding: 15px 0 10px 15px;
         background: transparent;
         box-shadow: none;
         width: 100%;
+        border-left: 2px solid var(--gold);
       }
       .nav-dropdown-menu.is-open { display: flex; flex-direction: column; }
       .nav-dropdown-group:last-child { justify-self: start; align-items: flex-start; text-align: left; }
@@ -697,11 +710,11 @@
   <div class="search-panel" id="search-panel" aria-label="Website search">
     <div class="container">
       <form class="search-form" id="search-form" role="search">
-        <input id="site-search-input" type="search" placeholder="Search engineering, services, projects..." aria-label="Search this website" required>
+        <input id="site-search-input" type="search" placeholder="Search project portfolio, locations..." aria-label="Search this website" required>
         <button class="btn btn-gold" type="submit">Search</button>
         <button class="btn btn-outline" id="search-close" type="button">Close</button>
       </form>
-      <p class="search-feedback" id="search-feedback" aria-live="polite">Search this page or continue to Insights for more information.</p>
+      <p class="search-feedback" id="search-feedback" aria-live="polite">Search project experience or deliverables.</p>
     </div>
   </div>
 </header>
@@ -712,164 +725,111 @@
 <section class="page-hero">
   <div class="hero-overlay"></div>
   <div class="container hero-content">
-    <p class="eyebrow" style="color:var(--gold-light);">PROJECT PORTFOLIO &amp; DELIVERABLES</p>
-    <h1>Editorial precision in engineering execution and asset records.</h1>
+    <p class="eyebrow" style="color:var(--gold-light);">PROJECT EXPERIENCE</p>
+    <h1>Evidence-led engineering delivery.</h1>
     <p>
-      Reflecting global engineering standards by prioritizing technical scope, verified deliverables, and data structure over stock imagery.
+      Explore our track record across infrastructure quality assurance, spatial surveying, digital information management, and construction coordination.
     </p>
   </div>
 </section>
 
-<!-- CATEGORY 1: ENERGY & INFRASTRUCTURE -->
-<section class="portfolio-section">
+
+<section class="projects-section">
   <div class="container">
-    <div class="section-intro">
-      <p class="eyebrow">ENERGY &amp; POWER INFRASTRUCTURE</p>
-      <h2>Substation Expansion &amp; Handover</h2>
-      <p>
-        Rigorous organization of technical registers and digital handover frameworks for high-voltage electrical grid infrastructure.
-      </p>
+
+    <!-- FILTER BUTTONS -->
+    <div class="filter-bar" role="region" aria-label="Project categories">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="infrastructure">Infrastructure &amp; Energy</button>
+      <button class="filter-btn" data-filter="commercial">Commercial &amp; Smart Buildings</button>
+      <button class="filter-btn" data-filter="digital">Digital Engineering &amp; QA/QC</button>
     </div>
 
-    <div class="projects-grid">
-      <div class="project-card">
-        <div class="editorial-strip">
-          <span class="editorial-category">Sector: Energy &amp; Power Infrastructure</span>
-          <span class="project-badge">Completed</span>
+    <!-- PROJECTS GRID -->
+    <div class="projects-grid" id="projects-grid">
+
+      <!-- Project 1 -->
+      <article class="project-card" data-category="commercial">
+        <div class="project-meta-top">
+          <span class="project-sector">Commercial Hub Hub</span>
+          <span class="project-location">Imo State, Nigeria</span>
         </div>
-        <div class="project-body">
-          <h3>132/33kV Substation Expansion — Digital Handover</h3>
-          <p>
-            Provided structured digital handover support and technical document organization for the substation expansion, ensuring complete traceability and compliance with approved client standards.
-          </p>
-          <ul class="project-details">
-            <li><strong>Completion Date:</strong> June 9, 2026</li>
-            <li><strong>Core Deliverables:</strong> Commissioning evidence indexing, QA/QC verification files, and structured as-built records.</li>
-            <li><strong>Value Proposition:</strong> Eliminated post-construction document gaps for critical electrical grid assets.</li>
+        <h3>Imo Digital City Computer Village Hub</h3>
+        <p>
+          Configured comprehensive SharePoint document libraries, site navigation, news web parts, and granular access permissions to establish a centralized digital information repository for hub stakeholders.
+        </p>
+        <div class="project-deliverables">
+          <h4>Key Technical Deliverables</h4>
+          <ul class="deliverables-list">
+            <li>SharePoint Administration</li>
+            <li>Document Library Architecture</li>
+            <li>Access Control Protocols</li>
           </ul>
         </div>
-      </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="project-card" data-category="infrastructure">
+        <div class="project-meta-top">
+          <span class="project-sector">Infrastructure Assurance</span>
+          <span class="project-location">Regional / Nigeria</span>
+        </div>
+        <h3>Independent Infrastructure QA/QC Audit Program</h3>
+        <p>
+          Executed rigorous pre-pour inspections, material documentation tracking, and compressive strength data indexing to ensure full regulatory and engineering standard compliance across project sites.
+        </p>
+        <div class="project-deliverables">
+          <h4>Key Technical Deliverables</h4>
+          <ul class="deliverables-list">
+            <li>Material Traceability Logs</li>
+            <li>Non-Conformance Reporting</li>
+            <li>Digital Handover Test Packs</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="project-card" data-category="digital">
+        <div class="project-meta-top">
+          <span class="project-sector">Digital Engineering</span>
+          <span class="project-location">South-East Nigeria</span>
+        </div>
+        <h3>Scan-to-BIM &amp; Existing Asset Surveying</h3>
+        <p>
+          Deployed mobile LiDAR scanning and precise spatial measurement workflows to generate reliable as-built baseline models for complex brownfield expansion and renovation projects.
+        </p>
+        <div class="project-deliverables">
+          <h4>Key Technical Deliverables</h4>
+          <ul class="deliverables-list">
+            <li>Mobile LiDAR Capture</li>
+            <li>BIM Integration</li>
+            <li>As-Built Spatial Models</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Project 4 -->
+      <article class="project-card" data-category="commercial">
+        <div class="project-meta-top">
+          <span class="project-sector">Smart Buildings</span>
+          <span class="project-location">Ontario, Canada / Remote</span>
+        </div>
+        <h3>Smart Building Telemetry &amp; Compliance Integration</h3>
+        <p>
+          Integrated building automation systems, IoT telemetry sensors, and EdgeCarbon ESG data workflows to track operational efficiency and streamline facility compliance.
+        </p>
+        <div class="project-deliverables">
+          <h4>Key Technical Deliverables</h4>
+          <ul class="deliverables-list">
+            <li>IoT Sensor Telemetry</li>
+            <li>EdgeCarbon ESG Tracking</li>
+            <li>Facility Automation Logs</li>
+          </ul>
+        </div>
+      </article>
+
     </div>
-  </div>
-</section>
 
-<!-- CATEGORY 2: REAL ESTATE & ASSET INFORMATION -->
-<section class="portfolio-section">
-  <div class="container">
-    <div class="section-intro">
-      <p class="eyebrow">REAL ESTATE &amp; ASSET INFORMATION</p>
-      <h2>As-Built Documentation &amp; Property Records</h2>
-      <p>
-        Structuring spatial as-built datasets and test documentation for property transparency, compliance review, and asset management.
-      </p>
-    </div>
-
-    <div class="projects-grid">
-      <div class="project-card">
-        <div class="editorial-strip">
-          <span class="editorial-category">Sector: Real Estate &amp; Property</span>
-          <span class="project-badge">Completed</span>
-        </div>
-        <div class="project-body">
-          <h3>Abuja-FCT Estate — Digital As-Built &amp; Test Documentation</h3>
-          <p>
-            Consolidated project test documentation and digital as-built records into a unified, searchable register for property review, maintenance planning, and future reference.
-          </p>
-          <ul class="project-details">
-            <li><strong>Location:</strong> Abuja-FCT, Nigeria</li>
-            <li><strong>Core Deliverables:</strong> Verified test packs, structured technical logs, and property reference archives.</li>
-            <li><strong>Value Proposition:</strong> Provided reliable construction evidence for property owners and facilities management.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="editorial-strip">
-          <span class="editorial-category">Sector: Surveying &amp; Asset Auditing</span>
-          <span class="project-badge">Completed</span>
-        </div>
-        <div class="project-body">
-          <h3>Existing Estate Digital As-Built Assignments (Three Estates)</h3>
-          <p>
-            Executed comprehensive as-built surveys and compliance risk evaluations across three established residential properties to support future asset management.
-          </p>
-          <ul class="project-details">
-            <li><strong>Core Deliverables:</strong> Spatial survey datasets, plot profiling, and compliance risk assessments.</li>
-            <li><strong>Confidentiality Note:</strong> Estate names, plot numbers, and buyer/tenant records are strictly withheld for privacy.</li>
-            <li><strong>Value Proposition:</strong> Established a trustworthy baseline for property transparency and capital improvement planning.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CATEGORY 3: CONSTRUCTION & DIGITAL DELIVERY -->
-<section class="portfolio-section">
-  <div class="container">
-    <div class="section-intro">
-      <p class="eyebrow">CONSTRUCTION &amp; DIGITAL DELIVERY</p>
-      <h2>QA/QC Oversight &amp; Digital Engineering Packages</h2>
-      <p>
-        Deploying field quality control frameworks, SharePoint document workflows, and structured Digital Engineering Packages (DEP) for active developments.
-      </p>
-    </div>
-
-    <div class="projects-grid">
-      <div class="project-card">
-        <div class="editorial-strip">
-          <span class="editorial-category">Sector: Commercial Real Estate</span>
-          <span class="project-badge active-status">Active / Ongoing</span>
-        </div>
-        <div class="project-body">
-          <h3>Imo City Computer Village Hub — Digital QA/QC &amp; Documentation</h3>
-          <p>
-            Establishing rigorous digital QA/QC systems and document control administration supporting Shariff Plaza Management &amp; Facility Co. Ltd.
-          </p>
-          <ul class="project-details">
-            <li><strong>Location:</strong> Imo State, Nigeria</li>
-            <li><strong>Partner:</strong> Shariff Plaza Management &amp; Facility Co. Ltd.</li>
-            <li><strong>Core Scope:</strong> Construction records organization, 19-column daily reporting workflows, and SharePoint permission management.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="editorial-strip">
-          <span class="editorial-category">Sector: Residential Development</span>
-          <span class="project-badge active-status">In Progress</span>
-        </div>
-        <div class="project-body">
-          <h3>Real Estate Construction &amp; Digital Engineering Package</h3>
-          <p>
-            Integrating construction delivery oversight with a structured Digital Engineering Package (DEP) to ensure seamless project data flow from site activity to handover.
-          </p>
-          <ul class="project-details">
-            <li><strong>Location:</strong> Lagos State, Nigeria</li>
-            <li><strong>Contractor:</strong> Jiro-BEACONS Engineering Nigeria Limited</li>
-            <li><strong>Core Scope:</strong> Construction support, quality evidence logging, and technical document indexing.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="editorial-strip">
-          <span class="editorial-category">Sector: Hospitality Development</span>
-          <span class="project-badge active-status">In Progress</span>
-        </div>
-        <div class="project-body">
-          <h3>Hotel &amp; Resort Construction — Digital Engineering Package</h3>
-          <p>
-            Structuring technical project records and quality documentation for a resort development in partnership with Kjax Phadox Consults Limited.
-          </p>
-          <ul class="project-details">
-            <li><strong>Location:</strong> Ondo State, Nigeria</li>
-            <li><strong>Partner:</strong> Kjax Phadox Consults Limited</li>
-            <li><strong>Core Scope:</strong> Digital Engineering Package (DEP) implementation and baseline record structuring.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -877,10 +837,10 @@
 <section class="dark">
   <div class="container" style="display:grid; grid-template-columns: 1fr auto; gap: 40px; align-items:center;">
     <div>
-      <p class="eyebrow">ENGAGE OUR EXPERTISE</p>
-      <h2>Ready to structure your project information and delivery?</h2>
+      <p class="eyebrow">START A CONVERSATION</p>
+      <h2>Discuss your project requirements with our engineering team.</h2>
       <p style="margin-bottom:0;">
-        Contact our team to discuss how our integrated AEC professionals and editorial digital workflows can support your upcoming development.
+        Partner with Jiro-BEACONS for dependable quality assurance, spatial data, and digital engineering support.
       </p>
     </div>
     <div>
@@ -914,7 +874,7 @@
           <li><a href="about.html">About Us</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="solutions.html">Solutions</a></li>
-          <li><a href="projects.html">Projects</a></li>
+          <li><a href="projects.html" class="active" style="color:var(--gold);">Projects</a></li>
           <li><a href="insights.html">Insights</a></li>
         </ul>
       </div>
@@ -1025,23 +985,42 @@
       if(!query) return;
 
       const normalizedQuery = query.toLocaleLowerCase();
-      const sectionsArr = Array.from(document.querySelectorAll("main section"));
-      const match = sectionsArr.find(function(section){
-        return section.innerText.toLocaleLowerCase().includes(normalizedQuery);
+      const projectsArr = Array.from(document.querySelectorAll(".project-card"));
+      const match = projectsArr.find(function(item){
+        return item.innerText.toLocaleLowerCase().includes(normalizedQuery);
       });
 
       if(match){
         closeSearch();
         match.scrollIntoView({behavior:"smooth",block:"start"});
-        match.setAttribute("tabindex","-1");
-        match.focus({preventScroll:true});
-        if(searchFeedback) searchFeedback.textContent = "Found a matching section on this page.";
+        if(searchFeedback) searchFeedback.textContent = "Found a matching project on this page.";
       }else{
-        if(searchFeedback) searchFeedback.textContent = "No match found on this page. Opening Insights to continue your search.";
-        window.location.href = "insights.html?search=" + encodeURIComponent(query);
+        if(searchFeedback) searchFeedback.textContent = "No matching projects found.";
       }
     });
   }
+
+  // Category Filtering Logic
+  const filterBtns = document.querySelectorAll(".filter-btn");
+  const projectCards = document.querySelectorAll(".project-card");
+
+  filterBtns.forEach(function(btn){
+    btn.addEventListener("click", function(){
+      filterBtns.forEach(function(b){ b.classList.remove("active"); });
+      this.classList.add("active");
+
+      const filter = this.getAttribute("data-filter");
+
+      projectCards.forEach(function(card){
+        const cardCat = card.getAttribute("data-category");
+        if(filter === "all" || cardCat === filter){
+          card.style.display = "flex";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+  });
 
   document.addEventListener("click",function(event){
     if(navigation && menuToggle &&
