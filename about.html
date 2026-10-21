@@ -614,7 +614,7 @@
       color: var(--gold);
     }
 
-    /* RESPONSIVE STYLES & MOBILE DRAWER TOGGLE FIXES */
+    /* RESPONSIVE STYLES & CORRECT MOBILE DRAWER TOGGLE FIX */
     @media(min-width:1101px){
       .nav-dropdown:hover .nav-dropdown-menu,
       .nav-dropdown:focus-within .nav-dropdown-menu{display:grid}
@@ -635,10 +635,11 @@
       /* HIDE DESKTOP RIGHT NAV ON MOBILE */
       .desktop-right-nav { display: none !important; }
 
-      /* MOBILE DRAWER HIDDEN BY DEFAULT, TOGGLED VIA .is-open */
+      /* MOBILE DRAWER: HIDDEN BY DEFAULT, ONLY SHOWN WHEN .is-open IS ACTIVE */
       .main-nav{
         position:absolute; top:100%; left:0; right:0; z-index:11500;
-        display:none; flex-direction:column; align-items:flex-start;
+        display: none !important; 
+        flex-direction:column; align-items:flex-start;
         padding:20px 24px; background:var(--wine);
         box-shadow:0 15px 30px rgba(0,0,0,.4);
         max-height: calc(100vh - 70px);
@@ -646,19 +647,18 @@
         -webkit-overflow-scrolling: touch;
         gap: 16px;
       }
-      .main-nav.is-open{display:flex}
+      .main-nav.is-open {
+        display: flex !important;
+      }
       .menu-toggle{display:flex}
 
-      /* MOBILE-ONLY NAV LINKS: HIDDEN UNTIL DRAWER OPENS */
+      /* MOBILE-ONLY NAV LINKS */
       .mobile-only-nav {
-        display: none;
+        display: flex;
         flex-direction: column;
         align-items: flex-start;
         width: 100%;
         gap: 16px;
-      }
-      .main-nav.is-open .mobile-only-nav {
-        display: flex;
       }
 
       .header-left-nav {
@@ -669,7 +669,7 @@
         gap: 16px;
       }
 
-      /* EXACT MATCH FONT & STYLE FOR MOBILE EXTRA NAV LINKS */
+      /* EXACT FONT & STYLE MATCH FOR EXTRA NAV LINKS */
       .mobile-only-nav a {
         color: rgba(255,255,255,.94);
         font-size: .7rem;
@@ -747,7 +747,7 @@
         </div>
         <a href="solutions.html">Solutions</a>
         
-        <!-- MOBILE-ONLY EXTRA NAV LINKS: TOGGLES VIA HAMBURGER MENU -->
+        <!-- MOBILE-ONLY EXTRA NAV LINKS -->
         <div class="mobile-only-nav">
           <a href="projects.html">Projects</a>
           <a href="insights.html">Insights</a>
@@ -1057,7 +1057,7 @@
         event.stopPropagation();
         const open = !servicesMenu.classList.contains("is-open");
         servicesMenu.classList.toggle("is-open",open);
-        servicesToggle.setAttribute("aria-expanded",String(open));
+        servicesToggle.setAttribute("aria-expanded","true");
       });
     }
 
@@ -1121,7 +1121,7 @@
       if(searchPanel && searchToggle &&
          searchPanel.classList.contains("is-open") &&
          !searchPanel.contains(event.target) &&
-         !searchToggle.contains(event.target)){
+         !searchToggle.contains(target)){
         closeSearch();
       }
     });
