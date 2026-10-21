@@ -58,7 +58,6 @@ section{position:relative}
   right: 0;
   background: transparent;
   border-bottom: 0;
-  transition: background .3s ease;
 }
 .header-inner {
   max-width: var(--max);
@@ -69,13 +68,12 @@ section{position:relative}
   align-items: center;
   gap: 20px;
   padding: 0 25px;
-  background: rgba(43, 7, 20, 0.75);
+  background: rgba(43, 7, 20, 0.85);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 4px;
+  border-radius: 4px 4px 0 0;
   box-shadow: 0 12px 30px rgba(24, 4, 11, 0.25);
-  transition: background .3s ease, backdrop-filter .3s ease;
 }
 
 .header-left-nav {
@@ -113,7 +111,7 @@ section{position:relative}
 }
 .main-nav>a:hover,.main-nav>a.active,.nav-dropdown-toggle:hover { color: var(--gold-light); }
 
-/* FULL-WIDTH SUFFOLK-STYLE DROPDOWN PANEL */
+/* UNIFIED FULL-WIDTH DROPDOWN PANEL (NO GAP) */
 .nav-dropdown { position: static; }
 .nav-dropdown-toggle {
   display: inline-flex; align-items: center; gap: 4px; padding: 12px 0;
@@ -123,24 +121,28 @@ section{position:relative}
 
 .nav-dropdown-menu {
   position: absolute;
-  top: calc(100% + 20px);
-  left: 20px;
-  right: 20px;
+  top: 100%;
+  left: max(25px, calc((100% - var(--max)) / 2 + 25px));
+  right: max(25px, calc((100% - var(--max)) / 2 + 25px));
   max-width: var(--max);
   margin: 0 auto;
   z-index: 11000;
   display: none;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 40px;
-  padding: 40px 50px;
-  background: var(--wine-deep);
-  border: none;
-  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+  padding: 35px 40px;
+  background: rgba(43, 7, 20, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 20px 40px rgba(24, 4, 11, 0.35);
 }
 .nav-dropdown-menu.is-open { display: grid; }
-.nav-dropdown-group { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+.nav-dropdown-group { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
 .nav-dropdown-heading {
-  margin: 0 0 5px; color: var(--gold-light); font-size: .72rem;
+  margin: 0 0 4px; color: var(--gold-light); font-size: .72rem;
   font-weight: 800; letter-spacing: .06em; line-height: 1.5; text-transform: uppercase;
 }
 .main-nav .nav-dropdown-menu a {
