@@ -656,6 +656,20 @@
       .main-nav.is-open{display:flex}
       .menu-toggle{display:flex}
 
+      /* ENSURE MOBILE-ONLY EXTRA NAV LINKS MATCH THE EXACT FONT AND STYLE */
+      .mobile-only-nav a {
+        color: rgba(255,255,255,.94);
+        font-size: .7rem;
+        font-weight: 800;
+        letter-spacing: .055em;
+        text-decoration: none;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+      .mobile-only-nav a:hover, .mobile-only-nav a.active {
+        color: var(--gold-light);
+      }
+
       /* MOBILE DROPDOWN STYLING */
       .nav-dropdown { width: 100%; }
       .nav-dropdown-toggle { width: 100%; justify-content: space-between; padding: 0; }
@@ -720,7 +734,7 @@
         </div>
         <a href="solutions.html">Solutions</a>
         
-        <!-- MOBILE-ONLY EXTRA NAV LINKS SO DRAWER INCLUDES PROJECTS, INSIGHTS, CAREERS -->
+        <!-- MOBILE-ONLY EXTRA NAV LINKS MATCHING EXACT FONT/STYLE -->
         <div class="mobile-only-nav">
           <a href="projects.html">Projects</a>
           <a href="insights.html">Insights</a>
