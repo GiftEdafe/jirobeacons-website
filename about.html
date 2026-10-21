@@ -184,7 +184,7 @@
       color: var(--wine);
     }
 
-    /* SOLID WINE HEADER */
+    /* SOLID WINE HEADER & ORIGINAL DESKTOP 3-COLUMN GRID */
     .site-header {
       position: fixed;
       z-index: 10000;
@@ -282,12 +282,12 @@
       margin: 0 0 4px; color: var(--gold-light); font-size: .72rem;
       font-weight: 800; letter-spacing: .06em; line-height: 1.5; text-transform: uppercase;
     }
-    .main-nav .nav-dropdown-menu a {
+    .header-left-nav .nav-dropdown-menu a {
       color: rgba(255,255,255,.84); font-size: .88rem; font-weight: 500;
       letter-spacing: 0; line-height: 1.45; text-transform: none; white-space: normal;
       text-decoration: none;
     }
-    .main-nav .nav-dropdown-menu a:hover { color: var(--gold-light); text-decoration: none; }
+    .header-left-nav .nav-dropdown-menu a:hover { color: var(--gold-light); text-decoration: none; }
 
     .header-tools { display: flex; align-items: center; gap: 10px; }
     .icon-button {
@@ -614,11 +614,11 @@
       color: var(--gold);
     }
 
-    /* RESPONSIVE STYLES & MOBILE COMBINED NAVIGATION DRAWER */
+    /* RESPONSIVE STYLES & MOBILE DRAWER COMBINED NAVIGATION */
     @media(min-width:1101px){
       .nav-dropdown:hover .nav-dropdown-menu,
       .nav-dropdown:focus-within .nav-dropdown-menu{display:grid}
-      .mobile-nav-group { display: contents; }
+      .mobile-only-nav { display: none !important; }
     }
     @media(max-width:1100px){
       .site-header { top: 0; left: 0; right: 0; }
@@ -632,7 +632,10 @@
       .header-inner .brand img{ width: 130px; max-height: 38px; }
       .header-tools { grid-column: 3; justify-self: end; }
 
-      /* COMBINES BOTH LEFT AND RIGHT NAV INTO ONE SCROLLABLE MOBILE DRAWER */
+      /* HIDE DESKTOP RIGHT NAV ON MOBILE */
+      .desktop-right-nav { display: none !important; }
+
+      /* MOBILE DRAWER: COMBINES BOTH LEFT AND RIGHT NAV LISTS VERTICALLY */
       .main-nav{
         position:absolute; top:100%; left:0; right:0; z-index:11500;
         display:none; flex-direction:column; align-items:flex-start;
@@ -643,7 +646,7 @@
         -webkit-overflow-scrolling: touch;
         gap: 16px;
       }
-      .header-left-nav, .header-right-nav {
+      .header-left-nav, .mobile-only-nav {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -692,33 +695,33 @@
   <!-- HEADER -->
   <header class="site-header">
     <div class="header-inner">
-      <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
-        <div class="header-left-nav">
-          <a href="about.html" class="active" style="color:var(--gold-light);">About</a>
-          <div class="nav-dropdown">
-            <button class="nav-dropdown-toggle" id="services-toggle" aria-expanded="false" aria-controls="services-menu" type="button">
-              Services <span class="dropdown-caret" aria-hidden="true">⌄</span>
-            </button>
-            <div class="nav-dropdown-menu" id="services-menu">
-              <div class="nav-dropdown-group">
-                <h2 class="nav-dropdown-heading">Core Infrastructure Engineering</h2>
-                <a href="services.html#surveying">Surveying &amp; Geospatial</a>
-                <a href="services.html#quantity-surveying">Quantity Surveying &amp; Cost Support</a>
-                <a href="services.html#engineering-coordination">Engineering &amp; Project Coordination</a>
-                <a href="services.html#construction-delivery">Construction Delivery Support</a>
-                <a href="services.html#quality-assurance">QA/QC, Inspection &amp; Testing</a>
-                <a href="services.html#information-management">Engineering Information Management</a>
-              </div>
-              <div class="nav-dropdown-group">
-                <h2 class="nav-dropdown-heading">Smart Building &amp; Compliance Analytics</h2>
-                <a href="index.html#automation">Smart Building Telemetry &amp; Integration</a>
-                <a href="index.html#edgecarbon">EdgeCarbon Compliance &amp; ESG Data Platforms</a>
-              </div>
+      <nav class="main-nav header-left-nav" id="main-navigation" aria-label="Main navigation">
+        <a href="about.html" class="active" style="color:var(--gold-light);">About</a>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-toggle" id="services-toggle" aria-expanded="false" aria-controls="services-menu" type="button">
+            Services <span class="dropdown-caret" aria-hidden="true">⌄</span>
+          </button>
+          <div class="nav-dropdown-menu" id="services-menu">
+            <div class="nav-dropdown-group">
+              <h2 class="nav-dropdown-heading">Core Infrastructure Engineering</h2>
+              <a href="services.html#surveying">Surveying &amp; Geospatial</a>
+              <a href="services.html#quantity-surveying">Quantity Surveying &amp; Cost Support</a>
+              <a href="services.html#engineering-coordination">Engineering &amp; Project Coordination</a>
+              <a href="services.html#construction-delivery">Construction Delivery Support</a>
+              <a href="services.html#quality-assurance">QA/QC, Inspection &amp; Testing</a>
+              <a href="services.html#information-management">Engineering Information Management</a>
+            </div>
+            <div class="nav-dropdown-group">
+              <h2 class="nav-dropdown-heading">Smart Building &amp; Compliance Analytics</h2>
+              <a href="index.html#automation">Smart Building Telemetry &amp; Integration</a>
+              <a href="index.html#edgecarbon">EdgeCarbon Compliance &amp; ESG Data Platforms</a>
             </div>
           </div>
-          <a href="solutions.html">Solutions</a>
         </div>
-        <div class="header-right-nav">
+        <a href="solutions.html">Solutions</a>
+        
+        <!-- MOBILE-ONLY EXTRA NAV LINKS SO DRAWER INCLUDES PROJECTS, INSIGHTS, CAREERS -->
+        <div class="mobile-only-nav">
           <a href="projects.html">Projects</a>
           <a href="insights.html">Insights</a>
           <a href="careers.html">Careers</a>
@@ -730,6 +733,11 @@
       </a>
 
       <div class="header-right-group">
+        <nav class="main-nav header-right-nav desktop-right-nav" aria-label="Secondary navigation">
+          <a href="projects.html">Projects</a>
+          <a href="insights.html">Insights</a>
+          <a href="careers.html">Careers</a>
+        </nav>
         <div class="header-tools">
           <button class="icon-button" id="search-toggle" type="button" aria-label="Open search" aria-expanded="false" aria-controls="search-panel">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
@@ -1087,7 +1095,7 @@
          searchPanel.classList.contains("is-open") &&
          !searchPanel.contains(event.target) &&
          !searchToggle.contains(event.target)){
-      closeSearch();
+        closeSearch();
       }
     });
 
