@@ -412,27 +412,59 @@
       margin-bottom: 7px;
     }
 
-    /* AEC TEAM MODELS SECTION */
+    /* ELABORATED AEC PROFESSIONAL TEAMS STYLES */
     .aec-section {
       background: var(--white);
     }
-    .aec-grid {
+    .aec-models-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 25px;
       margin-top: 40px;
+      margin-bottom: 60px;
     }
-    .aec-card {
+    .aec-model-card {
       border: 1px solid var(--border);
       padding: 30px;
       background: var(--off-white);
       border-top: 4px solid var(--wine);
     }
-    .aec-card h3 {
+    .aec-model-card h3 {
       font-size: 19px;
       margin-bottom: 12px;
     }
-    .aec-card p {
+    .aec-model-card p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 0;
+    }
+
+    .disciplines-heading {
+      margin-top: 50px;
+      margin-bottom: 25px;
+      font-size: 26px;
+      color: var(--wine);
+    }
+
+    .disciplines-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .discipline-group-card {
+      border: 1px solid var(--border);
+      padding: 30px;
+      background: var(--white);
+    }
+
+    .discipline-group-card h3 {
+      font-size: 20px;
+      color: var(--wine);
+      margin-bottom: 12px;
+    }
+
+    .discipline-group-card p {
       color: var(--muted);
       font-size: 14px;
       margin-bottom: 0;
@@ -603,7 +635,8 @@
       .menu-toggle{display:flex}
       .dep-items,
       .service-grid,
-      .aec-grid {
+      .aec-models-grid,
+      .disciplines-grid {
         grid-template-columns: 1fr;
       }
       .nav-dropdown-group:last-child { justify-self: start; align-items: flex-start; text-align: left; }
@@ -700,7 +733,7 @@
   </div>
 </section>
 
-<!-- NEW: INTEGRATED AEC PROFESSIONAL TEAMS SECTION -->
+<!-- EXPANDED: INTEGRATED AEC PROFESSIONAL TEAMS SECTION -->
 <section class="aec-section">
   <div class="container">
     <p class="eyebrow">WORKFORCE &amp; DELIVERY MODEL</p>
@@ -711,18 +744,42 @@
       engage Jiro-BEACONS to assemble and manage the right team for your defined scope.
     </p>
 
-    <div class="aec-grid">
-      <div class="aec-card">
+    <div class="aec-models-grid">
+      <div class="aec-model-card">
         <h3>Project-Based Teams</h3>
         <p>A coordinated multidisciplinary team assembled for a specific project, set of deliverables, or milestone execution phase.</p>
       </div>
-      <div class="aec-card">
+      <div class="aec-model-card">
         <h3>Dedicated Professional Capacity</h3>
         <p>Selected engineering and specialist professionals assigned to support ongoing client workloads for an agreed duration.</p>
       </div>
-      <div class="aec-card">
+      <div class="aec-model-card">
         <h3>Remote &amp; Hybrid Delivery</h3>
         <p>Cross-border support for design coordination, BIM, quantity take-offs, and project controls with local site personnel as required.</p>
+      </div>
+    </div>
+
+    <h3 class="disciplines-heading">Core Professional Disciplines We Coordinate</h3>
+    <p class="intro" style="margin-bottom: 30px;">
+      Depending on your project's technical scope and execution stage, we assemble expert teams across key domains:
+    </p>
+
+    <div class="disciplines-grid">
+      <div class="discipline-group-card">
+        <h3>Planning &amp; Spatial Professionals</h3>
+        <p><strong>Town Planners, Land Surveyors &amp; Geospatial Specialists:</strong> Providing land-use planning, site evaluation, high-precision surveys, spatial mapping, and development information.</p>
+      </div>
+      <div class="discipline-group-card">
+        <h3>Architecture &amp; Engineering</h3>
+        <p><strong>Architects, Civil, Structural, Mechanical &amp; Electrical Engineers:</strong> Delivering design coordination, rigorous technical reviews, calculations, and discipline-specific execution support.</p>
+      </div>
+      <div class="discipline-group-card">
+        <h3>Cost &amp; Construction Management</h3>
+        <p><strong>Quantity Surveyors, Builders, Planners &amp; Project Managers:</strong> Driving cost estimation, bills of quantities (BOQs), programme coordination, construction monitoring, and project controls.</p>
+      </div>
+      <div class="discipline-group-card">
+        <h3>Quality, Compliance &amp; Information</h3>
+        <p><strong>QA/QC Inspectors, Quality Engineers, Document Controllers &amp; Digital Experts:</strong> Managing inspection and test records, technical registers, digital handovers, and as-built data tracking.</p>
       </div>
     </div>
   </div>
@@ -780,7 +837,7 @@
 <section class="dep">
   <div class="container">
     <p class="eyebrow">CAPABILITIES</p>
-    <h2>Our Engineering Services</h2>
+    <h2>Our Technical Execution Capabilities</h2>
 
     <div class="service-grid">
       <div class="service" id="quality-assurance">
