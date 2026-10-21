@@ -184,7 +184,7 @@
       color: var(--wine);
     }
 
-    /* SOLID WINE HEADER & BORDERLESS UNIFIED DROPDOWN */
+    /* SOLID WINE HEADER & BALANCED BORDERLESS DROPDOWN */
     .site-header {
       position: fixed;
       z-index: 10000;
@@ -261,7 +261,7 @@
       width: 100%;
       z-index: 11000;
       display: none;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: 1fr 1fr;
       gap: 40px;
       padding: 35px 40px;
       background: var(--wine-light);
@@ -271,6 +271,14 @@
     }
     .nav-dropdown-menu.is-open { display: grid; }
     .nav-dropdown-group { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+    
+    /* Pushes right group cleanly to the right end */
+    .nav-dropdown-group:last-child {
+      justify-self: end;
+      align-items: flex-end;
+      text-align: right;
+    }
+
     .nav-dropdown-heading {
       margin: 0 0 4px; color: var(--gold-light); font-size: .72rem;
       font-weight: 800; letter-spacing: .06em; line-height: 1.5; text-transform: uppercase;
@@ -618,6 +626,7 @@
       .main-nav.is-open{display:flex}
       .menu-toggle{display:flex}
       .services-grid, .about-split, .digital-grid { grid-template-columns: 1fr; }
+      .nav-dropdown-group:last-child { justify-self: start; align-items: flex-start; text-align: left; }
       .footer-top { grid-template-columns: 1fr 1fr; gap: 20px; }
       .hero-ticker { display: none; }
     }
