@@ -177,6 +177,15 @@ section{position:relative}
 .search-feedback { margin: 10px 0 0; color: rgba(255,255,255,.8); font-size: .84rem; }
 .search-feedback a { color: var(--gold-light); }
 
+/* RESPONSIVE VIDEO SWITCHER CLASSES */
+.desktop-video { display: block; }
+.mobile-video { display: none; }
+
+@media(max-width: 767px) {
+  .desktop-video { display: none !important; }
+  .mobile-video { display: block !important; }
+}
+
 /* STICKY STACKING SECTIONS WITH NEUTRAL CHARCOAL OVERLAY */
 .section-with-video {
   position: sticky;
@@ -536,7 +545,7 @@ section{position:relative}
   .brand img{width:110px;max-height:32px}
   .icon-button{width:32px;height:32px}
 
-  /* STRICT 100vh LOCK + LANDSCAPE VIDEO PORTRAIT SCALING FOR MOBILE STICKY STACKING */
+  /* STRICT 100vh / 100dvh MOBILE STICKY STACKING WITH NATIVE 9:16 PORTRAIT VIDEOS */
   .section-with-video {
     position: sticky !important;
     top: 0 !important;
@@ -564,8 +573,7 @@ section{position:relative}
     left: 50% !important;
     width: 100% !important;
     height: 100% !important;
-    max-width: none !important;
-    transform: translate(-50%, -50%) scale(1.8) !important;
+    transform: translate(-50%, -50%) !important;
     object-fit: cover !important;
   }
 
@@ -705,8 +713,13 @@ section{position:relative}
   <!-- SECTION 1: HERO -->
   <section class="hero section-with-video">
     <div class="section-media" aria-hidden="true">
-      <video class="sec-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
+      <!-- Desktop Landscape Video -->
+      <video class="sec-video desktop-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
         <source src="./videos/scene-01-physical-infrastructure.mp4" type="video/mp4">
+      </video>
+      <!-- Mobile Portrait Video -->
+      <video class="sec-video mobile-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
+        <source src="./videos/scene-01-mobile.mp4" type="video/mp4">
       </video>
       <div class="section-shade"></div>
     </div>
@@ -727,8 +740,13 @@ section{position:relative}
   <!-- SECTION 2: INTRO -->
   <section class="intro-section section-pad section-with-video">
     <div class="section-media" aria-hidden="true">
-      <video class="sec-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
+      <!-- Desktop Landscape Video -->
+      <video class="sec-video desktop-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
         <source src="./videos/scene-02-engineering-delivery.mp4" type="video/mp4">
+      </video>
+      <!-- Mobile Portrait Video -->
+      <video class="sec-video mobile-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
+        <source src="./videos/scene-02-mobile.mp4" type="video/mp4">
       </video>
       <div class="section-shade"></div>
     </div>
@@ -753,8 +771,13 @@ section{position:relative}
   <!-- SECTION 3: LIFECYCLE -->
   <section class="lifecycle-section section-pad section-with-video">
     <div class="section-media" aria-hidden="true">
-      <video class="sec-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
+      <!-- Desktop Landscape Video -->
+      <video class="sec-video desktop-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
         <source src="./videos/scene-03-digital-engineering.mp4" type="video/mp4">
+      </video>
+      <!-- Mobile Portrait Video -->
+      <video class="sec-video mobile-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
+        <source src="./videos/scene-03-mobile.mp4" type="video/mp4">
       </video>
       <div class="section-shade"></div>
     </div>
@@ -813,8 +836,13 @@ section{position:relative}
   <!-- SECTION 4: FEATURE (ENGINEERING & PROJECT DELIVERY) WITH 5-IMAGE SLIDESHOW -->
   <section class="feature-section section-pad section-with-video">
     <div class="section-media" aria-hidden="true">
-      <video class="sec-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
+      <!-- Desktop Landscape Video -->
+      <video class="sec-video desktop-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
         <source src="./videos/scene-04-handover-operations.mp4" type="video/mp4">
+      </video>
+      <!-- Mobile Portrait Video -->
+      <video class="sec-video mobile-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
+        <source src="./videos/scene-04-mobile.mp4" type="video/mp4">
       </video>
       <div class="section-shade"></div>
     </div>
