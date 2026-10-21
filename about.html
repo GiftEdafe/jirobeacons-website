@@ -638,6 +638,7 @@
         box-shadow:0 15px 30px rgba(0,0,0,.3);
         max-height: calc(100vh - 80px);
         overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
       }
       .main-nav.is-open{display:flex}
       .menu-toggle{display:flex}
@@ -647,10 +648,11 @@
         display: none;
         grid-template-columns: 1fr;
         gap: 20px;
-        padding: 15px 0;
+        padding: 15px 0 15px 15px;
         background: transparent;
         box-shadow: none;
         width: 100%;
+        border-left: 2px solid var(--gold);
       }
       .nav-dropdown-menu.is-open { display: flex; flex-direction: column; }
       .nav-dropdown-group:last-child { justify-self: start; align-items: flex-start; text-align: left; }
