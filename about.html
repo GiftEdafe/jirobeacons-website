@@ -16,7 +16,7 @@
     :root {
       --wine: #2B0714;
       --wine-light: #3A0A1B;
-      --wine-dark: #18040B;
+      --wine-deep: #18040B;
       --gold: #D4AF37;
       --gold-light: #E8D28A;
       --white: #FFFFFF;
@@ -184,29 +184,29 @@
       color: var(--wine);
     }
 
-    /* TRANSPARENT WINE HEADER & UNIFIED EDGE-TO-EDGE DROPDOWN */
+    /* SOLID WINE HEADER & BORDERLESS UNIFIED DROPDOWN */
     .site-header {
       position: fixed;
       z-index: 10000;
       top: 20px;
-      left: 0;
-      right: 0;
+      left: 24px;
+      right: 24px;
+      max-width: var(--max);
+      margin: 0 auto;
       background: transparent;
       border-bottom: 0;
     }
     .header-inner {
-      max-width: var(--max);
-      margin: 0 auto;
+      position: relative;
+      width: 100%;
       min-height: 76px;
       display: grid;
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
       gap: 20px;
       padding: 0 25px;
-      background: rgba(43, 7, 20, 0.85);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: var(--wine-light);
+      border: none;
       border-radius: 4px 4px 0 0;
       box-shadow: 0 12px 30px rgba(24, 4, 11, 0.25);
     }
@@ -258,18 +258,14 @@
       top: 100%;
       left: 0;
       right: 0;
-      max-width: var(--max);
-      margin: 0 auto;
+      width: 100%;
       z-index: 11000;
       display: none;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 40px;
       padding: 35px 40px;
-      background: rgba(43, 7, 20, 0.85);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-top: none;
+      background: var(--wine-light);
+      border: none;
       border-radius: 0 0 4px 4px;
       box-shadow: 0 20px 40px rgba(24, 4, 11, 0.35);
     }
@@ -305,8 +301,8 @@
 
     .search-panel {
       position: absolute; top: calc(100% + 20px); left: 0; right: 0; z-index: 12000;
-      display: none; padding: 20px 0; background: var(--wine-deep);
-      border-top: 1px solid rgba(255,255,255,.12);
+      display: none; padding: 20px 0; background: var(--wine-light);
+      border: none;
       box-shadow: 0 18px 35px rgba(0,0,0,.22);
     }
     .search-panel.is-open { display: block; }
@@ -319,7 +315,7 @@
     .search-feedback { margin: 10px 0 0; color: rgba(255,255,255,.8); font-size: .84rem; }
     .search-feedback a { color: var(--gold-light); }
 
-    /* HERO WITH NEUTRAL TRANSPARENT OVERLAY */
+    /* HERO WITH VISIBLE BACKGROUND IMAGE & NEUTRAL OVERLAY */
     .hero {
       position: relative;
       min-height: 100vh;
@@ -328,6 +324,7 @@
       overflow: hidden;
       background: #181818;
       color: var(--white);
+      isolation: isolate;
     }
 
     .hero-image {
@@ -337,11 +334,13 @@
       height: 100%;
       object-fit: cover;
       object-position: center;
+      z-index: -2;
     }
 
     .hero-overlay {
       position: absolute;
       inset: 0;
+      z-index: -1;
       background:
         linear-gradient(90deg,
           rgba(34, 34, 34, 0.88) 0%,
@@ -604,8 +603,7 @@
         max-width: 100%; width: 100%; border-radius: 0;
         display: grid; grid-template-columns: auto 1fr auto;
         align-items: center; gap: 10px; min-height: 64px; padding: 0 12px;
-        background: rgba(43, 7, 20, 0.9);
-        backdrop-filter: blur(10px);
+        background: var(--wine-light);
       }
       .header-inner .brand { grid-column: 1; justify-self: start; margin-left: 0; }
       .header-inner .brand img{ width: 130px; max-height: 38px; }
@@ -614,8 +612,7 @@
       .main-nav{
         position:absolute;top:100%;left:0;right:0;z-index:11500;
         display:none;flex-direction:column;align-items:flex-start;
-        padding:20px 24px;background:var(--wine-deep);
-        border-top:1px solid rgba(255,255,255,.12);
+        padding:20px 24px;background:var(--wine-light);
         box-shadow:0 15px 30px rgba(0,0,0,.3)
       }
       .main-nav.is-open{display:flex}
@@ -708,7 +705,7 @@
     <!-- HERO -->
     <section class="hero">
       <img class="hero-image"
-           src="images/hero-image-1.jpg"
+           src="images/site-4.jpg"
            alt="Urban and infrastructure environment showing smart cities and digital engineering"
            fetchpriority="high">
 
