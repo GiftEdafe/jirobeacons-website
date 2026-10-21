@@ -334,11 +334,31 @@
     .search-feedback { margin: 10px 0 0; color: rgba(255,255,255,.8); font-size: .84rem; }
     .search-feedback a { color: var(--gold-light); }
 
-    /* PAGE HERO */
+    /* PAGE HERO WITH SOLUTION.JPG BACKGROUND & NEUTRAL TRANSPARENT OVERLAY */
     .page-hero {
-      background: var(--wine-deep);
+      position: relative;
+      background: #0b0f14 url('https://raw.githubusercontent.com/GiftEdafe/jirobeacons-website/main/images/solution.jpg') center/cover no-repeat;
       color: var(--white);
-      padding: 150px 0 90px;
+      padding: 180px 0 120px;
+      overflow: hidden;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg,
+          rgba(11, 15, 20, 0.88) 0%,
+          rgba(11, 15, 20, 0.70) 55%,
+          rgba(11, 15, 20, 0.40) 100%),
+        linear-gradient(0deg,
+          rgba(11, 15, 20, 0.65),
+          rgba(11, 15, 20, 0.25) 60%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
     }
 
     .page-hero .eyebrow {
@@ -662,8 +682,9 @@
 
 
 <section class="page-hero">
+  <div class="hero-overlay"></div>
 
-  <div class="container">
+  <div class="container hero-content">
 
     <p class="eyebrow">OUR SOLUTIONS</p>
 
