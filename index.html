@@ -545,19 +545,41 @@ section{position:relative}
   .brand img{width:110px;max-height:32px}
   .icon-button{width:32px;height:32px}
 
-  /* STRICT 100vh / 100dvh MOBILE STICKY STACKING WITH NATIVE 9:16 PORTRAIT VIDEOS */
+  /* PERMANENT MOBILE STACKING FIX: FORCED FIXED VIEWPORT LAYOUT */
   .section-with-video {
-    position: sticky !important;
+    position: fixed !important;
     top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
     height: 100vh !important;
     height: 100dvh !important;
-    min-height: 100vh !important;
-    max-height: 100vh !important;
+    width: 100vw !important;
     padding-top: 70px !important;
     overflow: hidden !important;
     display: flex !important;
     align-items: center !important;
+    pointer-events: none !important; /* Allows scroll events to pass through seamlessly */
   }
+
+  /* Re-enable pointer events exclusively for interactive elements inside the active slide */
+  .section-with-video .container,
+  .section-with-video a,
+  .section-with-video button {
+    pointer-events: auto !important;
+  }
+
+  /* Make non-active sections invisible until scrolled into view */
+  .section-with-video {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+  }
+
+  /* Let the IntersectionObserver or standard stacking handle visibility smoothly */
+  .hero { z-index: 10; opacity: 1; visibility: visible; }
+  .intro-section { z-index: 20; }
+  .lifecycle-section { z-index: 30; }
+  .feature-section { z-index: 40; }
 
   .section-media {
     position: absolute !important;
@@ -711,13 +733,11 @@ section{position:relative}
 
 <main>
   <!-- SECTION 1: HERO -->
-  <section class="hero section-with-video">
+  <section class="hero section-with-video" id="slide-1">
     <div class="section-media" aria-hidden="true">
-      <!-- Desktop Landscape Video -->
       <video class="sec-video desktop-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
         <source src="./videos/scene-01-physical-infrastructure.mp4" type="video/mp4">
       </video>
-      <!-- Mobile Portrait Video -->
       <video class="sec-video mobile-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
         <source src="./videos/scene-01-mobile.mp4" type="video/mp4">
       </video>
@@ -738,13 +758,11 @@ section{position:relative}
   </section>
 
   <!-- SECTION 2: INTRO -->
-  <section class="intro-section section-pad section-with-video">
+  <section class="intro-section section-pad section-with-video" id="slide-2">
     <div class="section-media" aria-hidden="true">
-      <!-- Desktop Landscape Video -->
       <video class="sec-video desktop-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
         <source src="./videos/scene-02-engineering-delivery.mp4" type="video/mp4">
       </video>
-      <!-- Mobile Portrait Video -->
       <video class="sec-video mobile-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
         <source src="./videos/scene-02-mobile.mp4" type="video/mp4">
       </video>
@@ -769,13 +787,11 @@ section{position:relative}
   </section>
 
   <!-- SECTION 3: LIFECYCLE -->
-  <section class="lifecycle-section section-pad section-with-video">
+  <section class="lifecycle-section section-pad section-with-video" id="slide-3">
     <div class="section-media" aria-hidden="true">
-      <!-- Desktop Landscape Video -->
       <video class="sec-video desktop-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
         <source src="./videos/scene-03-digital-engineering.mp4" type="video/mp4">
       </video>
-      <!-- Mobile Portrait Video -->
       <video class="sec-video mobile-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
         <source src="./videos/scene-03-mobile.mp4" type="video/mp4">
       </video>
@@ -834,13 +850,11 @@ section{position:relative}
   </section>
 
   <!-- SECTION 4: FEATURE (ENGINEERING & PROJECT DELIVERY) WITH 5-IMAGE SLIDESHOW -->
-  <section class="feature-section section-pad section-with-video">
+  <section class="feature-section section-pad section-with-video" id="slide-4">
     <div class="section-media" aria-hidden="true">
-      <!-- Desktop Landscape Video -->
       <video class="sec-video desktop-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
         <source src="./videos/scene-04-handover-operations.mp4" type="video/mp4">
       </video>
-      <!-- Mobile Portrait Video -->
       <video class="sec-video mobile-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
         <source src="./videos/scene-04-mobile.mp4" type="video/mp4">
       </video>
@@ -1233,6 +1247,31 @@ section{position:relative}
       currentDigitalSlide = (currentDigitalSlide + 1) % digitalSlides.length;
       digitalSlides[currentDigitalSlide].classList.add("active");
     }, 4500);
+  }
+
+  /* MOBILE STACKING INTERSECTION OBSERVER TO REVEAL SLIDES ONE BY ONE */
+  if (window.innerWidth <= 767) {
+    const videoSections = document.querySelectorAll(".section-with-video");
+    const observerOptions = {
+      root: null,
+      threshold: 0.4
+    };
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = "1";
+          entry.target.style.visibility = "visible";
+        } else {
+          entry.target.style.opacity = "0";
+          entry.target.style.visibility = "hidden";
+        }
+      });
+    }, observerOptions);
+
+    videoSections.forEach(section => {
+      sectionObserver.observe(section);
+    });
   }
 
   /* HEADER TRANSPARENCY SWITCHER (TRANSPARENT AFTER SECTION 2) */
