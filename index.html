@@ -182,7 +182,7 @@ section{position:relative}
   .mobile-video { display: block !important; }
 }
 
-/* STICKY STACKING SECTIONS */
+/* STICKY STACKING SECTIONS (DESKTOP) */
 .section-with-video {
   position: sticky;
   top: 0;
@@ -512,18 +512,16 @@ section{position:relative}
   .brand img{width:110px;max-height:32px}
   .icon-button{width:32px;height:32px}
 
-  /* CRITICAL MOBILE STACKING FIX FOR PORTRAIT VIDEOS */
+  /* GUARANTEED MOBILE FIX: FLOWING SECTIONS WITH FULL-SCREEN BACKGROUND VIDEOS */
   .section-with-video {
-    position: sticky !important;
-    top: 0 !important;
-    height: 100vh !important;
-    height: 100dvh !important;
+    position: relative !important;
+    height: auto !important;
     min-height: 100vh !important;
-    max-height: 100vh !important;
-    padding-top: 60px !important;
-    overflow: hidden !important;
+    min-height: 100dvh !important;
+    padding: 85px 0 40px 0 !important;
     display: flex !important;
     align-items: center !important;
+    overflow: visible !important;
   }
 
   .section-media {
