@@ -614,7 +614,7 @@
       color: var(--gold);
     }
 
-    /* RESPONSIVE STYLES & MOBILE DRAWER COMBINED NAVIGATION */
+    /* RESPONSIVE STYLES & MOBILE DRAWER TOGGLE FIXES */
     @media(min-width:1101px){
       .nav-dropdown:hover .nav-dropdown-menu,
       .nav-dropdown:focus-within .nav-dropdown-menu{display:grid}
@@ -635,7 +635,7 @@
       /* HIDE DESKTOP RIGHT NAV ON MOBILE */
       .desktop-right-nav { display: none !important; }
 
-      /* MOBILE DRAWER: COMBINES BOTH LEFT AND RIGHT NAV LISTS VERTICALLY */
+      /* MOBILE DRAWER HIDDEN BY DEFAULT, TOGGLED VIA .is-open */
       .main-nav{
         position:absolute; top:100%; left:0; right:0; z-index:11500;
         display:none; flex-direction:column; align-items:flex-start;
@@ -646,17 +646,30 @@
         -webkit-overflow-scrolling: touch;
         gap: 16px;
       }
-      .header-left-nav, .mobile-only-nav {
+      .main-nav.is-open{display:flex}
+      .menu-toggle{display:flex}
+
+      /* MOBILE-ONLY NAV LINKS: HIDDEN UNTIL DRAWER OPENS */
+      .mobile-only-nav {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: 16px;
+      }
+      .main-nav.is-open .mobile-only-nav {
+        display: flex;
+      }
+
+      .header-left-nav {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         width: 100%;
         gap: 16px;
       }
-      .main-nav.is-open{display:flex}
-      .menu-toggle{display:flex}
 
-      /* ENSURE MOBILE-ONLY EXTRA NAV LINKS MATCH THE EXACT FONT AND STYLE */
+      /* EXACT MATCH FONT & STYLE FOR MOBILE EXTRA NAV LINKS */
       .mobile-only-nav a {
         color: rgba(255,255,255,.94);
         font-size: .7rem;
@@ -734,7 +747,7 @@
         </div>
         <a href="solutions.html">Solutions</a>
         
-        <!-- MOBILE-ONLY EXTRA NAV LINKS MATCHING EXACT FONT/STYLE -->
+        <!-- MOBILE-ONLY EXTRA NAV LINKS: TOGGLES VIA HAMBURGER MENU -->
         <div class="mobile-only-nav">
           <a href="projects.html">Projects</a>
           <a href="insights.html">Insights</a>
