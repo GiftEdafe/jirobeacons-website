@@ -352,7 +352,7 @@
       margin-bottom: 0;
     }
 
-    /* EVIDENCE-LED PORTFOLIO STYLING */
+    /* PREMIUM EDITORIAL PORTFOLIO STYLING */
     .portfolio-section {
       background: var(--off-white);
     }
@@ -395,22 +395,23 @@
       box-shadow: 0 12px 30px rgba(0,0,0,0.08);
     }
 
-    /* EVIDENCE ARTEFACT CONTAINER (Replaces stock photo dependency) */
-    .evidence-box {
+    /* EDITORIAL HEADER STRIP */
+    .editorial-strip {
       background: var(--wine-deep);
       color: var(--white);
-      padding: 24px 30px;
+      padding: 20px 30px;
       border-bottom: 2px solid var(--gold);
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .evidence-type {
+    .editorial-category {
       font-family: "Manrope", sans-serif;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
       color: var(--gold-light);
+      letter-spacing: 0.5px;
       display: flex;
       align-items: center;
       gap: 8px;
@@ -437,15 +438,6 @@
       display: flex;
       flex-direction: column;
       flex: 1;
-    }
-
-    .project-meta {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 8px;
     }
 
     .project-body h3 {
@@ -701,10 +693,9 @@
   <div class="hero-overlay"></div>
   <div class="container hero-content">
     <p class="eyebrow" style="color:var(--gold-light);">PROJECT PORTFOLIO &amp; DELIVERABLES</p>
-    <h1>Evidence-led engineering execution and asset records.</h1>
+    <h1>Editorial precision in engineering execution and asset records.</h1>
     <p>
-      We believe a genuine engineering deliverable is more persuasive than a stock photograph. 
-      Explore our verified handovers, digital quality registers, and structured asset records across energy, real estate, and infrastructure.
+      Reflecting global engineering standards by prioritizing technical scope, verified deliverables, and data structure over stock imagery.
     </p>
   </div>
 </section>
@@ -722,15 +713,11 @@
 
     <div class="projects-grid">
       <div class="project-card">
-        <div class="evidence-box">
-          <span class="evidence-type">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-            Digital Handover Register &amp; Index
-          </span>
+        <div class="editorial-strip">
+          <span class="editorial-category">Sector: Energy &amp; Power Infrastructure</span>
           <span class="project-badge">Completed</span>
         </div>
         <div class="project-body">
-          <span class="project-meta">Energy &amp; Power Infrastructure</span>
           <h3>132/33kV Substation Expansion — Digital Handover</h3>
           <p>
             Provided structured digital handover support and technical document organization for the substation expansion, ensuring complete traceability and compliance with approved client standards.
@@ -759,15 +746,11 @@
 
     <div class="projects-grid">
       <div class="project-card">
-        <div class="evidence-box">
-          <span class="evidence-type">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-            As-Built &amp; Test Data Package
-          </span>
+        <div class="editorial-strip">
+          <span class="editorial-category">Sector: Real Estate &amp; Property</span>
           <span class="project-badge">Completed</span>
         </div>
         <div class="project-body">
-          <span class="project-meta">Real Estate &amp; Property</span>
           <h3>Abuja-FCT Estate — Digital As-Built &amp; Test Documentation</h3>
           <p>
             Consolidated project test documentation and digital as-built records into a unified, searchable register for property review, maintenance planning, and future reference.
@@ -781,15 +764,11 @@
       </div>
 
       <div class="project-card">
-        <div class="evidence-box">
-          <span class="evidence-type">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-            Spatial Audit &amp; Risk Register
-          </span>
+        <div class="editorial-strip">
+          <span class="editorial-category">Sector: Surveying &amp; Asset Auditing</span>
           <span class="project-badge">Completed</span>
         </div>
         <div class="project-body">
-          <span class="project-meta">Surveying &amp; Asset Auditing</span>
           <h3>Existing Estate Digital As-Built Assignments (Three Estates)</h3>
           <p>
             Executed comprehensive as-built surveys and compliance risk evaluations across three established residential properties to support future asset management.
@@ -818,15 +797,11 @@
 
     <div class="projects-grid">
       <div class="project-card">
-        <div class="evidence-box">
-          <span class="evidence-type">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-            QA/QC Tracking &amp; SharePoint Hub
-          </span>
+        <div class="editorial-strip">
+          <span class="editorial-category">Sector: Commercial Real Estate</span>
           <span class="project-badge ongoing">Ongoing</span>
         </div>
         <div class="project-body">
-          <span class="project-meta">Commercial Real Estate</span>
           <h3>Imo City Computer Village Hub — Digital QA/QC &amp; Documentation</h3>
           <p>
             Establishing rigorous digital QA/QC systems and document control administration supporting Shariff Plaza Management &amp; Facility Co. Ltd.
@@ -840,15 +815,11 @@
       </div>
 
       <div class="project-card">
-        <div class="evidence-box">
-          <span class="evidence-type">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
-            Digital Engineering Package (DEP)
-          </span>
+        <div class="editorial-strip">
+          <span class="editorial-category">Sector: Residential Development</span>
           <span class="project-badge ongoing">In Progress</span>
         </div>
         <div class="project-body">
-          <span class="project-meta">Residential Development</span>
           <h3>Real Estate Construction &amp; Digital Engineering Package</h3>
           <p>
             Integrating construction delivery oversight with a structured Digital Engineering Package (DEP) to ensure seamless project data flow from site activity to handover.
@@ -862,15 +833,11 @@
       </div>
 
       <div class="project-card">
-        <div class="evidence-box">
-          <span class="evidence-type">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
-            Digital Engineering Package (DEP)
-          </span>
+        <div class="editorial-strip">
+          <span class="editorial-category">Sector: Hospitality Development</span>
           <span class="project-badge ongoing">In Progress</span>
         </div>
         <div class="project-body">
-          <span class="project-meta">Hospitality Development</span>
           <h3>Hotel &amp; Resort Construction — Digital Engineering Package</h3>
           <p>
             Structuring technical project records and quality documentation for a resort development in partnership with Kjax Phadox Consults Limited.
@@ -893,7 +860,7 @@
       <p class="eyebrow">ENGAGE OUR EXPERTISE</p>
       <h2>Ready to structure your project information and delivery?</h2>
       <p style="margin-bottom:0;">
-        Contact our team to discuss how our integrated AEC professionals and evidence-led digital workflows can support your upcoming development.
+        Contact our team to discuss how our integrated AEC professionals and editorial digital workflows can support your upcoming development.
       </p>
     </div>
     <div>
