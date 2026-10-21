@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Projects &amp; Portfolio | Jiro-BEACONS Engineering</title>
+
+  <meta name="description" content="Explore Jiro-BEACONS engineering projects, including substation digital handovers, estate as-built surveys, digital QA/QC workflows, and Digital Engineering Packages.">
+  <meta name="theme-color" content="#2B0714">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --wine: #2B0714;
+      --wine-light: #3A0A1B;
+      --wine-deep: #18040B;
+      --gold: #D4AF37;
+      --gold-light: #E8D28A;
+      --white: #FFFFFF;
+      --off-white: #F7F5F3;
+      --text: #242124;
+      --muted: #686268;
+      --border: #E9E3E5;
+      --container: 1280px;
+      --max: 1240px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 120px;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body.menu-open, body.search-open {
+      overflow: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 64px));
+      margin-inline: auto;
+    }
+
+    section {
+      padding: 100px 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--wine);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      display: inline-block;
+      width: 23px;
+      height: 3px;
+      background: var(--gold);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: "Manrope", sans-serif;
+      line-height: 1.2;
+      letter-spacing: -0.8px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 5.2vw, 72px);
+      font-weight: 800;
+    }
+
+    h2 {
+      font-size: clamp(32px, 3.5vw, 48px);
+      font-weight: 800;
+    }
+
+    h3 {
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 13px 24px;
+      border: 1px solid transparent;
+      border-radius: 2px;
+      font-size: 13px;
+      font-weight: 700;
+      transition: background 0.25s ease, color 0.25s ease,
+                  border-color 0.25s ease, transform 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--wine-deep);
+    }
+
+    .btn-gold:hover {
+      background: #E3C85E;
+    }
+
+    .btn-outline {
+      border-color: rgba(255, 255, 255, 0.7);
+      color: var(--white);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: var(--white);
+      color: var(--wine);
+    }
+
+    /* SOLID WINE HEADER & FULL-WIDTH ALIGNED DROPDOWN MENU */
+    .site-header {
+      position: fixed;
+      z-index: 10000;
+      top: 20px;
+      left: 24px;
+      right: 24px;
+      max-width: var(--max);
+      margin: 0 auto;
+      background: transparent;
+      border-bottom: 0;
+    }
+    .header-inner {
+      position: relative;
+      width: 100%;
+      min-height: 76px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 20px;
+      padding: 0 25px;
+      background: var(--wine-light);
+      border: none;
+      border-radius: 4px 4px 0 0;
+      box-shadow: 0 12px 30px rgba(24, 4, 11, 0.25);
+    }
+
+    .header-left-nav {
+      justify-self: start;
+      display: flex;
+      align-items: center;
+      gap: clamp(14px, 2vw, 28px);
+    }
+
+    .brand { 
+      grid-column: 2;
+      justify-self: center; 
+      display: inline-flex; 
+      align-items: center; 
+      text-decoration: none; 
+      color: var(--white);
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: 1px;
+    }
+    .brand img { width: 220px; max-height: 60px; object-fit: contain; }
+
+    .header-right-group {
+      justify-self: end;
+      display: flex;
+      align-items: center;
+      gap: clamp(14px, 2vw, 28px);
+    }
+
+    .header-right-nav {
+      display: flex;
+      align-items: center;
+      gap: clamp(14px, 2vw, 28px);
+    }
+
+    .main-nav>a,.nav-dropdown-toggle {
+      color: rgba(255,255,255,.94); font-size: .7rem; font-weight: 800;
+      letter-spacing: .055em; text-decoration: none; text-transform: uppercase; white-space: nowrap;
+    }
+    .main-nav>a:hover,.main-nav>a.active,.nav-dropdown-toggle:hover { color: var(--gold-light); }
+
+    .nav-dropdown { position: static; }
+    .nav-dropdown-toggle {
+      display: inline-flex; align-items: center; gap: 4px; padding: 12px 0;
+      background: transparent; border: 0; white-space: nowrap;
+    }
+    .dropdown-caret { color: var(--gold-light); font-size: .85rem; line-height: 1; }
+
+    .nav-dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      width: 100%;
+      z-index: 11000;
+      display: none;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      padding: 35px 40px;
+      background: var(--wine-light);
+      border-radius: 0 0 4px 4px;
+      box-shadow: 0 20px 40px rgba(24, 4, 11, 0.35);
+    }
+    .nav-dropdown-menu.is-open { display: grid; }
+    .nav-dropdown-group { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+    
+    .nav-dropdown-group:last-child {
+      justify-self: end;
+      align-items: flex-end;
+      text-align: right;
+    }
+
+    .nav-dropdown-heading {
+      margin: 0 0 4px; color: var(--gold-light); font-size: .72rem;
+      font-weight: 800; letter-spacing: .06em; line-height: 1.5; text-transform: uppercase;
+    }
+    .main-nav .nav-dropdown-menu a {
+      color: rgba(255,255,255,.84); font-size: .88rem; font-weight: 500;
+      letter-spacing: 0; line-height: 1.45; text-transform: none; text-decoration: none;
+    }
+    .main-nav .nav-dropdown-menu a:hover { color: var(--gold-light); }
+
+    .header-tools { display: flex; align-items: center; gap: 10px; }
+    .icon-button {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 38px; height: 38px; padding: 0; color: #fff;
+      background: transparent; border: 1px solid rgba(255,255,255,.35);
+      border-radius: 2px;
+    }
+    .icon-button:hover,.icon-button:focus-visible { color: var(--gold-light); border-color: var(--gold); }
+    .icon-button svg { width: 18px; height: 18px; }
+
+    .menu-toggle {
+      display: none; flex-direction: column; justify-content:space-between;
+      width: 38px; height: 38px; padding: 9px; background: transparent;
+      border: 1px solid rgba(255,255,255,.35); border-radius: 2px;
+    }
+    .menu-toggle span { display: block; width: 100%; height: 2px; background: #fff; transition: transform .2s; }
+
+    .search-panel {
+      position: absolute; top: calc(100% + 20px); left: 0; right: 0; z-index: 12000;
+      display: none; padding: 20px 0; background: var(--wine-light);
+      box-shadow: 0 18px 35px rgba(0,0,0,.22);
+    }
+    .search-panel.is-open { display: block; }
+    .search-form { display: flex; gap: 10px; max-width: 780px; margin: auto; }
+    .search-form input {
+      min-width: 0; flex: 1; padding: 12px 16px; color: var(--text);
+      background: #fff; border: 1px solid #ddd; border-radius: 2px;
+    }
+    .search-feedback { margin: 10px 0 0; color: rgba(255,255,255,.8); font-size: .84rem; }
+
+    /* PAGE HERO WITH SOLUTION.JPG BACKGROUND & NEUTRAL OVERLAY */
+    .page-hero {
+      position: relative;
+      background: #0b0f14 url('https://raw.githubusercontent.com/GiftEdafe/jirobeacons-website/main/images/solution.jpg') center/cover no-repeat;
+      color: var(--white);
+      padding: 180px 0 120px;
+      overflow: hidden;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg,
+          rgba(11, 15, 20, 0.88) 0%,
+          rgba(11, 15, 20, 0.70) 55%,
+          rgba(11, 15, 20, 0.40) 100%),
+        linear-gradient(0deg,
+          rgba(11, 15, 20, 0.65),
+          rgba(11, 15, 20, 0.25) 60%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .page-hero .eyebrow {
+      color: var(--gold-light);
+    }
+
+    .page-hero h1 {
+      font-size: clamp(40px, 6vw, 64px);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .page-hero p {
+      max-width: 800px;
+      font-size: 19px;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 0;
+    }
+
+    /* PROJECT PORTFOLIO SECTIONS */
+    .portfolio-section {
+      background: var(--off-white);
+    }
+    .portfolio-section:nth-of-type(even) {
+      background: var(--white);
+    }
+
+    .section-intro {
+      max-width: 750px;
+      margin-bottom: 50px;
+    }
+    .section-intro h2 {
+      color: var(--wine);
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    .project-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .portfolio-section:nth-of-type(even) .project-card {
+      background: var(--off-white);
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    }
+
+    .project-img-wrapper {
+      position: relative;
+      width: 100%;
+      height: 240px;
+      overflow: hidden;
+      background: #18040B;
+    }
+
+    .project-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .project-card:hover .project-img-wrapper img {
+      transform: scale(1.03);
+    }
+
+    .project-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: var(--wine);
+      color: var(--gold-light);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border-radius: 2px;
+    }
+    .project-badge.ongoing {
+      background: var(--gold);
+      color: var(--wine-deep);
+    }
+
+    .project-body {
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .project-meta {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .project-body h3 {
+      font-size: 22px;
+      color: var(--wine);
+      margin-bottom: 14px;
+    }
+
+    .project-details {
+      list-style: none;
+      margin: 15px 0 20px 0;
+      padding-top: 15px;
+      border-top: 1px solid var(--border);
+      display: grid;
+      gap: 8px;
+    }
+
+    .project-details li {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .project-details strong {
+      color: var(--text);
+    }
+
+    .dark {
+      background: var(--wine-deep);
+      color: var(--white);
+    }
+
+    .dark h2 {
+      color: var(--white);
+    }
+
+    .dark p {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .dark .eyebrow {
+      color: var(--gold-light);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 13px 24px;
+      background: var(--gold);
+      color: var(--wine-deep);
+      border-radius: 2px;
+      font-weight: 700;
+      font-size: 13px;
+      margin-top: 10px;
+      transition: background 0.25s ease, transform 0.25s ease;
+    }
+
+    .button:hover {
+      background: #E3C85E;
+      transform: translateY(-2px);
+    }
+
+    /* FOOTER */
+    .site-footer {
+      padding: 65px 0 24px;
+      background: var(--wine-light);
+      color: var(--white);
+      position: relative;
+      z-index: 10;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr 0.8fr;
+      gap: 65px;
+      padding-bottom: 45px;
+    }
+
+    .footer-brand img {
+      width: 205px;
+      max-height: 65px;
+      object-fit: contain;
+      object-position: left center;
+      margin-bottom: 22px;
+    }
+
+    .footer-brand p {
+      max-width: 340px;
+      color: rgba(255, 255, 255, 0.67);
+      font-size: 13px;
+      line-height: 1.9;
+      margin-bottom: 0;
+    }
+
+    .footer-column h4 {
+      margin-bottom: 20px;
+      color: var(--white);
+      font-family: "DM Sans", sans-serif;
+      font-size: 12px;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 10px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 13px;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .footer-bottom p,
+    .footer-bottom a {
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 11px;
+    }
+
+    .footer-bottom a:hover {
+      color: var(--gold);
+    }
+
+    /* RESPONSIVE STYLES */
+    @media(min-width:1101px){
+      .nav-dropdown:hover .nav-dropdown-menu,
+      .nav-dropdown:focus-within .nav-dropdown-menu{display:grid}
+    }
+    @media(max-width:1100px){
+      .site-header { top: 0; left: 0; right: 0; }
+      .header-inner{
+        max-width: 100%; width: 100%; border-radius: 0;
+        display: grid; grid-template-columns: auto 1fr auto;
+        align-items: center; gap: 10px; min-height: 64px; padding: 0 12px;
+        background: var(--wine-light);
+      }
+      .header-inner .brand { grid-column: 1; justify-self: start; margin-left: 0; }
+      .header-inner .brand img{ width: 130px; max-height: 38px; }
+      .header-tools { grid-column: 3; justify-self: end; }
+
+      .main-nav{
+        position:absolute;top:100%;left:0;right:0;z-index:11500;
+        display:none;flex-direction:column;align-items:flex-start;
+        padding:20px 24px;background:var(--wine-light);
+        box-shadow:0 15px 30px rgba(0,0,0,.3)
+      }
+      .main-nav.is-open{display:flex}
+      .menu-toggle{display:flex}
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-dropdown-group:last-child { justify-self: start; align-items: flex-start; text-align: left; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 20px; }
+    }
+    @media(max-width:767px){
+      .container{width:calc(100% - 24px); padding: 0 4px;}
+      .site-header{inset:0 0 auto 0;}
+      .header-inner{min-height:54px;padding:0 8px;}
+      .brand img{width:110px;max-height:32px}
+      .icon-button{width:32px;height:32px}
+      .footer-top { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <nav class="main-nav header-left-nav" id="main-navigation" aria-label="Main navigation">
+      <a href="about.html">About</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-toggle" id="services-toggle" aria-expanded="false" aria-controls="services-menu" type="button">
+          Services <span class="dropdown-caret" aria-hidden="true">⌄</span>
+        </button>
+        <div class="nav-dropdown-menu" id="services-menu">
+          <div class="nav-dropdown-group">
+            <h2 class="nav-dropdown-heading">Core Infrastructure Engineering</h2>
+            <a href="services.html#surveying">Surveying &amp; Geospatial</a>
+            <a href="services.html#quantity-surveying">Quantity Surveying &amp; Cost Support</a>
+            <a href="services.html#engineering-coordination">Engineering &amp; Project Coordination</a>
+            <a href="services.html#construction-delivery">Construction Delivery Support</a>
+            <a href="services.html#quality-assurance">QA/QC, Inspection &amp; Testing</a>
+            <a href="services.html#information-management">Engineering Information Management</a>
+          </div>
+          <div class="nav-dropdown-group">
+            <h2 class="nav-dropdown-heading">Smart Building &amp; Compliance Analytics</h2>
+            <a href="index.html#automation">Smart Building Telemetry &amp; Integration</a>
+            <a href="index.html#edgecarbon">EdgeCarbon Compliance &amp; ESG Data Platforms</a>
+          </div>
+        </div>
+      </div>
+      <a href="solutions.html">Solutions</a>
+    </nav>
+
+    <a class="brand" href="index.html" aria-label="Jiro-BEACONS Engineering home">
+      <img src="images/logo-white.png" alt="Jiro-BEACONS Engineering" onerror="this.onerror=null;this.src='images/logo.png';">
+    </a>
+
+    <div class="header-right-group">
+      <nav class="main-nav header-right-nav" aria-label="Secondary navigation">
+        <a href="projects.html" class="active" style="color:var(--gold-light);">Projects</a>
+        <a href="insights.html">Insights</a>
+        <a href="careers.html">Careers</a>
+      </nav>
+      <div class="header-tools">
+        <button class="icon-button" id="search-toggle" type="button" aria-label="Open search" aria-expanded="false" aria-controls="search-panel">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <circle cx="10.8" cy="10.8" r="6.8"></circle>
+            <path d="m16 16 5 5"></path>
+          </svg>
+        </button>
+        <button class="icon-button menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="search-panel" id="search-panel" aria-label="Website search">
+    <div class="container">
+      <form class="search-form" id="search-form" role="search">
+        <input id="site-search-input" type="search" placeholder="Search engineering, services, projects..." aria-label="Search this website" required>
+        <button class="btn btn-gold" type="submit">Search</button>
+        <button class="btn btn-outline" id="search-close" type="button">Close</button>
+      </form>
+      <p class="search-feedback" id="search-feedback" aria-live="polite">Search this page or continue to Insights for more information.</p>
+    </div>
+  </div>
+</header>
+
+
+<main>
+
+<section class="page-hero">
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <p class="eyebrow" style="color:var(--gold-light);">PROJECT PORTFOLIO &amp; ENGAGEMENTS</p>
+    <h1>Track record in infrastructure, asset information &amp; delivery.</h1>
+    <p>
+      Explore our completed assignments, ongoing quality control engagements, and digital engineering packages 
+      demonstrating our commitment to structured information and technical execution.
+    </p>
+  </div>
+</section>
+
+<!-- CATEGORY 1: ENERGY & INFRASTRUCTURE -->
+<section class="portfolio-section">
+  <div class="container">
+    <div class="section-intro">
+      <p class="eyebrow">ENERGY &amp; POWER INFRASTRUCTURE</p>
+      <h2>Electrical Substation Handover</h2>
+      <p>
+        Demonstrating rigorous engineering records organization and digital handover support for critical power transmission assets.
+      </p>
+    </div>
+
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-img-wrapper">
+          <img src="https://images.openai.com/static-rsc-4/EoxmsCogEscg6IcGDPnh12Nc3YSMXy3xxCbr1aBfC5tTGvEybsA5npWzwzI0tspbgvZgUeIqJbEkNJitsIEznAFSBegKlf7GYwxW97feAFmN195y99igk-tzUxcg0YOEKGHpKacXqjNxOFASabolw3GakGa4Bi6hZvnU7n50cr_JdF7fU1BuRnNUHbJoSwj3?purpose=fullsize" alt="132/33kV Substation Expansion" loading="lazy">
+          <span class="project-badge">Completed</span>
+        </div>
+        <div class="project-body">
+          <span class="project-meta">Energy &amp; Power Infrastructure</span>
+          <h3>132/33kV Substation Expansion — Digital Handover</h3>
+          <p>
+            Digital handover support and comprehensive organization of engineering and project records for major substation expansion works.
+          </p>
+          <ul class="project-details">
+            <li><strong>Completion Date:</strong> June 9, 2026</li>
+            <li><strong>Core Scope:</strong> Structured engineering information, commissioning evidence, and final asset handover index.</li>
+            <li><strong>Value Proposition:</strong> Ensured full compliance and traceability for critical electrical grid infrastructure.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORY 2: REAL ESTATE & ASSET INFORMATION -->
+<section class="portfolio-section">
+  <div class="container">
+    <div class="section-intro">
+      <p class="eyebrow">REAL ESTATE &amp; ASSET INFORMATION</p>
+      <h2>As-Built Surveys &amp; Property Documentation</h2>
+      <p>
+        Delivering property transparency, spatial audits, and structured as-built records for residential estates and property portfolios.
+      </p>
+    </div>
+
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-img-wrapper">
+          <img src="https://images.openai.com/static-rsc-4/KUbAExTdFE28Azmy7kMXtOy5QNASse_BVIsYDYezCylKZsn9etAlA9k4TwpG8XLGwTBsIREftz0QejmZLJIA4HVar57574Ka1SjGh4yLYZMFfYOdbJIY2QJeHuY6ujaH1ag3Q_nPGGCcRYyPgjwc7S5aKmQNdr0f6Dz1OtG-qaQMtuxqSOv5JhK7e_mlFC38?purpose=fullsize" alt="Abuja-FCT Estate" loading="lazy">
+          <span class="project-badge">Completed</span>
+        </div>
+        <div class="project-body">
+          <span class="project-meta">Real Estate &amp; Property</span>
+          <h3>Abuja-FCT Estate — Digital As-Built &amp; Test Documentation</h3>
+          <p>
+            Consolidation of digital as-built information and testing documentation into a structured record for property review and maintenance reference.
+          </p>
+          <ul class="project-details">
+            <li><strong>Location:</strong> Abuja-FCT, Nigeria</li>
+            <li><strong>Core Scope:</strong> As-built verification, test pack indexing, and property documentation.</li>
+            <li><strong>Value Proposition:</strong> Delivered reliable construction evidence for facility management and compliance review.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-img-wrapper">
+          <img src="https://images.openai.com/static-rsc-4/n7EKMBEgos-GQQat0eVavSF3SYDwwOvS9F2Hs_VHn9PdhJei2b10YXNMlHo5ReeqsJgLcyl74zONLmoK_y4kJwXrFaa5iEzc1jtm4Sjn4KJbeyEhBoe8ZRXOU-wfLdfwdkl4VJlmW-ibdOlHBWfV0Sth2Ms-kTKGEe5zdmFgPk90n9FY1eUs3TSZfg6MJVsk?purpose=fullsize" alt="Existing Estate Assignments" loading="lazy">
+          <span class="project-badge">Completed</span>
+        </div>
+        <div class="project-body">
+          <span class="project-meta">Surveying &amp; Asset Auditing</span>
+          <h3>Existing Estate Digital As-Built Assignments (Three Estates)</h3>
+          <p>
+            Comprehensive spatial and structural assessments across three established residential properties to identify compliance risks and future upgrade potential.
+          </p>
+          <ul class="project-details">
+            <li><strong>Core Scope:</strong> Digital as-built surveys, structural data profiling, and risk identification.</li>
+            <li><strong>Confidentiality Note:</strong> Estate names, plot numbers, and tenant identities are restricted for privacy.</li>
+            <li><strong>Value Proposition:</strong> Enhanced asset transparency and informed capital expenditure planning.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORY 3: CONSTRUCTION & DIGITAL DELIVERY -->
+<section class="portfolio-section">
+  <div class="container">
+    <div class="section-intro">
+      <p class="eyebrow">CONSTRUCTION &amp; DIGITAL DELIVERY</p>
+      <h2>QA/QC, Site Reporting &amp; Digital Engineering Packages</h2>
+      <p>
+        Combining field-level quality assurance, Sharepoint records management, and structured Digital Engineering Packages (DEP) across commercial, retail, and hospitality developments.
+      </p>
+    </div>
+
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-img-wrapper">
+          <img src="https://images.openai.com/static-rsc-4/yu8NiDyOrhEKAOuXy_rVa2jAx2fC-Pm1xl5v2E7g79d7xFvtx8kFtWe47IeJw_gJXOwwXcILx-RtiVGiKgs6Nj62h7i5ACKz7upNKesgnAmJ_Ek1VKheqz0xcbyUC8eJJXm1EdSaIzi0gwDhZD1vWeusWoIq64U_xKrfQ1u0uwf-TkiDabXz-Oyc4kPdwGa2?purpose=fullsize" alt="Imo City Computer Village Hub" loading="lazy">
+          <span class="project-badge ongoing">Ongoing</span>
+        </div>
+        <div class="project-body">
+          <span class="project-meta">Commercial Real Estate</span>
+          <h3>Imo City Computer Village Hub — Digital QA/QC &amp; Documentation</h3>
+          <p>
+            Digital QA/QC and construction document management supporting Shariff Plaza Management &amp; Facility Co. Ltd.
+          </p>
+          <ul class="project-details">
+            <li><strong>Location:</strong> Imo State, Nigeria</li>
+            <li><strong>Client / Partner:</strong> Shariff Plaza Management &amp; Facility Co. Ltd.</li>
+            <li><strong>Core Scope:</strong> Construction records organization, material logging, and SharePoint workflow administration.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-img-wrapper">
+          <img src="https://images.openai.com/static-rsc-4/xX_Y_F5WmTITpx8NQaDt9us5J9z2ctL2r_o5ShcH1ZUnFLTwW2xQoXRFz37Mii4nOim84DP_bmH-uhQUP6QwuYXbUJaDaYciqgh0KnycD57Of4dO2CaGofBRkdElxs1uqYl3jcEyPwrvYxBKOqipAcZFNvPXlVigTBRPLd54lOh5e_ht2IEteHS1Jb7541na?purpose=fullsize" alt="Real Estate Construction" loading="lazy">
+          <span class="project-badge ongoing">In Progress</span>
+        </div>
+        <div class="project-body">
+          <span class="project-meta">Residential Real Estate</span>
+          <h3>Real Estate Construction &amp; Digital Engineering Package</h3>
+          <p>
+            Construction-related delivery support and Digital Engineering Package (DEP) implementation to structure project data and site documentation.
+          </p>
+          <ul class="project-details">
+            <li><strong>Location:</strong> Lagos State, Nigeria</li>
+            <li><strong>Contractor:</strong> Jiro-BEACONS Engineering Nigeria Limited</li>
+            <li><strong>Core Scope:</strong> Integrated delivery support, document indexing, and quality record tracking.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-img-wrapper">
+          <img src="https://images.openai.com/static-rsc-4/gzkkRCHnxmoGhLCAfSopTrylzEBfH2WTP-1TJZoLC-jgdd2-DgZS6-hNqiqjByI9EeEzKXDvdSCrYAyp9jNkFhpEc_VTpQZcdxJSilGiidLHAvGsNQv8SlDYdkwbrK5PttjcsOOwxOtu213dtXY55TWH98ripCVzwzsEKg1b-XhRaJSA87Nqwdj21E9WavQF?purpose=fullsize" alt="Hotel &amp; Resort Construction" loading="lazy">
+          <span class="project-badge ongoing">In Progress</span>
+        </div>
+        <div class="project-body">
+          <span class="project-meta">Hospitality Development</span>
+          <h3>Hotel &amp; Resort Construction — Digital Engineering Package</h3>
+          <p>
+            Specialized engineering delivery support and structured project documentation for hospitality infrastructure development.
+          </p>
+          <ul class="project-details">
+            <li><strong>Location:</strong> Ondo State, Nigeria</li>
+            <li><strong>Partner:</strong> Kjax Phadox Consults Limited</li>
+            <li><strong>Core Scope:</strong> Digital Engineering Package (DEP) and site record structuring for resort development.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALL TO ACTION -->
+<section class="dark">
+  <div class="container" style="display:grid; grid-template-columns: 1fr auto; gap: 40px; align-items:center;">
+    <div>
+      <p class="eyebrow">ENGAGE OUR EXPERTISE</p>
+      <h2>Ready to structure your project information and delivery?</h2>
+      <p style="margin-bottom:0;">
+        Contact our team to discuss how our integrated AEC professionals and digital workflows can support your upcoming development.
+      </p>
+    </div>
+    <div>
+      <a class="button" href="contact.html">
+        Get in Touch
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" aria-label="Jiro-BEACONS Engineering home">
+          <img src="images/logo-white.png" alt="Jiro-BEACONS Engineering" onerror="this.onerror=null;this.src='images/logo.png';">
+        </a>
+        <p>
+          Engineering better information for smarter infrastructure
+          and businesses. Connecting engineering expertise, project
+          delivery and intelligent digital information.
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h4>Explore</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="solutions.html">Solutions</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="insights.html">Insights</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Connect</h4>
+        <ul class="footer-links">
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="mailto:giftedafe@jirobeacons.com">Email Jiro-BEACONS</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="currentYear"></span> Jiro-BEACONS Engineering Nigeria Limited. All rights reserved.</p>
+      <a href="index.html">Engineering better information.</a>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+(function(){
+  "use strict";
+
+  const menuToggle = document.getElementById("menu-toggle");
+  const navigation = document.getElementById("main-navigation");
+  const servicesToggle = document.getElementById("services-toggle");
+  const servicesMenu = document.getElementById("services-menu");
+  const searchToggle = document.getElementById("search-toggle");
+  const searchPanel = document.getElementById("search-panel");
+  const searchClose = document.getElementById("search-close");
+  const searchInput = document.getElementById("site-search-input");
+  const searchForm = document.getElementById("search-form");
+  const searchFeedback = document.getElementById("search-feedback");
+
+  function closeServices(){
+    if(servicesMenu) servicesMenu.classList.remove("is-open");
+    if(servicesToggle) servicesToggle.setAttribute("aria-expanded","false");
+  }
+
+  function closeMenu(){
+    if(navigation) navigation.classList.remove("is-open");
+    if(menuToggle){
+      menuToggle.setAttribute("aria-expanded","false");
+      menuToggle.setAttribute("aria-label","Open navigation menu");
+    }
+    document.body.classList.remove("menu-open");
+    closeServices();
+  }
+
+  if(menuToggle && navigation){
+    menuToggle.addEventListener("click",function(){
+      const open = !navigation.classList.contains("is-open");
+      navigation.classList.toggle("is-open",open);
+      menuToggle.setAttribute("aria-expanded",String(open));
+      menuToggle.setAttribute("aria-label",open ? "Close navigation menu" : "Open navigation menu");
+      document.body.classList.toggle("menu-open",open);
+      if(!open) closeServices();
+      if(open && searchPanel) searchPanel.classList.remove("is-open");
+    });
+
+    navigation.querySelectorAll("a").forEach(function(link){
+      link.addEventListener("click",closeMenu);
+    });
+  }
+
+  if(servicesToggle && servicesMenu){
+    servicesToggle.addEventListener("click",function(event){
+      event.stopPropagation();
+      const open = !servicesMenu.classList.contains("is-open");
+      servicesMenu.classList.toggle("is-open",open);
+      servicesToggle.setAttribute("aria-expanded",String(open));
+    });
+  }
+
+  function openSearch(){
+    if(!searchPanel) return;
+    searchPanel.classList.add("is-open");
+    if(searchToggle) searchToggle.setAttribute("aria-expanded","true");
+    document.body.classList.add("search-open");
+    closeMenu();
+    window.setTimeout(function(){
+      if(searchInput) searchInput.focus();
+    },50);
+  }
+
+  function closeSearch(){
+    if(!searchPanel) return;
+    searchPanel.classList.remove("is-open");
+    if(searchToggle) searchToggle.setAttribute("aria-expanded","false");
+    document.body.classList.remove("search-open");
+  }
+
+  if(searchToggle){
+    searchToggle.addEventListener("click",function(){
+      if(searchPanel && searchPanel.classList.contains("is-open")) closeSearch();
+      else openSearch();
+    });
+  }
+  if(searchClose) searchClose.addEventListener("click",closeSearch);
+
+  if(searchForm && searchInput){
+    searchForm.addEventListener("submit",function(event){
+      event.preventDefault();
+      const query = searchInput.value.trim();
+      if(!query) return;
+
+      const normalizedQuery = query.toLocaleLowerCase();
+      const sectionsArr = Array.from(document.querySelectorAll("main section"));
+      const match = sectionsArr.find(function(section){
+        return section.innerText.toLocaleLowerCase().includes(normalizedQuery);
+      });
+
+      if(match){
+        closeSearch();
+        match.scrollIntoView({behavior:"smooth",block:"start"});
+        match.setAttribute("tabindex","-1");
+        match.focus({preventScroll:true});
+        if(searchFeedback) searchFeedback.textContent = "Found a matching section on this page.";
+      }else{
+        if(searchFeedback) searchFeedback.textContent = "No match found on this page. Opening Insights to continue your search.";
+        window.location.href = "insights.html?search=" + encodeURIComponent(query);
+      }
+    });
+  }
+
+  document.addEventListener("click",function(event){
+    if(navigation && menuToggle &&
+       !navigation.contains(event.target) &&
+       !menuToggle.contains(event.target)){
+      closeMenu();
+    }
+    if(searchPanel && searchToggle &&
+       searchPanel.classList.contains("is-open") &&
+       !searchPanel.contains(event.target) &&
+       !searchToggle.contains(event.target)){
+      closeSearch();
+    }
+  });
+
+  document.addEventListener("keydown",function(event){
+    if(event.key === "Escape"){
+      closeMenu();
+      closeSearch();
+    }
+  });
+
+  const year = document.getElementById("currentYear");
+  if(year) year.textContent = new Date().getFullYear();
+})();
+</script>
+
+</body>
+</html>
