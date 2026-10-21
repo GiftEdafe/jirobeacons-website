@@ -182,7 +182,7 @@ section{position:relative}
   .mobile-video { display: block !important; }
 }
 
-/* STICKY STACKING SECTIONS (DESKTOP) */
+/* STICKY STACKING SECTIONS */
 .section-with-video {
   position: sticky;
   top: 0;
@@ -512,16 +512,18 @@ section{position:relative}
   .brand img{width:110px;max-height:32px}
   .icon-button{width:32px;height:32px}
 
-  /* GUARANTEED MOBILE FIX: FLOWING SECTIONS WITH FULL-SCREEN BACKGROUND VIDEOS */
+  /* RESTORED MOBILE STICKY STACKING CARDS */
   .section-with-video {
-    position: relative !important;
-    height: auto !important;
+    position: sticky !important;
+    top: 0 !important;
+    height: 100vh !important;
+    height: 100dvh !important;
     min-height: 100vh !important;
-    min-height: 100dvh !important;
-    padding: 85px 0 40px 0 !important;
+    max-height: 100vh !important;
+    padding-top: 60px !important;
+    overflow: hidden !important;
     display: flex !important;
     align-items: center !important;
-    overflow: visible !important;
   }
 
   .section-media {
@@ -543,52 +545,52 @@ section{position:relative}
   }
 
   .hero-content { max-width: 100%; }
-  .hero h1 { font-size: clamp(1.4rem, 5vw, 1.9rem); margin-bottom: 4px; }
-  .hero-copy { font-size: 0.78rem; margin-bottom: 6px; line-height: 1.3; }
-  .hero-buttons { gap: 6px; }
-  .hero-buttons .button { min-height: 36px; padding: 6px 12px; font-size: 0.7rem; }
-  .hero-note { margin-top: 6px; font-size: 0.58rem; }
+  .hero h1 { font-size: clamp(1.3rem, 5vw, 1.7rem); margin-bottom: 4px; }
+  .hero-copy { font-size: 0.75rem; margin-bottom: 6px; line-height: 1.25; }
+  .hero-buttons { gap: 4px; }
+  .hero-buttons .button { min-height: 34px; padding: 6px 10px; font-size: 0.65rem; }
+  .hero-note { margin-top: 4px; font-size: 0.55rem; }
 
-  .two-col { grid-template-columns: 1fr; gap: 8px; align-content: center; }
-  .intro-copy h2, .section-heading h2, .feature-copy h2 { font-size: clamp(1.1rem, 4vw, 1.5rem); margin-bottom: 3px; }
-  .intro-copy p, .section-heading p, .feature-copy > p { font-size: 0.74rem; margin-bottom: 3px; line-height: 1.25; }
-  .intro-statement { margin-top: 4px; padding: 4px 0 4px 8px; font-size: 0.76rem; }
-  .intro-panel { padding: 8px; }
-  .intro-panel h3 { font-size: 0.95rem; margin: 3px 0; }
-  .intro-panel p { font-size: 0.7rem; }
-  .panel-line { margin-top: 4px; font-size: 0.6rem; }
+  .two-col { grid-template-columns: 1fr; gap: 6px; align-content: center; }
+  .intro-copy h2, .section-heading h2, .feature-copy h2 { font-size: clamp(1.1rem, 4vw, 1.4rem); margin-bottom: 2px; }
+  .intro-copy p, .section-heading p, .feature-copy > p { font-size: 0.72rem; margin-bottom: 2px; line-height: 1.2; }
+  .intro-statement { margin-top: 3px; padding: 3px 0 3px 6px; font-size: 0.72rem; }
+  .intro-panel { padding: 6px; }
+  .intro-panel h3 { font-size: 0.88rem; margin: 2px 0; }
+  .intro-panel p { font-size: 0.66rem; }
+  .panel-line { margin-top: 3px; font-size: 0.56rem; }
 
-  .section-heading { margin-bottom: 4px; }
-  .lifecycle-grid { grid-template-columns: 1fr 1fr; gap: 3px; border: none; }
-  .lifecycle-card { min-height: auto; padding: 5px 6px; background: rgba(10, 10, 12, 0.75); }
-  .step-number { margin-bottom: 1px; font-size: 0.5rem; }
-  .lifecycle-card h3 { font-size: 0.7rem; margin-bottom: 1px; }
-  .lifecycle-card p { font-size: 0.6rem; line-height: 1.15; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .section-heading { margin-bottom: 3px; }
+  .lifecycle-grid { grid-template-columns: 1fr 1fr; gap: 2px; border: none; }
+  .lifecycle-card { min-height: auto; padding: 4px 6px; background: rgba(10, 10, 12, 0.75); }
+  .step-number { margin-bottom: 1px; font-size: 0.48rem; }
+  .lifecycle-card h3 { font-size: 0.66rem; margin-bottom: 1px; }
+  .lifecycle-card p { font-size: 0.56rem; line-height: 1.1; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
-  .check-list { grid-template-columns: 1fr; gap: 2px; margin: 3px 0; }
-  .check-list li { font-size: 0.64rem; padding-left: 10px; }
-  .feature-image { min-height: 130px; max-height: 160px; }
-  .site-slideshow, .digital-slideshow { min-height: 130px; max-height: 160px; }
+  .check-list { grid-template-columns: 1fr; gap: 2px; margin: 2px 0; }
+  .check-list li { font-size: 0.6rem; padding-left: 8px; }
+  .feature-image { min-height: 110px; max-height: 140px; }
+  .site-slideshow, .digital-slideshow { min-height: 110px; max-height: 140px; }
   
-  .sector-grid{grid-template-columns:1fr 1fr;gap:5px}
-  .sector-card{min-height:80px;padding:10px}
-  .sector-card h3{font-size:0.82rem}
+  .sector-grid { grid-template-columns: 1fr 1fr; gap: 4px; }
+  .sector-card { min-height: 75px; padding: 8px; }
+  .sector-card h3 { font-size: 0.78rem; }
   
-  .project-card{grid-template-columns:1fr}
-  .project-visual{min-height:140px}
-  .project-details{padding:12px}
-  .project-details h3{font-size:1.15rem;margin-bottom:6px}
-  .project-meta{padding:5px 0;font-size:0.7rem}
+  .project-card { grid-template-columns: 1fr; }
+  .project-visual { min-height: 120px; }
+  .project-details { padding: 10px; }
+  .project-details h3 { font-size: 1.05rem; margin-bottom: 4px; }
+  .project-meta { padding: 4px 0; font-size: 0.65rem; }
 
-  .statement-section { padding: 35px 0; }
-  .statement-section blockquote { font-size: clamp(1.2rem, 4.5vw, 1.6rem); }
-  .cta-section { padding: 25px 0; }
-  .cta-inner { flex-direction: column; gap: 10px; align-items: flex-start; }
-  .cta-inner h2 { font-size: 1.2rem; }
+  .statement-section { padding: 30px 0; }
+  .statement-section blockquote { font-size: clamp(1.1rem, 4vw, 1.4rem); }
+  .cta-section { padding: 20px 0; }
+  .cta-inner { flex-direction: column; gap: 8px; align-items: flex-start; }
+  .cta-inner h2 { font-size: 1.1rem; }
   
-  .footer-main{grid-template-columns:1fr 1fr;gap:12px 6px}
-  .footer-brand{grid-column:1/-1}
-  .footer-bottom{flex-direction:column;gap:3px}
+  .footer-main { grid-template-columns: 1fr 1fr; gap: 10px 4px; }
+  .footer-brand { grid-column: 1/-1; }
+  .footer-bottom { flex-direction: column; gap: 2px; }
 }
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
