@@ -3,46 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>About Jiro-BEACONS Engineering | Integrated Engineering &amp; Digital Delivery</title>
-  <meta name="description" content="Discover Jiro-BEACONS Engineering's integrated approach to surveying, engineering delivery, construction quality, digital engineering and intelligent asset information.">
   <meta name="theme-color" content="#2B0714">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta name="description" content="Learn about Jiro-BEACONS Engineering, our integrated engineering approach, quality assurance, digital engineering and intelligent infrastructure delivery.">
+  <title>About Jiro-BEACONS | Integrated Engineering &amp; Digital Delivery</title>
 
   <style>
     :root {
       --wine: #2B0714;
-      --wine-light: #3A0A1B;
+      --wine-mid: #3A0A1B;
       --wine-dark: #18040B;
       --gold: #D4AF37;
       --gold-light: #E8D28A;
       --white: #FFFFFF;
-      --off-white: #F7F5F3;
-      --text: #242124;
-      --muted: #686268;
-      --border: #E9E3E5;
-      --container: 1200px;
-      --header-height: 92px;
+      --paper: #F7F5F3;
+      --ink: #222222;
+      --muted: #625D60;
+      --line: rgba(43, 7, 20, 0.13);
+      --max-width: 1440px;
     }
 
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 110px;
+      scroll-padding-top: 100px;
     }
 
     body {
-      font-family: "DM Sans", sans-serif;
-      color: var(--text);
+      margin: 0;
+      color: var(--ink);
       background: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
     }
@@ -54,7 +47,6 @@
     img {
       display: block;
       max-width: 100%;
-      width: 100%;
     }
 
     a {
@@ -62,323 +54,390 @@
       text-decoration: none;
     }
 
-    button {
+    button,
+    input {
       font: inherit;
     }
 
-    h1, h2, h3, h4 {
-      font-family: "Manrope", sans-serif;
-      line-height: 1.2;
-      letter-spacing: -.6px;
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
     }
 
-    h1 {
-      font-size: clamp(42px, 5.5vw, 72px);
-      font-weight: 800;
-    }
-
-    h2 {
-      font-size: clamp(31px, 3.7vw, 47px);
-      font-weight: 800;
-    }
-
-    h3 {
-      font-size: 20px;
-      font-weight: 700;
-    }
-
-    p {
-      color: var(--muted);
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 4px;
     }
 
     .container {
-      width: min(var(--container), calc(100% - 64px));
+      width: min(calc(100% - 64px), var(--max-width));
       margin-inline: auto;
     }
 
-    .section {
-      padding: 95px 0;
-    }
-
     .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 11px;
-      margin-bottom: 20px;
-      color: var(--wine);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2px;
+      margin: 0 0 16px;
+      color: #8B6A17;
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.17em;
+      line-height: 1.5;
       text-transform: uppercase;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 24px;
-      height: 3px;
-      flex-shrink: 0;
-      background: var(--gold);
     }
 
     .section-heading {
       max-width: 780px;
-      margin-bottom: 43px;
-    }
-
-    .section-heading h2 {
-      margin-bottom: 18px;
+      margin: 0 0 22px;
       color: var(--wine);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 750;
+      letter-spacing: -0.045em;
+      line-height: 1.12;
     }
 
-    .section-heading p {
-      max-width: 680px;
-      font-size: 15px;
+    .section-intro {
+      max-width: 760px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.04rem;
     }
 
-    .btn {
+    .section-padding {
+      padding-block: clamp(76px, 9vw, 132px);
+    }
+
+    /* Header */
+
+    .site-header {
+      position: sticky;
+      z-index: 1000;
+      top: 0;
+      width: 100%;
+      color: var(--white);
+      background: rgba(43, 7, 20, 0.98);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+    }
+
+    .header-inner {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      min-height: 88px;
+      gap: 24px;
+    }
+
+    .nav-side {
+      display: flex;
+      align-items: center;
+      gap: clamp(15px, 2vw, 30px);
+    }
+
+    .nav-left {
+      justify-content: flex-end;
+    }
+
+    .nav-right {
+      justify-content: flex-start;
+    }
+
+    .brand {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      min-height: 50px;
-      padding: 13px 22px;
-      border: 1px solid transparent;
-      border-radius: 2px;
-      font-size: 12px;
-      font-weight: 700;
-      transition: background .2s ease, transform .2s ease;
+      width: 190px;
     }
 
-    .btn:hover {
-      transform: translateY(-2px);
+    .brand img {
+      width: 100%;
+      max-height: 60px;
+      object-fit: contain;
     }
 
-    .btn-wine {
-      background: var(--wine);
-      color: var(--white);
+    .nav-link,
+    .search-toggle {
+      padding: 8px 0;
+      color: rgba(255, 255, 255, 0.9);
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      font-size: 0.81rem;
+      font-weight: 650;
+      white-space: nowrap;
+      transition: color 0.2s ease;
     }
 
-    .btn-wine:hover {
-      background: var(--wine-light);
+    .nav-link:hover,
+    .search-toggle:hover {
+      color: var(--gold-light);
     }
 
-    .btn-gold {
+    .nav-link.active {
+      color: var(--gold-light);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .contact-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 43px;
+      padding: 10px 17px;
+      color: var(--wine);
       background: var(--gold);
-      color: var(--wine-dark);
+      border: 1px solid var(--gold);
+      font-size: 0.8rem;
+      font-weight: 800;
+      white-space: nowrap;
+      transition: background 0.2s ease, color 0.2s ease;
     }
 
-    .btn-gold:hover {
-      background: var(--gold-light);
+    .contact-button:hover {
+      color: var(--white);
+      background: transparent;
+    }
+
+    .mobile-actions,
+    .mobile-nav,
+    .menu-toggle {
+      display: none;
+    }
+
+    .search-panel {
+      display: none;
+      padding: 0 0 18px;
+    }
+
+    .search-panel.is-open {
+      display: block;
+    }
+
+    .search-form {
+      display: flex;
+      width: min(100%, 700px);
+      margin-left: auto;
+      gap: 10px;
+    }
+
+    .search-form input {
+      flex: 1;
+      min-width: 0;
+      padding: 12px 14px;
+      color: var(--ink);
+      background: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 0;
+    }
+
+    .search-form button {
+      padding: 12px 18px;
+      color: var(--wine);
+      background: var(--gold);
+      border: 1px solid var(--gold);
+      cursor: pointer;
+      font-weight: 750;
+    }
+
+    /* Hero slideshow */
+
+    .about-hero {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      min-height: min(760px, 76vh);
+      min-height: clamp(530px, 72vh, 760px);
+      overflow: hidden;
+      isolation: isolate;
+      color: var(--white);
+      background: var(--wine-dark);
+    }
+
+    .hero-slides {
+      position: absolute;
+      z-index: -2;
+      inset: 0;
+      overflow: hidden;
+      background: var(--wine-dark);
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0;
+      transform: scale(1.025);
+      transition:
+        opacity 1.35s ease-in-out,
+        transform 6s ease;
+    }
+
+    .hero-slide.is-active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(24, 4, 11, 0.91) 0%,
+          rgba(24, 4, 11, 0.72) 42%,
+          rgba(24, 4, 11, 0.2) 100%
+        ),
+        linear-gradient(
+          0deg,
+          rgba(24, 4, 11, 0.5) 0%,
+          transparent 65%
+        );
+    }
+
+    .hero-content {
+      width: min(calc(100% - 64px), var(--max-width));
+      margin: 0 auto;
+      padding-block: clamp(90px, 12vw, 160px);
+    }
+
+    .hero-content .eyebrow {
+      color: var(--gold-light);
+    }
+
+    .hero-title {
+      max-width: 900px;
+      margin: 0 0 25px;
+      font-size: clamp(2.9rem, 7vw, 6.4rem);
+      font-weight: 750;
+      letter-spacing: -0.065em;
+      line-height: 0.99;
+    }
+
+    .hero-description {
+      max-width: 680px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 34px;
+      gap: 14px;
+    }
+
+    .button-primary,
+    .button-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 49px;
+      padding: 12px 22px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .button-primary {
+      color: var(--wine);
+      background: var(--gold);
+      border: 1px solid var(--gold);
+    }
+
+    .button-primary:hover {
+      color: var(--white);
+      background: transparent;
+    }
+
+    .button-outline {
+      color: var(--white);
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.65);
+    }
+
+    .button-outline:hover {
+      color: var(--wine);
+      background: var(--white);
+    }
+
+    /* Who we are */
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      align-items: start;
+      gap: clamp(40px, 8vw, 120px);
+    }
+
+    .intro-lead {
+      margin: 0;
+      color: var(--wine);
+      font-size: clamp(1.25rem, 2.2vw, 1.8rem);
+      font-weight: 650;
+      letter-spacing: -0.025em;
+      line-height: 1.5;
+    }
+
+    .intro-copy p {
+      margin: 0 0 18px;
+      color: var(--muted);
+    }
+
+    .intro-copy p:last-child {
+      margin-bottom: 0;
     }
 
     .text-link {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      margin-top: 23px;
+      margin-top: 12px;
       color: var(--wine);
-      font-size: 12px;
-      font-weight: 700;
+      font-size: 0.88rem;
+      font-weight: 800;
+      gap: 9px;
     }
 
     .text-link span {
-      color: #98751B;
-      transition: transform .2s ease;
+      color: #8B6A17;
+      transition: transform 0.2s ease;
     }
 
     .text-link:hover span {
       transform: translateX(4px);
     }
 
-    /* HEADER */
+    /* Philosophy */
 
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      height: var(--header-height);
-      background: var(--wine);
-      border-bottom: 1px solid rgba(255,255,255,.1);
+    .philosophy {
+      background: var(--paper);
     }
 
-    .header-inner {
-      position: relative;
+    .philosophy-grid {
       display: grid;
-      grid-template-columns: 1fr auto 1fr;
+      grid-template-columns: 1fr 1fr;
       align-items: center;
-      gap: 22px;
-      width: min(1440px, calc(100% - 64px));
-      height: 100%;
-      margin: auto;
+      gap: clamp(36px, 7vw, 100px);
     }
 
-    .brand {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      z-index: 2;
-      transform: translate(-50%, -50%);
-    }
-
-    .brand img {
-      width: 210px;
-      max-height: 60px;
-      object-fit: contain;
-    }
-
-    .desktop-nav {
-      display: flex;
-      align-items: center;
-      gap: 23px;
-      min-width: 0;
-    }
-
-    .nav-left {
-      grid-column: 1;
-      justify-content: flex-start;
-    }
-
-    .nav-right {
-      grid-column: 3;
-      justify-content: flex-end;
-      gap: 19px;
-    }
-
-    .desktop-nav > a,
-    .nav-trigger {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 13px 0;
-      border: 0;
-      background: transparent;
-      color: rgba(255,255,255,.92);
-      font-size: 11px;
-      font-weight: 700;
-      white-space: nowrap;
-      cursor: pointer;
-    }
-
-    .desktop-nav > a:hover,
-    .desktop-nav > a.active,
-    .nav-trigger:hover,
-    .nav-trigger[aria-expanded="true"] {
-      color: var(--gold);
-    }
-
-    .nav-dropdown {
+    .philosophy-image {
       position: relative;
-    }
-
-    .dropdown-menu {
-      position: absolute;
-      top: calc(100% + 12px);
-      left: -18px;
-      width: 255px;
-      padding: 12px;
-      background: var(--white);
-      border: 1px solid var(--border);
-      box-shadow: 0 16px 38px rgba(24,4,11,.16);
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(8px);
-      transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
-    }
-
-    .nav-dropdown:hover .dropdown-menu,
-    .nav-dropdown:focus-within .dropdown-menu,
-    .nav-dropdown.open .dropdown-menu {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-
-    .dropdown-menu a {
-      display: block;
-      padding: 10px 12px;
-      color: var(--text);
-      font-size: 12px;
-      font-weight: 600;
-    }
-
-    .dropdown-menu a:hover {
-      background: var(--off-white);
-      color: var(--wine);
-    }
-
-    .header-tools {
-      display: flex;
-      align-items: center;
-      gap: 13px;
-      margin-left: 2px;
-    }
-
-    .search-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 34px;
-      height: 38px;
-      color: var(--white);
-    }
-
-    .search-link svg {
-      width: 20px;
-      height: 20px;
-    }
-
-    .header-contact {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 40px;
-      padding: 10px 15px;
-      background: var(--gold);
-      color: var(--wine-dark);
-      font-size: 11px;
-      font-weight: 800;
-      white-space: nowrap;
-      transition: background .2s ease;
-    }
-
-    .header-contact:hover {
-      background: var(--gold-light);
-    }
-
-    .menu-toggle {
-      display: none;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
-      border: 1px solid rgba(255,255,255,.35);
-      background: transparent;
-      color: var(--white);
-      cursor: pointer;
-    }
-
-    .menu-toggle svg {
-      width: 23px;
-      height: 23px;
-    }
-
-    .mobile-nav {
-      display: none;
-    }
-
-    /* PAGE HERO */
-
-    .page-hero {
-      position: relative;
-      display: flex;
-      align-items: center;
-      min-height: 560px;
+      min-height: 430px;
+      background: #e5e0dc;
       overflow: hidden;
-      background: var(--wine);
-      color: var(--white);
     }
 
-    .page-hero-image {
+    .philosophy-image img {
       position: absolute;
       inset: 0;
       width: 100%;
@@ -387,1278 +446,1396 @@
       object-position: center;
     }
 
-    .page-hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        90deg,
-        rgba(24,4,11,.94) 0%,
-        rgba(43,7,20,.83) 48%,
-        rgba(43,7,20,.36) 100%
-      );
-    }
-
-    .page-hero-content {
-      position: relative;
-      z-index: 2;
-      width: min(var(--container), calc(100% - 64px));
-      margin-inline: auto;
-      padding: 100px 0;
-    }
-
-    .page-hero .eyebrow {
-      color: var(--white);
-    }
-
-    .page-hero h1 {
-      max-width: 850px;
-      margin-bottom: 24px;
-      color: var(--white);
-    }
-
-    .page-hero h1 span {
-      color: var(--gold);
-    }
-
-    .page-hero p {
-      max-width: 650px;
-      color: rgba(255,255,255,.84);
-      font-size: 16px;
-      line-height: 1.9;
-    }
-
-    .page-hero .btn {
-      margin-top: 30px;
-    }
-
-    /* COMPANY INTRO */
-
-    .intro-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: start;
-      gap: 80px;
-    }
-
-    .intro-title h2 {
-      max-width: 570px;
+    .philosophy-copy blockquote {
+      margin: 0 0 24px;
       color: var(--wine);
+      font-size: clamp(1.9rem, 3.8vw, 3.6rem);
+      font-weight: 750;
+      letter-spacing: -0.05em;
+      line-height: 1.16;
     }
 
-    .intro-copy p {
-      font-size: 15px;
-    }
-
-    .intro-copy p + p {
-      margin-top: 18px;
-    }
-
-    /* PHILOSOPHY */
-
-    .philosophy-section {
-      background: var(--off-white);
-    }
-
-    .philosophy-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      gap: 75px;
-    }
-
-    .philosophy-visual {
-      min-height: 420px;
-      overflow: hidden;
-      background: #E7E0DD;
-    }
-
-    .philosophy-visual img {
-      width: 100%;
-      height: 420px;
-      object-fit: cover;
-    }
-
-    .philosophy-copy h2 {
-      margin-bottom: 22px;
-      color: var(--wine);
+    .philosophy-copy blockquote::before {
+      display: block;
+      width: 56px;
+      height: 4px;
+      margin-bottom: 25px;
+      background: var(--gold);
+      content: "";
     }
 
     .philosophy-copy p {
-      margin-bottom: 17px;
-      font-size: 14px;
+      margin: 0 0 17px;
+      color: var(--muted);
     }
 
-    .principle-list {
-      display: grid;
-      gap: 15px;
-      margin-top: 25px;
-      list-style: none;
-    }
+    /* Lifecycle */
 
-    .principle-list li {
+    .lifecycle-header {
       display: flex;
-      align-items: flex-start;
-      gap: 13px;
-      color: var(--text);
-      font-size: 13px;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 48px;
+      gap: 30px;
     }
 
-    .principle-list li::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      flex: 0 0 8px;
-      margin-top: 7px;
-      background: var(--gold);
+    .lifecycle-header .section-intro {
+      max-width: 430px;
     }
-
-    /* LIFECYCLE */
 
     .lifecycle-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      border: 1px solid var(--border);
-      background: var(--border);
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
     }
 
     .lifecycle-card {
-      min-height: 200px;
-      padding: 26px 22px;
-      background: var(--white);
-      transition: background .2s ease;
+      min-height: 215px;
+      padding: 26px 24px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      transition: background 0.25s ease;
     }
 
     .lifecycle-card:hover {
-      background: #FCFAF4;
+      background: var(--paper);
     }
 
     .lifecycle-number {
-      display: block;
-      margin-bottom: 21px;
-      color: #98751B;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 1px;
+      display: inline-block;
+      margin-bottom: 26px;
+      color: #8B6A17;
+      font-size: 0.82rem;
+      font-weight: 850;
+      letter-spacing: 0.1em;
     }
 
     .lifecycle-card h3 {
-      margin-bottom: 10px;
+      margin: 0 0 11px;
       color: var(--wine);
-      font-size: 17px;
+      font-size: 1.12rem;
+      line-height: 1.3;
     }
 
     .lifecycle-card p {
-      font-size: 12px;
-      line-height: 1.8;
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.65;
     }
 
-    /* DIFFERENTIATORS */
+    /* Principles */
 
-    .principles-section {
+    .principles {
+      color: var(--white);
       background: var(--wine);
+    }
+
+    .principles .section-heading {
       color: var(--white);
     }
 
-    .principles-section .eyebrow {
-      color: var(--white);
+    .principles .eyebrow {
+      color: var(--gold-light);
     }
 
-    .principles-section .section-heading h2 {
-      color: var(--white);
-    }
-
-    .principles-section .section-heading p {
-      color: rgba(255,255,255,.74);
+    .principles .section-intro {
+      color: rgba(255, 255, 255, 0.74);
     }
 
     .principles-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 55px;
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+      border-left: 1px solid rgba(255, 255, 255, 0.18);
     }
 
     .principle-card {
-      min-height: 225px;
-      padding: 29px 25px;
-      border: 1px solid rgba(255,255,255,.16);
-      background: rgba(255,255,255,.035);
-      transition: background .2s ease, border-color .2s ease;
+      min-height: 200px;
+      padding: 28px;
+      border-right: 1px solid rgba(255, 255, 255, 0.18);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.18);
     }
 
-    .principle-card:hover {
-      border-color: rgba(212,175,55,.5);
-      background: rgba(255,255,255,.06);
-    }
-
-    .principle-card .number {
+    .principle-number {
       display: block;
-      margin-bottom: 20px;
-      color: var(--gold);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 1px;
+      margin-bottom: 22px;
+      color: var(--gold-light);
+      font-size: 0.82rem;
+      font-weight: 850;
+      letter-spacing: 0.1em;
     }
 
     .principle-card h3 {
-      margin-bottom: 12px;
+      margin: 0 0 10px;
       color: var(--white);
-      font-size: 18px;
+      font-size: 1.12rem;
+      line-height: 1.35;
     }
 
     .principle-card p {
-      color: rgba(255,255,255,.74);
-      font-size: 12px;
-      line-height: 1.85;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.9rem;
     }
 
-    /* INDUSTRIES */
+    /* Industries */
 
-    .industries-grid {
+    .industries {
+      background: var(--paper);
+    }
+
+    .industry-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 17px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 42px;
+      gap: 12px;
     }
 
-    .industry-card {
-      padding: 25px 23px;
-      border: 1px solid var(--border);
+    .industry-item {
+      display: flex;
+      align-items: center;
+      min-height: 95px;
+      padding: 23px 25px;
       background: var(--white);
-      transition: border-color .2s ease, transform .2s ease;
-    }
-
-    .industry-card:hover {
-      border-color: rgba(212,175,55,.75);
-      transform: translateY(-3px);
-    }
-
-    .industry-card .square {
-      display: block;
-      width: 9px;
-      height: 9px;
-      margin-bottom: 20px;
-      background: var(--gold);
-    }
-
-    .industry-card h3 {
-      margin-bottom: 10px;
+      border: 1px solid rgba(43, 7, 20, 0.08);
       color: var(--wine);
-      font-size: 17px;
+      font-size: 1.02rem;
+      font-weight: 750;
+      gap: 15px;
     }
 
-    .industry-card p {
-      font-size: 12px;
-      line-height: 1.8;
+    .industry-item::before {
+      flex: 0 0 8px;
+      width: 8px;
+      height: 8px;
+      background: var(--gold);
+      content: "";
+    }
+
+    /* Forward direction */
+
+    .forward-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: clamp(40px, 8vw, 110px);
+    }
+
+    .forward-copy p {
+      margin: 0 0 18px;
+      color: var(--muted);
+    }
+
+    .forward-focus {
+      padding: clamp(28px, 4vw, 48px);
+      background: var(--paper);
+      border-top: 4px solid var(--gold);
+    }
+
+    .forward-focus h3 {
+      margin: 0 0 20px;
+      color: var(--wine);
+      font-size: 1.45rem;
+      line-height: 1.3;
+    }
+
+    .forward-focus ul {
+      display: grid;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      gap: 15px;
+    }
+
+    .forward-focus li {
+      position: relative;
+      padding-left: 25px;
+      color: var(--muted);
+    }
+
+    .forward-focus li::before {
+      position: absolute;
+      top: 0.65em;
+      left: 0;
+      width: 8px;
+      height: 8px;
+      background: var(--gold);
+      content: "";
+    }
+
+    .forward-note {
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 0.85rem;
     }
 
     /* CTA */
 
-    .cta-section {
-      padding: 85px 0;
-      background: var(--off-white);
+    .closing-cta {
+      padding-block: clamp(75px, 9vw, 115px);
+      color: var(--white);
+      background: var(--wine-mid);
     }
 
-    .cta-inner {
+    .closing-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 45px;
+      gap: 40px;
     }
 
-    .cta-copy {
-      max-width: 760px;
+    .closing-copy {
+      max-width: 800px;
     }
 
-    .cta-copy h2 {
-      margin-bottom: 17px;
-      color: var(--wine);
+    .closing-copy .eyebrow {
+      color: var(--gold-light);
     }
 
-    .cta-copy p {
-      max-width: 700px;
-      font-size: 14px;
+    .closing-copy h2 {
+      margin: 0 0 17px;
+      font-size: clamp(2rem, 4.8vw, 4rem);
+      letter-spacing: -0.05em;
+      line-height: 1.1;
     }
 
-    /* FOOTER */
+    .closing-copy p {
+      max-width: 680px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .closing-cta .button-primary {
+      flex-shrink: 0;
+    }
+
+    /* Footer */
 
     .site-footer {
-      padding: 60px 0 23px;
-      background: var(--wine-dark);
+      padding: 62px 0 25px;
       color: var(--white);
+      background: var(--wine-dark);
     }
 
-    .footer-top {
+    .footer-main {
       display: grid;
-      grid-template-columns: 1.35fr .8fr .8fr;
+      grid-template-columns: 1.35fr 1fr 1fr;
+      padding-bottom: 45px;
       gap: 55px;
-      padding-bottom: 42px;
     }
 
-    .footer-brand img {
+    .footer-brand {
       width: 205px;
-      max-height: 65px;
-      object-fit: contain;
-      object-position: left center;
       margin-bottom: 20px;
     }
 
-    .footer-brand p {
-      max-width: 360px;
-      color: rgba(255,255,255,.68);
-      font-size: 12px;
-      line-height: 1.9;
+    .footer-brand img {
+      width: 100%;
+      max-height: 62px;
+      object-fit: contain;
+      object-position: left center;
     }
 
-    .footer-column h4 {
-      margin-bottom: 18px;
-      color: var(--white);
-      font-family: "DM Sans", sans-serif;
-      font-size: 11px;
-      letter-spacing: 1.2px;
+    .footer-description {
+      max-width: 390px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 0.9rem;
+    }
+
+    .footer-heading {
+      margin: 0 0 19px;
+      color: var(--gold-light);
+      font-size: 0.78rem;
+      font-weight: 850;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
     }
 
     .footer-links {
       display: grid;
-      gap: 10px;
-      list-style: none;
+      gap: 11px;
     }
 
-    .footer-links a {
-      color: rgba(255,255,255,.68);
-      font-size: 12px;
+    .footer-links a,
+    .footer-contact a {
+      width: fit-content;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
     }
 
     .footer-links a:hover,
-    .footer-bottom a:hover {
-      color: var(--gold);
+    .footer-contact a:hover {
+      color: var(--gold-light);
+    }
+
+    .footer-contact p {
+      margin: 0 0 11px;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 0.9rem;
     }
 
     .footer-bottom {
       display: flex;
+      align-items: center;
       justify-content: space-between;
+      padding-top: 23px;
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
       gap: 20px;
-      padding-top: 21px;
-      border-top: 1px solid rgba(255,255,255,.14);
     }
 
-    .footer-bottom p,
-    .footer-bottom a {
-      color: rgba(255,255,255,.52);
-      font-size: 10px;
+    .footer-bottom p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 0.79rem;
     }
 
-    /* MOBILE NAVIGATION */
+    /* Responsive */
 
     @media (max-width: 1200px) {
-      :root {
-        --header-height: 78px;
+      .header-inner {
+        min-height: 80px;
+        gap: 16px;
+      }
+
+      .brand {
+        width: 160px;
+      }
+
+      .nav-side {
+        gap: 16px;
+      }
+
+      .nav-link,
+      .search-toggle {
+        font-size: 0.76rem;
+      }
+
+      .header-actions {
+        gap: 12px;
+      }
+
+      .contact-button {
+        min-height: 40px;
+        padding-inline: 12px;
+      }
+
+      .lifecycle-card {
+        padding: 23px 19px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        width: min(calc(100% - 40px), var(--max-width));
+      }
+
+      .desktop-nav,
+      .desktop-actions {
+        display: none;
       }
 
       .header-inner {
         display: flex;
         justify-content: space-between;
-        width: calc(100% - 40px);
+        min-height: 76px;
       }
 
       .brand {
-        position: static;
-        transform: none;
-        flex-shrink: 0;
+        width: 165px;
+        justify-content: flex-start;
       }
 
       .brand img {
-        width: 180px;
-        max-height: 53px;
+        max-height: 54px;
       }
 
-      .desktop-nav {
-        display: none;
-      }
-
-      .header-tools {
-        gap: 10px;
-        margin-left: auto;
+      .mobile-actions {
+        display: flex;
+        align-items: center;
+        gap: 17px;
       }
 
       .menu-toggle {
         display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        color: var(--white);
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        cursor: pointer;
+      }
+
+      .menu-toggle svg {
+        width: 23px;
+        height: 23px;
       }
 
       .mobile-nav {
         position: fixed;
-        top: var(--header-height);
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 999;
+        z-index: 1001;
+        inset: 76px 0 0;
         display: flex;
         flex-direction: column;
-        gap: 0;
-        padding: 15px 30px 40px;
+        align-items: stretch;
+        padding: 25px 24px 45px;
         overflow-y: auto;
         background: var(--wine);
-        visibility: hidden;
         opacity: 0;
-        pointer-events: none;
+        visibility: hidden;
         transform: translateY(-8px);
-        transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
+        transition:
+          opacity 0.25s ease,
+          transform 0.25s ease,
+          visibility 0.25s ease;
       }
 
       .mobile-nav.is-open {
-        visibility: visible;
         opacity: 1;
-        pointer-events: auto;
+        visibility: visible;
         transform: translateY(0);
       }
 
-      .mobile-nav > a,
-      .mobile-nav .nav-trigger {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
+      .mobile-nav > a {
         padding: 16px 0;
-        border: 0;
-        border-bottom: 1px solid rgba(255,255,255,.15);
-        background: transparent;
         color: var(--white);
-        text-align: left;
-        font-size: 14px;
-        font-weight: 600;
-        cursor: pointer;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+        font-size: 1.06rem;
+        font-weight: 650;
       }
 
-      .mobile-nav > a:hover,
-      .mobile-nav .nav-trigger:hover,
       .mobile-nav > a.active {
-        color: var(--gold);
+        color: var(--gold-light);
       }
 
-      .mobile-nav .nav-dropdown {
-        width: 100%;
-      }
-
-      .mobile-nav .dropdown-menu {
-        position: static;
-        display: none;
-        width: 100%;
-        padding: 6px 0 12px 15px;
-        border: 0;
-        background: transparent;
-        box-shadow: none;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-      }
-
-      .mobile-nav .nav-dropdown.open .dropdown-menu {
-        display: block;
-      }
-
-      .mobile-nav .dropdown-menu a {
-        padding: 11px 8px;
-        color: rgba(255,255,255,.78);
-        font-size: 13px;
-      }
-
-      .mobile-nav .dropdown-menu a:hover {
-        background: rgba(255,255,255,.06);
-        color: var(--gold);
-      }
-
-      .mobile-nav .mobile-contact {
-        justify-content: center;
+      .mobile-nav .contact-button {
+        align-self: flex-start;
         margin-top: 25px;
-        padding: 15px 20px;
+      }
+
+      .mobile-search {
+        display: flex;
+        margin-top: 24px;
+        gap: 8px;
+      }
+
+      .mobile-search input {
+        width: 100%;
+        min-width: 0;
+        padding: 12px;
+        color: var(--ink);
+        background: var(--white);
         border: 0;
+      }
+
+      .mobile-search button {
+        padding: 0 14px;
+        color: var(--wine);
         background: var(--gold);
-        color: var(--wine-dark);
+        border: 0;
         font-weight: 800;
       }
 
-      .lifecycle-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (min-width: 1201px) {
-      .mobile-nav {
-        display: none !important;
-      }
-    }
-
-    @media (max-width: 760px) {
-      .container,
-      .page-hero-content {
-        width: calc(100% - 40px);
-      }
-
-      .section {
-        padding: 70px 0;
-      }
-
-      .header-inner {
-        width: calc(100% - 28px);
-      }
-
-      .brand img {
-        width: 150px;
-        max-height: 47px;
-      }
-
-      .header-tools {
-        gap: 6px;
-      }
-
-      .header-contact {
-        display: none;
-      }
-
-      .search-link {
-        width: 34px;
-      }
-
-      .page-hero {
-        min-height: 490px;
-      }
-
-      .page-hero-content {
-        padding: 78px 0;
-      }
-
-      .page-hero h1 {
-        font-size: clamp(39px, 10vw, 56px);
-      }
-
-      .page-hero p {
-        font-size: 14px;
-      }
-
       .intro-grid,
-      .philosophy-grid {
+      .philosophy-grid,
+      .forward-grid {
         grid-template-columns: 1fr;
-        gap: 28px;
+        gap: 35px;
       }
 
-      .philosophy-visual,
-      .philosophy-visual img {
-        min-height: 300px;
-        height: 300px;
+      .philosophy-image {
+        min-height: 380px;
+      }
+
+      .lifecycle-header {
+        display: block;
+      }
+
+      .lifecycle-header .section-intro {
+        margin-top: 20px;
       }
 
       .lifecycle-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .principles-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .industry-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .closing-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+
+      .footer-brand-column {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container {
+        width: calc(100% - 36px);
+      }
+
+      .about-hero {
+        min-height: 650px;
+        min-height: 78svh;
+      }
+
+      .hero-content {
+        width: calc(100% - 36px);
+        padding-block: 85px 70px;
+      }
+
+      .hero-title {
+        font-size: clamp(2.65rem, 12vw, 4.1rem);
+      }
+
+      .hero-overlay {
+        background:
+          linear-gradient(
+            0deg,
+            rgba(24, 4, 11, 0.94) 0%,
+            rgba(24, 4, 11, 0.66) 60%,
+            rgba(24, 4, 11, 0.3) 100%
+          );
+      }
+
+      .hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .hero-actions a {
+        width: fit-content;
+      }
+
+      .section-padding {
+        padding-block: 76px;
+      }
+
+      .philosophy-image {
+        min-height: 300px;
+      }
+
+      .lifecycle-grid,
+      .principles-grid,
+      .industry-grid {
         grid-template-columns: 1fr;
       }
 
       .lifecycle-card {
-        min-height: 155px;
+        min-height: auto;
+        padding: 24px;
       }
 
-      .principles-grid,
-      .industries-grid {
-        grid-template-columns: 1fr;
+      .lifecycle-number {
+        margin-bottom: 15px;
       }
 
       .principle-card {
         min-height: auto;
       }
 
-      .cta-inner {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 25px;
+      .industry-item {
+        min-height: 78px;
       }
 
-      .footer-top {
-        grid-template-columns: 1fr 1fr;
-        gap: 35px 25px;
+      .footer-main {
+        grid-template-columns: 1fr;
+        gap: 35px;
       }
 
-      .footer-brand {
-        grid-column: 1 / -1;
+      .footer-brand-column {
+        grid-column: auto;
       }
 
       .footer-bottom {
+        align-items: flex-start;
         flex-direction: column;
-        gap: 9px;
-      }
-
-      .mobile-nav {
-        padding-right: 22px;
-        padding-left: 22px;
-      }
-    }
-
-    @media (max-width: 390px) {
-      .container,
-      .page-hero-content {
-        width: calc(100% - 32px);
-      }
-
-      .brand img {
-        width: 132px;
-      }
-
-      .footer-top {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-brand {
-        grid-column: auto;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
       *,
       *::before,
       *::after {
-        scroll-behavior: auto !important;
-        transition-duration: .01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
       }
     }
   </style>
 </head>
 
 <body>
-
   <header class="site-header">
-    <div class="header-inner">
-
-      <nav class="desktop-nav nav-left" aria-label="Primary navigation">
-
-        <a href="about.html" class="active" aria-current="page">About</a>
-
-        <div class="nav-dropdown">
-          <button class="nav-trigger" type="button" aria-expanded="false">
-            Services <span aria-hidden="true">⌄</span>
-          </button>
-          <div class="dropdown-menu">
-            <a href="services.html">All Services</a>
-            <a href="services.html#engineering">Engineering &amp; Project Delivery</a>
-            <a href="services.html#quality">QA/QC &amp; Quality Assurance</a>
-            <a href="services.html#digital">Digital Engineering &amp; BIM</a>
-            <a href="services.html#asset-information">Asset Information</a>
-          </div>
-        </div>
-
-        <a href="solutions.html">Solutions</a>
-
+    <div class="container header-inner">
+      <nav class="nav-side nav-left desktop-nav" aria-label="Primary navigation">
+        <a class="nav-link active" href="about.html" aria-current="page">About</a>
+        <a class="nav-link" href="services.html">Services</a>
+        <a class="nav-link" href="solutions.html">Solutions</a>
       </nav>
 
-      <a class="brand" href="index.html" aria-label="Jiro-BEACONS home">
-        <img src="images/logo-white.png"
-             alt="Jiro-BEACONS Engineering"
-             onerror="this.onerror=null;this.src='images/logo.png';">
+      <a class="brand" href="index.html" aria-label="Jiro-BEACONS Engineering home">
+        <img
+          src="images/logo-white.png"
+          onerror="this.onerror=null;this.src='images/logo.png';"
+          alt="Jiro-BEACONS Engineering"
+        >
       </a>
 
-      <nav class="desktop-nav nav-right" aria-label="Additional navigation">
+      <nav class="nav-side nav-right desktop-nav" aria-label="Secondary navigation">
+        <a class="nav-link" href="projects.html">Projects</a>
+        <a class="nav-link" href="insights.html">Insights</a>
+        <a class="nav-link" href="careers.html">Careers</a>
 
-        <a href="projects.html">Projects</a>
-        <a href="insights.html">Insights</a>
-        <a href="careers.html">Careers</a>
-
-        <div class="header-tools">
-          <a class="search-link" href="insights.html" aria-label="Explore insights">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                 stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
-              <circle cx="10.8" cy="10.8" r="6.8"></circle>
-              <path d="m16 16 4.2 4.2"></path>
-            </svg>
-          </a>
-
-          <a class="header-contact" href="contact.html">Let's Talk</a>
+        <div class="header-actions desktop-actions">
+          <button
+            class="search-toggle"
+            id="desktopSearchToggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="desktopSearchPanel"
+            aria-label="Open search"
+          >Search</button>
+          <a class="contact-button" href="contact.html">Contact Us</a>
         </div>
-
       </nav>
 
-      <div class="header-tools mobile-tools">
+      <div class="mobile-actions">
+        <button
+          class="search-toggle"
+          id="mobileSearchToggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="desktopSearchPanel"
+          aria-label="Open search"
+        >Search</button>
 
-        <a class="search-link" href="insights.html" aria-label="Explore insights">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-               stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
-            <circle cx="10.8" cy="10.8" r="6.8"></circle>
-            <path d="m16 16 4.2 4.2"></path>
-          </svg>
-        </a>
-
-        <button class="menu-toggle" id="menuToggle" type="button"
-                aria-label="Open navigation menu"
-                aria-controls="mobileNav"
-                aria-expanded="false">
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mobileNav"
+          aria-label="Open navigation menu"
+        >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
             <path d="M4 7h16M4 12h16M4 17h16"></path>
           </svg>
         </button>
-
       </div>
+    </div>
 
+    <div class="container search-panel" id="desktopSearchPanel">
+      <form class="search-form" id="siteSearchForm" role="search">
+        <input
+          id="siteSearchInput"
+          type="search"
+          placeholder="Search this page or explore our insights"
+          aria-label="Search website"
+        >
+        <button type="submit">Search</button>
+      </form>
     </div>
 
     <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" inert>
-
-      <a href="about.html" class="active" aria-current="page">About</a>
-
-      <div class="nav-dropdown">
-        <button class="nav-trigger" type="button" aria-expanded="false">
-          Services <span aria-hidden="true">⌄</span>
-        </button>
-        <div class="dropdown-menu">
-          <a href="services.html">All Services</a>
-          <a href="services.html#engineering">Engineering &amp; Project Delivery</a>
-          <a href="services.html#quality">QA/QC &amp; Quality Assurance</a>
-          <a href="services.html#digital">Digital Engineering &amp; BIM</a>
-          <a href="services.html#asset-information">Asset Information</a>
-        </div>
-      </div>
-
+      <a href="index.html">Home</a>
+      <a class="active" href="about.html" aria-current="page">About</a>
+      <a href="services.html">Services</a>
       <a href="solutions.html">Solutions</a>
       <a href="projects.html">Projects</a>
       <a href="insights.html">Insights</a>
       <a href="careers.html">Careers</a>
       <a href="contact.html">Contact</a>
 
-      <a class="mobile-contact" href="contact.html">Let's Talk <span aria-hidden="true">→</span></a>
+      <form class="mobile-search" id="mobileSearchForm" role="search">
+        <input
+          id="mobileSearchInput"
+          type="search"
+          placeholder="Search this page or insights"
+          aria-label="Search website"
+        >
+        <button type="submit">Go</button>
+      </form>
 
+      <a class="contact-button" href="contact.html">Start a Conversation</a>
     </nav>
   </header>
 
-
   <main>
+    <!-- HERO: images/site-4.jpg and images/about.jpg alternate automatically -->
+    <section class="about-hero" aria-labelledby="heroTitle">
+      <div class="hero-slides" aria-hidden="true">
+        <img
+          class="hero-slide is-active"
+          src="images/site-4.jpg"
+          alt=""
+          fetchpriority="high"
+        >
+        <img
+          class="hero-slide"
+          src="images/about.jpg"
+          alt=""
+          loading="eager"
+        >
+      </div>
 
-    <!-- ABOUT HERO -->
-    <section class="page-hero">
-      <img class="page-hero-image"
-           src="images/hero-desktop.png"
-           alt=""
-           fetchpriority="high">
+      <div class="hero-overlay"></div>
 
-      <div class="page-hero-overlay"></div>
-
-      <div class="page-hero-content">
-        <span class="eyebrow">About Jiro-BEACONS</span>
-
-        <h1>
-          Engineering better information for
-          <span>smarter infrastructure.</span>
+      <div class="hero-content">
+        <p class="eyebrow">About Jiro-BEACONS Engineering</p>
+        <h1 class="hero-title" id="heroTitle">
+          Engineering better information for smarter infrastructure.
         </h1>
-
-        <p>
-          We connect engineering expertise, project delivery and digital
-          information to help clients understand what is being built,
-          verify what has been delivered and manage assets with greater
-          confidence.
+        <p class="hero-description">
+          We bring engineering disciplines, construction quality and structured
+          digital information together to support better project delivery,
+          clearer handovers and more informed asset decisions.
         </p>
 
-        <a class="btn btn-gold" href="services.html">
-          Explore Our Capabilities <span aria-hidden="true">→</span>
-        </a>
+        <div class="hero-actions">
+          <a class="button-primary" href="services.html">Explore Our Services</a>
+          <a class="button-outline" href="projects.html">View Project Experience</a>
+        </div>
       </div>
     </section>
 
-
     <!-- WHO WE ARE -->
-    <section class="section" id="who-we-are">
+    <section class="section-padding" id="who-we-are">
       <div class="container intro-grid">
-
-        <div class="intro-title">
-          <span class="eyebrow">Who we are</span>
-          <h2>An integrated engineering approach to physical and digital projects.</h2>
+        <div>
+          <p class="eyebrow">Who We Are</p>
+          <h2 class="section-heading">
+            An integrated approach to engineering and project information.
+          </h2>
+          <p class="intro-lead">
+            Better project outcomes begin with reliable evidence, coordinated
+            delivery and information that remains useful beyond construction.
+          </p>
         </div>
 
         <div class="intro-copy">
           <p>
-            Jiro-BEACONS Engineering Nigeria Limited is an engineering and
-            project information company focused on connecting physical
-            infrastructure with the technical information behind it.
+            Jiro-BEACONS Engineering Nigeria Limited brings together
+            engineering, surveying, construction quality and digital
+            information practices to support the delivery and management of
+            physical assets.
           </p>
-
           <p>
-            Our approach brings together surveying and geospatial information,
-            quantity and cost support, engineering coordination, construction
-            quality assurance, project documentation and digital asset
-            information.
+            Our approach connects surveying and evaluation, quantity and cost
+            considerations, engineering coordination, construction assurance,
+            project documentation and digital asset information. The aim is
+            to make project evidence more structured, traceable and accessible
+            to the people who need it.
           </p>
-
           <p>
-            Rather than treating these activities as isolated tasks, we look
-            at how information moves through the project lifecycle—from early
-            measurements and planning to construction verification, handover
-            and future asset use.
+            From existing-building information to construction quality records
+            and digital handover packages, we focus on creating a clearer
+            relationship between what is built, what is verified and what is
+            documented.
           </p>
-
-          <p>
-            The scope of each engagement is tailored to the project and
-            delivered through the relevant professional expertise,
-            specialist resources and agreed responsibilities.
-          </p>
+          <a class="text-link" href="services.html">
+            Discover how we work <span aria-hidden="true">→</span>
+          </a>
         </div>
-
       </div>
     </section>
 
-
-    <!-- OUR APPROACH -->
-    <section class="section philosophy-section" id="approach">
+    <!-- OUR PHILOSOPHY: image replaced with images/about-C.jpg -->
+    <section class="philosophy section-padding" id="our-philosophy">
       <div class="container philosophy-grid">
-
-        <div class="philosophy-visual">
-          <img src="images/digital-desktop.png"
-               alt="Digital engineering information connected to physical infrastructure"
-               loading="lazy">
+        <div class="philosophy-image">
+          <img
+            src="images/about-C.jpg"
+            alt="Engineering and project information supporting informed infrastructure decisions"
+            loading="lazy"
+          >
         </div>
 
         <div class="philosophy-copy">
-          <span class="eyebrow">Our philosophy</span>
-
-          <h2>We don't just record progress. We engineer the information behind it.</h2>
-
+          <p class="eyebrow">Our Philosophy</p>
+          <blockquote>
+            We don't just record progress. We engineer the information behind it.
+          </blockquote>
           <p>
-            Infrastructure produces a substantial amount of information:
-            survey data, drawings, inspection reports, test results,
-            construction records, equipment schedules and as-built details.
+            Engineering information should do more than fill folders. It
+            should help teams understand what happened, establish what has
+            been verified, trace decisions and make informed choices.
           </p>
-
           <p>
-            When these records are incomplete, disconnected or difficult
-            to retrieve, project teams can struggle to verify decisions,
-            demonstrate quality and prepare for handover.
+            We therefore value evidence, consistency, clear ownership and
+            information structures that support real project requirements.
+            Digital tools matter most when they make engineering information
+            more useful, not simply more complicated.
           </p>
-
-          <p>
-            We focus on making project information more structured,
-            traceable and useful—so that it can support real decisions
-            during delivery and throughout the asset lifecycle.
-          </p>
-
-          <ul class="principle-list">
-            <li>Connect field activities with reliable project records.</li>
-            <li>Make quality evidence traceable to inspections and test results.</li>
-            <li>Organize digital as-built and asset information for future use.</li>
-            <li>Support better coordination between engineering disciplines.</li>
-          </ul>
         </div>
-
       </div>
     </section>
 
-
-    <!-- LIFECYCLE -->
-    <section class="section" id="lifecycle">
+    <!-- OUR DELIVERY LIFECYCLE -->
+    <section class="section-padding" id="our-approach">
       <div class="container">
-
-        <div class="section-heading">
-          <span class="eyebrow">Our integrated lifecycle</span>
-          <h2>From surveying the existing condition to supporting asset operations.</h2>
-          <p>
-            We connect key project stages through engineering services,
-            information management and digital workflows. Each engagement
-            is defined by the client's needs and the agreed scope.
+        <div class="lifecycle-header">
+          <div>
+            <p class="eyebrow">Our Approach</p>
+            <h2 class="section-heading">From site understanding to asset intelligence.</h2>
+          </div>
+          <p class="section-intro">
+            Each project has its own scope and requirements. Our delivery
+            approach connects the stages that help engineering decisions,
+            construction evidence and asset information work together.
           </p>
         </div>
 
         <div class="lifecycle-grid">
-
           <article class="lifecycle-card">
-            <span class="lifecycle-number">01 / ASSESS</span>
+            <span class="lifecycle-number">01</span>
             <h3>Survey &amp; Evaluate</h3>
-            <p>Surveying, geospatial measurement, site information and existing-condition assessment.</p>
+            <p>
+              Establish site conditions, spatial context and existing-asset
+              information to inform the next decisions.
+            </p>
           </article>
 
           <article class="lifecycle-card">
-            <span class="lifecycle-number">02 / QUANTIFY</span>
+            <span class="lifecycle-number">02</span>
             <h3>Quantity &amp; Cost</h3>
-            <p>Quantity measurement, BOQs, cost planning and commercial information support.</p>
+            <p>
+              Support measurement, quantities, cost planning and commercial
+              visibility through appropriately scoped inputs.
+            </p>
           </article>
 
           <article class="lifecycle-card">
-            <span class="lifecycle-number">03 / PLAN</span>
+            <span class="lifecycle-number">03</span>
             <h3>Plan &amp; Coordinate</h3>
-            <p>Project planning, engineering coordination and structured technical requirements.</p>
+            <p>
+              Bring relevant disciplines, project requirements and delivery
+              information into a coordinated working approach.
+            </p>
           </article>
 
           <article class="lifecycle-card">
-            <span class="lifecycle-number">04 / DELIVER</span>
+            <span class="lifecycle-number">04</span>
             <h3>Build</h3>
-            <p>Construction delivery support and coordinated engineering information.</p>
+            <p>
+              Support project execution with organised information, clear
+              records and coordination aligned with the agreed scope.
+            </p>
           </article>
 
           <article class="lifecycle-card">
-            <span class="lifecycle-number">05 / VERIFY</span>
+            <span class="lifecycle-number">05</span>
             <h3>Verify &amp; Assure</h3>
-            <p>Inspection records, test evidence, QA/QC registers and construction verification.</p>
+            <p>
+              Organise inspection, testing, quality records and supporting
+              evidence to improve traceability and review.
+            </p>
           </article>
 
           <article class="lifecycle-card">
-            <span class="lifecycle-number">06 / DIGITALIZE</span>
+            <span class="lifecycle-number">06</span>
             <h3>Engineer the Data</h3>
-            <p>Digital engineering, as-built information, structured registers and models.</p>
+            <p>
+              Structure project records, drawings, models and asset
+              information into practical digital information packages.
+            </p>
           </article>
 
           <article class="lifecycle-card">
-            <span class="lifecycle-number">07 / HAND OVER</span>
+            <span class="lifecycle-number">07</span>
             <h3>Digital Handover</h3>
-            <p>Organized project deliverables and traceable information for handover requirements.</p>
+            <p>
+              Bring relevant deliverables and supporting records together
+              for review, retrieval and transfer to the receiving team.
+            </p>
           </article>
 
           <article class="lifecycle-card">
-            <span class="lifecycle-number">08 / OPERATE</span>
+            <span class="lifecycle-number">08</span>
             <h3>Asset Intelligence</h3>
-            <p>Lifecycle asset information and developing digital workflows for operational insight.</p>
+            <p>
+              Enable better-informed asset decisions through organised
+              information that can support future operations and maintenance.
+            </p>
           </article>
-
         </div>
       </div>
     </section>
-
 
     <!-- WHAT GUIDES US -->
-    <section class="section principles-section">
+    <section class="principles section-padding" id="principles">
       <div class="container">
-
-        <div class="section-heading">
-          <span class="eyebrow">What guides us</span>
-          <h2>Built around evidence, coordination and long-term usefulness.</h2>
-          <p>
-            Our working principles shape how we organize information,
-            approach project requirements and collaborate with clients
-            and project teams.
-          </p>
-        </div>
+        <p class="eyebrow">What Guides Us</p>
+        <h2 class="section-heading">Principles behind our work.</h2>
+        <p class="section-intro">
+          The value of engineering information depends on how reliably it is
+          collected, coordinated, verified and used.
+        </p>
 
         <div class="principles-grid">
-
           <article class="principle-card">
-            <span class="number">01</span>
-            <h3>Evidence before assumption</h3>
+            <span class="principle-number">01</span>
+            <h3>Evidence Before Assumption</h3>
             <p>
-              We value traceable project records, identifiable sources
-              and documented results. Information should support
-              verification rather than simply fill a register.
+              Ground project records and decisions in available measurements,
+              inspections, tests and verifiable information.
             </p>
           </article>
 
           <article class="principle-card">
-            <span class="number">02</span>
-            <h3>Coordination across disciplines</h3>
+            <span class="principle-number">02</span>
+            <h3>Coordination Across Disciplines</h3>
             <p>
-              We recognize that project outcomes depend on the connection
-              between technical disciplines, site activities, commercial
-              considerations and information requirements.
+              Recognise the connections between surveying, engineering,
+              construction, quality and project information.
             </p>
           </article>
 
           <article class="principle-card">
-            <span class="number">03</span>
-            <h3>Information designed for use</h3>
+            <span class="principle-number">03</span>
+            <h3>Information Designed for Use</h3>
             <p>
-              We structure records with retrieval, accountability,
-              handover and future reference in mind—not only the
-              immediate reporting requirement.
+              Organise information so that the right people can find,
+              understand and apply it to their responsibilities.
             </p>
           </article>
 
           <article class="principle-card">
-            <span class="number">04</span>
-            <h3>Practical digital adoption</h3>
+            <span class="principle-number">04</span>
+            <h3>Practical Digital Adoption</h3>
             <p>
-              We focus on digital workflows that address defined
-              project and asset needs, with appropriate attention
-              to data quality and implementation requirements.
+              Use digital methods where they improve clarity, consistency,
+              accessibility or the usefulness of project information.
             </p>
           </article>
 
           <article class="principle-card">
-            <span class="number">05</span>
-            <h3>Clear scope and responsibility</h3>
+            <span class="principle-number">05</span>
+            <h3>Clear Scope and Responsibility</h3>
             <p>
-              Professional responsibilities, deliverables and interfaces
-              should be defined clearly for each engagement and aligned
-              with applicable requirements.
+              Align deliverables, responsibilities and reporting with the
+              agreed project scope and applicable requirements.
             </p>
           </article>
 
           <article class="principle-card">
-            <span class="number">06</span>
-            <h3>Lifecycle perspective</h3>
+            <span class="principle-number">06</span>
+            <h3>A Lifecycle Perspective</h3>
             <p>
-              We consider how information created during surveying,
-              design and construction may support handover, maintenance
-              and future asset decisions.
+              Consider how information created during a project may support
+              handover, ownership, operation and future decisions.
             </p>
           </article>
-
         </div>
       </div>
     </section>
-
 
     <!-- INDUSTRIES -->
-    <section class="section" id="industries">
+    <section class="industries section-padding" id="industries">
       <div class="container">
+        <p class="eyebrow">Where We Work</p>
+        <h2 class="section-heading">Supporting diverse infrastructure and built assets.</h2>
+        <p class="section-intro">
+          Our integrated approach can be applied across different project
+          environments, with services and deliverables defined by each
+          client's needs and agreed scope.
+        </p>
 
-        <div class="section-heading">
-          <span class="eyebrow">Industries we serve</span>
-          <h2>Supporting projects across the built and industrial environment.</h2>
-          <p>
-            Our services are adapted to the physical asset, project
-            delivery model, information requirements and professional
-            scope of each engagement.
-          </p>
+        <div class="industry-grid">
+          <div class="industry-item">Real Estate &amp; Property</div>
+          <div class="industry-item">Construction &amp; EPC</div>
+          <div class="industry-item">Energy &amp; Power</div>
+          <div class="industry-item">Oil &amp; Gas</div>
+          <div class="industry-item">Infrastructure</div>
+          <div class="industry-item">Commercial &amp; Hospitality</div>
         </div>
-
-        <div class="industries-grid">
-
-          <article class="industry-card">
-            <span class="square"></span>
-            <h3>Real Estate &amp; Property</h3>
-            <p>Surveying, as-built information, construction records and digital property documentation.</p>
-          </article>
-
-          <article class="industry-card">
-            <span class="square"></span>
-            <h3>Construction &amp; EPC</h3>
-            <p>Project information, quality documentation, technical coordination and handover support.</p>
-          </article>
-
-          <article class="industry-card">
-            <span class="square"></span>
-            <h3>Energy &amp; Power</h3>
-            <p>Engineering records, inspection and test information, asset data and digital handover.</p>
-          </article>
-
-          <article class="industry-card">
-            <span class="square"></span>
-            <h3>Oil &amp; Gas</h3>
-            <p>Technical documentation, project registers, quality evidence and turnover information.</p>
-          </article>
-
-          <article class="industry-card">
-            <span class="square"></span>
-            <h3>Infrastructure</h3>
-            <p>Surveying, existing-condition information, construction records and asset information organization.</p>
-          </article>
-
-          <article class="industry-card">
-            <span class="square"></span>
-            <h3>Commercial &amp; Hospitality</h3>
-            <p>Building information, project documentation and digital foundations for asset operations.</p>
-          </article>
-
-        </div>
-
-        <a class="text-link" href="solutions.html">
-          Explore our industry solutions <span aria-hidden="true">→</span>
-        </a>
-
       </div>
     </section>
-
 
     <!-- FORWARD DIRECTION -->
-    <section class="section philosophy-section" id="future">
-      <div class="container intro-grid">
-
-        <div class="intro-title">
-          <span class="eyebrow">Looking ahead</span>
-          <h2>Connecting engineering practice with intelligent infrastructure.</h2>
+    <section class="section-padding" id="looking-ahead">
+      <div class="container forward-grid">
+        <div>
+          <p class="eyebrow">Looking Ahead</p>
+          <h2 class="section-heading">
+            Connecting engineering information with smarter asset decisions.
+          </h2>
         </div>
 
-        <div class="intro-copy">
+        <div class="forward-copy">
           <p>
-            We see growing value in connecting structured engineering
-            information with building systems, asset performance data
-            and responsible digital workflows.
+            As infrastructure and buildings become more data-connected,
+            structured engineering information can provide a foundation for
+            richer asset visibility, more informed operational decisions and
+            improved reporting.
+          </p>
+          <p>
+            Our strategic direction includes the development and integration
+            of digital workflows that connect existing-asset information,
+            building-system data and environmental performance information
+            where the project requirements, technology and validated data
+            support them.
           </p>
 
-          <p>
-            Our evolving areas of interest include digital twins,
-            smart-building telemetry and integration, and data platforms
-            intended to support carbon-related information and ESG
-            reporting processes.
-          </p>
-
-          <p>
-            These areas require appropriate technical development,
-            integration, validation and project-specific implementation.
-            We distinguish emerging capabilities from services and
-            solutions already delivered.
-          </p>
-
-          <a class="text-link" href="solutions.html">
-            Discover our solutions <span aria-hidden="true">→</span>
-          </a>
+          <div class="forward-focus">
+            <h3>Areas of strategic development</h3>
+            <ul>
+              <li>
+                Digital twins and structured asset information for existing
+                buildings and infrastructure.
+              </li>
+              <li>
+                Smart-building telemetry and integration, including
+                project-specific connections to building-system data.
+              </li>
+              <li>
+                Carbon information, ESG data and more structured
+                compliance-reporting workflows.
+              </li>
+              <li>
+                AI-enabled engineering workflows that help organise, analyse
+                and retrieve project information responsibly.
+              </li>
+            </ul>
+            <p class="forward-note">
+              Implementation, integrations and reporting outputs depend on
+              the asset, available data, validation requirements, technology
+              and agreed project scope.
+            </p>
+          </div>
         </div>
-
       </div>
     </section>
 
-
-    <!-- CTA -->
-    <section class="cta-section">
-      <div class="container cta-inner">
-
-        <div class="cta-copy">
-          <span class="eyebrow">Start a conversation</span>
-          <h2>Let's connect your project with better information.</h2>
+    <!-- CONTACT CTA -->
+    <section class="closing-cta">
+      <div class="container closing-inner">
+        <div class="closing-copy">
+          <p class="eyebrow">Let's Work Together</p>
+          <h2>Make your project information work harder.</h2>
           <p>
-            Tell us about your engineering, construction, quality
-            documentation or digital asset information requirements.
-            We can discuss the project context and an appropriate scope
-            of support.
+            Whether you are planning a project, improving construction
+            quality records or organising information for an asset handover,
+            let's discuss the requirements and the right approach.
           </p>
         </div>
-
-        <a class="btn btn-wine" href="contact.html">
-          Contact Jiro-BEACONS <span aria-hidden="true">→</span>
-        </a>
-
+        <a class="button-primary" href="contact.html">Start a Conversation</a>
       </div>
     </section>
-
   </main>
-
 
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container">
-
-      <div class="footer-top">
-
-        <div class="footer-brand">
-          <a href="index.html" aria-label="Jiro-BEACONS home">
-            <img src="images/logo-white.png"
-                 alt="Jiro-BEACONS Engineering"
-                 onerror="this.onerror=null;this.src='images/logo.png';">
+      <div class="footer-main">
+        <div class="footer-brand-column">
+          <a class="footer-brand" href="index.html" aria-label="Jiro-BEACONS Engineering home">
+            <img
+              src="images/logo-white.png"
+              onerror="this.onerror=null;this.src='images/logo.png';"
+              alt="Jiro-BEACONS Engineering"
+              loading="lazy"
+            >
           </a>
-
-          <p>
+          <p class="footer-description">
             Engineering better information for smarter infrastructure
-            and businesses. Connecting engineering expertise, project
-            delivery and intelligent digital information.
+            and businesses.
           </p>
         </div>
 
-        <div class="footer-column">
-          <h4>Explore</h4>
-          <ul class="footer-links">
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="solutions.html">Solutions</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="insights.html">Insights</a></li>
-          </ul>
+        <div>
+          <h2 class="footer-heading">Explore</h2>
+          <nav class="footer-links" aria-label="Footer navigation">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="solutions.html">Solutions</a>
+            <a href="projects.html">Projects</a>
+            <a href="insights.html">Insights</a>
+            <a href="careers.html">Careers</a>
+          </nav>
         </div>
 
-        <div class="footer-column">
-          <h4>Connect</h4>
-          <ul class="footer-links">
-            <li><a href="careers.html">Careers</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-            <li><a href="mailto:giftedafe@jirobeacons.com">Email Jiro-BEACONS</a></li>
-          </ul>
+        <div class="footer-contact">
+          <h2 class="footer-heading">Get in Touch</h2>
+          <p>Discuss an engineering or digital delivery requirement.</p>
+          <p>
+            <a href="mailto:giftedafe@jirobeacons.com">
+              giftedafe@jirobeacons.com
+            </a>
+          </p>
+          <p><a href="contact.html">Contact Jiro-BEACONS →</a></p>
         </div>
-
       </div>
 
       <div class="footer-bottom">
         <p>
-          © <span id="currentYear">2026</span>
-          Jiro-BEACONS Engineering Nigeria Limited. All rights reserved.
+          © <span id="currentYear"></span> Jiro-BEACONS Engineering Nigeria Limited.
+          All rights reserved.
         </p>
-        <a href="index.html">Engineering better information.</a>
+        <p>Engineering better information for smarter infrastructure &amp; businesses.</p>
       </div>
-
     </div>
   </footer>
 
-
   <script>
-    const menuToggle = document.getElementById("menuToggle");
-    const mobileNav = document.getElementById("mobileNav");
-    const dropdowns = document.querySelectorAll(".nav-dropdown");
+    (() => {
+      "use strict";
 
-    function closeMobileMenu() {
-      mobileNav.classList.remove("is-open");
-      mobileNav.setAttribute("inert", "");
-      document.body.classList.remove("menu-open");
+      const menuToggle = document.getElementById("menuToggle");
+      const mobileNav = document.getElementById("mobileNav");
+      const desktopSearchToggle = document.getElementById("desktopSearchToggle");
+      const mobileSearchToggle = document.getElementById("mobileSearchToggle");
+      const searchPanel = document.getElementById("desktopSearchPanel");
+      const searchInput = document.getElementById("siteSearchInput");
+      const mobileSearchInput = document.getElementById("mobileSearchInput");
+      const searchForm = document.getElementById("siteSearchForm");
+      const mobileSearchForm = document.getElementById("mobileSearchForm");
+      const yearElement = document.getElementById("currentYear");
 
-      menuToggle.setAttribute("aria-expanded", "false");
-      menuToggle.setAttribute("aria-label", "Open navigation menu");
+      if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+      }
 
-      menuToggle.innerHTML = `
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-             stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
-          <path d="M4 7h16M4 12h16M4 17h16"></path>
-        </svg>`;
+      /* Mobile navigation */
 
-      dropdowns.forEach(dropdown => {
-        dropdown.classList.remove("open");
+      function closeMobileMenu() {
+        if (!menuToggle || !mobileNav) return;
 
-        const trigger = dropdown.querySelector(".nav-trigger");
-        if (trigger) {
-          trigger.setAttribute("aria-expanded", "false");
+        mobileNav.classList.remove("is-open");
+        mobileNav.setAttribute("inert", "");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+        document.body.classList.remove("menu-open");
+      }
+
+      function openMobileMenu() {
+        if (!menuToggle || !mobileNav) return;
+
+        mobileNav.classList.add("is-open");
+        mobileNav.removeAttribute("inert");
+        menuToggle.setAttribute("aria-expanded", "true");
+        menuToggle.setAttribute("aria-label", "Close navigation menu");
+        document.body.classList.add("menu-open");
+      }
+
+      if (menuToggle && mobileNav) {
+        menuToggle.addEventListener("click", () => {
+          const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+
+          if (isOpen) {
+            closeMobileMenu();
+          } else {
+            openMobileMenu();
+          }
+        });
+
+        mobileNav.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", closeMobileMenu);
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape") {
+            closeMobileMenu();
+            closeSearch();
+          }
+        });
+
+        window.addEventListener("resize", () => {
+          if (window.innerWidth > 900) {
+            closeMobileMenu();
+          }
+        });
+      }
+
+      /* Search panel */
+
+      function openSearch() {
+        if (!searchPanel) return;
+
+        searchPanel.classList.add("is-open");
+
+        if (desktopSearchToggle) {
+          desktopSearchToggle.setAttribute("aria-expanded", "true");
         }
+
+        if (mobileSearchToggle) {
+          mobileSearchToggle.setAttribute("aria-expanded", "true");
+        }
+
+        window.setTimeout(() => {
+          if (window.innerWidth <= 900 && mobileSearchInput) {
+            mobileSearchInput.focus();
+          } else if (searchInput) {
+            searchInput.focus();
+          }
+        }, 50);
+      }
+
+      function closeSearch() {
+        if (!searchPanel) return;
+
+        searchPanel.classList.remove("is-open");
+
+        if (desktopSearchToggle) {
+          desktopSearchToggle.setAttribute("aria-expanded", "false");
+        }
+
+        if (mobileSearchToggle) {
+          mobileSearchToggle.setAttribute("aria-expanded", "false");
+        }
+      }
+
+      [desktopSearchToggle, mobileSearchToggle].forEach((button) => {
+        if (!button) return;
+
+        button.addEventListener("click", () => {
+          const isOpen = searchPanel.classList.contains("is-open");
+
+          if (isOpen) {
+            closeSearch();
+          } else {
+            closeMobileMenu();
+            openSearch();
+          }
+        });
       });
-    }
 
-    function openMobileMenu() {
-      mobileNav.classList.add("is-open");
-      mobileNav.removeAttribute("inert");
-      document.body.classList.add("menu-open");
+      function performSearch(value) {
+        const query = value.trim();
 
-      menuToggle.setAttribute("aria-expanded", "true");
-      menuToggle.setAttribute("aria-label", "Close navigation menu");
+        if (!query) return;
 
-      menuToggle.innerHTML = `
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-             stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
-          <path d="m6 6 12 12M18 6 6 18"></path>
-        </svg>`;
-    }
+        const normalizedQuery = query.toLowerCase();
+        const searchableElements = Array.from(
+          document.querySelectorAll(
+            "main h1, main h2, main h3, main p, main li"
+          )
+        );
 
-    menuToggle.addEventListener("click", () => {
-      const isOpen = mobileNav.classList.contains("is-open");
+        const match = searchableElements.find((element) =>
+          element.textContent.toLowerCase().includes(normalizedQuery)
+        );
 
-      if (isOpen) {
-        closeMobileMenu();
-      } else {
-        openMobileMenu();
+        if (match) {
+          const targetSection = match.closest("section") || match;
+          closeSearch();
+          closeMobileMenu();
+
+          targetSection.scrollIntoView({
+            behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+              ? "auto"
+              : "smooth",
+            block: "start"
+          });
+
+          if (match.matches("h1, h2, h3")) {
+            match.setAttribute("tabindex", "-1");
+            match.focus({ preventScroll: true });
+          }
+
+          return;
+        }
+
+        window.location.href =
+          "insights.html?search=" + encodeURIComponent(query);
       }
-    });
 
-    dropdowns.forEach(dropdown => {
-      const trigger = dropdown.querySelector(".nav-trigger");
-
-      if (!trigger) return;
-
-      trigger.addEventListener("click", () => {
-        const isOpen = dropdown.classList.toggle("open");
-        trigger.setAttribute("aria-expanded", String(isOpen));
-      });
-    });
-
-    mobileNav.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", closeMobileMenu);
-    });
-
-    document.addEventListener("keydown", event => {
-      if (event.key === "Escape" && mobileNav.classList.contains("is-open")) {
-        closeMobileMenu();
-        menuToggle.focus();
+      if (searchForm) {
+        searchForm.addEventListener("submit", (event) => {
+          event.preventDefault();
+          performSearch(searchInput ? searchInput.value : "");
+        });
       }
-    });
 
-    window.addEventListener("resize", () => {
-      if (window.innerWidth > 1200) {
-        closeMobileMenu();
+      if (mobileSearchForm) {
+        mobileSearchForm.addEventListener("submit", (event) => {
+          event.preventDefault();
+          performSearch(mobileSearchInput ? mobileSearchInput.value : "");
+        });
       }
-    });
 
-    document.getElementById("currentYear").textContent =
-      new Date().getFullYear();
+      /* Automatic hero crossfade */
+
+      const heroSlides = Array.from(
+        document.querySelectorAll(".hero-slide")
+      );
+
+      const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      );
+
+      let currentSlide = 0;
+      let heroTimer = null;
+
+      function showHeroSlide(index) {
+        heroSlides.forEach((slide, slideIndex) => {
+          const active = slideIndex === index;
+          slide.classList.toggle("is-active", active);
+          slide.setAttribute("aria-hidden", active ? "false" : "true");
+        });
+
+        currentSlide = index;
+      }
+
+      function startHeroSlideshow() {
+        if (heroSlides.length < 2 || reduceMotion.matches || heroTimer) {
+          return;
+        }
+
+        heroTimer = window.setInterval(() => {
+          const nextSlide = (currentSlide + 1) % heroSlides.length;
+          showHeroSlide(nextSlide);
+        }, 5000);
+      }
+
+      function stopHeroSlideshow() {
+        if (heroTimer) {
+          window.clearInterval(heroTimer);
+          heroTimer = null;
+        }
+      }
+
+      if (heroSlides.length) {
+        showHeroSlide(0);
+        startHeroSlideshow();
+
+        if (typeof reduceMotion.addEventListener === "function") {
+          reduceMotion.addEventListener("change", () => {
+            if (reduceMotion.matches) {
+              stopHeroSlideshow();
+              showHeroSlide(0);
+            } else {
+              startHeroSlideshow();
+            }
+          });
+        }
+      }
+    })();
   </script>
-
 </body>
 </html>
