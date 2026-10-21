@@ -489,7 +489,6 @@ section{position:relative}
   .nav-dropdown:focus-within .nav-dropdown-menu{display:grid}
 }
 @media(max-width:1100px){
-  /* Mobile/Tablet view: Suffolk-style full-width header flush against extreme edges */
   .site-header {
     top: 0;
     left: 0;
@@ -531,27 +530,45 @@ section{position:relative}
   .lifecycle-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:767px){
-  .container{width:calc(100% - 40px)}
+  .container{width:calc(100% - 32px)}
   .site-header{inset:0 0 auto 0;}
   .header-inner{min-height:58px;padding:0 10px;}
   .brand img{width:120px;max-height:35px}
   .icon-button{width:34px;height:34px}
-  .section-pad{padding:50px 0}
-  .two-col{grid-template-columns:1fr;gap:32px}
+  
+  /* TRUE SUFFOLK-STYLE MOBILE STICKY FULLSCREEN STACKING */
+  .section-with-video {
+    position: sticky !important;
+    top: 0 !important;
+    height: 100vh !important;
+    min-height: 100vh !important;
+    padding-top: 80px !important;
+    overflow: hidden !important;
+  }
+  .section-media video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+  }
+
+  .hero h1 { font-size: clamp(1.8rem, 6.5vw, 2.5rem); }
+  .hero-copy { font-size: 0.88rem; margin-bottom: 12px; }
+  .intro-copy h2, .section-heading h2, .feature-copy h2 { font-size: clamp(1.4rem, 5.5vw, 2.1rem); }
+  .two-col{grid-template-columns:1fr;gap:20px}
   .lifecycle-grid{grid-template-columns:1fr}
-  .lifecycle-card{min-height:auto;padding:16px}
-  .step-number{margin-bottom:12px;font-size:.7rem}
-  .lifecycle-card h3{font-size:1rem}
-  .lifecycle-card p{font-size:.82rem}
-  .feature-image,.feature-image img{min-height:260px}
-  .check-list{grid-template-columns:1fr}
+  .lifecycle-card{min-height:auto;padding:12px 14px}
+  .step-number{margin-bottom:6px;font-size:.65rem}
+  .lifecycle-card h3{font-size:.9rem}
+  .lifecycle-card p{font-size:.74rem}
+  .feature-image,.feature-image img{min-height:220px}
+  .check-list{grid-template-columns:1fr;gap:4px 12px}
   .capability-grid{grid-template-columns:1fr}
   .sector-grid{grid-template-columns:1fr 1fr;gap:10px}
   .project-card{grid-template-columns:1fr}
-  .project-visual{min-height:240px}
-  .project-details{padding:24px 20px}
-  .cta-inner{align-items:flex-start;flex-direction:column;gap:22px}
-  .footer-main{grid-template-columns:1fr 1fr;gap:30px 20px}
+  .project-visual{min-height:200px}
+  .project-details{padding:20px 18px}
+  .cta-inner{align-items:flex-start;flex-direction:column;gap:18px}
+  .footer-main{grid-template-columns:1fr 1fr;gap:25px 15px}
   .footer-brand{grid-column:1/-1}
   .footer-bottom{flex-direction:column;gap:8px}
 }
@@ -844,7 +861,7 @@ section{position:relative}
     </div>
   </section>
 
-  <!-- DIGITAL ENGINEERING SECTION WITH FIXED BESS-3.png -->
+  <!-- DIGITAL ENGINEERING SECTION WITH BESS SLIDESHOW -->
   <section class="digital-section section-pad">
     <div class="container two-col">
       <div class="feature-copy">
