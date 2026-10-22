@@ -246,6 +246,22 @@
       padding: 35px 30px;
       overflow-y: auto;
     }
+
+    /* TEAM HEADER INTRO STYLE BASED ON REFERENCE */
+    .team-intro-block {
+      margin-bottom: 35px;
+    }
+    .team-intro-block h2 {
+      font-size: clamp(28px, 3.5vw, 40px);
+      color: var(--wine);
+      margin-bottom: 12px;
+    }
+    .team-intro-block p {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
     .team-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -1112,13 +1128,16 @@
       </div>
       <div class="team-modal-body">
         
-        <p class="eyebrow" style="margin-bottom: 10px;">Executive Leadership &amp; Professional Directory</p>
-        <p style="margin-bottom: 30px;">Our multidisciplinary team combines engineering rigor, spatial analytics, and operational excellence in professional corporate attire.</p>
+        <div class="team-intro-block">
+          <p class="eyebrow" style="margin-bottom: 8px;">The Jiro-BEACONS Team</p>
+          <h2>United in redefining what’s possible</h2>
+          <p>We are collaborative and driven, curious and engaged. Meet the team that takes pride in transforming infrastructure quality and digital operations across industries[span_0](start_span)[span_0](end_span).</p>
+        </div>
 
         <div class="team-grid">
           
           <div class="team-card">
-            <img src="https://images.openai.com/static-rsc-4/QMUxV5apna9sksuybNkT6Sv5YhvT0zaWcHqgcjXVyq5s5ifqOy-Fqml3FhCuF4SpPo84TEpJpgyBg1BHjn27ip1XN-pJTih9RE-87Iuy7I7I8oRsh0FT5sPL37oCy5v1xTzWl3hfBNmkIz0Eof4fj07FU-MZ42_iR2PEIQWsKJYD54dZXn7oWiFM-mfNc_AY?purpose=fullsize" alt="Gift Edafe">
+            <img src="https://images.openai.com/static-rsc-4/AzwSGzlLQ25uoOr7lgLY9uBs-Tl62uXkCSYX9DzK-JfUTfN4vxM7M_T-7RgrPCtINieoo1BStR9lpxwKyz1xeQJRNT7poZROOLVdoSz0XsUJHE-Dnva-Tx5XGl9eHHg70yPs2neGixiaOusZS23_wV6XZoKC490Qtr6yp8mjEqXeZH4HaQlXpV41W054iJae?purpose=fullsize" alt="Gift Edafe">
             <div class="team-info">
               <h4>Gift Edafe</h4>
               <div class="team-role">President | Principal Consultant</div>
@@ -1154,9 +1173,9 @@
           </div>
 
           <div class="team-card">
-            <img src="https://images.openai.com/static-rsc-4/XwDY_3dr4u3AJ5SAuuaEGtl8VfKIjCqUs7Iz76ZT8wKFXMsJ9U7iicKKwrSO_ayjY5SBkWaVkHTZ4kCIzoqKlgJvTEucT6PaWyWdDOde6AhN58G_1z0yRY-jDAD2bYrDHwOSKGTjkcNOuIlMqQdA6TS14GSixiG1LDe8DmBTx5Meq8Xx62o1XNFfRMrME5G4?purpose=fullsize" alt="Salami Mathew">
+            <img src="https://images.openai.com/static-rsc-4/XwDY_3dr4u3AJ5SAuuaEGtl8VfKIjCqUs7Iz76ZT8wKFXMsJ9U7iicKKwrSO_ayjY5SBkWaVkHTZ4kCIzoqKlgJvTEucT6PaWyWdDOde6AhN58G_1z0yRY-jDAD2bYrDHwOSKGTjkcNOuIlMqQdA6TS14GSixiG1LDe8DmBTx5Meq8Xx62o1XNFfRMrME5G4?purpose=fullsize" alt="Henrieta Mathew">
             <div class="team-info">
-              <h4>Salami Mathew</h4>
+              <h4>Henrieta Mathew</h4>
               <div class="team-role">Project Quality Manager</div>
               <p>Quality Assurance &amp; Quality Control (QA/QC). Validating testing standards and compliance.</p>
             </div>
@@ -1450,7 +1469,6 @@
       if(navigation && menuToggle &&
          !navigation.contains(event.target) &&
          !menuToggle.contains(event.target)){
-        closeMenu();
       }
       if(searchPanel && searchToggle &&
          searchPanel.classList.contains("is-open") &&
