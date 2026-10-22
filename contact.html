@@ -470,6 +470,18 @@
       min-height: 140px;
     }
 
+    /* Form Status & Success Feedback */
+    #form-status {
+      display: none;
+      margin-top: 20px;
+      padding: 15px;
+      background: #ecfdf5;
+      border: 1px solid #10b981;
+      color: #065f46;
+      font-size: 14px;
+      border-radius: 2px;
+    }
+
     /* FOOTER MATCHING WINE HEADER */
     .site-footer {
       padding: 40px 0 20px;
@@ -721,10 +733,7 @@
 <main>
 
 <section class="page-hero">
-  <!-- Premium Completed Architectural Building Background Image -->
   <img src="https://static.vecteezy.com/system/resources/previews/070/686/310/large_2x/modern-office-building-exterior-with-glass-facade-and-dramatic-sky-representing-corporate-architecture-photo.jpeg" alt="Completed Modern Corporate Architecture" class="hero-bg-image" onerror="this.onerror=null;this.style.display='none';">
-  
-  <!-- Wine & Dark Neutral Transparent Overlay -->
   <div class="hero-overlay"></div>
 
   <div class="container hero-content">
@@ -768,12 +777,13 @@
         </div>
       </div>
 
-      <!-- Interactive Contact Form -->
+      <!-- Direct PHP Backend Contact Form -->
       <div class="contact-form-col">
         <h2>Send Us a Message</h2>
-        <p>Complete the form below and your message will be securely routed to the appropriate department.</p>
+        <p>Complete the form below and select your target department. Your message will be sent instantly without opening your mail app.</p>
         
-        <form action="mailto:info@jirobeacons.com" method="POST" enctype="text/plain">
+        <!-- Form points to send-mail.php -->
+        <form id="ajax-contact-form" action="send-mail.php" method="POST">
           <div class="form-group">
             <label for="name">Full Name</label>
             <input type="text" id="name" name="Name" required placeholder="Enter your full name">
@@ -785,11 +795,11 @@
           </div>
 
           <div class="form-group">
-            <label for="department">Department / Channel</label>
+            <label for="department">Target Department / Mail Alias</label>
             <select id="department" name="Department">
-              <option value="General Inquiry">General Information (info@jirobeacons.com)</option>
-              <option value="Project Collaboration">Project Proposals (projects@jirobeacons.com)</option>
-              <option value="Careers">Careers &amp; Recruitment (careers@jirobeacons.com)</option>
+              <option value="info@jirobeacons.com">General Information (info@jirobeacons.com)</option>
+              <option value="projects@jirobeacons.com">Project Inquiries (projects@jirobeacons.com)</option>
+              <option value="careers@jirobeacons.com">Careers &amp; Recruitment (careers@jirobeacons.com)</option>
             </select>
           </div>
 
@@ -798,7 +808,9 @@
             <textarea id="message" name="Message" required placeholder="Provide project details or inquiry context..."></textarea>
           </div>
 
-          <button type="submit" class="btn btn-gold" style="width: 100%;">Send Message →</button>
+          <button type="submit" id="submit-btn" class="btn btn-gold" style="width: 100%;">Send Message →</button>
+          
+          <div id="form-status"></div>
         </form>
       </div>
 
@@ -865,6 +877,7 @@
 (function(){
   "use strict";
 
+  // Navigation & Search Handlers
   const menuToggle = document.getElementById("menu-toggle");
   const navigation = document.getElementById("main-navigation");
   const servicesToggle = document.getElementById("services-toggle");
@@ -987,6 +1000,50 @@
       closeSearch();
     }
   });
+
+  // AJAX Direct PHP Form Submitter Handler
+  const contactForm = document.getElementById("ajax-contact-form");
+  const formStatus = document.getElementById("form-status");
+  const submitBtn = document.getElementById("submit-btn");
+
+  if(contactForm){
+    contactForm.addEventListener("submit", function(e){
+      e.preventDefault();
+      submitBtn.textContent = "Sending Message...";
+      submitBtn.disabled = true;
+
+      const formData = new FormData(contactForm);
+      
+      fetch(contactForm.action, {
+        method: contactForm.method,
+        body: formData
+      }).then(response => {
+        formStatus.style.display = "block";
+        if (response.ok) {
+          formStatus.style.background = "#ecfdf5";
+          formStatus.style.borderColor = "#10b981";
+          formStatus.style.color = "#065f46";
+          formStatus.innerHTML = "Thank you! Your message has been sent successfully to the selected department.";
+          contactForm.reset();
+        } else {
+          formStatus.style.background = "#fef2f2";
+          formStatus.style.borderColor = "#ef4444";
+          formStatus.style.color = "#991b1b";
+          formStatus.innerHTML = "Oops! Something went wrong on the server. Please email us directly.";
+        }
+        submitBtn.textContent = "Send Message →";
+        submitBtn.disabled = false;
+      }).catch(error => {
+        formStatus.style.display = "block";
+        formStatus.style.background = "#fef2f2";
+        formStatus.style.borderColor = "#ef4444";
+        formStatus.style.color = "#991b1b";
+        formStatus.innerHTML = "Oops! Network error. Please reach out to us via direct email channels.";
+        submitBtn.textContent = "Send Message →";
+        submitBtn.disabled = false;
+      });
+    });
+  }
 
   const year = document.getElementById("currentYear");
   if(year) year.textContent = new Date().getFullYear();
