@@ -412,6 +412,16 @@
     @media(max-width: 767px) {
       .desktop-video { display: none !important; }
       .mobile-video { display: block !important; }
+      
+      /* Suffolk-style mobile layout fixes: full width text areas, remove cramped floating elements */
+      .hero-content, .intro-copy, .feature-copy, .section-heading {
+        max-width: 100% !important;
+        padding: 0 4px !important;
+        text-align: left;
+      }
+      .feature-image {
+        display: none !important;
+      }
     }
 
     /* STICKY STACKING SECTIONS */
@@ -530,9 +540,6 @@
     /* FEATURE SECTION */
     .feature-copy h2{max-width:590px;font-size:clamp(1.8rem,3.2vw,2.8rem);margin-bottom:12px;font-weight:700}
     .feature-copy>p{max-width:600px;font-size:0.95rem;margin-bottom:10px;opacity:0.9}
-    .check-list{display:grid;grid-template-columns:1fr 1fr;gap:6px 16px;margin:10px 0 12px;padding:0;list-style:none}
-    .check-list li{position:relative;padding-left:16px;font-size:.78rem;font-weight:700}
-    .check-list li:before{position:absolute;top:.5em;left:0;width:6px;height:6px;background:var(--gold-light);content:""}
 
     .feature-image{
       position: relative;
@@ -597,7 +604,6 @@
     .digital-section .section-label{color:var(--gold-light)}
     .digital-section h2{color:#fff}
     .digital-section p{color:rgba(255,255,255,.78)}
-    .digital-section .check-list li{color:#fff}
     .digital-section .feature-image{
       position: relative;
       min-height: 340px;
@@ -905,7 +911,6 @@
         object-fit: cover !important;
       }
 
-      /* FIXED HERO TEXT BOX WIDTH & PADDING FOR MOBILE */
       .hero-content { 
         max-width: 100% !important; 
         width: 100% !important;
@@ -933,9 +938,6 @@
       .lifecycle-card h3 { font-size: 0.66rem; margin-bottom: 1px; }
       .lifecycle-card p { font-size: 0.56rem; line-height: 1.1; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
-      .check-list { grid-template-columns: 1fr; gap: 2px; margin: 2px 0; }
-      .check-list li { font-size: 0.6rem; padding-left: 8px; }
-      .feature-image { min-height: 110px; max-height: 140px; }
       .site-slideshow, .digital-slideshow { min-height: 110px; max-height: 140px; }
       
       .sector-grid { grid-template-columns: 1fr 1fr; gap: 4px; }
@@ -1055,7 +1057,7 @@
         <div class="hero-content">
           <span class="eyebrow" style="color:var(--gold-light);">Integrated Engineering &middot; Digital Infrastructure</span>
           <h1>Engineering better information <span>for smarter infrastructure.</span></h1>
-          <p class="hero-copy">Delivering independent infrastructure quality assurance, spatial data integration, smart building telemetry, and digital twin development.</p>
+          <p class="hero-copy">Independent infrastructure quality assurance, spatial data integration, smart building telemetry, and digital twin engineering.</p>
           <div class="hero-buttons">
             <button class="btn btn-gold" id="open-discover-modal">Discover Jiro-BEACONS <span aria-hidden="true">&rarr;</span></button>
             <a class="btn btn-outline" href="mailto:giftedafe@jirobeacons.com">Start a Conversation <span aria-hidden="true">&rarr;</span></a>
@@ -1080,16 +1082,15 @@
         <div class="intro-copy">
           <span class="eyebrow" style="color:var(--gold-light);">Who We Are</span>
           <h2 style="color:#fff;">Aligning physical execution with intelligent digital data.</h2>
-          <p style="color:rgba(255,255,255,0.9);">We bridge multidisciplinary engineering delivery—spanning surveying, quantity support, and construction oversight—with traceable digital documentation.</p>
-          <p style="color:rgba(255,255,255,0.9);">Our focus is providing project teams with structured evidence and rigorous quality control for absolute transparency.</p>
+          <p style="color:rgba(255,255,255,0.9);">Bridging multidisciplinary engineering delivery with traceable digital documentation for absolute transparency.</p>
           <div class="intro-statement" style="margin-top:14px;padding:12px 0 12px 16px;border-left:3px solid var(--gold);font-size:1rem;font-weight:750;color:#fff;">Engineering better information for smarter infrastructure &amp; businesses.</div>
           <button class="btn btn-gold" id="open-discover-modal-alt" style="margin-top:20px;">Discover Jiro-BEACONS &rarr;</button>
         </div>
         <div class="intro-panel">
           <span class="panel-kicker">Our Approach</span>
           <h3 style="color:#fff;">Connecting physical assets to operational insights.</h3>
-          <p style="color:rgba(255,255,255,0.9);">From initial site capture to digital handover, every workflow is tailored to uphold technical compliance and operational performance.</p>
-          <div class="panel-line">Practical engineering. Traceable information.</div>
+          <p style="color:rgba(255,255,255,0.9);">From initial site capture to digital handover, every workflow upholds strict technical compliance.</p>
+          <div class="panel-line"><a href="services.html" style="color:var(--gold-light); text-decoration:none;">Explore our full service scope &rarr;</a></div>
         </div>
       </div>
     </section>
@@ -1109,55 +1110,55 @@
         <div class="section-heading">
           <span class="eyebrow" style="color:var(--gold-light);">Our Engineering Lifecycle</span>
           <h2 style="color:#fff;">From initial assessment to informed operations.</h2>
-          <p style="color:rgba(255,255,255,0.9);">Integrated technical stages tailored to support complete project lifecycles and compliance standards.</p>
+          <p style="color:rgba(255,255,255,0.9);">Integrated technical stages configured to support complete asset project requirements.</p>
         </div>
 
         <div class="lifecycle-grid">
           <article class="lifecycle-card">
             <span class="step-number" style="color:var(--gold-light);font-size:.68rem;font-weight:800;letter-spacing:.1em;display:block;margin-bottom:6px;">01 / ASSESS</span>
-            <h3 style="color:#fff;font-size:.9rem;margin-bottom:4px;">Survey &amp; Geospatial</h3>
+            <h3 style="color:#fff;font-size:.9rem;margin-bottom:4px;"><a href="services.html#surveying" style="color:inherit; text-decoration:none;">Survey &amp; Geospatial &rarr;</a></h3>
             <p style="color:rgba(255,255,255,0.85);font-size:.75rem;margin-bottom:0;">Land, property, and as-built data capture establishing reliable baselines.</p>
           </article>
           <article class="lifecycle-card">
             <span class="step-number" style="color:var(--gold-light);font-size:.68rem;font-weight:800;letter-spacing:.1em;display:block;margin-bottom:6px;">02 / QUANTIFY</span>
-            <h3 style="color:#fff;font-size:.9rem;margin-bottom:4px;">Quantity &amp; Cost</h3>
+            <h3 style="color:#fff;font-size:.9rem;margin-bottom:4px;"><a href="services.html#quantity-surveying" style="color:inherit; text-decoration:none;">Quantity &amp; Cost &rarr;</a></h3>
             <p style="color:rgba(255,255,255,0.85);font-size:.75rem;margin-bottom:0;">Precise measurement, take-offs, and commercial cost planning support.</p>
           </article>
           <article class="lifecycle-card">
             <span class="step-number" style="color:var(--gold-light);font-size:.68rem;font-weight:800;letter-spacing:.1em;display:block;margin-bottom:6px;">03 / PLAN</span>
-            <h3 style="color:#fff;font-size:.9rem;margin-bottom:4px;">Engineering Coordination</h3>
+            <h3 style="color:#fff;font-size:.9rem;margin-bottom:4px;"><a href="services.html#engineering-coordination" style="color:inherit; text-decoration:none;">Coordination &rarr;</a></h3>
             <p style="color:rgba(255,255,255,0.85);font-size:.75rem;margin-bottom:0;">Multidisciplinary planning, strategy, and project information alignment.</p>
           </article>
           <article class="lifecycle-card">
             <span class="step-number" style="color:var(--gold-light);font-size:.68rem;font-weight:800;letter-spacing:.1em;display:block;margin-bottom:6px;">04 / DESIGN</span>
-            <h3 style="color:#fff;font-size:.9rem;margin-bottom:4px;">Construction Delivery</h3>
+            <h3 style="color:#fff;font-size:.9rem;margin-bottom:4px;"><a href="services.html#construction-delivery" style="color:inherit; text-decoration:none;">Delivery Support &rarr;</a></h3>
             <p style="color:rgba(255,255,255,0.85);font-size:.75rem;margin-bottom:0;">On-site technical support coordinated with contract requirements.</p>
           </article>
           <article class="lifecycle-card">
             <span class="step-number" style="color:var(--gold-light);font-size:.68rem;font-weight:800;letter-spacing:.1em;display:block;margin-bottom:6px;">05 / DELIVER</span>
-            <h3 style="color:#fff;font-size:.9rem;margin-bottom:4px;">QA/QC &amp; Testing</h3>
+            <h3 style="color:#fff;font-size:.9rem;margin-bottom:4px;"><a href="services.html#quality-assurance" style="color:inherit; text-decoration:none;">QA/QC &amp; Testing &rarr;</a></h3>
             <p style="color:rgba(255,255,255,0.85);font-size:.75rem;margin-bottom:0;">Independent inspection, testing, and compliance verification.</p>
           </article>
           <article class="lifecycle-card">
             <span class="step-number" style="color:var(--gold-light);font-size:.68rem;font-weight:800;letter-spacing:.1em;display:block;margin-bottom:6px;">06 / VERIFY</span>
-            <h3 style="color:#fff;font-size:.9rem;margin-bottom:4px;">Information Management</h3>
+            <h3 style="color:#fff;font-size:.9rem;margin-bottom:4px;"><a href="services.html#information-management" style="color:inherit; text-decoration:none;">Information Mgt &rarr;</a></h3>
             <p style="color:rgba(255,255,255,0.85);font-size:.75rem;margin-bottom:0;">Structured document controls and audit-ready data registers.</p>
           </article>
           <article class="lifecycle-card">
             <span class="step-number" style="color:var(--gold-light);font-size:.68rem;font-weight:800;letter-spacing:.1em;display:block;margin-bottom:6px;">07 / DIGITALIZE</span>
-            <h3 style="color:#fff;font-size:.9rem;margin-bottom:4px;">Smart Building Telemetry</h3>
+            <h3 style="color:#fff;font-size:.9rem;margin-bottom:4px;"><a href="index.html#automation" style="color:inherit; text-decoration:none;">Smart Telemetry &rarr;</a></h3>
             <p style="color:rgba(255,255,255,0.85);font-size:.75rem;margin-bottom:0;">IoT integration, BIM, and real-time facility performance telemetry.</p>
           </article>
           <article class="lifecycle-card">
             <span class="step-number" style="color:var(--gold-light);font-size:.68rem;font-weight:800;letter-spacing:.1em;display:block;margin-bottom:6px;">08 / OPERATE</span>
-            <h3 style="color:#fff;font-size:.9rem;margin-bottom:4px;">EdgeCarbon Compliance</h3>
+            <h3 style="color:#fff;font-size:.9rem;margin-bottom:4px;"><a href="index.html#edgecarbon" style="color:inherit; text-decoration:none;">EdgeCarbon ESG &rarr;</a></h3>
             <p style="color:rgba(255,255,255,0.85);font-size:.75rem;margin-bottom:0;">ESG analytics, carbon tracking, and automated audit reporting.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 4: FEATURE -->
+    <!-- SECTION 4: FEATURE (Suffolk-Style Clean Layout with Functional Links) -->
     <section class="feature-section section-pad section-with-video">
       <div class="section-media" aria-hidden="true">
         <video class="sec-video desktop-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
@@ -1168,29 +1169,33 @@
         </video>
         <div class="section-shade"></div>
       </div>
-      <div class="container two-col">
-        <div class="feature-copy">
+      <div class="container">
+        <div class="feature-copy" style="max-width: 850px;">
           <span class="eyebrow" style="color:var(--gold-light);">Core Service Alignment</span>
           <h2 style="color:#fff;">Comprehensive execution across engineering domains.</h2>
-          <p style="color:rgba(255,255,255,0.9);">Our technical divisions operate cohesively to maintain quality thresholds, streamline costs, and ensure absolute data traceability from design to operation.</p>
-          <ul class="check-list" style="color:#fff;">
-            <li>Surveying &amp; Geospatial Capture</li>
-            <li>Quantity Surveying &amp; Cost Control</li>
-            <li>Engineering &amp; Project Coordination</li>
-            <li>Construction Delivery Support</li>
-            <li>Independent QA/QC Inspection &amp; Testing</li>
-            <li>Engineering Information Management</li>
-            <li>Smart Building Telemetry &amp; BAS Integration</li>
-            <li>EdgeCarbon Compliance &amp; ESG Platforms</li>
-          </ul>
-        </div>
-        <div class="feature-image">
-          <div class="site-slideshow">
-            <img class="site-slide active" src="images/site-1.jpg" alt="Engineering site view 1" loading="lazy">
-            <img class="site-slide" src="images/site-2.jpg" alt="Engineering site view 2" loading="lazy">
-            <img class="site-slide" src="images/site-3.jpg" alt="Engineering site view 3" loading="lazy">
-            <img class="site-slide" src="images/site-4.jpg" alt="Engineering site view 4" loading="lazy">
-            <img class="site-slide" src="images/site-5.jpg" alt="Engineering site view 5" loading="lazy">
+          <p style="color:rgba(255,255,255,0.9); font-size: 1rem; margin-bottom: 24px;">
+            Our technical divisions operate cohesively to maintain quality thresholds, streamline costs, and ensure absolute data traceability from design to operation.
+          </p>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-top: 20px;">
+            <a href="services.html#surveying" style="padding: 14px 18px; background: rgba(10,10,12,0.65); border-left: 3px solid var(--gold-light); color: #fff; font-size: 0.88rem; display: block; text-decoration: none; transition: background 0.2s;">
+              <strong>Surveying &amp; Geospatial Capture &rarr;</strong>
+            </a>
+            <a href="services.html#quantity-surveying" style="padding: 14px 18px; background: rgba(10,10,12,0.65); border-left: 3px solid var(--gold-light); color: #fff; font-size: 0.88rem; display: block; text-decoration: none; transition: background 0.2s;">
+              <strong>Quantity Surveying &amp; Cost Control &rarr;</strong>
+            </a>
+            <a href="services.html#engineering-coordination" style="padding: 14px 18px; background: rgba(10,10,12,0.65); border-left: 3px solid var(--gold-light); color: #fff; font-size: 0.88rem; display: block; text-decoration: none; transition: background 0.2s;">
+              <strong>Engineering &amp; Project Coordination &rarr;</strong>
+            </a>
+            <a href="services.html#quality-assurance" style="padding: 14px 18px; background: rgba(10,10,12,0.65); border-left: 3px solid var(--gold-light); color: #fff; font-size: 0.88rem; display: block; text-decoration: none; transition: background 0.2s;">
+              <strong>Independent QA/QC Inspection &rarr;</strong>
+            </a>
+            <a href="services.html#information-management" style="padding: 14px 18px; background: rgba(10,10,12,0.65); border-left: 3px solid var(--gold-light); color: #fff; font-size: 0.88rem; display: block; text-decoration: none; transition: background 0.2s;">
+              <strong>Engineering Information Management &rarr;</strong>
+            </a>
+            <a href="solutions.html" style="padding: 14px 18px; background: rgba(10,10,12,0.65); border-left: 3px solid var(--gold-light); color: #fff; font-size: 0.88rem; display: block; text-decoration: none; transition: background 0.2s;">
+              <strong>Smart Building &amp; EdgeCarbon Solutions &rarr;</strong>
+            </a>
           </div>
         </div>
       </div>
@@ -1210,41 +1215,49 @@
             <span class="capability-number">01 / SPATIAL</span>
             <h3>Surveying &amp; Geospatial</h3>
             <p>Accurate land and as-built surveys providing reliable geometric foundations for design and construction verification.</p>
+            <a href="services.html#surveying" style="display:inline-block; margin-top:12px; font-size:0.78rem; font-weight:700; color:var(--wine);">Learn more &rarr;</a>
           </article>
           <article class="capability-card" id="quantity-surveying">
             <span class="capability-number">02 / COMMERCIAL</span>
             <h3>Quantity &amp; Cost</h3>
             <p>Comprehensive measurement, bill of quantities (BOQ) preparation, and cost optimization support.</p>
+            <a href="services.html#quantity-surveying" style="display:inline-block; margin-top:12px; font-size:0.78rem; font-weight:700; color:var(--wine);">Learn more &rarr;</a>
           </article>
           <article class="capability-card" id="engineering-coordination">
             <span class="capability-number">03 / DELIVERY</span>
             <h3>Engineering Coordination</h3>
             <p>Multidisciplinary technical alignment, workflow planning, and schedule management for complex projects.</p>
+            <a href="services.html#engineering-coordination" style="display:inline-block; margin-top:12px; font-size:0.78rem; font-weight:700; color:var(--wine);">Learn more &rarr;</a>
           </article>
           <article class="capability-card" id="quality-assurance">
             <span class="capability-number">04 / ASSURANCE</span>
             <h3>QA/QC &amp; Testing</h3>
             <p>Rigorous site inspection, material testing, and documentation to uphold strict engineering standards.</p>
+            <a href="services.html#quality-assurance" style="display:inline-block; margin-top:12px; font-size:0.78rem; font-weight:700; color:var(--wine);">Learn more &rarr;</a>
           </article>
           <article class="capability-card" id="information-management">
             <span class="capability-number">05 / DIGITAL</span>
             <h3>Information Management</h3>
             <p>Centralized documentation control and digital asset registers ensuring complete project transparency.</p>
+            <a href="services.html#information-management" style="display:inline-block; margin-top:12px; font-size:0.78rem; font-weight:700; color:var(--wine);">Learn more &rarr;</a>
           </article>
           <article class="capability-card" id="asset-information">
             <span class="capability-number">06 / LIFECYCLE</span>
             <h3>Construction Support</h3>
             <p>On-site engineering assistance and compliance auditing tailored to contractor requirements.</p>
+            <a href="services.html#construction-delivery" style="display:inline-block; margin-top:12px; font-size:0.78rem; font-weight:700; color:var(--wine);">Learn more &rarr;</a>
           </article>
           <article class="capability-card" id="automation">
             <span class="capability-number">07 / AUTOMATION</span>
             <h3>Smart Building Telemetry</h3>
             <p>IoT sensor deployment, BACnet/Modbus integration, and BIM synchronization for live building oversight.</p>
+            <a href="solutions.html" style="display:inline-block; margin-top:12px; font-size:0.78rem; font-weight:700; color:var(--wine);">Learn more &rarr;</a>
           </article>
           <article class="capability-card" id="edgecarbon">
             <span class="capability-number">08 / OPERATIONS</span>
             <h3>EdgeCarbon Compliance</h3>
             <p>Proprietary analytics delivering real-time carbon forecasting, peak demand alerts, and audit-ready ESG ledgers.</p>
+            <a href="solutions.html" style="display:inline-block; margin-top:12px; font-size:0.78rem; font-weight:700; color:var(--wine);">Learn more &rarr;</a>
             <ul class="edgecarbon-features">
               <li>Real-Time Hardware Nodes</li>
               <li>Carbon Tax Shield</li>
@@ -1262,13 +1275,7 @@
         <div class="feature-copy">
           <span class="eyebrow" style="color:var(--gold-light);">Digital Engineering</span>
           <h2>Transforming physical infrastructure into intelligent data.</h2>
-          <p style="color:rgba(255,255,255,.78);">We consolidate disparate drawings, test reports, and site measurements into unified digital twins, streamlining facility management and asset visibility.</p>
-          <ul class="check-list" style="color:#fff;">
-            <li>Digital Engineering Packages</li>
-            <li>Scan-to-BIM &amp; Point-Cloud Workflows</li>
-            <li>Structured Quality Evidence Registers</li>
-            <li>Digital Handover &amp; As-Built Modeling</li>
-          </ul>
+          <p style="color:rgba(255,255,255,.78);">Consolidating drawings, test reports, and site measurements into unified digital twins for streamlined facility visibility.</p>
           <a class="btn btn-gold" href="solutions.html" style="margin-top:20px;">Explore Digital Solutions &rarr;</a>
         </div>
         <div class="feature-image">
@@ -1287,7 +1294,7 @@
         <div class="section-heading">
           <span class="eyebrow">Where We Work</span>
           <h2>Supporting critical assets and the built environment.</h2>
-          <p>Tailored engineering solutions configured to match the risk profiles and operational goals of diverse sectors.</p>
+          <p>Tailored engineering solutions configured to match the risk profiles of diverse sectors.</p>
         </div>
         <div class="sector-grid">
           <article class="sector-card"><h3>Real Estate &amp; Property</h3></article>
@@ -1306,7 +1313,7 @@
         <div class="section-heading">
           <span class="eyebrow">Selected Project Experience</span>
           <h2>Demonstrated execution and digital control.</h2>
-          <p>Practical application of our quality assurance and information management workflows on active project sites.</p>
+          <p>Practical application of our quality assurance and information management workflows on active sites.</p>
         </div>
 
         <article class="project-card">
@@ -1319,14 +1326,12 @@
           <div class="project-details">
             <span class="status">Ongoing project</span>
             <h3>Digital QA/QC &amp; Documentation Hub</h3>
-            <p>Deploying centralized document control, material tracking, and quality verification systems to ensure full compliance and handover readiness.</p>
+            <p>Deploying centralized document control, material tracking, and quality verification systems for full compliance.</p>
             <div class="project-meta"><span>Project</span><strong>Imo City Computer Village Hub</strong></div>
             <div class="project-meta"><span>Location</span><strong>Imo State, Nigeria</strong></div>
             <a class="btn btn-dark" href="projects.html" style="margin-top:20px; background:var(--wine); color:#fff;">View Project Experience &rarr;</a>
           </div>
         </article>
-
-        <p style="margin:18px 0 0;font-size:.82rem">Project information is displayed at a summary level to protect client confidentiality and proprietary data standards.</p>
       </div>
     </section>
 
@@ -1365,20 +1370,6 @@
 
         <h4>Our Mission</h4>
         <p>To deliver uncompromising, independent infrastructure quality assurance, advanced spatial data integration, and smart building solutions that empower better engineering and business decisions.</p>
-
-        <h4>Our Values</h4>
-        <ul>
-          <li><strong>Integrity &amp; Independence:</strong> Providing objective quality assurance and rigorous compliance oversight.</li>
-          <li><strong>Collaboration &amp; Inclusion:</strong> Fostering multidisciplinary teamwork and diverse perspectives to drive innovation.</li>
-          <li><strong>Excellence &amp; Precision:</strong> Maintaining exacting standards across surveying, digital twins, and project execution.</li>
-        </ul>
-
-        <h4>Our History &amp; Growth</h4>
-        <p><strong>Jiro-BEACONS Root:</strong> President and Principal Consultant Gift Edafe began her professional journey in QA/QC data entry in 2011, advancing through roles as a surveyor technician, construction laboratory assistant, civil structural inspector, and QA/QC Lead Auditor before founding Jiro-BEACONS Engineering in 2018 with one foundational vision and bold ambitions. From our early roots in infrastructure quality assurance, we expanded into spatial data integration, smart building telemetry, and digital twins, redefining how technology drives the future of construction.</p>
-        <p><strong>How We Are Expanding:</strong> Scaling our operations across international markets, incorporating advanced BIM frameworks, and participating in incubator programs like Start GBC in Ontario to commercialize smart building innovations.</p>
-        <p><strong>Building Careers:</strong> Cultivating top-tier talent in civil engineering, geospatial surveying, and digital technology while building collaborative co-founder and project leadership networks.</p>
-        <p><strong>Workers Welfare:</strong> Cultivating an inclusive, safe, and supportive organizational culture that prioritizes professional growth, equity, and the wellbeing of every team member.</p>
-        <p><strong>Redefining Construction:</strong> Pioneering how Smart Building Design &amp; Operations shape the new age of construction through IoT telemetry, edge-carbon tracking, and digital twin lifecycle management.</p>
 
         <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
           <p style="margin: 0; font-size: 14px;">Explore our full corporate background and credentials.</p>
@@ -1459,7 +1450,6 @@
     const searchForm = document.getElementById("search-form");
     const searchFeedback = document.getElementById("search-feedback");
 
-    // Discover Modal elements
     const openDiscoverModalBtn = document.getElementById("open-discover-modal");
     const openDiscoverModalAltBtn = document.getElementById("open-discover-modal-alt");
     const closeDiscoverModalBtn = document.getElementById("close-discover-modal");
