@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Girobeakins Engineering Nigeria Limited</title>
+    <style>
+        :root {
+            --primary-color: #0f172a;
+            --accent-color: #2563eb;
+            --accent-hover: #1d4ed8;
+            --text-main: #334155;
+            --bg-light: #f8fafc;
+            --border-color: #cbd5e1;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            color: var(--text-main);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero-section p {
+            font-size: 1.1rem;
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Contact Grid Layout */
+        .contact-container {
+            max-width: 1200px;
+            margin: -3rem auto 4rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                margin-top: 2rem;
+            }
+        }
+
+        /* Contact Information Card */
+        .info-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-card h2 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-method {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-method h3 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #64748b;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-method a, .contact-method p {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.05rem;
+            transition: color 0.2s ease;
+        }
+
+        .contact-method a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        /* Contact Form */
+        .form-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-card h2 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 1rem;
+            color: var(--text-main);
+            background-color: var(--bg-light);
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            background-color: var(--white);
+        }
+
+        .btn-submit {
+            background-color: var(--accent-color);
+            color: var(--white);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #94a3b8;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Header -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">GIROBEAKINS ENG.</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1>Get in Touch</h1>
+        <p>Connect with our infrastructure quality assurance and digital twin development teams.</p>
+    </section>
+
+    <!-- Main Contact Section -->
+    <div class="contact-container">
+        
+        <!-- Direct Contact Information -->
+        <div class="info-card">
+            <h2>Direct Channels</h2>
+            
+            <div class="contact-method">
+                <h3>Project Inquiries & Proposals</h3>
+                <a href="mailto:projects@jirobeacons.com">projects@jirobeacons.com</a>
+            </div>
+
+            <div class="contact-method">
+                <h3>General Information & Support</h3>
+                <a href="mailto:info@jirobeacons.com">info@jirobeacons.com</a>
+            </div>
+
+            <div class="contact-method">
+                <h3>Careers & Recruitment</h3>
+                <a href="mailto:careers@jirobeacons.com">careers@jirobeacons.com</a>
+            </div>
+
+            <div class="contact-method">
+                <h3>Headquarters</h3>
+                <p>Nigeria</p>
+            </div>
+        </div>
+
+        <!-- Interactive Contact Form (Routes securely to info@jirobeacons.com) -->
+        <div class="form-card">
+            <h2>Send Us a Message</h2>
+            <form action="mailto:info@jirobeacons.com" method="POST" enctype="text/plain">
+                
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="Name" required placeholder="Enter your full name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="Email" required placeholder="Enter your email address">
+                </div>
+
+                <div class="form-group">
+                    <label for="department">Department</label>
+                    <select id="department" name="Department">
+                        <option value="General Inquiry">General Inquiry (info@)</option>
+                        <option value="Project Collaboration">Project Collaboration (projects@)</option>
+                        <option value="Careers">Careers & Recruitment (careers@)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="Message" rows="5" required placeholder="Provide details regarding your inquiry..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Send Message</button>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Girobeakins Engineering Nigeria Limited. All rights reserved.</p>
+        <p>Spatial Data Experts & Digital Twin Consultants</p>
+    </footer>
+
+</body>
+</html>
