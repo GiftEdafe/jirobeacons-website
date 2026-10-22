@@ -1057,7 +1057,7 @@
         event.stopPropagation();
         const open = !servicesMenu.classList.contains("is-open");
         servicesMenu.classList.toggle("is-open",open);
-        servicesToggle.setAttribute("aria-expanded","true");
+        servicesToggle.setAttribute("aria-expanded",String(open));
       });
     }
 
@@ -1121,7 +1121,7 @@
       if(searchPanel && searchToggle &&
          searchPanel.classList.contains("is-open") &&
          !searchPanel.contains(event.target) &&
-         !searchToggle.contains(target)){
+         !searchToggle.contains(event.target)){
         closeSearch();
       }
     });
