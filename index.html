@@ -462,7 +462,7 @@
       inset: 0;
       z-index: 2;
       background: linear-gradient(90deg, rgba(10, 10, 12, 0.65), rgba(10, 10, 12, 0.45) 60%, rgba(10, 10, 12, 0.3)),
-                  linear-gradient(0deg, rgba(10, 10, 12, 0.45), transparent 80%);
+              linear-gradient(0deg, rgba(10, 10, 12, 0.45), transparent 80%);
       pointer-events: none;
     }
 
@@ -867,7 +867,7 @@
       .footer-top { grid-template-columns: 1fr 1fr; gap: 20px; }
     }
     @media(max-width:767px){
-      .container{width:calc(100% - 24px); padding: 0 4px;}
+      .container{width:calc(100% - 24px); padding: 0 12px;}
       .site-header{inset:0 0 auto 0;}
       .header-inner{min-height:54px;padding:0 8px;}
       .brand img{width:110px;max-height:32px}
@@ -905,12 +905,17 @@
         object-fit: cover !important;
       }
 
-      .hero-content { max-width: 100%; }
-      .hero h1 { font-size: clamp(1.3rem, 5vw, 1.7rem); margin-bottom: 4px; }
-      .hero-copy { font-size: 0.75rem; margin-bottom: 6px; line-height: 1.25; }
-      .hero-buttons { gap: 4px; }
-      .hero-buttons .btn { min-height: 34px; padding: 6px 10px; font-size: 0.65rem; }
-      .hero-note { margin-top: 4px; font-size: 0.55rem; }
+      /* FIXED HERO TEXT BOX WIDTH & PADDING FOR MOBILE */
+      .hero-content { 
+        max-width: 100% !important; 
+        width: 100% !important;
+        padding: 0 4px !important;
+      }
+      .hero h1 { font-size: clamp(1.5rem, 6vw, 2.2rem); margin-bottom: 8px; line-height: 1.15; }
+      .hero-copy { font-size: 0.85rem; margin-bottom: 12px; line-height: 1.4; max-width: 100% !important; }
+      .hero-buttons { gap: 8px; }
+      .hero-buttons .btn { min-height: 40px; padding: 8px 14px; font-size: 0.75rem; }
+      .hero-note { margin-top: 8px; font-size: 0.65rem; }
 
       .two-col { grid-template-columns: 1fr; gap: 6px; align-content: center; }
       .intro-copy h2, .section-heading h2, .feature-copy h2 { font-size: clamp(1.1rem, 4vw, 1.4rem); margin-bottom: 2px; }
@@ -1588,7 +1593,7 @@
          searchPanel.classList.contains("is-open") &&
          !searchPanel.contains(event.target) &&
          !searchToggle.contains(event.target)){
-        closeSearch();
+      closeSearch();
       }
     });
 
