@@ -777,26 +777,26 @@
         </div>
       </div>
 
-      <!-- Direct PHP Backend Contact Form -->
+      <!-- Cloudflare Pages Function Backend Contact Form -->
       <div class="contact-form-col">
         <h2>Send Us a Message</h2>
         <p>Complete the form below and select your target department. Your message will be sent instantly without opening your mail app.</p>
         
-        <!-- Form points to send-mail.php -->
-        <form id="ajax-contact-form" action="send-mail.php" method="POST">
+        <!-- Form configured for AJAX submission to Cloudflare /contact endpoint -->
+        <form id="ajax-contact-form">
           <div class="form-group">
             <label for="name">Full Name</label>
-            <input type="text" id="name" name="Name" required placeholder="Enter your full name">
+            <input type="text" id="name" name="name" required placeholder="Enter your full name">
           </div>
 
           <div class="form-group">
             <label for="email">Email Address</label>
-            <input type="email" id="email" name="Email" required placeholder="Enter your email address">
+            <input type="email" id="email" name="email" required placeholder="Enter your email address">
           </div>
 
           <div class="form-group">
             <label for="department">Target Department / Mail Alias</label>
-            <select id="department" name="Department">
+            <select id="department" name="department">
               <option value="info@jirobeacons.com">General Information (info@jirobeacons.com)</option>
               <option value="projects@jirobeacons.com">Project Inquiries (projects@jirobeacons.com)</option>
               <option value="careers@jirobeacons.com">Careers &amp; Recruitment (careers@jirobeacons.com)</option>
@@ -805,7 +805,7 @@
 
           <div class="form-group">
             <label for="message">Message</label>
-            <textarea id="message" name="Message" required placeholder="Provide project details or inquiry context..."></textarea>
+            <textarea id="message" name="message" required placeholder="Provide project details or inquiry context..."></textarea>
           </div>
 
           <button type="submit" id="submit-btn" class="btn btn-gold" style="width: 100%;">Send Message →</button>
@@ -1001,7 +1001,7 @@
     }
   });
 
-  // AJAX Direct PHP Form Submitter Handler
+  // Cloudflare Pages Function Form Submitter Handler
   const contactForm = document.getElementById("ajax-contact-form");
   const formStatus = document.getElementById("form-status");
   const submitBtn = document.getElementById("submit-btn");
@@ -1012,24 +1012,31 @@
       submitBtn.textContent = "Sending Message...";
       submitBtn.disabled = true;
 
-      const formData = new FormData(contactForm);
+      const formData = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        department: document.getElementById("department").value,
+        message: document.getElementById("message").value
+      };
       
-      fetch(contactForm.action, {
-        method: contactForm.method,
-        body: formData
-      }).then(response => {
+      fetch("/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      }).then(async response => {
         formStatus.style.display = "block";
-        if (response.ok) {
+        const result = await response.json();
+        
+        if (response.ok && result.success) {
           formStatus.style.background = "#ecfdf5";
           formStatus.style.borderColor = "#10b981";
           formStatus.style.color = "#065f46";
           formStatus.innerHTML = "Thank you! Your message has been sent successfully to the selected department.";
           contactForm.reset();
         } else {
-          formStatus.style.background = "#fef2f2";
-          formStatus.style.borderColor = "#ef4444";
-          formStatus.style.color = "#991b1b";
-          formStatus.innerHTML = "Oops! Something went wrong on the server. Please email us directly.";
+          throw new Error(result.error || "Failed to send message");
         }
         submitBtn.textContent = "Send Message →";
         submitBtn.disabled = false;
@@ -1038,7 +1045,7 @@
         formStatus.style.background = "#fef2f2";
         formStatus.style.borderColor = "#ef4444";
         formStatus.style.color = "#991b1b";
-        formStatus.innerHTML = "Oops! Network error. Please reach out to us via direct email channels.";
+        formStatus.innerHTML = "Oops! " + (error.message || "Something went wrong. Please email us directly.");
         submitBtn.textContent = "Send Message →";
         submitBtn.disabled = false;
       });
