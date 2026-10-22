@@ -17,7 +17,7 @@
     :root {
       --wine: #2B0714;
       --wine-light: #2B0714;
-      --wine-deep: #18040B;
+      --wine-deep: #2B0714;
       --gold: #D4AF37;
       --gold-light: #E8D28A;
       --white: #FFFFFF;
@@ -153,7 +153,7 @@
 
     .btn-gold {
       background: var(--gold);
-      color: var(--wine-deep);
+      color: var(--wine);
     }
 
     .btn-gold:hover {
@@ -272,11 +272,11 @@
       margin: 0 0 4px; color: var(--gold-light); font-size: .72rem;
       font-weight: 800; letter-spacing: .06em; line-height: 1.5; text-transform: uppercase;
     }
-    .main-nav .nav-dropdown-menu a {
+    .header-left-nav .nav-dropdown-menu a {
       color: rgba(255,255,255,.84); font-size: .88rem; font-weight: 500;
       letter-spacing: 0; line-height: 1.45; text-transform: none; text-decoration: none;
     }
-    .main-nav .nav-dropdown-menu a:hover { color: var(--gold-light); }
+    .header-left-nav .nav-dropdown-menu a:hover { color: var(--gold-light); }
 
     .header-tools { display: flex; align-items: center; gap: 10px; }
     .icon-button {
@@ -480,7 +480,7 @@
     }
 
     .dark {
-      background: var(--wine-deep);
+      background: var(--wine);
       color: var(--white);
     }
 
@@ -504,7 +504,7 @@
       min-height: 52px;
       padding: 13px 24px;
       background: var(--gold);
-      color: var(--wine-deep);
+      color: var(--wine);
       border-radius: 2px;
       font-weight: 700;
       font-size: 13px;
@@ -597,6 +597,7 @@
     @media(min-width:1101px){
       .nav-dropdown:hover .nav-dropdown-menu,
       .nav-dropdown:focus-within .nav-dropdown-menu{display:grid}
+      .mobile-only-nav { display: none !important; }
     }
     @media(max-width:1100px){
       .site-header { top: 0; left: 0; right: 0; }
@@ -610,30 +611,67 @@
       .header-inner .brand img{ width: 130px; max-height: 38px; }
       .header-tools { grid-column: 3; justify-self: end; }
 
+      .desktop-right-nav { display: none !important; }
+
       .main-nav{
         position: absolute; top: 100%; left: 0; right: 0; z-index: 11500;
-        display: none; flex-direction: column; align-items: flex-start;
-        padding: 24px; background: var(--wine);
-        box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        display: none !important; 
+        flex-direction: column; align-items: flex-start;
+        padding: 20px 24px; background: var(--wine);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.4);
         max-height: calc(100vh - 70px);
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
+        gap: 16px;
       }
-      .main-nav.is-open{display:flex}
+      .main-nav.is-open{display: flex !important;}
       .menu-toggle{display:flex}
+
+      .mobile-only-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: 16px;
+      }
+
+      .header-left-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: 16px;
+      }
+
+      .mobile-only-nav a {
+        color: rgba(255,255,255,.94);
+        font-size: .7rem;
+        font-weight: 800;
+        letter-spacing: .055em;
+        text-decoration: none;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+      .mobile-only-nav a:hover, .mobile-only-nav a.active {
+        color: var(--gold-light);
+      }
+
+      .nav-dropdown { width: 100%; }
+      .nav-dropdown-toggle { width: 100%; justify-content: space-between; padding: 0; }
 
       .nav-dropdown-menu {
         position: static;
         display: none;
         grid-template-columns: 1fr;
         gap: 15px;
-        padding: 15px 0 10px 15px;
+        padding: 10px 0 10px 15px;
         background: transparent;
         box-shadow: none;
         width: 100%;
         border-left: 2px solid var(--gold);
       }
       .nav-dropdown-menu.is-open { display: flex; flex-direction: column; }
+      .nav-dropdown-group { width: 100%; align-items: flex-start !important; text-align: left !important; }
       .nav-dropdown-group:last-child { justify-self: start; align-items: flex-start; text-align: left; }
 
       .projects-grid {
@@ -681,6 +719,13 @@
         </div>
       </div>
       <a href="solutions.html">Solutions</a>
+      
+      <!-- MOBILE-ONLY EXTRA NAV LINKS -->
+      <div class="mobile-only-nav">
+        <a href="projects.html" class="active" style="color:var(--gold-light);">Projects</a>
+        <a href="insights.html">Insights</a>
+        <a href="careers.html">Careers</a>
+      </div>
     </nav>
 
     <a class="brand" href="index.html" aria-label="Jiro-BEACONS Engineering home">
@@ -688,7 +733,7 @@
     </a>
 
     <div class="header-right-group">
-      <nav class="main-nav header-right-nav" aria-label="Secondary navigation">
+      <nav class="main-nav header-right-nav desktop-right-nav" aria-label="Secondary navigation">
         <a href="projects.html" class="active" style="color:var(--gold-light);">Projects</a>
         <a href="insights.html">Insights</a>
         <a href="careers.html">Careers</a>
@@ -751,7 +796,7 @@
       <!-- Project 1 -->
       <article class="project-card" data-category="commercial">
         <div class="project-meta-top">
-          <span class="project-sector">Commercial Hub Hub</span>
+          <span class="project-sector">Commercial Hub</span>
           <span class="project-location">Imo State, Nigeria</span>
         </div>
         <h3>Imo Digital City Computer Village Hub</h3>
@@ -837,7 +882,7 @@
 <section class="dark">
   <div class="container" style="display:grid; grid-template-columns: 1fr auto; gap: 40px; align-items:center;">
     <div>
-      <p class="eyebrow">START A CONVERSATION</p>
+      <p class="eyebrow" style="color:var(--gold-light);">START A CONVERSATION</p>
       <h2>Discuss your project requirements with our engineering team.</h2>
       <p style="margin-bottom:0;">
         Partner with Jiro-BEACONS for dependable quality assurance, spatial data, and digital engineering support.
