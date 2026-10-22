@@ -47,7 +47,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    body.menu-open, body.search-open {
+    body.menu-open, body.search-open, body.team-modal-open {
       overflow: hidden;
     }
 
@@ -182,6 +182,152 @@
     .btn-outline:hover {
       background: var(--white);
       color: var(--wine);
+    }
+
+    /* TEAM MODAL STYLING */
+    .team-modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 20000;
+      background: rgba(11, 15, 20, 0.85);
+      backdrop-filter: blur(5px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 20px;
+      overflow-y: auto;
+    }
+    .team-modal-overlay.is-open {
+      display: flex;
+    }
+    .team-modal-container {
+      background: var(--off-white);
+      color: var(--text);
+      width: min(1100px, 100%);
+      max-height: 90vh;
+      border-radius: 4px;
+      border-top: 5px solid var(--gold);
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+      overflow: hidden;
+    }
+    .team-modal-header {
+      background: var(--wine);
+      color: var(--white);
+      padding: 24px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .team-modal-header h3 {
+      color: var(--white);
+      font-size: 22px;
+    }
+    .team-modal-close {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.4);
+      color: var(--white);
+      width: 36px;
+      height: 36px;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      transition: background 0.2s;
+    }
+    .team-modal-close:hover {
+      background: var(--gold);
+      color: var(--wine);
+      border-color: var(--gold);
+    }
+    .team-modal-body {
+      padding: 35px 30px;
+      overflow-y: auto;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+      margin-bottom: 45px;
+    }
+    .team-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 24px;
+      border-radius: 2px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .team-card img {
+      width: 85px;
+      height: 85px;
+      object-fit: cover;
+      border-radius: 2px;
+      flex-shrink: 0;
+      border: 1px solid var(--gold);
+    }
+    .team-info h4 {
+      color: var(--wine);
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+    .team-role {
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+    .team-info p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .open-roles-heading {
+      color: var(--wine);
+      font-size: 24px;
+      margin-bottom: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+    .open-roles-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .role-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--gold);
+      padding: 24px;
+      border-radius: 2px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .role-card h5 {
+      color: var(--wine);
+      font-size: 16px;
+      font-family: "Manrope", sans-serif;
+      margin-bottom: 6px;
+    }
+    .role-meta {
+      font-size: 11px;
+      color: var(--gold);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    .role-card p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 15px;
     }
 
     /* SOLID WINE HEADER & ORIGINAL DESKTOP 3-COLUMN GRID */
@@ -702,7 +848,7 @@
       .nav-dropdown-group { width: 100%; align-items: flex-start !important; text-align: left !important; }
       .nav-dropdown-group:last-child { justify-self: start; align-items: flex-start; text-align: left; }
 
-      .services-grid, .about-split, .digital-grid { grid-template-columns: 1fr; }
+      .services-grid, .about-split, .digital-grid, .team-grid, .open-roles-grid { grid-template-columns: 1fr; }
       .footer-top { grid-template-columns: 1fr 1fr; gap: 20px; }
       .hero-ticker { display: none; }
     }
@@ -909,9 +1055,14 @@
             We bridge the gap between field execution and digital recordkeeping, ensuring that
             every project is supported by verified data, clear documentation, and dependable insight.
           </p>
-          <a class="btn btn-gold" href="about.html" style="margin-top: 15px;">
-            Read More About Us →
-          </a>
+          <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 15px;">
+            <a class="btn btn-gold" href="about.html">
+              Read More About Us →
+            </a>
+            <button class="btn btn-outline" id="open-team-modal" style="border-color: var(--wine); color: var(--wine);">
+              Meet Our Leadership &amp; Team ↓
+            </button>
+          </div>
         </div>
       </div>
     </section>
@@ -950,6 +1101,160 @@
     </section>
 
   </main>
+
+
+  <!-- TEAM & LEADERSHIP MODAL -->
+  <div class="team-modal-overlay" id="team-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="team-modal-title">
+    <div class="team-modal-container">
+      <div class="team-modal-header">
+        <h3 id="team-modal-title">Jiro-BEACONS Leadership, Team &amp; Open Roles</h3>
+        <button class="team-modal-close" id="close-team-modal" aria-label="Close team modal">&times;</button>
+      </div>
+      <div class="team-modal-body">
+        
+        <p class="eyebrow" style="margin-bottom: 10px;">Executive Leadership &amp; Professional Directory</p>
+        <p style="margin-bottom: 30px;">Our multidisciplinary team combines engineering rigor, spatial analytics, and operational excellence in professional corporate attire.</p>
+
+        <div class="team-grid">
+          
+          <div class="team-card">
+            <img src="https://images.openai.com/static-rsc-4/7SsGtHNqal51cQsEaekmS2FoeNybwoZrsJgPvyvWw8CWyaFTa0EzjYzXsvhQSkpv7-LzuEPaXXsXkD0a9ma9plZpMUispg_cFjU_adAHeHeOpQqmfu41pMXQioMQjEJxteoUjNT7DgK0hrTfhB020cK_tD83JFwl1pmE3HYTvsWK8k9aiVFVg_RYMqpK-ctt?purpose=fullsize" alt="Gift Edafe">
+            <div class="team-info">
+              <h4>Gift Edafe</h4>
+              <div class="team-role">President | Principal Consultant</div>
+              <p>Executive Leadership &amp; Engineering Delivery. Directing infrastructure quality assurance and spatial data initiatives.</p>
+            </div>
+          </div>
+
+          <div class="team-card">
+            <img src="https://images.openai.com/static-rsc-4/VMb84WNE7wy3qZWH0pSj-P7wOcBywESwFWzQERm0IGP6uKn7953vqnyuX7qaP3rr6Y3TROMjHVhdCbrt6qqTnWV3nzaTHF-xMYvw1cWp5ccKKDKrBswhV96AojVGdRkSWvmDXPCNru58PvxtZr9z2Bz8JF7Gf-J_3MmnZ0ZsuXLW-3xPAkGvgqnD_Gi-pInj?purpose=fullsize" alt="Adekunle Adepegba">
+            <div class="team-info">
+              <h4>Adekunle Adepegba</h4>
+              <div class="team-role">Operations Manager</div>
+              <p>Operations &amp; Field Coordination. Overseeing day-to-day corporate workflow execution.</p>
+            </div>
+          </div>
+
+          <div class="team-card">
+            <img src="https://images.openai.com/static-rsc-4/wEBlQbxsxdUrOenOkV8rEFJ-aiZ64swHn1iRK3jNhjt1R4GfC2NOsDs-1_bfA1jjk26_iVrHv17AAb0wtTR25LoIds5g8lI30-JkGPbGfI0KFHO62MsGCQJBI3cgmuC7UjBtA2E25OS_9YtBs5z1xlEBD6WhFTWdZwxK9HKyi2vH5D0NKgag542jd7z9OD_o?purpose=fullsize" alt="Afe Tokunbo">
+            <div class="team-info">
+              <h4>Afe Tokunbo</h4>
+              <div class="team-role">Preconstruction &amp; Estimating Manager</div>
+              <p>Preconstruction &amp; Estimating. Managing cost structures and tender preparation.</p>
+            </div>
+          </div>
+
+          <div class="team-card">
+            <img src="https://images.openai.com/static-rsc-4/ea6nJMf295tZOeNdjdLIoKFI6P5kCZhackt60c1_uNHFXjUFXExI8QqGsTI2pSm8MHWTZwUx_Gxgz6KNFmlv0b0foGMY7x-YgMm34pSf-sEeaIZ3pUkpwjq4G01tXMAcCUj9a1RPxip6kFWx4gUvUDMWwURnTM72XSd4XNImc9-AWw9Iv78jCHEQkTzeJ6KM?purpose=fullsize" alt="Lilian Anderson">
+            <div class="team-info">
+              <h4>Lilian Anderson</h4>
+              <div class="team-role">Office Coordinator</div>
+              <p>Administration &amp; Office Operations. Ensuring smooth administrative support and document routing.</p>
+            </div>
+          </div>
+
+          <div class="team-card">
+            <img src="https://images.openai.com/static-rsc-4/XwDY_3dr4u3AJ5SAuuaEGtl8VfKIjCqUs7Iz76ZT8wKFXMsJ9U7iicKKwrSO_ayjY5SBkWaVkHTZ4kCIzoqKlgJvTEucT6PaWyWdDOde6AhN58G_1z0yRY-jDAD2bYrDHwOSKGTjkcNOuIlMqQdA6TS14GSixiG1LDe8DmBTx5Meq8Xx62o1XNFfRMrME5G4?purpose=fullsize" alt="Salami Mathew">
+            <div class="team-info">
+              <h4>Salami Mathew</h4>
+              <div class="team-role">Project Quality Manager</div>
+              <p>Quality Assurance &amp; Quality Control (QA/QC). Validating testing standards and compliance.</p>
+            </div>
+          </div>
+
+          <div class="team-card">
+            <img src="https://images.openai.com/static-rsc-4/QMUxV5apna9sksuybNkT6Sv5YhvT0zaWcHqgcjXVyq5s5ifqOy-Fqml3FhCuF4SpPo84TEpJpgyBg1BHjn27ip1XN-pJTih9RE-87Iuy7I7I8oRsh0FT5sPL37oCy5v1xTzWl3hfBNmkIz0Eof4fj07FU-MZ42_iR2PEIQWsKJYD54dZXn7oWiFM-mfNc_AY?purpose=fullsize" alt="Abdulrahaman Hussain">
+            <div class="team-info">
+              <h4>Abdulrahaman Hussain</h4>
+              <div class="team-role">Project Manager</div>
+              <p>Project Management &amp; Delivery. Coordinating multisite deliverables and project schedules.</p>
+            </div>
+          </div>
+
+          <div class="team-card">
+            <img src="https://images.openai.com/static-rsc-4/AzwSGzlLQ25uoOr7lgLY9uBs-Tl62uXkCSYX9DzK-JfUTfN4vxM7M_T-7RgrPCtINieoo1BStR9lpxwKyz1xeQJRNT7poZROOLVdoSz0XsUJHE-Dnva-Tx5XGl9eHHg70yPs2neGixiaOusZS23_wV6XZoKC490Qtr6yp8mjEqXeZH4HaQlXpV41W054iJae?purpose=fullsize" alt="Tilda Nzemanze">
+            <div class="team-info">
+              <h4>Tilda Nzemanze</h4>
+              <div class="team-role">Structural Engineer</div>
+              <p>Structural Engineering &amp; Technical Design. Providing structural analytics and design review.</p>
+            </div>
+          </div>
+
+          <div class="team-card">
+            <img src="https://images.openai.com/static-rsc-4/L8oRzKDTDq8Hyt8D_CbdKc0wnVTdZKamXh5k5XUaoVQ3t9GqxRfA9LxR8_VAwdA6DKLyqATVsxKmPi0PoowcFYUllAye_COWbSCltG_IcFb7J6nFKDa46pSoqkBeOpoRavn3aDrD9wm0JcnPn8Qump23VRk8iiVWOjimQlHDYGBvaOk4tyX9-uqq91YPxfI2?purpose=fullsize" alt="Precious Ijiebor">
+            <div class="team-info">
+              <h4>Precious Ijiebor</h4>
+              <div class="team-role">Project Surveyor &amp; Geospatial Superintendent</div>
+              <p>Surveying &amp; Geospatial Services. Managing mobile LiDAR and topographical mapping.</p>
+            </div>
+          </div>
+
+          <div class="team-card">
+            <img src="https://images.openai.com/static-rsc-4/KPr_NTes3bAkRGp3liLqxqJXI2rwVsmOufdsgLVe5OlCL8Xyw8Ff4qfHlMsG6vMocd1aaAehqueydQwGn19x2rfhYvMhlLuTRWUUy3rZOZckto3UiYnka7xJVYCqO7rPNpZUmyMAcEAQ6Si7_YH5MFgAqXtDhuEu03BaBFRAvzOu_1LFT2_zbE7B4jo-zZoY?purpose=fullsize" alt="Adebayo Adepegba">
+            <div class="team-info">
+              <h4>Adebayo Adepegba</h4>
+              <div class="team-role">Finance Manager</div>
+              <p>Finance &amp; Commercial Management. Managing financial planning and commercial accounts.</p>
+            </div>
+          </div>
+
+          <div class="team-card">
+            <img src="https://images.openai.com/static-rsc-4/NulHP-5pf08MTXZORUxMIkrHRgjrXOlqn0PRmXBQSnTPjipveR_zWng_SCs-QwYtyvh7jDBHdKwk1FD513f148XEKBbXmkkh7YTAeDcordDrflAvUxBosErYNpVGa17qBzv03HUnRNBVakj_Mb5RdEEwo8LFXpezh2uRcZ8wxayFVU8lMnev3KWJwIJEHh-8?purpose=fullsize" alt="Alimot Afe">
+            <div class="team-info">
+              <h4>Alimot Afe</h4>
+              <div class="team-role">Senior Director, Diversity, Equity &amp; Inclusion</div>
+              <p>Diversity, Equity &amp; Inclusion. Shaping corporate culture and inclusive organizational practices.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <h4 class="open-roles-heading">Open Leadership &amp; Partnership Opportunities</h4>
+        <p style="margin-bottom: 20px; font-size: 13px;">We are actively expanding our global network with strategic leadership and partnership roles.</p>
+
+        <div class="open-roles-grid">
+          
+          <div class="role-card">
+            <div>
+              <div class="role-meta">Remote · Global · Commission-Based</div>
+              <h5>Global Business Development Partner</h5>
+              <p>Driving international B2B partnerships and commercial growth across infrastructure and digital platforms.</p>
+            </div>
+            <a href="careers.html" class="btn btn-gold" style="min-height: 40px; padding: 8px 16px; font-size: 12px; margin-top: 15px;">View Vacancy Details →</a>
+          </div>
+
+          <div class="role-card">
+            <div>
+              <div class="role-meta">Position Open</div>
+              <h5>Senior Manager, Business Development</h5>
+              <p>Business Development &amp; Strategic Partnerships. Spearheading regional expansion initiatives.</p>
+            </div>
+            <span style="font-size: 12px; font-weight: 700; color: var(--wine); margin-top: 15px; display:inline-block;">Visit Careers Page</span>
+          </div>
+
+          <div class="role-card">
+            <div>
+              <div class="role-meta">Position Open</div>
+              <h5>Director, Business Development</h5>
+              <p>Commercial Strategy &amp; Strategic Partnerships. Directing high-level enterprise contracts.</p>
+            </div>
+            <span style="font-size: 12px; font-weight: 700; color: var(--wine); margin-top: 15px; display:inline-block;">Visit Careers Page</span>
+          </div>
+
+          <div class="role-card">
+            <div>
+              <div class="role-meta">Position Open</div>
+              <h5>Director, Digital Engineering</h5>
+              <p>Digital Engineering &amp; Technology. Leading digital twin solutions and smart building architecture.</p>
+            </div>
+            <span style="font-size: 12px; font-weight: 700; color: var(--wine); margin-top: 15px; display:inline-block;">Visit Careers Page</span>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
 
 
   <!-- FOOTER -->
@@ -1020,6 +1325,35 @@
     const searchInput = document.getElementById("site-search-input");
     const searchForm = document.getElementById("search-form");
     const searchFeedback = document.getElementById("search-feedback");
+
+    // Team Modal elements
+    const openTeamModalBtn = document.getElementById("open-team-modal");
+    const closeTeamModalBtn = document.getElementById("close-team-modal");
+    const teamModal = document.getElementById("team-modal");
+
+    function openTeamModal(){
+      if(teamModal){
+        teamModal.classList.add("is-open");
+        teamModal.setAttribute("aria-hidden","false");
+        document.body.classList.add("team-modal-open");
+      }
+    }
+
+    function closeTeamModal(){
+      if(teamModal){
+        teamModal.classList.remove("is-open");
+        teamModal.setAttribute("aria-hidden","true");
+        document.body.classList.remove("team-modal-open");
+      }
+    }
+
+    if(openTeamModalBtn) openTeamModalBtn.addEventListener("click", openTeamModal);
+    if(closeTeamModalBtn) closeTeamModalBtn.addEventListener("click", closeTeamModal);
+    if(teamModal){
+      teamModal.addEventListener("click", function(e){
+        if(e.target === teamModal) closeTeamModal();
+      });
+    }
 
     function closeServices(){
       if(servicesMenu) servicesMenu.classList.remove("is-open");
@@ -1122,7 +1456,6 @@
          searchPanel.classList.contains("is-open") &&
          !searchPanel.contains(event.target) &&
          !searchToggle.contains(event.target)){
-        closeSearch();
       }
     });
 
@@ -1130,6 +1463,7 @@
       if(event.key === "Escape"){
         closeMenu();
         closeSearch();
+        closeTeamModal();
       }
     });
 
