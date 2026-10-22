@@ -48,7 +48,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    body.menu-open, body.search-open, body.discover-modal-open {
+    body.menu-open, body.search-open {
       overflow: hidden;
     }
 
@@ -129,21 +129,6 @@
     p {
       color: var(--muted);
       margin-bottom: 18px;
-    }
-
-    .section-heading {
-      max-width: 760px;
-      margin-bottom: 48px;
-    }
-
-    .section-heading h2 {
-      color: var(--wine);
-      margin-bottom: 20px;
-    }
-
-    .section-heading p {
-      max-width: 680px;
-      font-size: 16px;
     }
 
     .btn {
@@ -328,13 +313,41 @@
     .search-feedback { margin: 10px 0 0; color: rgba(255,255,255,.8); font-size: .84rem; }
     .search-feedback a { color: var(--gold-light); }
 
-    /* PAGE HERO SECTION */
+    /* PAGE HERO SECTION WITH COMPLETED ARCHITECTURAL BACKGROUND & WINE OVERLAY */
     .page-hero {
       position: relative;
-      background: var(--wine);
+      background: #0b0f14;
       color: var(--white);
-      padding: 180px 0 100px;
+      padding: 180px 0 120px;
       overflow: hidden;
+    }
+
+    .hero-bg-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 0;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg,
+          rgba(43, 7, 20, 0.92) 0%,
+          rgba(43, 7, 20, 0.78) 55%,
+          rgba(43, 7, 20, 0.55) 100%),
+        linear-gradient(0deg,
+          rgba(11, 15, 20, 0.6),
+          rgba(11, 15, 20, 0.2) 60%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
     }
 
     .page-hero .eyebrow {
@@ -708,7 +721,13 @@
 <main>
 
 <section class="page-hero">
-  <div class="container">
+  <!-- Premium Completed Architectural Building Background Image -->
+  <img src="https://static.vecteezy.com/system/resources/previews/070/686/310/large_2x/modern-office-building-exterior-with-glass-facade-and-dramatic-sky-representing-corporate-architecture-photo.jpeg" alt="Completed Modern Corporate Architecture" class="hero-bg-image" onerror="this.onerror=null;this.style.display='none';">
+  
+  <!-- Wine & Dark Neutral Transparent Overlay -->
+  <div class="hero-overlay"></div>
+
+  <div class="container hero-content">
     <p class="eyebrow" style="color:var(--gold-light);">GET IN TOUCH</p>
     <h1>Connect with our engineering and project teams.</h1>
     <p>
