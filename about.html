@@ -47,7 +47,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    body.menu-open, body.search-open, body.team-modal-open {
+    body.menu-open, body.search-open, body.team-modal-open, body.about-modal-open, body.service-modal-open {
       overflow: hidden;
     }
 
@@ -184,8 +184,8 @@
       color: var(--wine);
     }
 
-    /* TEAM MODAL STYLING */
-    .team-modal-overlay {
+    /* MODAL OVERLAYS (TEAM, ABOUT, SERVICES) */
+    .modal-overlay {
       position: fixed;
       inset: 0;
       z-index: 20000;
@@ -197,10 +197,10 @@
       padding: 30px 20px;
       overflow-y: auto;
     }
-    .team-modal-overlay.is-open {
+    .modal-overlay.is-open {
       display: flex;
     }
-    .team-modal-container {
+    .modal-container {
       background: var(--off-white);
       color: var(--text);
       width: min(1100px, 100%);
@@ -212,7 +212,7 @@
       box-shadow: 0 25px 50px rgba(0,0,0,0.4);
       overflow: hidden;
     }
-    .team-modal-header {
+    .modal-header {
       background: var(--wine);
       color: var(--white);
       padding: 24px 30px;
@@ -220,11 +220,11 @@
       justify-content: space-between;
       align-items: center;
     }
-    .team-modal-header h3 {
+    .modal-header h3 {
       color: var(--white);
       font-size: 22px;
     }
-    .team-modal-close {
+    .modal-close {
       background: transparent;
       border: 1px solid rgba(255,255,255,0.4);
       color: var(--white);
@@ -237,12 +237,12 @@
       font-size: 18px;
       transition: background 0.2s;
     }
-    .team-modal-close:hover {
+    .modal-close:hover {
       background: var(--gold);
       color: var(--wine);
       border-color: var(--gold);
     }
-    .team-modal-body {
+    .modal-body {
       padding: 35px 30px;
       overflow-y: auto;
     }
@@ -343,6 +343,20 @@
       font-size: 13px;
       color: var(--muted);
       margin-bottom: 15px;
+    }
+
+    /* ABOUT MODAL CONTENT STYLING */
+    .about-modal-content h4 {
+      color: var(--wine);
+      font-size: 20px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    .about-modal-content p {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 15px;
+      line-height: 1.7;
     }
 
     /* SOLID WINE HEADER & ORIGINAL DESKTOP 3-COLUMN GRID */
@@ -1020,9 +1034,9 @@
               Precise land and engineering surveying, mobile LiDAR capture, and
               spatial data workflows for accurate site context.
             </p>
-            <a class="btn btn-outline" style="border-color:var(--wine); color:var(--wine);" href="services.html#surveying">
+            <button class="btn btn-outline open-service-modal" data-service="surveying" style="border-color:var(--wine); color:var(--wine);">
               Learn More →
-            </a>
+            </button>
           </article>
 
           <article class="service-card">
@@ -1031,9 +1045,9 @@
               Independent quality assurance, construction inspection, and materials testing
               backed by rigorous digital reporting.
             </p>
-            <a class="btn btn-outline" style="border-color:var(--wine); color:var(--wine);" href="services.html#quality-assurance">
+            <button class="btn btn-outline open-service-modal" data-service="qaqc" style="border-color:var(--wine); color:var(--wine);">
               Learn More →
-            </a>
+            </button>
           </article>
 
           <article class="service-card">
@@ -1042,9 +1056,9 @@
               Scan-to-BIM services, asset information modeling, and structured data
               integration for intelligent facility management.
             </p>
-            <a class="btn btn-outline" style="border-color:var(--wine); color:var(--wine);" href="solutions.html">
+            <button class="btn btn-outline open-service-modal" data-service="digitaltwins" style="border-color:var(--wine); color:var(--wine);">
               Learn More →
-            </a>
+            </button>
           </article>
         </div>
       </div>
@@ -1071,9 +1085,9 @@
             every project is supported by verified data, clear documentation, and dependable insight.
           </p>
           <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 15px;">
-            <a class="btn btn-gold" href="about.html">
+            <button class="btn btn-gold" id="open-about-modal">
               Read More About Us →
-            </a>
+            </button>
             <button class="btn btn-outline" id="open-team-modal" style="border-color: var(--wine); color: var(--wine);">
               Jiro-BEACONS Team ↓
             </button>
@@ -1119,13 +1133,13 @@
 
 
   <!-- TEAM & LEADERSHIP MODAL -->
-  <div class="team-modal-overlay" id="team-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="team-modal-title">
-    <div class="team-modal-container">
-      <div class="team-modal-header">
+  <div class="modal-overlay" id="team-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="team-modal-title">
+    <div class="modal-container">
+      <div class="modal-header">
         <h3 id="team-modal-title">Jiro-BEACONS Leadership, Team &amp; Open Roles</h3>
-        <button class="team-modal-close" id="close-team-modal" aria-label="Close team modal">&times;</button>
+        <button class="modal-close" id="close-team-modal" aria-label="Close team modal">&times;</button>
       </div>
-      <div class="team-modal-body">
+      <div class="modal-body">
         
         <div class="team-intro-block">
           <p class="eyebrow" style="margin-bottom: 8px;">Jiro-BEACONS Team</p>
@@ -1274,6 +1288,48 @@
   </div>
 
 
+  <!-- ABOUT US MODAL -->
+  <div class="modal-overlay" id="about-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="about-modal-title">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 id="about-modal-title">About Jiro-BEACONS Engineering</h3>
+        <button class="modal-close" id="close-about-modal" aria-label="Close about modal">&times;</button>
+      </div>
+      <div class="modal-body about-modal-content">
+        <span class="eyebrow">Corporate Profile</span>
+        <h4>Engineering Excellence &amp; Infrastructure Quality Assurance</h4>
+        <p>
+          Jiro-BEACONS Engineering Nigeria Limited is a premier spatial data and engineering consultancy firm specializing in independent infrastructure quality assurance, technical inspection, and digital twin development. We provide rigorous oversight to ensure public and private assets meet the highest structural and operational standards.
+        </p>
+
+        <h4>Our Core Focus &amp; Methodology</h4>
+        <p>
+          We bridge traditional civil engineering execution with advanced digital workflows. By integrating mobile LiDAR capture, Building Information Modeling (BIM), scan-to-BIM applications, and structured document management systems, we eliminate data silos and deliver total visibility across every project lifecycle stage.
+        </p>
+
+        <h4>Global Vision &amp; Smart Building Innovation</h4>
+        <p>
+          Led by experienced civil engineers and spatial data specialists, Jiro-BEACONS is actively expanding its capabilities into smart building design, IoT telemetry integration, and edge-carbon compliance platforms. We are committed to building sustainable, data-empowered infrastructure for tomorrow.
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- SERVICES DETAIL MODAL -->
+  <div class="modal-overlay" id="service-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="service-modal-title">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 id="service-modal-title">Service Details</h3>
+        <button class="modal-close" id="close-service-modal" aria-label="Close service modal">&times;</button>
+      </div>
+      <div class="modal-body about-modal-content" id="service-modal-body">
+        <!-- Dynamically populated service content -->
+      </div>
+    </div>
+  </div>
+
+
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container">
@@ -1343,34 +1399,102 @@
     const searchForm = document.getElementById("search-form");
     const searchFeedback = document.getElementById("search-feedback");
 
-    // Team Modal elements
+    // Modal elements
     const openTeamModalBtn = document.getElementById("open-team-modal");
     const closeTeamModalBtn = document.getElementById("close-team-modal");
     const teamModal = document.getElementById("team-modal");
 
-    function openTeamModal(){
-      if(teamModal){
-        teamModal.classList.add("is-open");
-        teamModal.setAttribute("aria-hidden","false");
+    const openAboutModalBtn = document.getElementById("open-about-modal");
+    const closeAboutModalBtn = document.getElementById("close-about-modal");
+    const aboutModal = document.getElementById("about-modal");
+
+    const serviceModal = document.getElementById("service-modal");
+    const closeServiceModalBtn = document.getElementById("close-service-modal");
+    const serviceModalBody = document.getElementById("service-modal-body");
+    const serviceModalTitle = document.getElementById("service-modal-title");
+
+    // Service content mapping
+    const serviceData = {
+      surveying: {
+        title: "Surveying & Geospatial Services",
+        eyebrow: "Core Technical Expertise",
+        html: `
+          <span class="eyebrow">Core Technical Expertise</span>
+          <h4>Precise Land &amp; Engineering Surveying</h4>
+          <p>We provide high-precision land surveying, topographic mapping, and mobile LiDAR data capture. Our spatial data workflows establish accurate ground control and spatial context for civil and structural engineering projects of any scale.</p>
+          <h4>Advanced Geospatial Workflows</h4>
+          <p>Utilizing state-of-the-art surveying instruments and point-cloud processing tools, our team converts complex site conditions into actionable geospatial intelligence for design and construction teams.</p>
+        `
+      },
+      qaqc: {
+        title: "QA/QC & Inspection Services",
+        eyebrow: "Independent Assurance",
+        html: `
+          <span class="eyebrow">Independent Assurance</span>
+          <h4>Rigorous Quality Control &amp; Material Testing</h4>
+          <p>We act as an independent authority for infrastructure quality assurance, construction inspection, and materials testing. Every inspection is backed by rigorous digital reporting and structured compliance documentation.</p>
+          <h4>Risk Mitigation &amp; Compliance</h4>
+          <p>Our QA/QC protocols verify that all execution stages adhere strictly to engineering specifications, regulatory standards, and structural integrity benchmarks.</p>
+        `
+      },
+      digitaltwins: {
+        title: "Digital Twins & BIM Integration",
+        eyebrow: "Smart Facility Solutions",
+        html: `
+          <span class="eyebrow">Smart Facility Solutions</span>
+          <h4>Scan-to-BIM &amp; Asset Information Modeling</h4>
+          <p>We transform physical as-built conditions into intelligent Building Information Models (BIM) and fully functional digital twins. This empowers facilities managers and project owners with centralized, data-rich digital assets.</p>
+          <p>Structured data integration ensures seamless document management, maintenance tracking, and operational efficiency throughout the asset's lifecycle.</p>
+        `
+      }
+    };
+
+    function openModal(modal){
+      if(modal){
+        modal.classList.add("is-open");
+        modal.setAttribute("aria-hidden","false");
         document.body.classList.add("team-modal-open");
       }
     }
 
-    function closeTeamModal(){
-      if(teamModal){
-        teamModal.classList.remove("is-open");
-        teamModal.setAttribute("aria-hidden","true");
+    function closeModal(modal){
+      if(modal){
+        modal.classList.remove("is-open");
+        modal.setAttribute("aria-hidden","true");
         document.body.classList.remove("team-modal-open");
       }
     }
 
-    if(openTeamModalBtn) openTeamModalBtn.addEventListener("click", openTeamModal);
-    if(closeTeamModalBtn) closeTeamModalBtn.addEventListener("click", closeTeamModal);
-    if(teamModal){
-      teamModal.addEventListener("click", function(e){
-        if(e.target === teamModal) closeTeamModal();
+    // Team Modal listeners
+    if(openTeamModalBtn) openTeamModalBtn.addEventListener("click", () => openModal(teamModal));
+    if(closeTeamModalBtn) closeTeamModalBtn.addEventListener("click", () => closeModal(teamModal));
+
+    // About Modal listeners
+    if(openAboutModalBtn) openAboutModalBtn.addEventListener("click", () => openModal(aboutModal));
+    if(closeAboutModalBtn) closeAboutModalBtn.addEventListener("click", () => closeModal(aboutModal));
+
+    // Service Modal listeners
+    document.querySelectorAll(".open-service-modal").forEach(btn => {
+      btn.addEventListener("click", function(){
+        const key = this.getAttribute("data-service");
+        const data = serviceData[key];
+        if(data){
+          serviceModalTitle.textContent = data.title;
+          serviceModalBody.innerHTML = data.html;
+          openModal(serviceModal);
+        }
       });
-    }
+    });
+    if(closeServiceModalBtn) closeServiceModalBtn.addEventListener("click", () => closeModal(serviceModal));
+
+    // Close on backdrop click for all modals
+    [teamModal, aboutModal, serviceModal].forEach(modal => {
+      if(modal){
+        modal.addEventListener("click", function(e){
+          if(e.target === modal) closeModal(modal);
+        });
+      }
+    });
 
     function closeServices(){
       if(servicesMenu) servicesMenu.classList.remove("is-open");
@@ -1452,7 +1576,7 @@
 
         if(match){
           closeSearch();
-          match.scrollIntoView({behavior:"smooth",block="start"});
+          match.scrollIntoView({behavior:"smooth",block:"start"});
           match.setAttribute("tabindex","-1");
           match.focus({preventScroll:true});
           if(searchFeedback) searchFeedback.textContent = "Found a matching section on this page.";
@@ -1463,23 +1587,13 @@
       });
     }
 
-    document.addEventListener("click",function(event){
-      if(navigation && menuToggle &&
-         !navigation.contains(event.target) &&
-         !menuToggle.contains(event.target)){
-      }
-      if(searchPanel && searchToggle &&
-         searchPanel.classList.contains("is-open") &&
-         !searchPanel.contains(event.target) &&
-         !searchToggle.contains(event.target)){
-      }
-    });
-
     document.addEventListener("keydown",function(event){
       if(event.key === "Escape"){
         closeMenu();
         closeSearch();
-        closeTeamModal();
+        closeModal(teamModal);
+        closeModal(aboutModal);
+        closeModal(serviceModal);
       }
     });
 
