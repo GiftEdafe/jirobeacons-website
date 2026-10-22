@@ -569,7 +569,7 @@
       line-height: 1.7;
     }
 
-    /* RECRUITMENT SECTION STYLES (NEWLY ADDED) */
+    /* RECRUITMENT SECTION STYLES */
     .recruitment-section {
       background: var(--off-white);
       padding: 100px 0;
@@ -639,6 +639,90 @@
 
     .job-details-grid li {
       margin-bottom: 6px;
+    }
+
+    /* APPLICATION FORM STYLING */
+    .application-form-container {
+      margin-top: 30px;
+      padding-top: 30px;
+      border-top: 1px dashed var(--border);
+    }
+
+    .application-form-container h4 {
+      font-size: 18px;
+      color: var(--wine);
+      margin-bottom: 8px;
+    }
+
+    .application-form-container p {
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    .app-form {
+      display: grid;
+      gap: 15px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .form-group.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .form-group label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      padding: 12px;
+      font-family: inherit;
+      font-size: 14px;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      background: var(--off-white);
+      color: var(--text);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+      background: var(--white);
+    }
+
+    .form-actions {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 5px;
+    }
+
+    .form-note-alt {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .form-note-alt a {
+      color: var(--wine);
+      text-decoration: underline;
+      font-weight: 600;
     }
 
     .network-grid {
@@ -1037,7 +1121,7 @@
       .nav-dropdown-group { width: 100%; align-items: flex-start !important; text-align: left !important; }
       .nav-dropdown-group:last-child { justify-self: start; align-items: flex-start; text-align: left; }
 
-      .intro-grid, .people-grid, .culture-grid, .discipline-grid, .process-grid, .network-grid, .job-details-grid { grid-template-columns: 1fr; }
+      .intro-grid, .people-grid, .culture-grid, .discipline-grid, .process-grid, .network-grid, .job-details-grid, .form-row { grid-template-columns: 1fr; }
       .cta-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
       .footer-top { grid-template-columns: 1fr 1fr; gap: 20px; }
     }
@@ -1290,7 +1374,7 @@
     </section>
 
 
-    <!-- NEW RECRUITMENT & ACTIVE OPPORTUNITIES SECTION -->
+    <!-- RECRUITMENT & ACTIVE OPPORTUNITIES SECTION -->
     <section class="recruitment-section" id="active-recruitment">
       <div class="container">
         <div class="section-heading">
@@ -1332,9 +1416,47 @@
             </div>
           </div>
 
-          <a class="btn btn-gold" href="mailto:giftedafe@jirobeacons.com?subject=Application%3A%20Global%20Business%20Development%20Partner&amp;body=Hello%20Jiro-BEACONS%20Team,%0A%0APlease%20find%20my%20application%20for%20the%20Global%20Business%20Development%20Partner%20role.%0A%0AFull%20Name:%0ALinkedIn%20Profile%20/%20CV%20Attached:%0ATarget%20Markets%20&%20Industries:%0ACommercial%20Track%20Record%20Overview:%0AStrategy%20for%20First%20Opportunities:%0A%0AKind%20regards,">
-            Apply for Business Development Partner &rarr;
-          </a>
+          <!-- DIRECT ON-SITE APPLICATION FORM OR EMAIL OPTION -->
+          <div class="application-form-container">
+            <h4>Apply for Business Development Partner</h4>
+            <p>Fill out the form below to submit your details directly, or prefer to email? <a href="mailto:giftedafe@jirobeacons.com?subject=Application%3A%20Global%20Business%20Development%20Partner">Send an email instead &rarr;</a></p>
+            
+            <form class="app-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+              <input type="hidden" name="position" value="Global Business Development Partner">
+              
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="bd-name">Full Name *</label>
+                  <input type="text" id="bd-name" name="name" required placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                  <label for="bd-email">Email Address *</label>
+                  <input type="email" id="bd-email" name="email" required placeholder="name@example.com">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="bd-markets">Target Markets &amp; Industries *</label>
+                  <input type="text" id="bd-markets" name="target_markets" required placeholder="e.g. Real Estate, Energy, North America">
+                </div>
+                <div class="form-group">
+                  <label for="bd-profile">LinkedIn Profile / CV Link *</label>
+                  <input type="url" id="bd-profile" name="profile_link" required placeholder="https://linkedin.com/in/yourprofile">
+                </div>
+              </div>
+
+              <div class="form-group full-width">
+                <label for="bd-strategy">Brief Strategy for First Opportunities *</label>
+                <textarea id="bd-strategy" name="strategy_note" rows="4" required placeholder="How would you generate your first qualified opportunities for Jiro-BEACONS?"></textarea>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-gold">Submit Application &rarr;</button>
+                <span class="form-note-alt">Submissions go directly to giftedafe@jirobeacons.com</span>
+              </div>
+            </form>
+          </div>
         </div>
 
         <!-- NETWORK INVITATIONS -->
@@ -1347,7 +1469,7 @@
               builders, QA/QC specialists, and other relevant professionals to express interest in future project assignments.
             </p>
             <a class="btn btn-outline-dark" href="mailto:giftedafe@jirobeacons.com?subject=Expression%20of%20Interest%3A%20AEC%20Professional%20Network&amp;body=Hello%20Jiro-BEACONS%20Team,%0A%0AI%20would%20like%20to%20register%20my%20interest%20for%20the%20Integrated%20AEC%20Professional%20Network.%0A%0AFull%20Name:%0ADiscipline%20/%20Role:%0AQualifications%20&%20Registration:%0ALocation%20&%20Preferred%20Engagement:%0ARelevant%20Experience:%0A%0AKind%20regards,">
-              Register for AEC Network
+              Register for AEC Network via Email
             </a>
           </div>
 
@@ -1359,7 +1481,7 @@
               engineering documentation, quality management systems, and specialized smart building workflows.
             </p>
             <a class="btn btn-outline-dark" href="mailto:giftedafe@jirobeacons.com?subject=Expression%20of%20Interest%3A%20Digital%20Engineering%20Associate&amp;body=Hello%20Jiro-BEACONS%20Team,%0A%0AI%20would%20like%20to%20register%20my%20interest%20as%20a%20Technical%20%26%20Digital%20Engineering%20Associate.%0A%0AFull%20Name:%0ASpecialization%20(Scan-to-BIM,%20EDMS,%20QA/QC,%20etc.):%0ALocation%20&%20Availability:%0AProfessional%20Background:%0A%0AKind%20regards,">
-              Register as Digital Associate
+              Register as Digital Associate via Email
             </a>
           </div>
         </div>
@@ -1707,7 +1829,7 @@
         event.stopPropagation();
         const open = !servicesMenu.classList.contains("is-open");
         servicesMenu.classList.toggle("is-open",open);
-        servicesToggle.setAttribute("aria-expanded",String(open));
+        servicesToggle.setAttribute("aria-expanded","true");
       });
     }
 
