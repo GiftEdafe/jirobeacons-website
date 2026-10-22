@@ -47,7 +47,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    body.menu-open, body.search-open {
+    body.menu-open, body.search-open, body.discover-modal-open {
       overflow: hidden;
     }
 
@@ -181,6 +181,90 @@
     .btn-outline:hover {
       background: var(--white);
       color: var(--wine);
+    }
+
+    /* MODAL OVERLAY FOR DISCOVER JIRO-BEACONS */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 20000;
+      background: rgba(11, 15, 20, 0.85);
+      backdrop-filter: blur(5px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 20px;
+      overflow-y: auto;
+    }
+    .modal-overlay.is-open {
+      display: flex;
+    }
+    .modal-container {
+      background: var(--off-white);
+      color: var(--text);
+      width: min(1100px, 100%);
+      max-height: 90vh;
+      border-radius: 4px;
+      border-top: 5px solid var(--gold);
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+      overflow: hidden;
+    }
+    .modal-header {
+      background: var(--wine);
+      color: var(--white);
+      padding: 24px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .modal-header h3 {
+      color: var(--white);
+      font-size: 22px;
+    }
+    .modal-close {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.4);
+      color: var(--white);
+      width: 36px;
+      height: 36px;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      transition: background 0.2s;
+    }
+    .modal-close:hover {
+      background: var(--gold);
+      color: var(--wine);
+      border-color: var(--gold);
+    }
+    .modal-body {
+      padding: 35px 30px;
+      overflow-y: auto;
+    }
+
+    .modal-content-block h4 {
+      color: var(--wine);
+      font-size: 20px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    .modal-content-block p {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 15px;
+      line-height: 1.7;
+    }
+    .modal-content-block ul {
+      margin-left: 20px;
+      margin-bottom: 15px;
+      color: var(--muted);
+    }
+    .modal-content-block li {
+      margin-bottom: 8px;
     }
 
     /* SOLID WINE HEADER & ORIGINAL DESKTOP 3-COLUMN GRID */
@@ -968,8 +1052,8 @@
           <h1>Engineering better information <span>for smarter infrastructure.</span></h1>
           <p class="hero-copy">From surveying and project delivery to quality assurance and digital asset information, we connect engineering activities with the evidence and data that support better decisions.</p>
           <div class="hero-buttons">
-            <a class="btn btn-gold" href="services.html">Explore Our Services <span aria-hidden="true">&rarr;</span></a>
-            <a class="btn btn-outline" href="projects.html">View Project Experience <span aria-hidden="true">&rarr;</span></a>
+            <button class="btn btn-gold" id="open-discover-modal">Discover Jiro-BEACONS <span aria-hidden="true">&rarr;</span></button>
+            <a class="btn btn-outline" href="mailto:giftedafe@jirobeacons.com">Start a Conversation <span aria-hidden="true">&rarr;</span></a>
           </div>
           <div class="hero-note" style="display:flex;align-items:center;gap:12px;margin-top:16px;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,0.8);">Engineering &middot; Assurance &middot; Digital Infrastructure</div>
         </div>
@@ -994,7 +1078,7 @@
           <p style="color:rgba(255,255,255,0.9);">Jiro-BEACONS Engineering brings together surveying, quantity and cost support, engineering coordination, construction delivery, QA/QC and digital engineering.</p>
           <p style="color:rgba(255,255,255,0.9);">We help project teams organize field information, quality evidence and asset records so that critical decisions are supported by clearer, more traceable information.</p>
           <div class="intro-statement" style="margin-top:14px;padding:12px 0 12px 16px;border-left:3px solid var(--gold);font-size:1rem;font-weight:750;color:#fff;">Engineering better information for smarter infrastructure &amp; businesses.</div>
-          <a class="btn btn-gold" href="about.html" style="margin-top:20px;">Discover Jiro-BEACONS &rarr;</a>
+          <button class="btn btn-gold" id="open-discover-modal-alt" style="margin-top:20px;">Discover Jiro-BEACONS &rarr;</button>
         </div>
         <div class="intro-panel">
           <span class="panel-kicker">Our Approach</span>
@@ -1173,7 +1257,7 @@
         <div class="feature-copy">
           <span class="eyebrow" style="color:var(--gold-light);">Digital Engineering</span>
           <h2>Turn physical infrastructure into usable information.</h2>
-          <p style="color:rgba(255,255,255,0.78);">Existing buildings and infrastructure often hold valuable information across drawings, field measurements, test reports, photographs and disconnected files. We help bring relevant records together into a more structured, traceable and usable digital view.</p>
+          <p style="color:rgba(255,255,255,.78);">Existing buildings and infrastructure often hold valuable information across drawings, field measurements, test reports, photographs and disconnected files. We help bring relevant records together into a more structured, traceable and usable digital view.</p>
           <ul class="check-list" style="color:#fff;">
             <li>Digital Engineering Packages</li>
             <li>Digital As-Built Information</li>
@@ -1256,10 +1340,51 @@
           <h2>Build with clarity. Deliver with confidence.</h2>
           <p>Let’s discuss how integrated engineering, quality assurance and digital asset information can support your next project.</p>
         </div>
-        <a class="btn btn-dark" href="contact.html" style="background:var(--wine); color:#fff;">Start a Conversation &rarr;</a>
+        <a class="btn btn-dark" href="mailto:giftedafe@jirobeacons.com" style="background:var(--wine); color:#fff;">Start a Conversation &rarr;</a>
       </div>
     </section>
   </main>
+
+
+  <!-- DISCOVER JIRO-BEACONS MODAL -->
+  <div class="modal-overlay" id="discover-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="discover-modal-title">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 id="discover-modal-title">Discover Jiro-BEACONS Engineering</h3>
+        <button class="modal-close" id="close-discover-modal" aria-label="Close discover modal">&times;</button>
+      </div>
+      <div class="modal-body modal-content-block">
+        
+        <span class="eyebrow">Our Guiding Principles</span>
+        
+        <h4>Our Vision</h4>
+        <p>To redefine infrastructure reliability and operational efficiency by seamlessly bridging physical construction execution with intelligent digital data ecosystems globally.</p>
+
+        <h4>Our Mission</h4>
+        <p>To deliver uncompromising, independent infrastructure quality assurance, advanced spatial data integration, and smart building solutions that empower better engineering and business decisions.</p>
+
+        <h4>Our Values</h4>
+        <ul>
+          <li><strong>Integrity &amp; Independence:</strong> Providing objective quality assurance and rigorous compliance oversight.</li>
+          <li><strong>Collaboration &amp; Inclusion:</strong> Fostering multidisciplinary teamwork and diverse perspectives to drive innovation.</li>
+          <li><strong>Excellence &amp; Precision:</strong> Maintaining exacting standards across surveying, digital twins, and project execution.</li>
+        </ul>
+
+        <h4>Our History &amp; Growth</h4>
+        <p><strong>Our Roots:</strong> Established as a premier engineering consultancy and spatial data firm specializing in infrastructure quality assurance and comprehensive technical audits.</p>
+        <p><strong>How We Are Expanding:</strong> Scaling our operations across international markets, incorporating advanced BIM frameworks, and participating in incubator programs like Start GBC in Ontario to commercialize smart building innovations.</p>
+        <p><strong>Building Careers:</strong> Cultivating top-tier talent in civil engineering, geospatial surveying, and digital technology while building collaborative co-founder and project leadership networks.</p>
+        <p><strong>Workers Welfare:</strong> Cultivating an inclusive, safe, and supportive organizational culture that prioritizes professional growth, equity, and the wellbeing of every team member.</p>
+        <p><strong>Redefining Construction:</strong> Pioneering how Smart Building Design &amp; Operations shape the new age of construction through IoT telemetry, edge-carbon tracking, and digital twin lifecycle management.</p>
+
+        <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+          <p style="margin: 0; font-size: 14px;">Explore our full corporate background and credentials.</p>
+          <a href="about.html" class="btn btn-gold" style="min-height: 44px; padding: 10px 20px; font-size: 13px;">Visit Full About Page →</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
 
   <!-- FOOTER MATCHING ABOUT.HTML STRUCTURE -->
@@ -1330,6 +1455,37 @@
     const searchInput = document.getElementById("site-search-input");
     const searchForm = document.getElementById("search-form");
     const searchFeedback = document.getElementById("search-feedback");
+
+    // Discover Modal elements
+    const openDiscoverModalBtn = document.getElementById("open-discover-modal");
+    const openDiscoverModalAltBtn = document.getElementById("open-discover-modal-alt");
+    const closeDiscoverModalBtn = document.getElementById("close-discover-modal");
+    const discoverModal = document.getElementById("discover-modal");
+
+    function openDiscoverModal(){
+      if(discoverModal){
+        discoverModal.classList.add("is-open");
+        discoverModal.setAttribute("aria-hidden","false");
+        document.body.classList.add("discover-modal-open");
+      }
+    }
+
+    function closeDiscoverModal(){
+      if(discoverModal){
+        discoverModal.classList.remove("is-open");
+        discoverModal.setAttribute("aria-hidden","true");
+        document.body.classList.remove("discover-modal-open");
+      }
+    }
+
+    if(openDiscoverModalBtn) openDiscoverModalBtn.addEventListener("click", openDiscoverModal);
+    if(openDiscoverModalAltBtn) openDiscoverModalAltBtn.addEventListener("click", openDiscoverModal);
+    if(closeDiscoverModalBtn) closeDiscoverModalBtn.addEventListener("click", closeDiscoverModal);
+    if(discoverModal){
+      discoverModal.addEventListener("click", function(e){
+        if(e.target === discoverModal) closeDiscoverModal();
+      });
+    }
 
     function closeServices(){
       if(servicesMenu) servicesMenu.classList.remove("is-open");
@@ -1440,6 +1596,7 @@
       if(event.key === "Escape"){
         closeMenu();
         closeSearch();
+        closeDiscoverModal();
       }
     });
 
