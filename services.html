@@ -168,7 +168,7 @@
 
     .btn-gold {
       background: var(--gold);
-      color: var(--wine-deep);
+      color: var(--wine);
     }
 
     .btn-gold:hover {
@@ -1170,7 +1170,7 @@
 
       if(match){
         closeSearch();
-        match.scrollIntoView({behavior:"smooth",block="start"});
+        match.scrollIntoView({behavior:"smooth",block:"start"});
         match.setAttribute("tabindex","-1");
         match.focus({preventScroll:true});
         if(searchFeedback) searchFeedback.textContent = "Found a matching section on this page.";
