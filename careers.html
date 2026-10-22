@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Careers &amp; Opportunities | Jiro-BEACONS Engineering</title>
-  <meta name="description" content="Explore career opportunities with Jiro-BEACONS Engineering. Connect with an integrated team working across engineering, surveying, construction quality, digital engineering and intelligent infrastructure.">
+  <meta name="description" content="Explore career and partnership opportunities with Jiro-BEACONS Engineering. Connect with an integrated team working across engineering, surveying, construction quality, digital engineering and intelligent infrastructure.">
   <meta name="theme-color" content="#2B0714">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -127,6 +127,7 @@
 
     p {
       color: var(--muted);
+      margin-bottom: 16px;
     }
 
     .section-heading {
@@ -334,7 +335,6 @@
     .search-feedback a { color: var(--gold-light); }
 
     /* HERO WITH NEUTRAL TRANSPARENT OVERLAY OVER THE IMAGE */
-
     .careers-hero {
       position: relative;
       min-height: 610px;
@@ -426,9 +426,9 @@
     }
 
     /* INTRO */
-
     .intro-section {
       padding: 95px 0 90px;
+      background: var(--white);
     }
 
     .intro-grid {
@@ -449,124 +449,6 @@
 
     .intro-copy p {
       font-size: 16px;
-    }
-
-    .text-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      margin-top: 25px;
-      color: var(--wine);
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .text-link span {
-      color: #A78320;
-      transition: transform 0.2s ease;
-    }
-
-    .text-link:hover span {
-      transform: translateX(4px);
-    }
-
-    /* IMAGE FEATURE */
-
-    .people-section {
-      background: var(--off-white);
-    }
-
-    .people-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 70px;
-      align-items: center;
-    }
-
-    .people-image-wrap {
-      position: relative;
-      min-height: 450px;
-      background: #E5DFDC;
-      overflow: hidden;
-    }
-
-    .people-image-wrap img {
-      position: absolute;
-      inset: 0;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s ease;
-    }
-
-    .people-image-wrap:hover img {
-      transform: scale(1.035);
-    }
-
-    .image-caption {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      max-width: 270px;
-      padding: 21px 25px;
-      background: var(--wine);
-      color: var(--white);
-      font-size: 13px;
-      font-weight: 600;
-      line-height: 1.6;
-    }
-
-    .image-caption::before {
-      content: "";
-      display: block;
-      width: 27px;
-      height: 3px;
-      margin-bottom: 11px;
-      background: var(--gold);
-    }
-
-    .people-copy h2 {
-      margin-bottom: 23px;
-      color: var(--wine);
-    }
-
-    .people-copy > p {
-      margin-bottom: 27px;
-      font-size: 16px;
-    }
-
-    .value-list {
-      list-style: none;
-      display: grid;
-      gap: 18px;
-      margin-top: 28px;
-    }
-
-    .value-list li {
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-    }
-
-    .gold-square {
-      flex: 0 0 9px;
-      width: 9px;
-      height: 9px;
-      margin-top: 8px;
-      background: var(--gold);
-    }
-
-    .value-list strong {
-      display: block;
-      margin-bottom: 4px;
-      color: var(--wine);
-      font-size: 14px;
-    }
-
-    .value-list span {
-      display: block;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.7;
     }
 
     /* RECRUITMENT SECTION STYLES */
@@ -610,119 +492,55 @@
     }
 
     .featured-job-card h3 {
-      font-size: 28px;
+      font-size: 32px;
       color: var(--wine);
       margin-bottom: 15px;
     }
 
-    .job-details-grid {
+    .job-meta-list {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-      margin-top: 25px;
-      margin-bottom: 30px;
-      padding-top: 25px;
-      border-top: 1px solid var(--border);
-    }
-
-    .job-details-grid h4 {
-      font-size: 16px;
-      color: var(--wine);
-      margin-bottom: 10px;
-    }
-
-    .job-details-grid ul {
-      padding-left: 20px;
-      color: var(--muted);
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      background: var(--off-white);
+      padding: 20px 25px;
+      margin: 25px 0;
+      border-left: 3px solid var(--gold);
       font-size: 14px;
     }
 
-    .job-details-grid li {
-      margin-bottom: 6px;
+    .job-meta-list strong {
+      color: var(--wine);
     }
 
-    /* APPLICATION FORM STYLING */
-    .application-form-container {
+    .job-details-block {
       margin-top: 30px;
-      padding-top: 30px;
-      border-top: 1px dashed var(--border);
     }
 
-    .application-form-container h4 {
+    .job-details-block h4 {
       font-size: 18px;
       color: var(--wine);
+      margin: 25px 0 12px;
+    }
+
+    .job-details-block ul {
+      padding-left: 20px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .job-details-block li {
       margin-bottom: 8px;
     }
 
-    .application-form-container p {
-      font-size: 13px;
-      margin-bottom: 20px;
-    }
-
-    .app-form {
-      display: grid;
-      gap: 15px;
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-    }
-
-    .form-group.full-width {
-      grid-column: 1 / -1;
-    }
-
-    .form-group label {
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--text);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .form-group input,
-    .form-group textarea {
-      padding: 12px;
-      font-family: inherit;
-      font-size: 14px;
-      border: 1px solid var(--border);
-      border-radius: 2px;
-      background: var(--off-white);
-      color: var(--text);
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--gold);
-      background: var(--white);
-    }
-
-    .form-actions {
+    .job-action-wrap {
+      margin-top: 35px;
+      padding-top: 25px;
+      border-top: 1px solid var(--border);
       display: flex;
       align-items: center;
-      gap: 15px;
+      justify-content: space-between;
       flex-wrap: wrap;
-      margin-top: 5px;
-    }
-
-    .form-note-alt {
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .form-note-alt a {
-      color: var(--wine);
-      text-decoration: underline;
-      font-weight: 600;
+      gap: 20px;
     }
 
     .network-grid {
@@ -750,7 +568,6 @@
     }
 
     /* DISCIPLINES */
-
     .disciplines-section {
       background: var(--white);
     }
@@ -813,59 +630,7 @@
       color: var(--text);
     }
 
-    /* CULTURE IMAGE */
-
-    .culture-section {
-      padding: 0 0 100px;
-    }
-
-    .culture-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      min-height: 430px;
-      background: var(--wine);
-    }
-
-    .culture-image {
-      min-height: 430px;
-      overflow: hidden;
-    }
-
-    .culture-image img {
-      height: 100%;
-      min-height: 430px;
-      object-fit: cover;
-    }
-
-    .culture-copy {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 55px;
-      color: var(--white);
-    }
-
-    .culture-copy .eyebrow {
-      color: var(--white);
-    }
-
-    .culture-copy h2 {
-      margin-bottom: 20px;
-      color: var(--white);
-    }
-
-    .culture-copy p {
-      color: rgba(255, 255, 255, 0.78);
-      font-size: 15px;
-    }
-
-    .culture-copy .btn {
-      margin-top: 27px;
-    }
-
     /* APPLICATION PROCESS */
-
     .process-section {
       background: var(--off-white);
     }
@@ -903,7 +668,6 @@
     }
 
     /* CTA */
-
     .careers-cta {
       position: relative;
       padding: 90px 0;
@@ -952,6 +716,7 @@
       max-width: 650px;
       color: rgba(255, 255, 255, 0.78);
       font-size: 15px;
+      margin-bottom: 0;
     }
 
     .cta-action {
@@ -987,6 +752,7 @@
       color: rgba(255, 255, 255, 0.67);
       font-size: 13px;
       line-height: 1.7;
+      margin-bottom: 0;
     }
 
     .footer-column h4 {
@@ -1027,6 +793,7 @@
     .footer-bottom a {
       color: rgba(255, 255, 255, 0.55);
       font-size: 11px;
+      margin-bottom: 0;
     }
 
     .footer-bottom a:hover {
@@ -1051,10 +818,8 @@
       .header-inner .brand img{ width: 130px; max-height: 38px; }
       .header-tools { grid-column: 3; justify-self: end; }
 
-      /* HIDE DESKTOP RIGHT NAV ON MOBILE */
       .desktop-right-nav { display: none !important; }
 
-      /* MOBILE DRAWER: HIDDEN BY DEFAULT, ONLY SHOWN WHEN .is-open IS ACTIVE */
       .main-nav{
         position:absolute; top:100%; left:0; right:0; z-index:11500;
         display: none !important; 
@@ -1071,7 +836,6 @@
       }
       .menu-toggle{display:flex}
 
-      /* MOBILE-ONLY NAV LINKS */
       .mobile-only-nav {
         display: flex;
         flex-direction: column;
@@ -1088,7 +852,6 @@
         gap: 16px;
       }
 
-      /* EXACT FONT & STYLE MATCH FOR EXTRA NAV LINKS */
       .mobile-only-nav a {
         color: rgba(255,255,255,.94);
         font-size: .7rem;
@@ -1102,7 +865,6 @@
         color: var(--gold-light);
       }
 
-      /* MOBILE DROPDOWN STYLING */
       .nav-dropdown { width: 100%; }
       .nav-dropdown-toggle { width: 100%; justify-content: space-between; padding: 0; }
       
@@ -1121,7 +883,7 @@
       .nav-dropdown-group { width: 100%; align-items: flex-start !important; text-align: left !important; }
       .nav-dropdown-group:last-child { justify-self: start; align-items: flex-start; text-align: left; }
 
-      .intro-grid, .people-grid, .culture-grid, .discipline-grid, .process-grid, .network-grid, .job-details-grid, .form-row { grid-template-columns: 1fr; }
+      .intro-grid, .discipline-grid, .process-grid, .network-grid, .job-meta-list { grid-template-columns: 1fr; }
       .cta-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
       .footer-top { grid-template-columns: 1fr 1fr; gap: 20px; }
     }
@@ -1223,164 +985,82 @@
       <div class="hero-overlay"></div>
 
       <div class="hero-content">
-        <span class="eyebrow" style="color:var(--gold-light);">Careers at Jiro-BEACONS</span>
+        <span class="eyebrow" style="color:var(--gold-light);">Careers &amp; Partnerships</span>
 
         <h1>
-          Build your future.<br>
-          <span>Engineer what comes next.</span>
+          Build What's Next With Us.<br>
+          <span>Connect professional expertise with engineering, construction and digital innovation.</span>
         </h1>
 
         <p>
-          We bring engineering disciplines, project delivery expertise and
-          intelligent digital information together to support better
-          infrastructure. We welcome capable professionals who want to
-          contribute to meaningful work and continuous improvement.
+          We collaborate with capable business developers, project-based professionals, and technical associates 
+          to support integrated engineering and intelligent project-delivery solutions.
         </p>
 
         <div class="hero-actions">
           <a class="btn btn-gold" href="#opportunities">
-            Explore Career Areas <span aria-hidden="true">→</span>
+            Explore Opportunities <span aria-hidden="true">→</span>
           </a>
 
-          <a class="btn btn-outline" href="#apply">
-            Express Your Interest
+          <a class="btn btn-outline" href="#partner">
+            Partner With Us
           </a>
         </div>
 
         <div class="hero-note">
           <span class="hero-note-mark"></span>
           <span>
-            We welcome relevant expressions of interest. Submitting a profile
-            does not mean a vacancy is currently available or guarantee an interview.
+            We welcome relevant professional enquiries and expressions of interest. 
+            Submitting a profile does not mean a vacancy is currently available or guarantee an interview.
           </span>
         </div>
       </div>
     </section>
 
 
-    <!-- INTRODUCTION -->
+    <!-- INTRODUCTION / OUR APPROACH -->
     <section class="intro-section">
       <div class="container intro-grid">
 
         <div class="intro-title">
-          <span class="eyebrow">More than a job title</span>
-          <h2>Different disciplines. One smarter way to deliver projects.</h2>
+          <span class="eyebrow">Our Network Model</span>
+          <h2>A Network of Engineering Expertise</h2>
         </div>
 
         <div class="intro-copy">
           <p>
-            At Jiro-BEACONS Engineering, we see engineering as a connected
-            process: understanding existing conditions, planning and
-            coordinating delivery, verifying quality, and organizing
-            reliable information for the life of an asset.
+            Jiro-BEACONS Engineering Nigeria Limited is developing an integrated engineering and intelligent 
+            project-delivery business that connects professional expertise, construction quality, engineering information 
+            and digital asset solutions.
           </p>
 
           <p>
-            That approach creates opportunities for people with different
-            technical backgrounds to contribute to a shared objective.
-            From site-based engineering and surveying to quality assurance,
-            project controls and digital information management, every
-            discipline can strengthen the outcome.
+            Our approach combines conventional engineering and project support with structured digital information 
+            to help clients improve project coordination, quality assurance, documentation, handover and asset visibility. 
+            We also develop coordinated professional-team solutions, connecting clients with suitable AEC specialists 
+            according to project requirements, professional competence and applicable regulatory requirements.
           </p>
 
           <p>
-            We value professional integrity, practical problem-solving,
-            clear communication and a willingness to keep learning.
+            Please note that our professional network is actively being developed to scale across upcoming project requirements, 
+            rather than implying that every specialist role is currently a full-time funded staff vacancy.
           </p>
-
-          <a class="text-link" href="about.html">
-            Learn about our approach <span aria-hidden="true">→</span>
-          </a>
         </div>
 
       </div>
     </section>
 
 
-    <!-- PEOPLE AND CULTURE -->
-    <section class="section people-section">
-      <div class="container people-grid">
-
-        <div class="people-image-wrap">
-          <img src="images/career-image-2.jpg"
-               alt="Engineering colleagues collaborating on technical information"
-               loading="lazy">
-
-          <div class="image-caption">
-            Better collaboration. Stronger project outcomes.
-          </div>
-        </div>
-
-        <div class="people-copy">
-          <span class="eyebrow">How we work</span>
-
-          <h2>Bring expertise. Share knowledge. Create lasting value.</h2>
-
-          <p>
-            Good engineering depends on more than individual technical
-            ability. It requires people who can collaborate across
-            disciplines, communicate evidence clearly and take responsibility
-            for the quality of their work.
-          </p>
-
-          <ul class="value-list">
-            <li>
-              <span class="gold-square" aria-hidden="true"></span>
-              <div>
-                <strong>Professional integrity</strong>
-                <span>
-                  Work responsibly, respect confidentiality and maintain
-                  reliable technical records.
-                </span>
-              </div>
-            </li>
-
-            <li>
-              <span class="gold-square" aria-hidden="true"></span>
-              <div>
-                <strong>Collaboration across disciplines</strong>
-                <span>
-                  Connect site experience, engineering judgement, project
-                  coordination and digital workflows.
-                </span>
-              </div>
-            </li>
-
-            <li>
-              <span class="gold-square" aria-hidden="true"></span>
-              <div>
-                <strong>Continuous development</strong>
-                <span>
-                  Strengthen practical skills, improve processes and stay
-                  open to better ways of working.
-                </span>
-              </div>
-            </li>
-
-            <li>
-              <span class="gold-square" aria-hidden="true"></span>
-              <div>
-                <strong>Evidence-led delivery</strong>
-                <span>
-                  Support traceable decisions through accurate information,
-                  quality evidence and organized project records.
-                </span>
-              </div>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- RECRUITMENT & ACTIVE OPPORTUNITIES SECTION -->
-    <section class="recruitment-section" id="active-recruitment">
+    <!-- ACTIVE RECRUITMENT & OPPORTUNITIES -->
+    <section class="recruitment-section" id="opportunities">
       <div class="container">
+
         <div class="section-heading">
           <span class="eyebrow">Active Recruitment &amp; Networks</span>
-          <h2>Explore Current Opportunities</h2>
-          <p>Review our active recruitment for commercial partners or express interest in joining our professional associate network.</p>
+          <h2>Explore Opportunities</h2>
+          <p>
+            Review our active recruitment for commercial partners or express interest in joining our professional associate network.
+          </p>
         </div>
 
         <!-- FEATURED ROLE: GLOBAL BUSINESS DEVELOPMENT PARTNER -->
@@ -1389,87 +1069,102 @@
             <span class="job-badge highlight">Active Recruitment</span>
             <span class="job-badge">Remote · Global · Commission-Based</span>
           </div>
+
           <h3>Global Business Development Partner</h3>
           <p>
-            Develop client relationships and commercial opportunities across engineering, construction, 
-            integrated AEC teams, and digital engineering solutions. We are seeking experienced commercial leaders 
-            who can unlock international markets and bridge clients with our technical capacity.
+            Engineering | Construction | Integrated AEC Professional Teams | Digital Engineering
           </p>
-
-          <div class="job-details-grid">
-            <div>
-              <h4>Key Requirements &amp; Information</h4>
-              <ul>
-                <li>CV or LinkedIn profile detailing relevant B2B sales and business development experience.</li>
-                <li>Target industries and international markets you can realistically access.</li>
-                <li>Evidence of previous commercial results (without disclosing confidential client data).</li>
-                <li>A brief note explaining how you would generate your first qualified opportunities for Jiro-BEACONS.</li>
-              </ul>
-            </div>
-            <div>
-              <h4>Core Objectives</h4>
-              <ul>
-                <li>Identify and cultivate B2B client relationships across target construction, real estate, and industrial sectors.</li>
-                <li>Generate qualified leads and commercial opportunities for our integrated engineering and digital twin packages.</li>
-                <li>Represent Jiro-BEACONS capabilities during client outreach and scoping discussions.</li>
-              </ul>
-            </div>
+          
+          <div class="job-meta-list">
+            <div><strong>Company:</strong> Jiro-BEACONS Engineering Nigeria Limited</div>
+            <div><strong>Location:</strong> Remote — open to qualified candidates globally</div>
+            <div><strong>Engagement Type:</strong> Independent, performance-based commercial partnership</div>
+            <div><strong>Compensation:</strong> Commission-based; no guaranteed base salary at initial stage</div>
+            <div><strong>Market Focus:</strong> Nigeria initially, with opportunities to develop international markets</div>
+            <div><strong>Reports To:</strong> Founder &amp; CEO</div>
           </div>
 
-          <!-- DIRECT ON-SITE APPLICATION FORM OR EMAIL OPTION -->
-          <div class="application-form-container">
-            <h4>Apply for Business Development Partner</h4>
-            <p>Fill out the form below to submit your details directly, or prefer to email? <a href="mailto:giftedafe@jirobeacons.com?subject=Application%3A%20Global%20Business%20Development%20Partner">Send an email instead &rarr;</a></p>
-            
-            <form class="app-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-              <input type="hidden" name="position" value="Global Business Development Partner">
-              
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="bd-name">Full Name *</label>
-                  <input type="text" id="bd-name" name="name" required placeholder="Enter your full name">
-                </div>
-                <div class="form-group">
-                  <label for="bd-email">Email Address *</label>
-                  <input type="email" id="bd-email" name="email" required placeholder="name@example.com">
-                </div>
-              </div>
-
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="bd-markets">Target Markets &amp; Industries *</label>
-                  <input type="text" id="bd-markets" name="target_markets" required placeholder="e.g. Real Estate, Energy, North America">
-                </div>
-                <div class="form-group">
-                  <label for="bd-profile">LinkedIn Profile / CV Link *</label>
-                  <input type="url" id="bd-profile" name="profile_link" required placeholder="https://linkedin.com/in/yourprofile">
-                </div>
-              </div>
-
-              <div class="form-group full-width">
-                <label for="bd-strategy">Brief Strategy for First Opportunities *</label>
-                <textarea id="bd-strategy" name="strategy_note" rows="4" required placeholder="How would you generate your first qualified opportunities for Jiro-BEACONS?"></textarea>
-              </div>
-
-              <div class="form-actions">
-                <button type="submit" class="btn btn-gold">Submit Application &rarr;</button>
-                <span class="form-note-alt">Submissions go directly to giftedafe@jirobeacons.com</span>
-              </div>
-            </form>
+          <div class="job-details-block">
+            <h4>About the Role</h4>
+            <p>
+              We are seeking a commercially resourceful Business Development Partner to help translate our technical capabilities 
+              into client relationships, qualified opportunities, strategic partnerships and sustainable revenue. 
+              This opportunity is intended for an experienced B2B business development professional who understands consultative selling, 
+              can engage business decision-makers and is motivated by building commercial opportunities.
+            </p>
+            <p>
+              You will work directly with the Founder to identify prospective clients, understand their requirements, 
+              develop a qualified sales pipeline, coordinate proposals and progress suitable opportunities towards contract award.
+            </p>
           </div>
+
+          <div class="job-details-block">
+            <h4>What You Will Help Us Sell</h4>
+            <ul>
+              <li><strong>Integrated AEC Professional Teams:</strong> Coordinated access to architecture, town planning, land surveying, civil/structural engineering, quantity surveying, building, QA/QC, project management, and document control expertise.</li>
+              <li><strong>Engineering, Construction &amp; QA/QC:</strong> Project support, quality assurance and control coordination, inspection and testing, digital QA/QC oversight, and construction documentation workflows.</li>
+              <li><strong>Digital Engineering &amp; Asset Information:</strong> Scan-to-BIM, existing-asset capture, digital engineering packages, structured digital records, and digital-twin lifecycle data support.</li>
+              <li><strong>Quantity, Cost &amp; Project Information Services:</strong> Quantity surveying, cost documentation, measurement support, and records management workflows.</li>
+            </ul>
+          </div>
+
+          <div class="job-details-block">
+            <h4>Key Responsibilities</h4>
+            <ul>
+              <li><strong>Business Development &amp; Expansion:</strong> Identify target clients, sectors, and commercially viable opportunities across contractors, developers, engineering consultancies, and asset owners.</li>
+              <li><strong>Lead Generation &amp; Conversion:</strong> Initiate professional contact, arrange discovery meetings, qualify opportunities, coordinate proposals with the Founder, and progress negotiations towards contract award.</li>
+              <li><strong>Strategic Partnerships:</strong> Identify complementary consultancies, explore subcontracting or joint pursuits, and develop transparent referral relationships.</li>
+              <li><strong>Commercial Reporting:</strong> Maintain an organized sales pipeline, report risks/feedback regularly, and track agreed performance indicators.</li>
+            </ul>
+          </div>
+
+          <div class="job-details-block">
+            <h4>Required Experience &amp; Capabilities</h4>
+            <ul>
+              <li>Experience in B2B business development, consultative sales, commercial partnerships, or business acquisition.</li>
+              <li>Strong professional communication, negotiation, presentation, and relationship-management skills.</li>
+              <li>Self-management, reliability, and the ability to work independently in a remote arrangement across time zones.</li>
+              <li>Confidence engaging senior decision-makers and coordinating with technical professionals.</li>
+              <li>Demonstrated commercial capability and ability to explain previous results without disclosing confidential data.</li>
+            </ul>
+          </div>
+
+          <div class="job-details-block">
+            <h4>Compensation &amp; Commercial Terms</h4>
+            <p>
+              This is an initial commission-based independent business development partnership, not a salaried employment position. 
+              There is no guaranteed base salary at the initial stage. Commission rates, payment terms, eligible transactions, 
+              and confidentiality agreements will be discussed and agreed in writing before the engagement begins.
+            </p>
+          </div>
+
+          <!-- APPLICATION INSTRUCTIONS FOR BD PARTNER -->
+          <div class="job-action-wrap">
+            <div>
+              <h4 style="margin: 0 0 5px 0; color: var(--wine);">How to Apply for this Role</h4>
+              <p style="margin: 0; font-size: 13px;">Please submit your CV/LinkedIn profile, summary of experience, target markets, examples of past commercial results, and a 90-day strategy outline.</p>
+            </div>
+            <a class="btn btn-gold" href="mailto:giftedafe@jirobeacons.com?subject=Application%3A%20Global%20Business%20Development%20Partner&amp;body=Hello%20Jiro-BEACONS%20Team,%0A%0APlease%20find%20my%20application%20for%20the%20Global%20Business%20Development%20Partner%20role.%0A%0AFull%20Name:%0ALinkedIn%20Profile%20/%20CV%20Attached:%0AB2B%20Experience%20Summary:%0ATarget%20Markets%20&%20Industries:%0APast%20Commercial%20Results%20Examples:%0A90-Day%20Strategy%20Outline:%0A%0AKind%20regards,">
+              Apply via Email <span aria-hidden="true">→</span>
+            </a>
+          </div>
+
         </div>
+
 
         <!-- NETWORK INVITATIONS -->
         <div class="network-grid">
+
           <div class="network-card">
             <span class="job-badge">Project-Based · Flexible</span>
             <h3 style="margin-top: 12px; color: var(--wine);">Integrated AEC Professional Network</h3>
             <p>
-              We invite qualified architects, planners, surveyors, civil/structural engineers, quantity surveyors, 
-              builders, QA/QC specialists, and other relevant professionals to express interest in future project assignments.
+              We invite qualified architects, planners, surveyors, civil and structural engineers, quantity surveyors, 
+              builders, QA/QC specialists, and other relevant professionals to express interest in future project assignments 
+              and professional team collaborations.
             </p>
             <a class="btn btn-outline-dark" href="mailto:giftedafe@jirobeacons.com?subject=Expression%20of%20Interest%3A%20AEC%20Professional%20Network&amp;body=Hello%20Jiro-BEACONS%20Team,%0A%0AI%20would%20like%20to%20register%20my%20interest%20for%20the%20Integrated%20AEC%20Professional%20Network.%0A%0AFull%20Name:%0ADiscipline%20/%20Role:%0AQualifications%20&%20Registration:%0ALocation%20&%20Preferred%20Engagement:%0ARelevant%20Experience:%0A%0AKind%20regards,">
-              Register for AEC Network via Email
+              Register for AEC Network
             </a>
           </div>
 
@@ -1478,12 +1173,13 @@
             <h3 style="margin-top: 12px; color: var(--wine);">Technical &amp; Digital Engineering Associates</h3>
             <p>
               Build collaborative relationships with professionals experienced in Scan-to-BIM, asset information modeling, 
-              engineering documentation, quality management systems, and specialized smart building workflows.
+              engineering documentation, quality management systems, and specialized digital engineering workflows.
             </p>
             <a class="btn btn-outline-dark" href="mailto:giftedafe@jirobeacons.com?subject=Expression%20of%20Interest%3A%20Digital%20Engineering%20Associate&amp;body=Hello%20Jiro-BEACONS%20Team,%0A%0AI%20would%20like%20to%20register%20my%20interest%20as%20a%20Technical%20%26%20Digital%20Engineering%20Associate.%0A%0AFull%20Name:%0ASpecialization%20(Scan-to-BIM,%20EDMS,%20QA/QC,%20etc.):%0ALocation%20&%20Availability:%0AProfessional%20Background:%0A%0AKind%20regards,">
-              Register as Digital Associate via Email
+              Register as Digital Associate
             </a>
           </div>
+
         </div>
 
       </div>
@@ -1491,16 +1187,14 @@
 
 
     <!-- CAREER AREAS -->
-    <section class="section disciplines-section" id="opportunities">
+    <section class="section disciplines-section">
       <div class="container">
 
         <div class="section-heading">
-          <span class="eyebrow">Career areas</span>
+          <span class="eyebrow">Professional Disciplines</span>
           <h2>Where your expertise can make a difference.</h2>
           <p>
-            Our work brings together several technical and professional
-            disciplines. Explore the areas relevant to your experience and
-            consider expressing interest in future opportunities.
+            Our work brings together several technical and professional disciplines. Explore the areas relevant to your experience.
           </p>
         </div>
 
@@ -1508,134 +1202,58 @@
 
           <article class="discipline-card">
             <div class="discipline-number">01</div>
-            <h3>Engineering & Construction</h3>
+            <h3>Engineering &amp; Construction</h3>
             <p>
-              Civil, structural, mechanical and electrical engineering;
-              construction coordination; building services; and technical
-              support for infrastructure delivery.
+              Civil, structural, mechanical and electrical engineering; construction coordination; 
+              building services; and technical support for infrastructure delivery.
             </p>
           </article>
 
           <article class="discipline-card">
             <div class="discipline-number">02</div>
-            <h3>Surveying & Geospatial</h3>
+            <h3>Surveying &amp; Geospatial</h3>
             <p>
-              Land and engineering surveying, setting-out, as-built surveys,
-              geospatial data, reality capture and spatial information
-              management.
+              Land and engineering surveying, setting-out, as-built surveys, geospatial data, 
+              reality capture and spatial information management.
             </p>
           </article>
 
           <article class="discipline-card">
             <div class="discipline-number">03</div>
-            <h3>QA/QC & Materials Testing</h3>
+            <h3>QA/QC &amp; Materials Testing</h3>
             <p>
-              Quality assurance, quality control, inspection, materials
-              testing, non-destructive testing, test records and
-              construction quality evidence.
+              Quality assurance, quality control, inspection, materials testing, non-destructive testing, 
+              test records and construction quality evidence.
             </p>
           </article>
 
           <article class="discipline-card">
             <div class="discipline-number">04</div>
-            <h3>Project Controls & Quantity Surveying</h3>
+            <h3>Project Controls &amp; Quantity Surveying</h3>
             <p>
-              Planning, scheduling, quantity measurement, cost estimation,
-              BOQ development, progress monitoring and commercial support.
+              Planning, scheduling, quantity measurement, cost estimation, BOQ development, 
+              progress monitoring and commercial support.
             </p>
           </article>
 
           <article class="discipline-card">
             <div class="discipline-number">05</div>
-            <h3>Digital Engineering & BIM</h3>
+            <h3>Digital Engineering &amp; BIM</h3>
             <p>
-              BIM coordination, Scan-to-BIM, digital as-builts, asset
-              registers, structured engineering data and digital twin
-              information workflows.
+              BIM coordination, Scan-to-BIM, digital as-builts, asset registers, structured engineering data 
+              and digital twin information workflows.
             </p>
           </article>
 
           <article class="discipline-card">
             <div class="discipline-number">06</div>
-            <h3>Project Documentation & Digital Operations</h3>
+            <h3>Project Documentation &amp; Operations</h3>
             <p>
-              Document control, EDMS administration, technical records,
-              digital handover, information management, reporting and
-              workflow improvement.
+              Document control, EDMS administration, technical records, digital handover, 
+              information management, reporting and workflow improvement.
             </p>
           </article>
 
-          <article class="discipline-card">
-            <div class="discipline-number">07</div>
-            <h3>Architecture, Planning & Design Coordination</h3>
-            <p>
-              Architectural support, planning, multidisciplinary design
-              coordination, drawing management and integration of technical
-              information across project stages.
-            </p>
-          </article>
-
-          <article class="discipline-card">
-            <div class="discipline-number">08</div>
-            <h3>Technology, Data & AI Workflows</h3>
-            <p>
-              Engineering data organization, automation, software
-              development, data analysis and responsible application of
-              technology to project and asset information.
-            </p>
-          </article>
-
-          <article class="discipline-card">
-            <div class="discipline-number">09</div>
-            <h3>Business & Project Support</h3>
-            <p>
-              Project administration, research, communications, business
-              development, operations support and coordination across
-              multidisciplinary teams.
-            </p>
-          </article>
-
-        </div>
-
-        <div class="disciplines-note">
-          <p>
-            <strong>Important:</strong> These are areas of professional
-            interest, not a list of confirmed vacancies. Any engagement
-            depends on actual project requirements, role availability,
-            qualifications and the agreed working arrangement.
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- WORKING TOGETHER -->
-    <section class="culture-section">
-      <div class="container culture-grid">
-
-        <div class="culture-image">
-          <img src="images/career-image-3.jpg"
-               alt="Project professionals working together toward an engineering objective"
-               loading="lazy">
-        </div>
-
-        <div class="culture-copy">
-          <span class="eyebrow" style="color:var(--gold-light);">A connected team</span>
-
-          <h2>Engineering expertise that works together.</h2>
-
-          <p>
-            Our integrated approach connects people and information across
-            surveying, planning, construction, quality assurance and digital
-            delivery. Depending on the project, collaboration may involve
-            site-based, office-based or remote contributions where the scope
-            and working arrangement support them.
-          </p>
-
-          <a class="btn btn-gold" href="#apply">
-            Connect With Our Team <span aria-hidden="true">→</span>
-          </a>
         </div>
 
       </div>
@@ -1647,11 +1265,10 @@
       <div class="container">
 
         <div class="section-heading">
-          <span class="eyebrow">Getting started</span>
+          <span class="eyebrow">Getting Started</span>
           <h2>A clear way to introduce your expertise.</h2>
           <p>
-            We aim to make initial contact straightforward and focused on
-            relevant professional information.
+            We aim to make initial contact straightforward and focused on relevant professional information.
           </p>
         </div>
 
@@ -1661,9 +1278,8 @@
             <div class="process-step">STEP 01</div>
             <h3>Introduce your profile</h3>
             <p>
-              Share your CV or professional profile, discipline, relevant
-              experience, qualifications and the type of work you can
-              contribute to.
+              Share your CV or professional profile, discipline, relevant experience, qualifications 
+              and the type of work you can contribute to.
             </p>
           </article>
 
@@ -1671,9 +1287,8 @@
             <div class="process-step">STEP 02</div>
             <h3>Explain your strengths</h3>
             <p>
-              Highlight relevant project experience, software proficiency,
-              professional certifications and examples of the problems
-              you can help solve.
+              Highlight relevant project experience, software proficiency, professional certifications 
+              and examples of the problems you can help solve.
             </p>
           </article>
 
@@ -1681,9 +1296,8 @@
             <div class="process-step">STEP 03</div>
             <h3>Review future alignment</h3>
             <p>
-              If your experience aligns with a suitable requirement, your
-              profile may be considered for follow-up. An expression of
-              interest is not a job offer or guarantee of selection.
+              If your experience aligns with a suitable requirement, your profile may be considered for follow-up. 
+              An expression of interest is not a job offer or guarantee of selection.
             </p>
           </article>
 
@@ -1693,23 +1307,22 @@
 
 
     <!-- APPLICATION CTA -->
-    <section class="careers-cta" id="apply">
+    <section class="careers-cta" id="partner">
       <div class="container cta-inner">
 
         <div class="cta-copy">
-          <span class="eyebrow" style="color:var(--gold-light);">Start a conversation</span>
-          <h2>Have the expertise we should know about?</h2>
+          <span class="eyebrow" style="color:var(--gold-light);">Start a Conversation</span>
+          <h2>Bring Your Expertise Into the Network.</h2>
           <p>
-            Send us your professional profile and tell us where you can
-            contribute. Please include your discipline, years of experience,
-            location and preferred working arrangement.
+            Whether you develop business, deliver engineering projects, or specialize in digital engineering, 
+            we welcome relevant professional enquiries sent directly via email.
           </p>
         </div>
 
         <div class="cta-action">
           <a class="btn btn-gold"
-             href="mailto:giftedafe@jirobeacons.com?subject=Career%20Expression%20of%20Interest%20-%20Jiro-BEACONS&amp;body=Hello%20Jiro-BEACONS%20Team%2C%0A%0AI%20would%20like%20to%20express%20interest%20in%20future%20career%20opportunities.%0A%0AFull%20Name%3A%0ADiscipline%3A%0AYears%20of%20Experience%3A%0ACurrent%20Location%3A%0APreferred%20Working%20Arrangement%3A%0ARelevant%20Skills%20and%20Experience%3A%0A%0AI%20will%20attach%20my%20CV%20or%20professional%20profile.%0A%0AKind%20regards%2C">
-            Submit Your Interest <span aria-hidden="true">→</span>
+             href="mailto:giftedafe@jirobeacons.com?subject=Professional%20Enquiry%20-%20Jiro-BEACONS&amp;body=Hello%20Jiro-BEACONS%20Team%2C%0A%0AI%20would%20like%20to%20connect%20regarding%20professional%20collaboration%20opportunities.%0A%0AFull%20Name%3A%0AExpertise%20/%20Discipline%3A%0ALocation%3A%0AMessage%3A%0A%0AKind%20regards%2C">
+            Email Our Team <span aria-hidden="true">→</span>
           </a>
         </div>
 
