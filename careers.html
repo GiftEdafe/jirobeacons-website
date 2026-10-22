@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Careers | Jiro-BEACONS Engineering</title>
+  <title>Careers &amp; Opportunities | Jiro-BEACONS Engineering</title>
   <meta name="description" content="Explore career opportunities with Jiro-BEACONS Engineering. Connect with an integrated team working across engineering, surveying, construction quality, digital engineering and intelligent infrastructure.">
   <meta name="theme-color" content="#2B0714">
 
@@ -182,6 +182,17 @@
     .btn-outline:hover {
       background: var(--white);
       color: var(--wine);
+    }
+
+    .btn-outline-dark {
+      border-color: var(--wine);
+      color: var(--wine);
+      background: transparent;
+    }
+
+    .btn-outline-dark:hover {
+      background: var(--wine);
+      color: var(--white);
     }
 
     /* SOLID WINE HEADER & ORIGINAL DESKTOP 3-COLUMN GRID */
@@ -558,6 +569,102 @@
       line-height: 1.7;
     }
 
+    /* RECRUITMENT SECTION STYLES (NEWLY ADDED) */
+    .recruitment-section {
+      background: var(--off-white);
+      padding: 100px 0;
+    }
+
+    .featured-job-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-top: 5px solid var(--gold);
+      padding: 45px;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    }
+
+    .job-badge-wrap {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+    }
+
+    .job-badge {
+      display: inline-block;
+      padding: 5px 12px;
+      background: var(--off-white);
+      color: var(--wine);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+    }
+
+    .job-badge.highlight {
+      background: var(--gold-light);
+      color: var(--wine);
+      border-color: var(--gold);
+    }
+
+    .featured-job-card h3 {
+      font-size: 28px;
+      color: var(--wine);
+      margin-bottom: 15px;
+    }
+
+    .job-details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 25px;
+      margin-bottom: 30px;
+      padding-top: 25px;
+      border-top: 1px solid var(--border);
+    }
+
+    .job-details-grid h4 {
+      font-size: 16px;
+      color: var(--wine);
+      margin-bottom: 10px;
+    }
+
+    .job-details-grid ul {
+      padding-left: 20px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .job-details-grid li {
+      margin-bottom: 6px;
+    }
+
+    .network-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    .network-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 35px;
+      border-top: 4px solid var(--wine);
+    }
+
+    .network-card h3 {
+      font-size: 21px;
+      color: var(--wine);
+      margin-bottom: 12px;
+    }
+
+    .network-card p {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
     /* DISCIPLINES */
 
     .disciplines-section {
@@ -930,7 +1037,7 @@
       .nav-dropdown-group { width: 100%; align-items: flex-start !important; text-align: left !important; }
       .nav-dropdown-group:last-child { justify-self: start; align-items: flex-start; text-align: left; }
 
-      .intro-grid, .people-grid, .culture-grid, .discipline-grid, .process-grid { grid-template-columns: 1fr; }
+      .intro-grid, .people-grid, .culture-grid, .discipline-grid, .process-grid, .network-grid, .job-details-grid { grid-template-columns: 1fr; }
       .cta-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
       .footer-top { grid-template-columns: 1fr 1fr; gap: 20px; }
     }
@@ -1177,6 +1284,84 @@
               </div>
             </li>
           </ul>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- NEW RECRUITMENT & ACTIVE OPPORTUNITIES SECTION -->
+    <section class="recruitment-section" id="active-recruitment">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Active Recruitment &amp; Networks</span>
+          <h2>Explore Current Opportunities</h2>
+          <p>Review our active recruitment for commercial partners or express interest in joining our professional associate network.</p>
+        </div>
+
+        <!-- FEATURED ROLE: GLOBAL BUSINESS DEVELOPMENT PARTNER -->
+        <div class="featured-job-card" id="business-development-partner">
+          <div class="job-badge-wrap">
+            <span class="job-badge highlight">Active Recruitment</span>
+            <span class="job-badge">Remote · Global · Commission-Based</span>
+          </div>
+          <h3>Global Business Development Partner</h3>
+          <p>
+            Develop client relationships and commercial opportunities across engineering, construction, 
+            integrated AEC teams, and digital engineering solutions. We are seeking experienced commercial leaders 
+            who can unlock international markets and bridge clients with our technical capacity.
+          </p>
+
+          <div class="job-details-grid">
+            <div>
+              <h4>Key Requirements &amp; Information</h4>
+              <ul>
+                <li>CV or LinkedIn profile detailing relevant B2B sales and business development experience.</li>
+                <li>Target industries and international markets you can realistically access.</li>
+                <li>Evidence of previous commercial results (without disclosing confidential client data).</li>
+                <li>A brief note explaining how you would generate your first qualified opportunities for Jiro-BEACONS.</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Core Objectives</h4>
+              <ul>
+                <li>Identify and cultivate B2B client relationships across target construction, real estate, and industrial sectors.</li>
+                <li>Generate qualified leads and commercial opportunities for our integrated engineering and digital twin packages.</li>
+                <li>Represent Jiro-BEACONS capabilities during client outreach and scoping discussions.</li>
+              </ul>
+            </div>
+          </div>
+
+          <a class="btn btn-gold" href="mailto:giftedafe@jirobeacons.com?subject=Application%3A%20Global%20Business%20Development%20Partner&amp;body=Hello%20Jiro-BEACONS%20Team,%0A%0APlease%20find%20my%20application%20for%20the%20Global%20Business%20Development%20Partner%20role.%0A%0AFull%20Name:%0ALinkedIn%20Profile%20/%20CV%20Attached:%0ATarget%20Markets%20&%20Industries:%0ACommercial%20Track%20Record%20Overview:%0AStrategy%20for%20First%20Opportunities:%0A%0AKind%20regards,">
+            Apply for Business Development Partner &rarr;
+          </a>
+        </div>
+
+        <!-- NETWORK INVITATIONS -->
+        <div class="network-grid">
+          <div class="network-card">
+            <span class="job-badge">Project-Based · Flexible</span>
+            <h3 style="margin-top: 12px; color: var(--wine);">Integrated AEC Professional Network</h3>
+            <p>
+              We invite qualified architects, planners, surveyors, civil/structural engineers, quantity surveyors, 
+              builders, QA/QC specialists, and other relevant professionals to express interest in future project assignments.
+            </p>
+            <a class="btn btn-outline-dark" href="mailto:giftedafe@jirobeacons.com?subject=Expression%20of%20Interest%3A%20AEC%20Professional%20Network&amp;body=Hello%20Jiro-BEACONS%20Team,%0A%0AI%20would%20like%20to%20register%20my%20interest%20for%20the%20Integrated%20AEC%20Professional%20Network.%0A%0AFull%20Name:%0ADiscipline%20/%20Role:%0AQualifications%20&%20Registration:%0ALocation%20&%20Preferred%20Engagement:%0ARelevant%20Experience:%0A%0AKind%20regards,">
+              Register for AEC Network
+            </a>
+          </div>
+
+          <div class="network-card">
+            <span class="job-badge">Project-Dependent</span>
+            <h3 style="margin-top: 12px; color: var(--wine);">Technical &amp; Digital Engineering Associates</h3>
+            <p>
+              Build collaborative relationships with professionals experienced in Scan-to-BIM, asset information modeling, 
+              engineering documentation, quality management systems, and specialized smart building workflows.
+            </p>
+            <a class="btn btn-outline-dark" href="mailto:giftedafe@jirobeacons.com?subject=Expression%20of%20Interest%3A%20Digital%20Engineering%20Associate&amp;body=Hello%20Jiro-BEACONS%20Team,%0A%0AI%20would%20like%20to%20register%20my%20interest%20as%20a%20Technical%20%26%20Digital%20Engineering%20Associate.%0A%0AFull%20Name:%0ASpecialization%20(Scan-to-BIM,%20EDMS,%20QA/QC,%20etc.):%0ALocation%20&%20Availability:%0AProfessional%20Background:%0A%0AKind%20regards,">
+              Register as Digital Associate
+            </a>
+          </div>
         </div>
 
       </div>
