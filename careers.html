@@ -15,8 +15,8 @@
   <style>
     :root {
       --wine: #2B0714;
-      --wine-light: #3A0A1B;
-      --wine-deep: #18040B;
+      --wine-light: #2B0714;
+      --wine-deep: #2B0714;
       --gold: #D4AF37;
       --gold-light: #E8D28A;
       --white: #FFFFFF;
@@ -166,7 +166,7 @@
 
     .btn-gold {
       background: var(--gold);
-      color: var(--wine-deep);
+      color: var(--wine);
     }
 
     .btn-gold:hover {
@@ -184,7 +184,7 @@
       color: var(--wine);
     }
 
-    /* SOLID WINE HEADER & FULL-WIDTH ALIGNED DROPDOWN MENU */
+    /* SOLID WINE HEADER & ORIGINAL DESKTOP 3-COLUMN GRID */
     .site-header {
       position: fixed;
       z-index: 10000;
@@ -205,7 +205,7 @@
       align-items: center;
       gap: 20px;
       padding: 0 25px;
-      background: var(--wine-light);
+      background: var(--wine);
       border: none;
       border-radius: 4px 4px 0 0;
       box-shadow: 0 12px 30px rgba(24, 4, 11, 0.25);
@@ -264,7 +264,7 @@
       grid-template-columns: 1fr 1fr;
       gap: 40px;
       padding: 35px 40px;
-      background: var(--wine-light);
+      background: var(--wine);
       border: none;
       border-radius: 0 0 4px 4px;
       box-shadow: 0 20px 40px rgba(24, 4, 11, 0.35);
@@ -282,12 +282,12 @@
       margin: 0 0 4px; color: var(--gold-light); font-size: .72rem;
       font-weight: 800; letter-spacing: .06em; line-height: 1.5; text-transform: uppercase;
     }
-    .main-nav .nav-dropdown-menu a {
+    .header-left-nav .nav-dropdown-menu a {
       color: rgba(255,255,255,.84); font-size: .88rem; font-weight: 500;
       letter-spacing: 0; line-height: 1.45; text-transform: none; white-space: normal;
       text-decoration: none;
     }
-    .main-nav .nav-dropdown-menu a:hover { color: var(--gold-light); text-decoration: none; }
+    .header-left-nav .nav-dropdown-menu a:hover { color: var(--gold-light); text-decoration: none; }
 
     .header-tools { display: flex; align-items: center; gap: 10px; }
     .icon-button {
@@ -308,7 +308,7 @@
 
     .search-panel {
       position: absolute; top: calc(100% + 20px); left: 0; right: 0; z-index: 12000;
-      display: none; padding: 20px 0; background: var(--wine-light);
+      display: none; padding: 20px 0; background: var(--wine);
       border: none;
       box-shadow: 0 18px 35px rgba(0,0,0,.22);
     }
@@ -767,11 +767,10 @@
       flex-shrink: 0;
     }
 
-    /* FOOTER */
-
+    /* FOOTER - COMPACT & UNIFIED WINE */
     .site-footer {
-      padding: 65px 0 24px;
-      background: var(--wine-light);
+      padding: 40px 0 20px;
+      background: var(--wine);
       color: var(--white);
       position: relative;
       z-index: 10;
@@ -780,27 +779,27 @@
     .footer-top {
       display: grid;
       grid-template-columns: 1.4fr 0.8fr 0.8fr;
-      gap: 65px;
-      padding-bottom: 45px;
+      gap: 40px;
+      padding-bottom: 30px;
     }
 
     .footer-brand img {
-      width: 205px;
-      max-height: 65px;
+      width: 180px;
+      max-height: 50px;
       object-fit: contain;
       object-position: left center;
-      margin-bottom: 22px;
+      margin-bottom: 15px;
     }
 
     .footer-brand p {
       max-width: 340px;
       color: rgba(255, 255, 255, 0.67);
       font-size: 13px;
-      line-height: 1.9;
+      line-height: 1.7;
     }
 
     .footer-column h4 {
-      margin-bottom: 20px;
+      margin-bottom: 14px;
       color: var(--white);
       font-family: "DM Sans", sans-serif;
       font-size: 12px;
@@ -810,7 +809,7 @@
 
     .footer-links {
       display: grid;
-      gap: 10px;
+      gap: 8px;
       list-style: none;
     }
 
@@ -829,7 +828,7 @@
       justify-content: space-between;
       align-items: center;
       gap: 20px;
-      padding-top: 22px;
+      padding-top: 18px;
       border-top: 1px solid rgba(255, 255, 255, 0.14);
     }
 
@@ -843,10 +842,11 @@
       color: var(--gold);
     }
 
-    /* RESPONSIVE STYLES */
+    /* RESPONSIVE STYLES & CORRECT MOBILE DRAWER TOGGLE FIX */
     @media(min-width:1101px){
       .nav-dropdown:hover .nav-dropdown-menu,
       .nav-dropdown:focus-within .nav-dropdown-menu{display:grid}
+      .mobile-only-nav { display: none !important; }
     }
     @media(max-width:1100px){
       .site-header { top: 0; left: 0; right: 0; }
@@ -854,22 +854,83 @@
         max-width: 100%; width: 100%; border-radius: 0;
         display: grid; grid-template-columns: auto 1fr auto;
         align-items: center; gap: 10px; min-height: 64px; padding: 0 12px;
-        background: var(--wine-light);
+        background: var(--wine);
       }
       .header-inner .brand { grid-column: 1; justify-self: start; margin-left: 0; }
       .header-inner .brand img{ width: 130px; max-height: 38px; }
       .header-tools { grid-column: 3; justify-self: end; }
 
+      /* HIDE DESKTOP RIGHT NAV ON MOBILE */
+      .desktop-right-nav { display: none !important; }
+
+      /* MOBILE DRAWER: HIDDEN BY DEFAULT, ONLY SHOWN WHEN .is-open IS ACTIVE */
       .main-nav{
-        position:absolute;top:100%;left:0;right:0;z-index:11500;
-        display:none;flex-direction:column;align-items:flex-start;
-        padding:20px 24px;background:var(--wine-light);
-        box-shadow:0 15px 30px rgba(0,0,0,.3)
+        position:absolute; top:100%; left:0; right:0; z-index:11500;
+        display: none !important; 
+        flex-direction:column; align-items:flex-start;
+        padding:20px 24px; background:var(--wine);
+        box-shadow:0 15px 30px rgba(0,0,0,.4);
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        gap: 16px;
       }
-      .main-nav.is-open{display:flex}
+      .main-nav.is-open {
+        display: flex !important;
+      }
       .menu-toggle{display:flex}
-      .intro-grid, .people-grid, .culture-grid, .discipline-grid, .process-grid { grid-template-columns: 1fr; }
+
+      /* MOBILE-ONLY NAV LINKS */
+      .mobile-only-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: 16px;
+      }
+
+      .header-left-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: 16px;
+      }
+
+      /* EXACT FONT & STYLE MATCH FOR EXTRA NAV LINKS */
+      .mobile-only-nav a {
+        color: rgba(255,255,255,.94);
+        font-size: .7rem;
+        font-weight: 800;
+        letter-spacing: .055em;
+        text-decoration: none;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+      .mobile-only-nav a:hover, .mobile-only-nav a.active {
+        color: var(--gold-light);
+      }
+
+      /* MOBILE DROPDOWN STYLING */
+      .nav-dropdown { width: 100%; }
+      .nav-dropdown-toggle { width: 100%; justify-content: space-between; padding: 0; }
+      
+      .nav-dropdown-menu {
+        position: static;
+        display: none;
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 10px 0 10px 15px;
+        background: transparent;
+        box-shadow: none;
+        width: 100%;
+        border-left: 2px solid var(--gold);
+      }
+      .nav-dropdown-menu.is-open { display: flex; flex-direction: column; }
+      .nav-dropdown-group { width: 100%; align-items: flex-start !important; text-align: left !important; }
       .nav-dropdown-group:last-child { justify-self: start; align-items: flex-start; text-align: left; }
+
+      .intro-grid, .people-grid, .culture-grid, .discipline-grid, .process-grid { grid-template-columns: 1fr; }
       .cta-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
       .footer-top { grid-template-columns: 1fr 1fr; gap: 20px; }
     }
@@ -879,7 +940,7 @@
       .header-inner{min-height:54px;padding:0 8px;}
       .brand img{width:110px;max-height:32px}
       .icon-button{width:32px;height:32px}
-      .footer-top { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; gap: 25px; }
     }
   </style>
 </head>
@@ -913,6 +974,13 @@
           </div>
         </div>
         <a href="solutions.html">Solutions</a>
+        
+        <!-- MOBILE-ONLY EXTRA NAV LINKS -->
+        <div class="mobile-only-nav">
+          <a href="projects.html">Projects</a>
+          <a href="insights.html">Insights</a>
+          <a href="careers.html" class="active" style="color:var(--gold-light);">Careers</a>
+        </div>
       </nav>
 
       <a class="brand" href="index.html" aria-label="Jiro-BEACONS Engineering home">
@@ -920,7 +988,7 @@
       </a>
 
       <div class="header-right-group">
-        <nav class="main-nav header-right-nav" aria-label="Secondary navigation">
+        <nav class="main-nav header-right-nav desktop-right-nav" aria-label="Secondary navigation">
           <a href="projects.html">Projects</a>
           <a href="insights.html">Insights</a>
           <a href="careers.html" class="active" style="color:var(--gold-light);">Careers</a>
