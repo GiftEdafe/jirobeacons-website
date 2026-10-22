@@ -48,7 +48,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    body.menu-open, body.search-open {
+    body.menu-open, body.search-open, body.discover-modal-open {
       overflow: hidden;
     }
 
@@ -184,6 +184,90 @@
     .btn-outline:hover {
       background: var(--white);
       color: var(--wine);
+    }
+
+    /* MODAL OVERLAY FOR DISCOVER PROJECT */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 20000;
+      background: rgba(11, 15, 20, 0.85);
+      backdrop-filter: blur(5px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 20px;
+      overflow-y: auto;
+    }
+    .modal-overlay.is-open {
+      display: flex;
+    }
+    .modal-container {
+      background: var(--off-white);
+      color: var(--text);
+      width: min(1100px, 100%);
+      max-height: 90vh;
+      border-radius: 4px;
+      border-top: 5px solid var(--gold);
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+      overflow: hidden;
+    }
+    .modal-header {
+      background: var(--wine);
+      color: var(--white);
+      padding: 24px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .modal-header h3 {
+      color: var(--white);
+      font-size: 22px;
+    }
+    .modal-close {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.4);
+      color: var(--white);
+      width: 36px;
+      height: 36px;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      transition: background 0.2s;
+    }
+    .modal-close:hover {
+      background: var(--gold);
+      color: var(--wine);
+      border-color: var(--gold);
+    }
+    .modal-body {
+      padding: 35px 30px;
+      overflow-y: auto;
+    }
+
+    .modal-content-block h4 {
+      color: var(--wine);
+      font-size: 20px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    .modal-content-block p {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 15px;
+      line-height: 1.7;
+    }
+    .modal-content-block ul {
+      margin-left: 20px;
+      margin-bottom: 15px;
+      color: var(--muted);
+    }
+    .modal-content-block li {
+      margin-bottom: 8px;
     }
 
     /* SOLID WINE HEADER & ORIGINAL DESKTOP 3-COLUMN GRID */
@@ -859,6 +943,9 @@
       Jiro-BEACONS provides clients with direct access to coordinated multidisciplinary AEC professional teams 
       alongside specialized digital engineering workflows to support projects from early planning through handover.
     </p>
+    <div style="margin-top: 25px;">
+      <button class="btn btn-gold" id="open-discover-modal" type="button">Discover Your Project <span aria-hidden="true">&rarr;</span></button>
+    </div>
   </div>
 </section>
 
@@ -1023,6 +1110,42 @@
 </main>
 
 
+<!-- DISCOVER YOUR PROJECT MODAL -->
+<div class="modal-overlay" id="discover-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="discover-modal-title">
+  <div class="modal-container">
+    <div class="modal-header">
+      <h3 id="discover-modal-title">Discover Your Project | Strategic Insights &amp; Execution Framework</h3>
+      <button class="modal-close" id="close-discover-modal" aria-label="Close discover modal">&times;</button>
+    </div>
+    <div class="modal-body modal-content-block">
+      
+      <span class="eyebrow">Project Intelligence &amp; Risk Mitigation</span>
+      
+      <h4>Why You Need to Discover Your Project</h4>
+      <p>Modern infrastructure and real estate ventures face critical challenges related to data fragmentation, compliance oversight, and operational blind spots. Discovering your project through Jiro-BEACONS' structured diagnostic and technical framework unlocks complete transparency across physical execution and digital asset intelligence.</p>
+
+      <h4>1. Diagnostic Auditing &amp; Risk Visibility</h4>
+      <p>Uncover hidden compliance gaps, geometric discrepancies, and material quality bottlenecks before they escalate into costly rework or legal disputes. Our independent audits establish a rigorous baseline of your project's current status.</p>
+
+      <h4>2. Streamlined Multidisciplinary Integration</h4>
+      <p>Eliminate silos between architectural design, geospatial surveying, structural engineering, and cost control. Discovering your project aligns all stakeholders around a single source of verified truth, optimizing resource allocation and project timelines.</p>
+
+      <h4>3. Future-Proof Digital Handover (DEP)</h4>
+      <p>Transition from scattered paperwork and unverified as-builts to a fully structured Digital Engineering Package. Equip facility operators with real-time telemetry-ready data registries, maintenance tracking, and audit-ready compliance ledgers.</p>
+
+      <h4>4. Optimized Capital &amp; Lifecycle Efficiency</h4>
+      <p>Gain exact quantity take-offs, robust BOQ cost planning, and intelligent energy/carbon compliance tracking to protect your capital investment from conception through ongoing facility management.</p>
+
+      <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+        <p style="margin: 0; font-size: 14px;">Ready to execute your project with absolute clarity and control?</p>
+        <a href="contact.html" class="btn btn-gold" style="min-height: 44px; padding: 10px 20px; font-size: 13px;">Initiate Project Consultation →</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
 <footer class="site-footer">
   <div class="container">
     <div class="footer-top">
@@ -1089,6 +1212,35 @@
   const searchInput = document.getElementById("site-search-input");
   const searchForm = document.getElementById("search-form");
   const searchFeedback = document.getElementById("search-feedback");
+
+  // Discover Project Modal elements
+  const openDiscoverModalBtn = document.getElementById("open-discover-modal");
+  const closeDiscoverModalBtn = document.getElementById("close-discover-modal");
+  const discoverModal = document.getElementById("discover-modal");
+
+  function openDiscoverModal(){
+    if(discoverModal){
+      discoverModal.classList.add("is-open");
+      discoverModal.setAttribute("aria-hidden","false");
+      document.body.classList.add("discover-modal-open");
+    }
+  }
+
+  function closeDiscoverModal(){
+    if(discoverModal){
+      discoverModal.classList.remove("is-open");
+      discoverModal.setAttribute("aria-hidden","true");
+      document.body.classList.remove("discover-modal-open");
+    }
+  }
+
+  if(openDiscoverModalBtn) openDiscoverModalBtn.addEventListener("click", openDiscoverModal);
+  if(closeDiscoverModalBtn) closeDiscoverModalBtn.addEventListener("click", closeDiscoverModal);
+  if(discoverModal){
+    discoverModal.addEventListener("click", function(e){
+      if(e.target === discoverModal) closeDiscoverModal();
+    });
+  }
 
   function closeServices(){
     if(servicesMenu) servicesMenu.classList.remove("is-open");
@@ -1199,6 +1351,7 @@
     if(event.key === "Escape"){
       closeMenu();
       closeSearch();
+      closeDiscoverModal();
     }
   });
 
