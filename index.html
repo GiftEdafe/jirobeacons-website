@@ -238,7 +238,11 @@
       .main-nav{ position:absolute; top:100%; left:0; right:0; z-index:11500; display: none !important; flex-direction:column; align-items:flex-start; padding:20px 24px; background:var(--wine); box-shadow:0 15px 30px rgba(0,0,0,.4); max-height: calc(100vh - 70px); overflow-y: auto; gap: 16px; }
       .main-nav.is-open { display: flex !important; }
       .menu-toggle{display:flex}
+      
       .mobile-only-nav { display: flex; flex-direction: column; align-items: flex-start; width: 100%; gap: 16px; }
+      .mobile-only-nav a { color: rgba(255,255,255,.94); font-size: .7rem; font-weight: 800; letter-spacing: .055em; text-decoration: none; text-transform: uppercase; white-space: nowrap; }
+      .mobile-only-nav a:hover, .mobile-only-nav a.active { color: var(--gold-light); }
+
       .header-left-nav { display: flex; flex-direction: column; align-items: flex-start; width: 100%; gap: 16px; }
       .capability-grid{grid-template-columns:repeat(2,1fr)}
       .lifecycle-grid{grid-template-columns:repeat(2,1fr)}
@@ -270,6 +274,7 @@
           <div class="nav-dropdown-menu" id="services-menu">
             <div class="nav-dropdown-group">
               <h2 class="nav-dropdown-heading">Core Infrastructure Engineering</h2>
+              <a href="services.html#integrated-teams">Integrated AEC Professional Teams</a>
               <a href="services.html#surveying">Surveying &amp; Geospatial</a>
               <a href="services.html#quantity-surveying">Quantity Surveying &amp; Cost Support</a>
               <a href="services.html#engineering-coordination">Engineering &amp; Project Coordination</a>
@@ -341,9 +346,9 @@
       </div>
       <div class="container">
         <a href="#" class="suffolk-card-link" id="open-discover-modal">
-          <span class="eyebrow" style="color:var(--gold-light);">Integrated Engineering &middot; Digital Infrastructure</span>
-          <h1>Engineering better information <span>for smarter infrastructure.</span></h1>
-          <p class="hero-copy">From surveying and project delivery to quality assurance and digital asset information, we connect engineering activities with the evidence and data that support better decisions.</p>
+          <span class="eyebrow" style="color:var(--gold-light);">Integrated AEC Professional Teams &middot; Physical &amp; Digital Infrastructure</span>
+          <h1>Building physical infrastructure <span>from ground to commissioning.</span></h1>
+          <p class="hero-copy">We execute the complete engineering and construction lifecycle—from town planning, architectural design, land surveying, and civil construction to final commissioning, handover, and our signature Digital Engineering Package (DEP).</p>
           <div class="suffolk-link-indicator">Discover Jiro-BEACONS &rarr;</div>
         </a>
       </div>
@@ -363,8 +368,8 @@
       <div class="container">
         <a href="about.html" class="suffolk-card-link" style="max-width: 800px;">
           <span class="eyebrow" style="color:var(--gold-light);">Who We Are</span>
-          <h2 style="color:#fff; font-size: clamp(2rem, 4.5vw, 3.5rem); margin-bottom: 16px;">Engineering delivery and information, working as one.</h2>
-          <p style="color:rgba(255,255,255,0.9); margin-bottom: 20px;">Jiro-BEACONS Engineering brings together surveying, quantity and cost support, engineering coordination, construction delivery, QA/QC and digital engineering.</p>
+          <h2 style="color:#fff; font-size: clamp(2rem, 4.5vw, 3.5rem); margin-bottom: 16px;">Complete structural engineering and construction execution.</h2>
+          <p style="color:rgba(255,255,255,0.9); margin-bottom: 20px;">Jiro-BEACONS Engineering delivers full-scale physical infrastructure. We handle everything from initial land surveying and architectural design to heavy structural construction and precise quality assurance.</p>
           <div class="suffolk-link-indicator">Explore About Us &rarr;</div>
         </a>
       </div>
@@ -384,8 +389,8 @@
       <div class="container">
         <a href="solutions.html" class="suffolk-card-link" style="max-width: 850px;">
           <span class="eyebrow" style="color:var(--gold-light);">Our Engineering Lifecycle</span>
-          <h2 style="color:#fff; font-size: clamp(2rem, 4.5vw, 3.5rem); margin-bottom: 16px;">From initial assessment to informed operations.</h2>
-          <p style="color:rgba(255,255,255,0.9); margin-bottom: 20px;">Connected capabilities designed to support the project lifecycle, with services aligned to each client's requirements and scope.</p>
+          <h2 style="color:#fff; font-size: clamp(2rem, 4.5vw, 3.5rem); margin-bottom: 16px;">From town planning to commissioning and signature DEP handover.</h2>
+          <p style="color:rgba(255,255,255,0.9); margin-bottom: 20px;">Our workflow seamlessly bridges physical construction phases with rigorous QA/QC and our signature Digital Engineering Package (DEP) to guarantee lifelong operational clarity.</p>
           <div class="suffolk-link-indicator">View Lifecycle Solutions &rarr;</div>
         </a>
       </div>
@@ -405,8 +410,8 @@
       <div class="container">
         <a href="services.html" class="suffolk-card-link" style="max-width: 850px;">
           <span class="eyebrow" style="color:var(--gold-light);">Engineering &amp; Project Delivery</span>
-          <h2 style="color:#fff; font-size: clamp(2rem, 4.5vw, 3.5rem); margin-bottom: 16px;">Connecting field reality with engineering control.</h2>
-          <p style="color:rgba(255,255,255,0.9); margin-bottom: 20px;">Infrastructure delivery involves people, materials, measurements, inspections, tests and decisions. We help organize these activities around clear requirements and reliable project information.</p>
+          <h2 style="color:#fff; font-size: clamp(2rem, 4.5vw, 3.5rem); margin-bottom: 16px;">Actual civil construction backed by rigorous quality assurance.</h2>
+          <p style="color:rgba(255,255,255,0.9); margin-bottom: 20px;">We manage structural engineering execution with absolute precision, combining skilled onsite construction teams with end-to-end testing, inspection, and verification.</p>
           <div class="suffolk-link-indicator">Explore Services &rarr;</div>
         </a>
       </div>
@@ -417,45 +422,45 @@
       <div class="container">
         <div class="section-heading">
           <span class="eyebrow">What We Do</span>
-          <h2>Capabilities designed to work together.</h2>
-          <p>Our services connect physical project delivery with the quality records, spatial data and asset information that support better decisions.</p>
+          <h2>Capabilities designed for the complete construction lifecycle.</h2>
+          <p>From initial planning and structural design to physical building execution and digital handover packages, our core services cover every phase of infrastructure development.</p>
         </div>
 
         <div class="capability-grid">
           <article class="capability-card" id="surveying">
-            <span class="capability-number">01 / SPATIAL</span>
-            <h3>Surveying &amp; Geospatial</h3>
-            <p>Surveying, as-built capture, spatial data and existing-asset information for planning, construction and asset management.</p>
+            <span class="capability-number">01 / PLANNING &amp; SURVEY</span>
+            <h3>Town Planning &amp; Land Surveying</h3>
+            <p>Comprehensive site assessment, cadastral land surveying, topographic mapping, and town planning layouts to establish reliable physical boundaries.</p>
           </article>
           <article class="capability-card" id="quantity-surveying">
-            <span class="capability-number">02 / COMMERCIAL</span>
-            <h3>Quantity &amp; Cost</h3>
-            <p>Measurement, quantity take-offs, BOQ development, cost planning and commercial project support.</p>
+            <span class="capability-number">02 / DESIGN &amp; COST</span>
+            <h3>Architectural Design &amp; Quantity Surveying</h3>
+            <p>Innovative architectural design, structural engineering calculations, bill of quantities (BOQs), cost planning, and commercial support.</p>
           </article>
           <article class="capability-card" id="engineering-coordination">
-            <span class="capability-number">03 / DELIVERY</span>
-            <h3>Engineering &amp; Construction</h3>
-            <p>Engineering planning, multidisciplinary coordination and construction delivery support for buildings and infrastructure.</p>
+            <span class="capability-number">03 / CONSTRUCTION</span>
+            <h3>Actual Civil &amp; Structural Construction</h3>
+            <p>End-to-end physical building delivery, multidisciplinary project coordination, and heavy construction execution for residential, commercial, and industrial facilities.</p>
           </article>
           <article class="capability-card" id="quality-assurance">
             <span class="capability-number">04 / ASSURANCE</span>
-            <h3>QA/QC &amp; Testing</h3>
-            <p>Inspection, testing, quality records and traceable evidence supporting construction control and verification.</p>
+            <h3>QA/QC, Inspection &amp; Testing</h3>
+            <p>Independent quality assurance, material testing, structural inspection, and traceable evidence supporting safety and compliance.</p>
           </article>
           <article class="capability-card" id="information-management">
-            <span class="capability-number">05 / DIGITAL</span>
-            <h3>Digital Engineering &amp; AI Workflows</h3>
-            <p>Digital Engineering Packages, Scan-to-BIM, structured project information and carefully applied AI-assisted information workflows where suitable.</p>
+            <span class="capability-number">05 / SIGNATURE DEP</span>
+            <h3>Digital Engineering Package (DEP)</h3>
+            <p>Our signature Digital Engineering Package providing structured as-built models, comprehensive documentation, and digital handover records.</p>
           </article>
           <article class="capability-card" id="asset-information">
-            <span class="capability-number">06 / LIFECYCLE</span>
-            <h3>Asset Information</h3>
-            <p>Digital asset registers, as-built information and structured handover data to support operations, maintenance and future decisions.</p>
+            <span class="capability-number">06 / COMMISSIONING</span>
+            <h3>Commissioning &amp; Handover</h3>
+            <p>Thorough testing, facility commissioning, and formal handover protocols ensuring fully functional, operation-ready infrastructure assets.</p>
           </article>
           <article class="capability-card" id="automation">
             <span class="capability-number">07 / AUTOMATION</span>
             <h3>Smart Building Telemetry &amp; Integration</h3>
-            <p>Scan-to-BIM, digital twin modeling, and edge hardware deployment utilizing BACnet and Modbus protocols to capture live, 15-minute facility infrastructure logs.</p>
+            <p>Digital twin modeling and edge hardware deployment utilizing BACnet and Modbus protocols to capture live, 15-minute facility infrastructure logs.</p>
           </article>
           <article class="capability-card" id="edgecarbon">
             <span class="capability-number">08 / OPERATIONS</span>
@@ -478,7 +483,7 @@
         <div class="section-heading">
           <span class="eyebrow">Where We Work</span>
           <h2>Supporting the built environment and critical assets.</h2>
-          <p>We tailor our engineering and information services to the requirements, risks and delivery environment of each project.</p>
+          <p>We tailor our full lifecycle engineering and construction services to the requirements, risks and delivery environment of each project.</p>
         </div>
         <div class="sector-grid">
           <article class="sector-card"><h3>Real Estate &amp; Property</h3></article>
@@ -496,8 +501,8 @@
       <div class="container">
         <div class="section-heading">
           <span class="eyebrow">Selected Project Experience</span>
-          <h2>Information that supports project control.</h2>
-          <p>A snapshot of the way structured documentation and traceable evidence can support delivery and handover.</p>
+          <h2>Physical construction backed by digital precision.</h2>
+          <p>A snapshot of how our end-to-end execution and structured documentation support successful project delivery.</p>
         </div>
 
         <article class="project-card">
@@ -509,8 +514,8 @@
           </div>
           <div class="project-details">
             <span class="status">Ongoing project</span>
-            <h3>Digital QA/QC &amp; Project Documentation</h3>
-            <p>Supporting the organization of project records, material information, quality documentation and construction evidence for improved traceability and handover readiness.</p>
+            <h3>Civil Construction, QA/QC &amp; Project Documentation</h3>
+            <p>Executing physical construction and organizing project records, material testing, and quality documentation for complete traceability and handover readiness.</p>
             <div class="project-meta"><span>Project</span><strong>Imo City Computer Village Hub</strong></div>
             <div class="project-meta"><span>Location</span><strong>Imo State, Nigeria</strong></div>
             <a class="btn btn-dark" href="projects.html" style="margin-top:20px; background:var(--wine); color:#fff;">View Project Experience &rarr;</a>
@@ -532,7 +537,7 @@
       <div class="container cta-inner">
         <div>
           <h2>Build with clarity. Deliver with confidence.</h2>
-          <p>Let’s discuss how integrated engineering, quality assurance and digital asset information can support your next project.</p>
+          <p>Let’s discuss how our complete construction lifecycle expertise, quality assurance, and signature DEP can support your next project.</p>
         </div>
         <a class="btn btn-dark" href="mailto:giftedafe@jirobeacons.com" style="background:var(--wine); color:#fff;">Start a Conversation &rarr;</a>
       </div>
@@ -549,16 +554,26 @@
       </div>
       <div class="modal-body modal-content-block">
         <span class="eyebrow">Our Guiding Principles</span>
+        
         <h4>Our Vision</h4>
         <p>To redefine infrastructure reliability and operational efficiency by seamlessly bridging physical construction execution with intelligent digital data ecosystems globally.</p>
+
         <h4>Our Mission</h4>
         <p>To deliver uncompromising, independent infrastructure quality assurance, advanced spatial data integration, and smart building solutions that empower better engineering and business decisions.</p>
+
         <h4>Our Values</h4>
         <ul>
           <li><strong>Integrity &amp; Independence:</strong> Providing objective quality assurance and rigorous compliance oversight.</li>
           <li><strong>Collaboration &amp; Inclusion:</strong> Fostering multidisciplinary teamwork and diverse perspectives to drive innovation.</li>
           <li><strong>Excellence &amp; Precision:</strong> Maintaining exacting standards across surveying, digital twins, and project execution.</li>
         </ul>
+
+        <h4>Our History &amp; Growth</h4>
+        <p>Scaling our operations across international markets, incorporating advanced BIM frameworks, and participating in incubator programs like Start GBC in Ontario to commercialize smart building innovations.</p>
+
+        <h4>Jiro-BEACONS Root</h4>
+        <p>President and Principal Consultant Gift Edafe began her professional journey in QA/QC data entry in 2011, advancing through roles as a surveyor technician, construction laboratory assistant, civil structural inspector, and QA/QC Lead Auditor before founding Jiro-BEACONS Engineering in 2018 with one foundational vision and bold ambitions. From our early roots in infrastructure quality assurance, we expanded into spatial data integration, smart building telemetry, and digital twins, redefining how technology drives the future of construction.</p>
+
         <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
           <p style="margin: 0; font-size: 14px;">Explore our full corporate background and credentials.</p>
           <a href="about.html" class="btn btn-gold" style="min-height: 44px; padding: 10px 20px; font-size: 13px;">Visit Full About Page →</a>
