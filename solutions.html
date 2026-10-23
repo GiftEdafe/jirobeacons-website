@@ -107,10 +107,25 @@
     .search-feedback { margin: 10px 0 0; color: rgba(255,255,255,.8); font-size: .84rem; }
     .search-feedback a { color: var(--gold-light); }
 
-    /* PAGE HERO */
-    .page-hero { background: var(--wine); color: var(--white); padding: 160px 0 80px; }
-    .page-hero h1 { color: #fff; margin-bottom: 20px; }
-    .page-hero p { color: rgba(255,255,255,0.85); font-size: 1.15rem; max-width: 750px; }
+    /* PAGE HERO WITH SOLUTION.JPG BACKGROUND & NEUTRAL TRANSPARENT OVERLAY */
+    .page-hero {
+      position: relative;
+      background: #0b0f14 url('https://raw.githubusercontent.com/GiftEdafe/jirobeacons-website/main/images/solution.jpg') center/cover no-repeat;
+      color: var(--white);
+      padding: 180px 0 120px;
+      overflow: hidden;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(11, 15, 20, 0.88) 0%, rgba(11, 15, 20, 0.70) 55%, rgba(11, 15, 20, 0.40) 100%),
+                  linear-gradient(0deg, rgba(11, 15, 20, 0.65), rgba(11, 15, 20, 0.25) 60%);
+      z-index: 1;
+    }
+    .hero-content { position: relative; z-index: 2; }
+    .page-hero .eyebrow { color: var(--gold-light); }
+    .page-hero h1 { font-size: clamp(40px, 6vw, 64px); line-height: 1.1; margin-bottom: 20px; }
+    .page-hero p { max-width: 800px; font-size: 19px; color: rgba(255, 255, 255, 0.85); margin-bottom: 0; }
 
     /* METHODOLOGY / FLOW SECTION */
     .flow-section { background: var(--off-white); padding: 70px 0; border-bottom: 1px solid var(--border); }
@@ -122,10 +137,10 @@
     /* SOLUTION PATHWAYS SECTIONS */
     .solution-section { background: #fff; border-bottom: 1px solid var(--border); }
     .solution-section:nth-of-type(even) { background: var(--off-white); }
-    .solution-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center; }
-    .solution-grid.reverse { grid-template-columns: 0.9fr 1.1fr; }
-    .solution-grid.reverse .solution-text-col { order: 2; }
-    .solution-grid.reverse .solution-img-col { order: 1; }
+    .solution-grid-layout { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center; }
+    .solution-grid-layout.reverse { grid-template-columns: 0.9fr 1.1fr; }
+    .solution-grid-layout.reverse .solution-text-col { order: 2; }
+    .solution-grid-layout.reverse .solution-img-col { order: 1; }
 
     .solution-text-col h2 { color: var(--wine); margin-bottom: 20px; }
     .solution-text-col p { font-size: 1rem; color: var(--muted); margin-bottom: 16px; }
@@ -183,9 +198,9 @@
       .mobile-only-nav a:hover, .mobile-only-nav a.active { color: var(--gold-light); }
 
       .header-left-nav { display: flex; flex-direction: column; align-items: flex-start; width: 100%; gap: 16px; }
-      .solution-grid, .solution-grid.reverse { grid-template-columns: 1fr; gap: 30px; }
-      .solution-grid.reverse .solution-text-col { order: 1; }
-      .solution-grid.reverse .solution-img-col { order: 2; }
+      .solution-grid-layout, .solution-grid-layout.reverse { grid-template-columns: 1fr; gap: 30px; }
+      .solution-grid-layout.reverse .solution-text-col { order: 1; }
+      .solution-grid-layout.reverse .solution-img-col { order: 2; }
       .flow-grid { grid-template-columns: repeat(3, 1fr); }
       .deliverables-grid { grid-template-columns: 1fr; }
       .footer-top { grid-template-columns: 1fr 1fr; gap: 20px; }
@@ -269,9 +284,10 @@
   </header>
 
   <main>
-    <!-- PAGE HERO -->
+    <!-- PAGE HERO WITH EXACT RETETAINED SOLUTION.JPG BACKGROUND -->
     <section class="page-hero">
-      <div class="container">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
         <span class="eyebrow" style="color:var(--gold-light);">Client Solutions &amp; Outcomes</span>
         <h1>Solutions for Infrastructure, Project Delivery &amp; Intelligent Assets</h1>
         <p>Jiro-BEACONS connects multidisciplinary engineering, construction delivery and digital intelligence to address project challenges from initial evaluation through construction, handover and asset operations.</p>
@@ -316,7 +332,7 @@
     <!-- SOLUTION PATHWAY 1 -->
     <section class="section solution-section" id="construction">
       <div class="container">
-        <div class="solution-grid">
+        <div class="solution-grid-layout">
           <div class="solution-text-col">
             <span class="eyebrow">01 / Project Delivery</span>
             <h2>Construction &amp; EPC Project Delivery</h2>
@@ -343,7 +359,7 @@
             </div>
           </div>
           <div class="solution-img-col">
-            <img src="https://images.openai.com/static-rsc-4/Jq-gem23ESLTdphwP03zfBrFJQ7qoJqHccSxYtkfytFnypMerCDLnT_SC_V8gb23Lug6fNBlIkWiKwbvbNDBIgyXzqXI0DYJVwOH3WNQYn7T1xF5lS_Cfmm_QpshLU1gGgguObg8gdi0NTkqa-JVcBpCyX1hYkbriLltgZzQvBecOxdRsGlAAj2Hfj2zwHra?purpose=fullsize" alt="Construction and EPC Project Delivery architecture" loading="lazy">
+            <img src="images/imo-city-computer-village-hub.jpg" alt="Construction and EPC Project Delivery architecture" loading="lazy">
           </div>
         </div>
       </div>
@@ -352,7 +368,7 @@
     <!-- SOLUTION PATHWAY 2 -->
     <section class="section solution-section" id="assurance">
       <div class="container">
-        <div class="solution-grid reverse">
+        <div class="solution-grid-layout reverse">
           <div class="solution-text-col">
             <span class="eyebrow">02 / Quality &amp; Governance</span>
             <h2>Digital QA/QC &amp; Project Assurance</h2>
@@ -379,7 +395,7 @@
             </div>
           </div>
           <div class="solution-img-col">
-            <img src="https://images.openai.com/static-rsc-4/0LBUyIofNcEYc2sKj51H0s_KUDYbcZPVZ1Cn1yRtBnfDI1Rsj0M8mkI1Wc73XwcZpdElowZ59BP5z_I3ZgQMZFirGH3G0skcLBAmk4QKpDuksbw8Ezq8U7kDgIV5uXMr7oAFprOSgCcJrxyRfJSnaf9EccqsMdq3aAMbNzBGnlHk4gMgrgwKfSU6aKH0WBsO?purpose=fullsize" alt="Digital QA/QC and Project Assurance dashboard" loading="lazy">
+            <img src="images/imo-city-computer-village-hb.jpg" alt="Digital QA/QC and Project Assurance dashboard" loading="lazy">
           </div>
         </div>
       </div>
@@ -388,7 +404,7 @@
     <!-- SOLUTION PATHWAY 3 -->
     <section class="section solution-section" id="as-built">
       <div class="container">
-        <div class="solution-grid">
+        <div class="solution-grid-layout">
           <div class="solution-text-col">
             <span class="eyebrow">03 / Reality Capture &amp; BIM</span>
             <h2>Digital As-Built, Scan-to-BIM &amp; Asset Information</h2>
@@ -415,7 +431,7 @@
             </div>
           </div>
           <div class="solution-img-col">
-            <img src="https://images.openai.com/static-rsc-4/EkYa0rHSig_vvGZZHHgHG_MsbhyRdOi4viMlMAlss1JMtfiggnuHt5rqIp47FqKWpl71Wq8O-7mTMseElh6tdJ3mOztjM5dB0AQZzH4uVKj7ym3KhWs-cI6XdPuvAC36TJIwToVsBO5ChPUpZCjY59f33IciZHXctqDM5HbDCWxd6WroXwUlvqnlO6JMhPo-?purpose=fullsize" alt="Digital As-Built and Scan-to-BIM modeling" loading="lazy">
+            <img src="images/scene-03-digital-engineering.mp4" alt="Digital As-Built and Scan-to-BIM modeling" loading="lazy" onerror="this.onerror=null;this.src='images/imo-city-computer-village-hub.jpg';">
           </div>
         </div>
       </div>
@@ -424,7 +440,7 @@
     <!-- SOLUTION PATHWAY 4 -->
     <section class="section solution-section" id="real-estate">
       <div class="container">
-        <div class="solution-grid reverse">
+        <div class="solution-grid-layout reverse">
           <div class="solution-text-col">
             <span class="eyebrow">04 / Property &amp; Assets</span>
             <h2>Real Estate &amp; Property Information</h2>
@@ -451,7 +467,7 @@
             </div>
           </div>
           <div class="solution-img-col">
-            <img src="https://images.openai.com/static-rsc-4/66siRjQeYRvFZR4OIpOGMejDiVA9vDBfTOre8J30IPcylQAva6FRv_YU5JtUhWlw0ueNQX7FoBPcCTX4xz0oZ5NdTEP9ll51IK9O4efqSpe8BbDY8lxmbooco10W0F3r-3mUU-vDchQi8XEEZ9bUvv9guz4_6TGyQJQX34E28MuYOjNNgV74rprIJLbsRfzB?purpose=fullsize" alt="Real Estate and Property Information blueprints" loading="lazy">
+            <img src="images/imo-city-computer-village-hub.jpg" alt="Real Estate and Property Information blueprints" loading="lazy">
           </div>
         </div>
       </div>
@@ -460,7 +476,7 @@
     <!-- SOLUTION PATHWAY 5 -->
     <section class="section solution-section" id="energy">
       <div class="container">
-        <div class="solution-grid">
+        <div class="solution-grid-layout">
           <div class="solution-text-col">
             <span class="eyebrow">05 / Critical Infrastructure</span>
             <h2>Energy &amp; Critical Infrastructure</h2>
@@ -487,7 +503,7 @@
             </div>
           </div>
           <div class="solution-img-col">
-            <img src="https://images.openai.com/static-rsc-4/6bN-KJzg03x-gIRyvA30en9-XM8NJ6lxgVd7finn3cP3IJMnVzaxZ7YWhAMLUV43VSDcULVMcbY7gBy-LuMUudfERk7m9Y0mWpd6b4zncx7II3GONHRoV6wv5RQepXUQh5s3x1eP8rG6-7BlGHzRtZWbjoncCWfY0pTDiW2UKKLdcm9pRUyGnzA4urMmU6mN?purpose=fullsize" alt="Energy and Critical Infrastructure facilities" loading="lazy">
+            <img src="images/Bess-4.jpg" alt="Energy and Critical Infrastructure facilities" loading="lazy">
           </div>
         </div>
       </div>
@@ -496,7 +512,7 @@
     <!-- SOLUTION PATHWAY 6 -->
     <section class="section solution-section" id="smart-buildings">
       <div class="container">
-        <div class="solution-grid reverse">
+        <div class="solution-grid-layout reverse">
           <div class="solution-text-col">
             <span class="eyebrow">06 / Intelligent Operations</span>
             <h2>Smart Buildings, Carbon &amp; ESG Intelligence</h2>
@@ -523,7 +539,7 @@
             </div>
           </div>
           <div class="solution-img-col">
-            <img src="https://images.openai.com/static-rsc-4/x0PfFVztrArIzQMZexmxFceXm6eYRvDaNcNyAlPBdyL22A0BbUuVH1qvxtb-0T8rGbfqxX5S1hkbSJNsrosgmDrPwqdZox9JCeoc85nhAWb_P_WYcPyptcJEVEe28kfMV0kT0kvMnef1IHDK8t8W4i_LK0lrS9cS9uqXGOtt_je0hsv_7gInTAF8K7fJ425D?purpose=fullsize" alt="Smart Buildings and ESG Intelligence dashboards" loading="lazy">
+            <img src="images/site-4.jpg" alt="Smart Buildings and ESG Intelligence dashboards" loading="lazy">
           </div>
         </div>
       </div>
