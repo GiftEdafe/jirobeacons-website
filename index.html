@@ -86,6 +86,8 @@
     .modal-body { padding: 35px 30px; overflow-y: auto; }
     .modal-content-block h4 { color: var(--wine); font-size: 20px; margin-top: 25px; margin-bottom: 10px; }
     .modal-content-block p { font-size: 15px; color: var(--muted); margin-bottom: 15px; line-height: 1.7; }
+    .modal-content-block ul { margin-left: 20px; margin-bottom: 15px; color: var(--muted); }
+    .modal-content-block li { margin-bottom: 8px; }
 
     /* HEADER */
     .site-header { position: fixed; z-index: 10000; top: 20px; left: 24px; right: 24px; max-width: var(--max); margin: 0 auto; background: transparent; }
@@ -353,7 +355,7 @@
 
 
   <main>
-    <!-- SECTION 1: HERO -->
+    <!-- SECTION 1: HERO (Using videos/New-1.mp4) -->
     <section class="hero section-with-video">
       <div class="section-media" aria-hidden="true">
         <video class="sec-video desktop-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
@@ -365,7 +367,7 @@
         <div class="section-shade"></div>
       </div>
       <div class="container">
-        <a href="#what-we-do" class="suffolk-card-link">
+        <a href="#" class="suffolk-card-link" id="open-discover-modal">
           <span class="eyebrow" style="color:var(--gold-light);">Integrated AEC Professional Teams &middot; Physical &amp; Digital Infrastructure</span>
           <h1>From ground to commissioning — <span>we engineer, build and deliver its digital future.</span></h1>
           <p class="hero-copy">Integrated engineering and construction delivery, distinguished by our signature Digital Engineering Package (DEP).</p>
@@ -374,7 +376,7 @@
       </div>
     </section>
 
-    <!-- SECTION 2: INTRO / WHO WE ARE -->
+    <!-- SECTION 2: INTRO / WHO WE ARE (Using videos/New-2.mp4 in Suffolk Style) -->
     <section class="intro-section section-with-video">
       <div class="section-media" aria-hidden="true">
         <video class="sec-video desktop-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
@@ -395,7 +397,7 @@
       </div>
     </section>
 
-    <!-- SECTION 3: ENGINEERING LIFECYCLE -->
+    <!-- SECTION 3: ENGINEERING LIFECYCLE (Preserving original scene-03 video) -->
     <section class="lifecycle-section section-with-video">
       <div class="section-media" aria-hidden="true">
         <video class="sec-video desktop-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
@@ -416,7 +418,7 @@
       </div>
     </section>
 
-    <!-- SECTION 4: FEATURE / EXECUTION -->
+    <!-- SECTION 4: FEATURE / EXECUTION (Preserving original scene-04 video) -->
     <section class="feature-section section-with-video">
       <div class="section-media" aria-hidden="true">
         <video class="sec-video desktop-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
@@ -437,7 +439,7 @@
       </div>
     </section>
 
-    <!-- LIFECYCLE STAGES GRID OVERVIEW -->
+    <!-- LIFECYCLE STAGES GRID OVERVIEW (Restored Original Terms) -->
     <section class="section lifecycle-overview-section" id="lifecycle">
       <div class="container">
         <div class="section-heading">
@@ -447,52 +449,52 @@
         </div>
 
         <div class="lifecycle-grid">
-          <div class="lifecycle-item-card" id="planning">
+          <div class="lifecycle-item-card">
             <span class="lifecycle-number">01 / PLANNING &amp; SURVEY</span>
-            <h3>Establish the project foundation.</h3>
-            <p>Land surveying, geospatial data, site evaluation, existing-condition assessments and planning coordination.</p>
+            <h3>Town Planning &amp; Land Surveying</h3>
+            <p>Comprehensive site assessment, cadastral land surveying, topographic mapping, and town planning layouts to establish reliable physical boundaries.</p>
             <a href="solutions.html#planning" class="lifecycle-link">Explore this capability &rarr;</a>
           </div>
-          <div class="lifecycle-item-card" id="design">
+          <div class="lifecycle-item-card">
             <span class="lifecycle-number">02 / DESIGN &amp; COST</span>
-            <h3>Turn requirements into engineered solutions.</h3>
-            <p>Architectural and engineering design coordination, quantity surveying, cost planning, specifications and procurement preparation.</p>
+            <h3>Architectural Design &amp; Quantity Surveying</h3>
+            <p>Innovative architectural design, structural engineering calculations, bill of quantities (BOQs), cost planning, and commercial support.</p>
             <a href="solutions.html#design" class="lifecycle-link">Explore this capability &rarr;</a>
           </div>
-          <div class="lifecycle-item-card" id="construction">
-            <span class="lifecycle-number">03 / CONSTRUCTION &amp; EPCIC</span>
-            <h3>Execute the physical project.</h3>
-            <p>Engineering coordination, procurement interfaces, construction, installation and commissioning coordination, aligned with agreed scope.</p>
+          <div class="lifecycle-item-card">
+            <span class="lifecycle-number">03 / CONSTRUCTION</span>
+            <h3>Actual Civil &amp; Structural Construction</h3>
+            <p>End-to-end physical building delivery, multidisciplinary project coordination, and heavy construction execution for residential, commercial, and industrial facilities.</p>
             <a href="solutions.html#construction" class="lifecycle-link">Explore this capability &rarr;</a>
           </div>
-          <div class="lifecycle-item-card" id="assurance">
+          <div class="lifecycle-item-card">
             <span class="lifecycle-number">04 / ASSURANCE</span>
-            <h3>Verify quality. Preserve evidence.</h3>
-            <p>QA/QC oversight, inspection and testing, material traceability, compliance monitoring, test packs and controlled records.</p>
+            <h3>QA/QC, Inspection &amp; Testing</h3>
+            <p>Independent quality assurance, material testing, structural inspection, and traceable evidence supporting safety and compliance.</p>
             <a href="solutions.html#assurance" class="lifecycle-link">Explore this capability &rarr;</a>
           </div>
-          <div class="lifecycle-item-card" id="dep">
+          <div class="lifecycle-item-card">
             <span class="lifecycle-number">05 / SIGNATURE DEP</span>
-            <h3>Deliver the asset's digital legacy.</h3>
-            <p>Structured digital QA/QC records, engineering document registers, digital as-built indexes and intelligent asset data.</p>
+            <h3>Digital Engineering Package (DEP)</h3>
+            <p>Our signature Digital Engineering Package providing structured as-built models, comprehensive documentation, and digital handover records.</p>
             <a href="solutions.html#dep" class="lifecycle-link">Explore this capability &rarr;</a>
           </div>
-          <div class="lifecycle-item-card" id="handover">
-            <span class="lifecycle-number">06 / COMMISSIONING &amp; HANDOVER</span>
-            <h3>Prepare the asset for service.</h3>
-            <p>Commissioning records, inspection close-out, system verification, handover dossiers and operational documentation.</p>
+          <div class="lifecycle-item-card">
+            <span class="lifecycle-number">06 / COMMISSIONING</span>
+            <h3>Commissioning &amp; Handover</h3>
+            <p>Thorough testing, facility commissioning, and formal handover protocols ensuring fully functional, operation-ready infrastructure assets.</p>
             <a href="solutions.html#handover" class="lifecycle-link">Explore this capability &rarr;</a>
           </div>
-          <div class="lifecycle-item-card" id="automation">
-            <span class="lifecycle-number">07 / AUTOMATION &amp; INTEGRATION</span>
-            <h3>Connect buildings to real-time intelligence.</h3>
-            <p>Smart Building Telemetry &amp; Integration, sensor networks, building-system interfaces and data connectivity.</p>
+          <div class="lifecycle-item-card">
+            <span class="lifecycle-number">07 / AUTOMATION</span>
+            <h3>Smart Building Telemetry &amp; Integration</h3>
+            <p>Digital twin modeling and edge hardware deployment utilizing BACnet and Modbus protocols to capture live, 15-minute facility infrastructure logs.</p>
             <a href="solutions.html#automation" class="lifecycle-link">Explore this capability &rarr;</a>
           </div>
-          <div class="lifecycle-item-card" id="operations">
-            <span class="lifecycle-number">08 / OPERATIONS &amp; COMPLIANCE</span>
-            <h3>Turn operational data into insight.</h3>
-            <p>EdgeCarbon Compliance &amp; ESG Data Platforms, energy and carbon monitoring, demand alerts and auditable reporting.</p>
+          <div class="lifecycle-item-card">
+            <span class="lifecycle-number">08 / OPERATIONS</span>
+            <h3>EdgeCarbon Compliance &amp; ESG Data Platforms</h3>
+            <p>Organized handover frameworks backed by our proprietary analytics software to support real-time carbon tax forecasting, predictive peak demand shaving alerts, and automated audit-ready compliance ledger exports.</p>
             <a href="solutions.html#operations" class="lifecycle-link">Explore this capability &rarr;</a>
           </div>
         </div>
@@ -652,6 +654,51 @@
   </main>
 
 
+  <!-- DISCOVER JIRO-BEACONS MODAL -->
+  <div class="modal-overlay" id="discover-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="discover-modal-title">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 id="discover-modal-title">Discover Jiro-BEACONS Engineering</h3>
+        <button class="modal-close" id="close-discover-modal" aria-label="Close discover modal">&times;</button>
+      </div>
+      <div class="modal-body modal-content-block">
+        <span class="eyebrow">Corporate Capabilities &amp; Philosophy</span>
+        
+        <h4>01. Who We Are</h4>
+        <p>Jiro-BEACONS Engineering Nigeria Limited is an integrated engineering and construction delivery consultancy that brings together multidisciplinary AEC professionals and digital engineering capabilities to support infrastructure throughout its lifecycle. We unite multidisciplinary engineering and construction expertise with digital delivery to create infrastructure supported by reliable project information and lasting asset intelligence.</p>
+
+        <h4>02. Our Multidisciplinary AEC Teams</h4>
+        <p>Our team model integrates architecture, engineering, surveying, quantity surveying, construction, quality assurance, and project information specialists, assembled dynamically according to specific project requirements.</p>
+
+        <h4>03. Engineering, Construction &amp; EPCIC Delivery</h4>
+        <p>We approach planning, technical coordination, procurement, construction, installation, and commissioning rigorously according to agreed project scopes and delivery arrangements. Full EPCIC execution is claimed where contractual scope, qualified teams, procurement arrangements, and installation responsibilities fully support the claim; otherwise, structured coordination and support applies.</p>
+
+        <h4>04. Our Signature Digital Engineering Package (DEP)</h4>
+        <p>Digital QA/QC records, engineering documentation, as-built information, and asset data are structured into a reliable digital handover. These records are developed progressively throughout delivery, ensuring a continuous digital legacy rather than a retrospective assembly.</p>
+
+        <h4>05. Our Commitment</h4>
+        <p>We uphold uncompromised principles: engineering excellence, coordinated delivery, traceable quality, information integrity, compliance, and lifecycle value.</p>
+
+        <h4>06. Our Vision</h4>
+        <p>To advance a more intelligent, digitally connected approach to infrastructure delivery and asset operations globally, bridging physical execution with intelligent digital data ecosystems.</p>
+
+        <h4>07. Our Sectors, Partnerships &amp; Project Experience</h4>
+        <p>We serve real estate, civil infrastructure, energy, oil &amp; gas, industrial facilities, and smart building sectors through collaborative professional networks and demonstrated project evidence.</p>
+
+        <hr style="border:0; border-top:1px solid var(--border); margin:25px 0;">
+
+        <h4>Jiro-BEACONS Root</h4>
+        <p>President and Principal Consultant Gift Edafe began her professional journey in QA/QC data entry in 2011, advancing through roles as a surveyor technician, construction laboratory assistant, civil structural inspector, and QA/QC Lead Auditor before founding Jiro-BEACONS Engineering in 2018 with one foundational vision and bold ambitions. From our early roots in infrastructure quality assurance, we expanded into spatial data integration, smart building telemetry, and digital twins, redefining how technology drives the future of construction.</p>
+
+        <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+          <p style="margin: 0; font-size: 14px;">Explore our full corporate background and credentials.</p>
+          <a href="about.html" class="btn btn-gold" style="min-height: 44px; padding: 10px 20px; font-size: 13px;">Visit Full About Page →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container">
@@ -702,6 +749,36 @@
     const searchClose = document.getElementById("search-close");
     const searchInput = document.getElementById("site-search-input");
     const searchForm = document.getElementById("search-form");
+    const searchFeedback = document.getElementById("search-feedback");
+
+    const openDiscoverModalBtn = document.getElementById("open-discover-modal");
+    const closeDiscoverModalBtn = document.getElementById("close-discover-modal");
+    const discoverModal = document.getElementById("discover-modal");
+
+    function openDiscoverModal(e){
+      if(e) e.preventDefault();
+      if(discoverModal){
+        discoverModal.classList.add("is-open");
+        discoverModal.setAttribute("aria-hidden","false");
+        document.body.classList.add("discover-modal-open");
+      }
+    }
+
+    function closeDiscoverModal(){
+      if(discoverModal){
+        discoverModal.classList.remove("is-open");
+        discoverModal.setAttribute("aria-hidden","true");
+        document.body.classList.remove("discover-modal-open");
+      }
+    }
+
+    if(openDiscoverModalBtn) openDiscoverModalBtn.addEventListener("click", openDiscoverModal);
+    if(closeDiscoverModalBtn) closeDiscoverModalBtn.addEventListener("click", closeDiscoverModal);
+    if(discoverModal){
+      discoverModal.addEventListener("click", function(e){
+        if(e.target === discoverModal) closeDiscoverModal();
+      });
+    }
 
     function closeServices(){
       if(servicesMenu) servicesMenu.classList.remove("is-open");
@@ -740,6 +817,7 @@
     function openSearch(){
       if(!searchPanel) return;
       searchPanel.classList.add("is-open");
+      if(searchToggle) searchToggle.setAttribute("aria-expanded","true");
       document.body.classList.add("search-open");
       closeMenu();
       window.setTimeout(function(){ if(searchInput) searchInput.focus(); }, 50);
@@ -748,6 +826,7 @@
     function closeSearch(){
       if(!searchPanel) return;
       searchPanel.classList.remove("is-open");
+      if(searchToggle) searchToggle.setAttribute("aria-expanded","false");
       document.body.classList.remove("search-open");
     }
 
@@ -756,6 +835,25 @@
       else openSearch();
     });
     if(searchClose) searchClose.addEventListener("click", closeSearch);
+
+    if(searchForm && searchInput){
+      searchForm.addEventListener("submit", function(event){
+        event.preventDefault();
+        const query = searchInput.value.trim();
+        if(!query) return;
+        const normalizedQuery = query.toLocaleLowerCase();
+        const sectionsArr = Array.from(document.querySelectorAll("main section"));
+        const match = sectionsArr.find(function(section){
+          return section.innerText.toLocaleLowerCase().includes(normalizedQuery);
+        });
+        if(match){
+          closeSearch();
+          match.scrollIntoView({behavior:"smooth", block:"start"});
+        } else {
+          window.location.href = "insights.html?search=" + encodeURIComponent(query);
+        }
+      });
+    }
 
     const year = document.getElementById("currentYear");
     if(year) year.textContent = new Date().getFullYear();
