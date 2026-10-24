@@ -125,7 +125,7 @@
     .hero-content { position: relative; z-index: 2; }
     .page-hero .eyebrow { color: var(--gold-light); }
     .page-hero h1 { font-size: clamp(40px, 6vw, 64px); line-height: 1.1; margin-bottom: 20px; }
-    .page-hero p { max-width: 800px; font-size: 19px; color: rgba(255, 255, 255, 0.85); margin-bottom: 0; }
+    .page-hero p { max-width: 800px; font-size: 19px; color: rgba(255, 255, 255, 0.85); margin-bottom: 30px; }
 
     /* METHODOLOGY / FLOW SECTION */
     .flow-section { background: var(--off-white); padding: 70px 0; border-bottom: 1px solid var(--border); }
@@ -152,6 +152,16 @@
     .related-services span { color: var(--gold); text-transform: uppercase; font-size: 0.72rem; display: block; margin-bottom: 4px; letter-spacing: 0.05em; }
 
     .solution-img-col img { width: 100%; height: 400px; object-fit: cover; border-radius: 4px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); }
+
+    /* PROJECT EVIDENCE SECTION */
+    .evidence-section { background: var(--off-white); padding: 90px 0; border-bottom: 1px solid var(--border); }
+    .evidence-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-top: 40px; }
+    .evidence-card { background: #fff; padding: 40px; border-top: 4px solid var(--wine); border-radius: 2px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); display: flex; flex-direction: column; justify-content: space-between; }
+    .evidence-card h3 { font-size: 1.4rem; color: var(--wine); margin-bottom: 12px; }
+    .evidence-meta { font-size: 0.8rem; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 15px; display: block; }
+    .evidence-card p { font-size: 0.92rem; color: var(--muted); margin-bottom: 20px; }
+    .evidence-outputs { border-top: 1px solid var(--border); padding-top: 15px; font-size: 0.85rem; color: var(--text); font-weight: 600; }
+    .evidence-outputs span { color: var(--wine); display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
 
     /* DELIVERABLES & OUTCOMES SECTION */
     .deliverables-section { background: var(--wine); color: #fff; padding: 90px 0; }
@@ -198,10 +208,30 @@
       .mobile-only-nav a:hover, .mobile-only-nav a.active { color: var(--gold-light); }
 
       .header-left-nav { display: flex; flex-direction: column; align-items: flex-start; width: 100%; gap: 16px; }
+
+      /* MOBILE DROPDOWN STYLING */
+      .nav-dropdown { width: 100%; }
+      .nav-dropdown-toggle { width: 100%; justify-content: space-between; padding: 0; }
+      .nav-dropdown-menu {
+        position: static;
+        display: none;
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 10px 0 10px 15px;
+        background: transparent;
+        box-shadow: none;
+        width: 100%;
+        border-left: 2px solid var(--gold);
+      }
+      .nav-dropdown-menu.is-open { display: flex; flex-direction: column; }
+      .nav-dropdown-group { width: 100%; align-items: flex-start !important; text-align: left !important; }
+      .nav-dropdown-group:last-child { justify-self: start; align-items: flex-start; text-align: left; }
+
       .solution-grid-layout, .solution-grid-layout.reverse { grid-template-columns: 1fr; gap: 30px; }
       .solution-grid-layout.reverse .solution-text-col { order: 1; }
       .solution-grid-layout.reverse .solution-img-col { order: 2; }
       .flow-grid { grid-template-columns: repeat(3, 1fr); }
+      .evidence-grid { grid-template-columns: 1fr; }
       .deliverables-grid { grid-template-columns: 1fr; }
       .footer-top { grid-template-columns: 1fr 1fr; gap: 20px; }
     }
@@ -227,6 +257,7 @@
           <div class="nav-dropdown-menu" id="services-menu">
             <div class="nav-dropdown-group">
               <h2 class="nav-dropdown-heading">Core Infrastructure Engineering</h2>
+              <a href="services.html#integrated-teams">Integrated AEC Professional Teams</a>
               <a href="services.html#surveying">Surveying &amp; Geospatial</a>
               <a href="services.html#quantity-surveying">Quantity Surveying &amp; Cost Support</a>
               <a href="services.html#engineering-coordination">Engineering &amp; Project Coordination</a>
@@ -289,8 +320,9 @@
       <div class="hero-overlay"></div>
       <div class="container hero-content">
         <span class="eyebrow" style="color:var(--gold-light);">ENGINEERING SOLUTIONS &amp; DIGITAL INTELLIGENCE</span>
-        <h1>Solutions for Infrastructure, Project Delivery &amp; Intelligent Assets</h1>
-        <p>Jiro-BEACONS integrates engineering expertise, construction delivery and intelligent information management to address complex project and asset challenges—from initial evaluation and execution through digital handover and operational performance.</p>
+        <h1>Solving Complex Engineering and Asset Information Challenges.</h1>
+        <p>We integrate engineering expertise, construction delivery, quality assurance and digital intelligence to help project teams coordinate execution, strengthen technical records and prepare infrastructure for informed asset management.</p>
+        <a href="contact.html" class="btn btn-gold">Discuss Your Project &rarr;</a>
       </div>
     </section>
 
@@ -376,17 +408,17 @@
             
             <div class="challenge-box">
               <h4>The Challenge</h4>
-              <p>When inspection records, material certificates, test results, approvals and non-conformance reports are maintained in disconnected systems, demonstrating compliance and retrieving reliable project evidence becomes more difficult.</p>
+              <p>Inspection and test records, material certificates, approvals and non-conformance reports can become fragmented across site teams, contractors and project systems. This makes it harder to establish the status of quality records and retrieve supporting evidence during verification and handover.</p>
             </div>
             
             <div class="solution-box">
               <h4>Our Solution</h4>
-              <p>We structure digital QA/QC workflows and project records around defined inspection and test requirements, linking relevant work activities to inspection results, material evidence, approvals and supporting documentation.</p>
+              <p>We structure QA/QC documentation around applicable inspection and test requirements, linking relevant work activities to inspection records, test results, material documentation, approvals and outstanding actions within the agreed project scope.</p>
             </div>
             
             <div class="value-box">
               <h4>Value Delivered</h4>
-              <p>Stronger quality-record traceability, more efficient retrieval of supporting evidence, improved visibility of outstanding documentation and a more reliable basis for quality verification and handover.</p>
+              <p>Better visibility of quality-record status, more traceable supporting evidence and a clearer basis for quality review, outstanding-document closure and digital handover.</p>
             </div>
 
             <div class="related-services">
@@ -431,7 +463,7 @@
             </div>
           </div>
           <div class="solution-img-col">
-            <img src="images/scene-03-digital-engineering.mp4" alt="Digital As-Built and Scan-to-BIM modeling" loading="lazy" onerror="this.onerror=null;this.src='images/imo-city-computer-village-hub.jpg';">
+            <img src="images/imo-city-computer-village-hub.jpg" alt="Digital As-Built and Scan-to-BIM modeling" loading="lazy">
           </div>
         </div>
       </div>
@@ -540,6 +572,41 @@
           </div>
           <div class="solution-img-col">
             <img src="images/site-4.jpg" alt="Smart Buildings and ESG Intelligence dashboards" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECT EVIDENCE SECTION -->
+    <section class="evidence-section">
+      <div class="container">
+        <div class="section-heading" style="max-width: 800px; margin-bottom: 30px;">
+          <span class="eyebrow">Proven Execution</span>
+          <h2>Engineering Solutions Applied to Real Projects</h2>
+          <p>A sample of how our integrated solutions, QA/QC oversight and digital handover methodologies translate into practical project execution.</p>
+        </div>
+        <div class="evidence-grid">
+          <div class="evidence-card">
+            <div>
+              <span class="evidence-meta">Civil Construction &amp; QA/QC Documentation</span>
+              <h3>Imo City Computer Village Hub</h3>
+              <p>Execution of physical construction oversight, quality control data administration, and structured project documentation to ensure absolute traceability and handover readiness.</p>
+            </div>
+            <div class="evidence-outputs">
+              <span>Tangible Outputs</span>
+              Structured Daily Site Reports &middot; Digital QA/QC Logs &middot; Material Test Records
+            </div>
+          </div>
+          <div class="evidence-card">
+            <div>
+              <span class="evidence-meta">Substation Expansion &amp; Digital Handover</span>
+              <h3>132/33kV Substation Expansion Project</h3>
+              <p>Providing independent quality assurance, inspection testing support, and progressive digital engineering documentation for critical electrical infrastructure assets.</p>
+            </div>
+            <div class="evidence-outputs">
+              <span>Tangible Outputs</span>
+              Inspection Test Packs &middot; As-Built Drawing Registers &middot; DEP Handover Package
+            </div>
           </div>
         </div>
       </div>
