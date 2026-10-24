@@ -109,12 +109,12 @@
     .main-nav>a,.nav-dropdown-toggle { color: rgba(255,255,255,.94); font-size: .7rem; font-weight: 800; letter-spacing: .055em; text-decoration: none; text-transform: uppercase; white-space: nowrap; }
     .main-nav>a:hover,.main-nav>a.active,.nav-dropdown-toggle:hover { color: var(--gold-light); }
 
-    .nav-dropdown { position: relative; }
+    .nav-dropdown { position: static; }
     .nav-dropdown-toggle { display: inline-flex; align-items: center; gap: 4px; padding: 12px 0; background: transparent; border: 0; white-space: nowrap; cursor: pointer; }
     .dropdown-caret { color: var(--gold-light); font-size: .85rem; line-height: 1; }
 
     .nav-dropdown-menu {
-      position: absolute; top: 100%; left: 0; width: 360px; z-index: 11000; display: none;
+      position: absolute; top: 100%; left: 0; right: 0; width: 100%; z-index: 11000; display: none;
       grid-template-columns: 1fr 1fr; gap: 40px; padding: 35px 40px; background: var(--wine); border-radius: 0 0 4px 4px; box-shadow: 0 20px 40px rgba(24, 4, 11, 0.35);
     }
     .nav-dropdown-menu.is-open { display: grid; }
@@ -589,6 +589,7 @@
       }
     }
 
+    if(openTeamModalBtn) openTeamModalBtn.click = () => openModal(teamModal); // preserving exact logic
     if(openTeamModalBtn) openTeamModalBtn.addEventListener("click", () => openModal(teamModal));
     if(closeTeamModalBtn) closeTeamModalBtn.addEventListener("click", () => closeModal(teamModal));
     if(teamModal){
