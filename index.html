@@ -266,6 +266,25 @@
       .mobile-only-nav a:hover, .mobile-only-nav a.active { color: var(--gold-light); }
 
       .header-left-nav { display: flex; flex-direction: column; align-items: flex-start; width: 100%; gap: 16px; }
+
+      /* MOBILE DROPDOWN OVERRIDES FIXED FOR INDEX.HTML */
+      .nav-dropdown { width: 100%; }
+      .nav-dropdown-toggle { width: 100%; justify-content: space-between; padding: 0; }
+      .nav-dropdown-menu {
+        position: static;
+        display: none;
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 10px 0 10px 15px;
+        background: transparent;
+        box-shadow: none;
+        width: 100%;
+        border-left: 2px solid var(--gold);
+      }
+      .nav-dropdown-menu.is-open { display: flex; flex-direction: column; }
+      .nav-dropdown-group { width: 100%; align-items: flex-start !important; text-align: left !important; }
+      .nav-dropdown-group:last-child { justify-self: start; align-items: flex-start; text-align: left; }
+
       .lifecycle-grid{grid-template-columns:repeat(2,1fr)}
       .services-split-grid{grid-template-columns:1fr}
       .sector-grid{grid-template-columns:1fr 1fr}
