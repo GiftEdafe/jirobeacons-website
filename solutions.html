@@ -107,19 +107,27 @@
     .search-feedback { margin: 10px 0 0; color: rgba(255,255,255,.8); font-size: .84rem; }
     .search-feedback a { color: var(--gold-light); }
 
-    /* PAGE HERO WITH EXACT RETAINED SOLUTION.JPG BACKGROUND AND WINE TRANSPARENT OVERLAY */
+    /* PAGE HERO WITH SERV.MP4 BACKGROUND VIDEO AND WINE TRANSPARENT OVERLAY */
     .page-hero {
       position: relative;
-      background: #0b0f14 url('https://raw.githubusercontent.com/GiftEdafe/jirobeacons-website/main/images/solution.jpg') center/cover no-repeat;
+      background: #0b0f14;
       color: var(--white);
       padding: 180px 0 120px;
       overflow: hidden;
     }
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, rgba(43, 7, 20, 0.65) 0%, rgba(43, 7, 20, 0.50) 55%, rgba(43, 7, 20, 0.30) 100%),
-                  linear-gradient(0deg, rgba(11, 15, 20, 0.4), rgba(11, 15, 20, 0.1) 60%);
+      background: linear-gradient(90deg, rgba(43, 7, 20, 0.75) 0%, rgba(43, 7, 20, 0.60) 55%, rgba(43, 7, 20, 0.40) 100%),
+                  linear-gradient(0deg, rgba(11, 15, 20, 0.5), rgba(11, 15, 20, 0.2) 60%);
       z-index: 1;
     }
     .hero-content { position: relative; z-index: 2; }
@@ -315,8 +323,11 @@
   </header>
 
   <main>
-    <!-- PAGE HERO WITH EXACT RETAINED SOLUTION.JPG BACKGROUND AND WINE TRANSPARENT OVERLAY -->
+    <!-- PAGE HERO WITH SERV.MP4 BACKGROUND VIDEO AND WINE TRANSPARENT OVERLAY -->
     <section class="page-hero">
+      <video class="hero-video" autoplay muted loop playsinline>
+        <source src="images/Serv.mp4" type="video/mp4">
+      </video>
       <div class="hero-overlay"></div>
       <div class="container hero-content">
         <span class="eyebrow" style="color:var(--gold-light);">ENGINEERING SOLUTIONS &amp; DIGITAL INTELLIGENCE</span>
@@ -391,7 +402,7 @@
             </div>
           </div>
           <div class="solution-img-col">
-            <img src="images/imo-city-computer-village-hub.jpg" alt="Construction and EPC Project Delivery architecture" loading="lazy">
+            <img src="images/pro.jpg" alt="Construction and EPC Project Delivery architecture" loading="lazy">
           </div>
         </div>
       </div>
@@ -427,7 +438,7 @@
             </div>
           </div>
           <div class="solution-img-col">
-            <img src="images/imo-city-computer-village-hb.jpg" alt="Digital QA/QC and Project Assurance dashboard" loading="lazy">
+            <img src="images/gov.jpg" alt="Digital QA/QC and Project Assurance dashboard" loading="lazy">
           </div>
         </div>
       </div>
@@ -463,7 +474,7 @@
             </div>
           </div>
           <div class="solution-img-col">
-            <img src="images/imo-city-computer-village-hub.jpg" alt="Digital As-Built and Scan-to-BIM modeling" loading="lazy">
+            <img src="images/bim.jpg" alt="Digital As-Built and Scan-to-BIM modeling" loading="lazy">
           </div>
         </div>
       </div>
@@ -499,7 +510,7 @@
             </div>
           </div>
           <div class="solution-img-col">
-            <img src="images/imo-city-computer-village-hub.jpg" alt="Real Estate and Property Information blueprints" loading="lazy">
+            <img src="images/bui.jpg" alt="Real Estate and Property Information blueprints" loading="lazy">
           </div>
         </div>
       </div>
@@ -535,7 +546,7 @@
             </div>
           </div>
           <div class="solution-img-col">
-            <img src="images/Bess-4.jpg" alt="Energy and Critical Infrastructure facilities" loading="lazy">
+            <img src="images/crit.jpg" alt="Energy and Critical Infrastructure facilities" loading="lazy">
           </div>
         </div>
       </div>
@@ -571,7 +582,7 @@
             </div>
           </div>
           <div class="solution-img-col">
-            <img src="images/site-4.jpg" alt="Smart Buildings and ESG Intelligence dashboards" loading="lazy">
+            <img src="images/smart.jpg" alt="Smart Buildings and ESG Intelligence dashboards" loading="lazy">
           </div>
         </div>
       </div>
