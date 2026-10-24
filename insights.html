@@ -48,7 +48,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    body.menu-open, body.search-open {
+    body.menu-open, body.search-open, body.modal-open {
       overflow: hidden;
     }
 
@@ -171,7 +171,7 @@
       color: var(--wine);
     }
 
-    /* SOLID WINE HEADER & FULL-WIDTH ALIGNED DROPDOWN MENU */
+    /* HEADER - ALIGNED SITE-WIDE (LOGO LEFT, NAV CENTER, TOOLS RIGHT) */
     .site-header {
       position: fixed;
       z-index: 10000;
@@ -188,7 +188,7 @@
       width: 100%;
       min-height: 76px;
       display: grid;
-      grid-template-columns: 1fr auto 1fr;
+      grid-template-columns: auto 1fr auto;
       align-items: center;
       gap: 20px;
       padding: 0 25px;
@@ -198,16 +198,9 @@
       box-shadow: 0 12px 30px rgba(24, 4, 11, 0.25);
     }
 
-    .header-left-nav {
-      justify-self: start;
-      display: flex;
-      align-items: center;
-      gap: clamp(14px, 2vw, 28px);
-    }
-
     .brand { 
-      grid-column: 2;
-      justify-self: center; 
+      grid-column: 1;
+      justify-self: start; 
       display: inline-flex; 
       align-items: center; 
       text-decoration: none; 
@@ -216,19 +209,22 @@
       font-size: 20px;
       letter-spacing: 1px;
     }
-    .brand img { width: 220px; max-height: 60px; object-fit: contain; }
+    .brand img { width: 180px; max-height: 50px; object-fit: contain; }
 
-    .header-right-group {
-      justify-self: end;
+    .header-center-nav {
+      grid-column: 2;
+      justify-self: center;
       display: flex;
       align-items: center;
       gap: clamp(14px, 2vw, 28px);
     }
 
-    .header-right-nav {
+    .header-right-group {
+      grid-column: 3;
+      justify-self: end;
       display: flex;
       align-items: center;
-      gap: clamp(14px, 2vw, 28px);
+      gap: 12px;
     }
 
     .main-nav>a,.nav-dropdown-toggle {
@@ -237,53 +233,46 @@
     }
     .main-nav>a:hover,.main-nav>a.active,.nav-dropdown-toggle:hover { color: var(--gold-light); }
 
-    .nav-dropdown { position: static; }
+    .nav-dropdown { position: relative; }
     .nav-dropdown-toggle {
       display: inline-flex; align-items: center; gap: 4px; padding: 12px 0;
-      background: transparent; border: 0; white-space: nowrap;
+      background: transparent; border: 0; white-space: nowrap; cursor: pointer;
     }
     .dropdown-caret { color: var(--gold-light); font-size: .85rem; line-height: 1; }
 
     .nav-dropdown-menu {
       position: absolute;
       top: 100%;
-      left: 0;
-      right: 0;
-      width: 100%;
+      left: -20px;
+      width: 340px;
       z-index: 11000;
       display: none;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      padding: 35px 40px;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      padding: 25px;
       background: var(--wine);
       border-radius: 0 0 4px 4px;
       box-shadow: 0 20px 40px rgba(24, 4, 11, 0.35);
     }
     .nav-dropdown-menu.is-open { display: grid; }
-    .nav-dropdown-group { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+    .nav-dropdown-group { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
     
-    .nav-dropdown-group:last-child {
-      justify-self: end;
-      align-items: flex-end;
-      text-align: right;
-    }
-
     .nav-dropdown-heading {
-      margin: 0 0 4px; color: var(--gold-light); font-size: .72rem;
-      font-weight: 800; letter-spacing: .06em; line-height: 1.5; text-transform: uppercase;
+      margin: 0 0 2px; color: var(--gold-light); font-size: .7rem;
+      font-weight: 800; letter-spacing: .06em; line-height: 1.4; text-transform: uppercase;
     }
-    .header-left-nav .nav-dropdown-menu a {
-      color: rgba(255,255,255,.84); font-size: .88rem; font-weight: 500;
-      letter-spacing: 0; line-height: 1.45; text-transform: none; text-decoration: none;
+    .nav-dropdown-menu a {
+      color: rgba(255,255,255,.84); font-size: .85rem; font-weight: 500;
+      letter-spacing: 0; line-height: 1.4; text-transform: none; text-decoration: none;
     }
-    .header-left-nav .nav-dropdown-menu a:hover { color: var(--gold-light); }
+    .nav-dropdown-menu a:hover { color: var(--gold-light); text-decoration: none; }
 
     .header-tools { display: flex; align-items: center; gap: 10px; }
     .icon-button {
       display: inline-flex; align-items: center; justify-content: center;
       width: 38px; height: 38px; padding: 0; color: #fff;
       background: transparent; border: 1px solid rgba(255,255,255,.35);
-      border-radius: 2px;
+      border-radius: 2px; cursor: pointer;
     }
     .icon-button:hover,.icon-button:focus-visible { color: var(--gold-light); border-color: var(--gold); }
     .icon-button svg { width: 18px; height: 18px; }
@@ -291,7 +280,7 @@
     .menu-toggle {
       display: none; flex-direction: column; justify-content:space-between;
       width: 38px; height: 38px; padding: 9px; background: transparent;
-      border: 1px solid rgba(255,255,255,.35); border-radius: 2px;
+      border: 1px solid rgba(255,255,255,.35); border-radius: 2px; cursor: pointer;
     }
     .menu-toggle span { display: block; width: 100%; height: 2px; background: #fff; transition: transform .2s; }
 
@@ -308,7 +297,7 @@
     }
     .search-feedback { margin: 10px 0 0; color: rgba(255,255,255,.8); font-size: .84rem; }
 
-    /* PAGE HERO WITH SOLUTION.JPG BACKGROUND & NEUTRAL OVERLAY */
+    /* PAGE HERO WITH SOLUTION.JPG BACKGROUND & WINE TRANSPARENT OVERLAY */
     .page-hero {
       position: relative;
       background: #0b0f14 url('https://raw.githubusercontent.com/GiftEdafe/jirobeacons-website/main/images/solution.jpg') center/cover no-repeat;
@@ -320,13 +309,8 @@
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg,
-          rgba(11, 15, 20, 0.88) 0%,
-          rgba(11, 15, 20, 0.70) 55%,
-          rgba(11, 15, 20, 0.40) 100%),
-        linear-gradient(0deg,
-          rgba(11, 15, 20, 0.65),
-          rgba(11, 15, 20, 0.25) 60%);
+      background: linear-gradient(90deg, rgba(43, 7, 20, 0.65) 0%, rgba(43, 7, 20, 0.50) 55%, rgba(43, 7, 20, 0.30) 100%),
+                  linear-gradient(0deg, rgba(11, 15, 20, 0.4), rgba(11, 15, 20, 0.1) 60%);
       z-index: 1;
     }
 
@@ -350,6 +334,7 @@
       font-size: 19px;
       color: rgba(255, 255, 255, 0.85);
       margin-bottom: 0;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
     }
 
     /* KNOWLEDGE CENTRE STYLING */
@@ -429,6 +414,10 @@
       font-size: 14px;
       text-transform: uppercase;
       letter-spacing: 1px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
     }
     .article-link:hover {
       color: var(--gold);
@@ -480,6 +469,87 @@
       color: var(--muted);
       margin-bottom: 20px;
       flex: 1;
+    }
+
+    /* ARTICLE MODAL SUB-PAGES */
+    .insight-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 20000;
+      background: rgba(11, 15, 20, 0.75);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .insight-modal.is-open {
+      display: flex;
+      opacity: 1;
+    }
+    .insight-modal-content {
+      background: var(--white);
+      width: min(850px, 100%);
+      max-height: 85vh;
+      overflow-y: auto;
+      border-radius: 4px;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+      position: relative;
+      padding: 50px;
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+    }
+    .insight-modal.is-open .insight-modal-content {
+      transform: translateY(0);
+    }
+    .insight-modal-close {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--wine);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .insight-modal-close:hover {
+      background: var(--wine);
+      color: var(--white);
+      border-color: var(--wine);
+    }
+    .modal-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+      display: block;
+    }
+    .insight-modal-content h2 {
+      color: var(--wine);
+      font-size: clamp(24px, 3.2vw, 34px);
+      margin-bottom: 20px;
+    }
+    .insight-modal-body p {
+      color: var(--muted);
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+    .insight-modal-body h4 {
+      color: var(--wine);
+      font-size: 18px;
+      margin: 25px 0 10px;
     }
 
     .dark {
@@ -610,14 +680,7 @@
         align-items: center; gap: 10px; min-height: 64px; padding: 0 12px;
         background: var(--wine);
       }
-      .header-inner .brand { grid-column: 1; justify-self: start; margin-left: 0; }
-      .header-inner .brand img{ width: 130px; max-height: 38px; }
-      .header-tools { grid-column: 3; justify-self: end; }
-
-      .desktop-right-nav { display: none !important; }
-
-      /* Mobile menu scrolling and full access */
-      .main-nav{
+      .header-center-nav{
         position:absolute; top:100%; left:0; right:0; z-index:11500;
         display:none !important; flex-direction:column; align-items:flex-start;
         padding:20px 24px; background:var(--wine);
@@ -626,18 +689,10 @@
         overflow-y: auto;
         gap: 16px;
       }
-      .main-nav.is-open{display:flex !important;}
+      .header-center-nav.is-open{display:flex !important;}
       .menu-toggle{display:flex}
 
       .mobile-only-nav {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-        gap: 16px;
-      }
-
-      .header-left-nav {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -661,7 +716,6 @@
       .nav-dropdown { width: 100%; }
       .nav-dropdown-toggle { width: 100%; justify-content: space-between; padding: 0; }
 
-      /* Stack dropdown menu vertically on mobile to prevent clipping */
       .nav-dropdown-menu {
         position: static;
         display: none;
@@ -675,12 +729,12 @@
       }
       .nav-dropdown-menu.is-open { display: flex; flex-direction: column; }
       .nav-dropdown-group { width: 100%; align-items: flex-start !important; text-align: left !important; }
-      .nav-dropdown-group:last-child { justify-self: start; align-items: flex-start; text-align: left; }
 
       .articles-grid, .featured-article {
         grid-template-columns: 1fr;
       }
       .footer-top { grid-template-columns: 1fr 1fr; gap: 20px; }
+      .dark .container { grid-template-columns: 1fr !important; gap: 25px !important; }
     }
     @media(max-width:767px){
       section { padding: 60px 0; }
@@ -689,6 +743,7 @@
       .header-inner{min-height:54px;padding:0 8px;}
       .brand img{width:110px;max-height:32px}
       .icon-button{width:32px;height:32px}
+      .insight-modal-content { padding: 30px 20px; }
       .footer-top { grid-template-columns: 1fr; gap: 25px; }
     }
   </style>
@@ -698,7 +753,11 @@
 
 <header class="site-header">
   <div class="header-inner">
-    <nav class="main-nav header-left-nav" id="main-navigation" aria-label="Main navigation">
+    <a class="brand" href="index.html" aria-label="Jiro-BEACONS Engineering home">
+      <img src="images/logo-white.png" alt="Jiro-BEACONS Engineering" onerror="this.onerror=null;this.src='images/logo.png';">
+    </a>
+
+    <nav class="main-nav header-center-nav" id="main-navigation" aria-label="Main navigation">
       <a href="about.html">About</a>
       <div class="nav-dropdown">
         <button class="nav-dropdown-toggle" id="services-toggle" aria-expanded="false" aria-controls="services-menu" type="button">
@@ -722,25 +781,17 @@
         </div>
       </div>
       <a href="solutions.html">Solutions</a>
+      <a href="projects.html">Projects</a>
+      <a href="insights.html" class="active" style="color:var(--gold-light);">Insights</a>
+      <a href="careers.html">Careers</a>
       
       <!-- MOBILE-ONLY EXTRA NAV LINKS -->
       <div class="mobile-only-nav">
-        <a href="projects.html">Projects</a>
-        <a href="insights.html" class="active" style="color:var(--gold-light);">Insights</a>
-        <a href="careers.html">Careers</a>
+        <a href="contact.html">Contact Us</a>
       </div>
     </nav>
 
-    <a class="brand" href="index.html" aria-label="Jiro-BEACONS Engineering home">
-      <img src="images/logo-white.png" alt="Jiro-BEACONS Engineering" onerror="this.onerror=null;this.src='images/logo.png';">
-    </a>
-
     <div class="header-right-group">
-      <nav class="main-nav header-right-nav desktop-right-nav" aria-label="Secondary navigation">
-        <a href="projects.html">Projects</a>
-        <a href="insights.html" class="active" style="color:var(--gold-light);">Insights</a>
-        <a href="careers.html">Careers</a>
-      </nav>
       <div class="header-tools">
         <button class="icon-button" id="search-toggle" type="button" aria-label="Open search" aria-expanded="false" aria-controls="search-panel">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
@@ -776,7 +827,7 @@
     <p class="eyebrow" style="color:var(--gold-light);">KNOWLEDGE CENTRE</p>
     <h1>Engineering insight. Better decisions.</h1>
     <p>
-      Practical perspectives on engineering delivery, project quality, digital information, and infrastructure performance for project owners and EPC directors.
+      Practical perspectives on engineering delivery, construction quality, quantity measurement, digital engineering and infrastructure asset information—helping project teams make better-informed decisions.
     </p>
   </div>
 </section>
@@ -787,12 +838,12 @@
 
     <!-- FILTER BUTTONS -->
     <div class="filter-bar" role="region" aria-label="Insight categories">
-      <button class="filter-btn active" data-filter="all">All Insights</button>
-      <button class="filter-btn" data-filter="qa">Project Quality &amp; QA/QC</button>
-      <button class="filter-btn" data-filter="survey">Surveying &amp; As-Built</button>
-      <button class="filter-btn" data-filter="digital">Digital Engineering &amp; Delivery</button>
-      <button class="filter-btn" data-filter="cost">Cost &amp; Measurement</button>
-      <button class="filter-btn" data-filter="asset">Asset Intelligence &amp; Smart Buildings</button>
+      <button class="filter-btn active" data-filter="all" aria-pressed="true">All Insights</button>
+      <button class="filter-btn" data-filter="qa" aria-pressed="false">Project Quality &amp; QA/QC</button>
+      <button class="filter-btn" data-filter="survey" aria-pressed="false">Surveying &amp; As-Built</button>
+      <button class="filter-btn" data-filter="digital" aria-pressed="false">Digital Engineering &amp; Delivery</button>
+      <button class="filter-btn" data-filter="cost" aria-pressed="false">Cost &amp; Measurement</button>
+      <button class="filter-btn" data-filter="asset" aria-pressed="false">Asset Intelligence &amp; Smart Buildings</button>
     </div>
 
     <!-- FEATURED FLAGSHIP ARTICLE -->
@@ -801,15 +852,15 @@
         <span class="featured-meta">Featured Insight · Project Quality &amp; QA/QC</span>
         <h2>A Construction Project Can Pass Inspection and Still Have a Documentation Problem</h2>
         <p>
-          Why inspection evidence, material traceability, and organised records matter long after the concrete has cured and the work is covered up.
+          Physical inspection confirms aspects of the work observed at a particular stage. Reliable inspection records, test results, material traceability and organised handover information help establish what was completed, what was verified and what evidence remains available.
         </p>
-        <a href="#article-details" class="article-link">
+        <button class="article-link" data-modal-target="modal-featured">
           Read Full Analysis &rarr;
-        </a>
+        </button>
       </div>
       <div>
         <p style="color:rgba(255,255,255,0.7); font-size:14px; margin-bottom:0;">
-          <strong>Key takeaway:</strong> Passing a physical site inspection is only half the battle. Without a verifiable paper trail and indexed test packs, final asset handover and future modifications face severe compliance bottlenecks.
+          <strong>Key takeaway:</strong> Quality assurance requires both appropriate inspection and retrievable supporting evidence. Gaps in either can complicate project closeout, future maintenance and technical reviews.
         </p>
       </div>
     </div>
@@ -824,57 +875,47 @@
         <p>
           Examining how structured project information management and cloud document workflows replace scattered files with instant searchability.
         </p>
-        <a href="#" class="article-link">Read Article &rarr;</a>
+        <button class="article-link" data-modal-target="modal-art-1">Read Insight &rarr;</button>
       </article>
 
       <!-- Article 2 -->
-      <article class="article-card" data-category="qa">
-        <div class="article-category">Project Quality &amp; QA/QC</div>
-        <h3>A Construction Project Can Pass Inspection and Still Have a Documentation Problem</h3>
-        <p>
-          Why inspection evidence, material traceability and organised records matter long after the work is covered up.
-        </p>
-        <a href="#" class="article-link">Read Article &rarr;</a>
-      </article>
-
-      <!-- Article 3 -->
       <article class="article-card" data-category="survey">
         <div class="article-category">Surveying &amp; Existing Assets</div>
         <h3>Why Every Existing Building Needs Reliable As-Built Information Before Major Renovation</h3>
         <p>
           The critical role of precise site measurements, Scan-to-BIM, and baseline spatial data in avoiding costly retrofit surprises.
         </p>
-        <a href="#" class="article-link">Read Article &rarr;</a>
+        <button class="article-link" data-modal-target="modal-art-2">Read Insight &rarr;</button>
       </article>
 
-      <!-- Article 4 -->
+      <!-- Article 3 -->
       <article class="article-card" data-category="digital">
         <div class="article-category">Digital Delivery &amp; Handover</div>
         <h3>What Should a Complete Digital Engineering Handover Contain?</h3>
         <p>
           Moving beyond traditional paper folders to structure commissioning evidence, test packs, and as-built records into a usable digital handover package.
         </p>
-        <a href="#" class="article-link">Read Article &rarr;</a>
+        <button class="article-link" data-modal-target="modal-art-3">Read Insight &rarr;</button>
       </article>
 
-      <!-- Article 5 -->
+      <!-- Article 4 -->
       <article class="article-card" data-category="cost">
         <div class="article-category">Cost, Measurement &amp; Delivery</div>
         <h3>How Poor Quantity Information Can Create Construction Cost and Variation Disputes</h3>
         <p>
           Connecting quantity take-offs, scope clarity, and rigorous measurement tracking to dispute prevention and financial project control.
         </p>
-        <a href="#" class="article-link">Read Article &rarr;</a>
+        <button class="article-link" data-modal-target="modal-art-4">Read Insight &rarr;</button>
       </article>
 
-      <!-- Article 6 -->
+      <!-- Article 5 -->
       <article class="article-card" data-category="asset">
         <div class="article-category">Asset Intelligence &amp; Smart Buildings</div>
         <h3>From As-Built Drawings to Asset Intelligence: What Happens After Handover?</h3>
         <p>
           How reliable engineering data and maintenance readiness frameworks transform construction deliverables into efficient operational assets.
         </p>
-        <a href="#" class="article-link">Read Article &rarr;</a>
+        <button class="article-link" data-modal-target="modal-art-5">Read Insight &rarr;</button>
       </article>
 
     </div>
@@ -887,9 +928,9 @@
   <div class="container" style="display:grid; grid-template-columns: 1fr auto; gap: 40px; align-items:center;">
     <div>
       <p class="eyebrow" style="color:var(--gold-light);">DISCUSS YOUR CHALLENGE</p>
-      <h2>Have an engineering or project documentation question?</h2>
+      <h2>Have an Engineering or Infrastructure Challenge?</h2>
       <p style="margin-bottom:0;">
-        Speak directly with our technical team about QA/QC support, digital handovers, or existing-asset surveying.
+        Discuss your project requirements with Jiro-BEACONS, from surveying and construction delivery support to quality assurance and digital engineering.
       </p>
     </div>
     <div>
@@ -901,6 +942,94 @@
 </section>
 
 </main>
+
+
+<!-- ARTICLE MODALS -->
+<div class="insight-modal" id="modal-featured" aria-hidden="true">
+  <div class="insight-modal-content">
+    <button class="insight-modal-close" aria-label="Close modal">&times;</button>
+    <span class="modal-tag">Featured Insight · Project Quality &amp; QA/QC</span>
+    <h2>A Construction Project Can Pass Inspection and Still Have a Documentation Problem</h2>
+    <div class="insight-modal-body">
+      <p>Physical inspection confirms aspects of the work observed at a particular stage. Reliable inspection records, test results, material traceability and organised handover information help establish what was completed, what was verified and what evidence remains available.</p>
+      <h4>The Challenge of Fragmented Records</h4>
+      <p>During active construction, site teams focus heavily on achieving physical milestones. However, test reports from independent laboratories, material mill certificates, and non-conformance sign-offs often reside in disparate silos—some on paper folders in site trailers, others in local desktop spreadsheets or individual email chains.</p>
+      <h4>The Impact on Handover and Closeout</h4>
+      <p>When project handover arrives, verifying that every completed element meets specification becomes an administrative bottleneck if the evidentiary trail is incomplete. Asset owners inherit facilities with obscured test history, making future maintenance or warranty claims unnecessarily cumbersome.</p>
+      <h4>The Jiro-BEACONS Approach</h4>
+      <p>By establishing structured digital inspection logs and rigorous document control protocols during execution, project teams ensure that physical completion is matched by transparent, instantly retrievable compliance records.</p>
+    </div>
+  </div>
+</div>
+
+<div class="insight-modal" id="modal-art-1" aria-hidden="true">
+  <div class="insight-modal-content">
+    <button class="insight-modal-close" aria-label="Close modal">&times;</button>
+    <span class="modal-tag">Digital Engineering &amp; Information</span>
+    <h2>Can Your Project Team Retrieve a Critical Record in 30 Seconds?</h2>
+    <div class="insight-modal-body">
+      <p>Examining how structured project information management and cloud document workflows replace scattered files with instant searchability.</p>
+      <h4>The Cost of Information Latency</h4>
+      <p>In modern engineering projects, time spent searching for the latest revision of a structural drawing or a specific material test certificate accumulates into thousands of lost man-hours annually. When inquiries take days rather than seconds, project momentum stalls.</p>
+      <h4>Cloud-Enabled Common Data Environments (CDE)</h4>
+      <p>Implementing structured SharePoint and cloud collaboration architectures ensures single-source-of-truth reliability. Granular permission management combined with standardized naming conventions enables teams to locate authorized documentation instantly.</p>
+    </div>
+  </div>
+</div>
+
+<div class="insight-modal" id="modal-art-2" aria-hidden="true">
+  <div class="insight-modal-content">
+    <button class="insight-modal-close" aria-label="Close modal">&times;</button>
+    <span class="modal-tag">Surveying &amp; Existing Assets</span>
+    <h2>Why Every Existing Building Needs Reliable As-Built Information Before Major Renovation</h2>
+    <div class="insight-modal-body">
+      <p>The critical role of precise site measurements, Scan-to-BIM, and baseline spatial data in avoiding costly retrofit surprises.</p>
+      <h4>Navigating Legacy Discrepancies</h4>
+      <p>Renovating older structures based on outdated historical drawings frequently results in unforeseen site clashes during construction, leading to costly variations and delays.</p>
+      <h4>The Power of Reality Capture</h4>
+      <p>Mobile LiDAR and high-precision laser scanning capture exact spatial geometry of existing conditions, translating physical spaces into intelligent point clouds and coordinated BIM models that mitigate retrofit risk.</p>
+    </div>
+  </div>
+</div>
+
+<div class="insight-modal" id="modal-art-3" aria-hidden="true">
+  <div class="insight-modal-content">
+    <button class="insight-modal-close" aria-label="Close modal">&times;</button>
+    <span class="modal-tag">Digital Delivery &amp; Handover</span>
+    <h2>What Should a Complete Digital Engineering Handover Contain?</h2>
+    <div class="insight-modal-body">
+      <p>Moving beyond traditional paper folders to structure commissioning evidence, test packs, and as-built records into a usable digital handover package.</p>
+      <h4>Anatomy of the Digital Engineering Package (DEP)</h4>
+      <p>A comprehensive handover package goes beyond final CAD files. It encompasses structured QA/QC registers, verified test packs, manufacturer warranties, spatial survey coordinates, and maintenance manuals organised for immediate operational utility.</p>
+    </div>
+  </div>
+</div>
+
+<div class="insight-modal" id="modal-art-4" aria-hidden="true">
+  <div class="insight-modal-content">
+    <button class="insight-modal-close" aria-label="Close modal">&times;</button>
+    <span class="modal-tag">Cost, Measurement &amp; Delivery</span>
+    <h2>How Poor Quantity Information Can Create Construction Cost and Variation Disputes</h2>
+    <div class="insight-modal-body">
+      <p>Connecting quantity take-offs, scope clarity, and rigorous measurement tracking to dispute prevention and financial project control.</p>
+      <h4>Clarity in Bills of Quantities (BOQs)</h4>
+      <p>Ambiguities in measured quantities and scope definitions are primary drivers of contractor claims and commercial disputes. Rigorous quantity surveying support during procurement establishes clear commercial baselines from day one.</p>
+    </div>
+  </div>
+</div>
+
+<div class="insight-modal" id="modal-art-5" aria-hidden="true">
+  <div class="insight-modal-content">
+    <button class="insight-modal-close" aria-label="Close modal">&times;</button>
+    <span class="modal-tag">Asset Intelligence &amp; Smart Buildings</span>
+    <h2>From As-Built Drawings to Asset Intelligence: What Happens After Handover?</h2>
+    <div class="insight-modal-body">
+      <p>How reliable engineering data and maintenance readiness frameworks transform construction deliverables into efficient operational assets.</p>
+      <h4>Bridging Construction and Operations</h4>
+      <p>The true value of project information is realized during facility operation. Structuring asset data correctly at handover enables facility managers to track equipment lifecycles, monitor energy performance, and optimize maintenance schedules effortlessly.</p>
+    </div>
+  </div>
+</div>
 
 
 <footer class="site-footer">
@@ -933,7 +1062,7 @@
         <ul class="footer-links">
           <li><a href="careers.html">Careers</a></li>
           <li><a href="contact.html">Contact Us</a></li>
-          <li><a href="mailto:giftedafe@jirobeacons.com">Email Jiro-BEACONS</a></li>
+          <li><a href="mailto:projects@jirobeacons.com">Email Jiro-BEACONS</a></li>
         </ul>
       </div>
     </div>
@@ -1027,6 +1156,26 @@
   }
   if(searchClose) searchClose.addEventListener("click",closeSearch);
 
+  // URL Query Parameter handling for search (?search=...)
+  window.addEventListener("DOMContentLoaded", function(){
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchQuery = urlParams.get("search");
+    if(searchQuery && searchInput){
+      searchInput.value = searchQuery;
+      const normalizedQuery = searchQuery.toLocaleLowerCase();
+      const articlesArr = Array.from(document.querySelectorAll(".article-card, .featured-article"));
+      const match = articlesArr.find(function(item){
+        return item.innerText.toLocaleLowerCase().includes(normalizedQuery);
+      });
+      if(match){
+        match.scrollIntoView({behavior:"smooth",block:"start"});
+        if(searchFeedback) searchFeedback.textContent = "Found insights matching your search.";
+      } else {
+        if(searchFeedback) searchFeedback.textContent = "No direct insight matches found for your search query.";
+      }
+    }
+  });
+
   if(searchForm && searchInput){
     searchForm.addEventListener("submit",function(event){
       event.preventDefault();
@@ -1049,15 +1198,19 @@
     });
   }
 
-  // Category Filtering Logic
+  // Category Filtering Logic with aria-pressed support
   const filterBtns = document.querySelectorAll(".filter-btn");
   const articles = document.querySelectorAll(".article-card");
   const featured = document.querySelector(".featured-article");
 
   filterBtns.forEach(function(btn){
     btn.addEventListener("click", function(){
-      filterBtns.forEach(function(b){ b.classList.remove("active"); });
+      filterBtns.forEach(function(b){ 
+        b.classList.remove("active"); 
+        b.setAttribute("aria-pressed", "false");
+      });
       this.classList.add("active");
+      this.setAttribute("aria-pressed", "true");
 
       const filter = this.getAttribute("data-filter");
 
@@ -1077,23 +1230,59 @@
     });
   });
 
+  // Modal Sub-Page Logic
+  const modalTriggers = document.querySelectorAll("[data-modal-target]");
+  const modals = document.querySelectorAll(".insight-modal");
+
+  modalTriggers.forEach(function(trigger){
+    trigger.addEventListener("click", function(){
+      const targetId = this.getAttribute("data-modal-target");
+      const modal = document.getElementById(targetId);
+      if(modal){
+        modal.classList.add("is-open");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("modal-open");
+      }
+    });
+  });
+
+  modals.forEach(function(modal){
+    const closeBtn = modal.querySelector(".insight-modal-close");
+    function closeModal(){
+      modal.classList.remove("is-open");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("modal-open");
+    }
+    if(closeBtn) closeBtn.addEventListener("click", closeModal);
+    modal.addEventListener("click", function(e){
+      if(e.target === modal) closeModal();
+    });
+  });
+
+  document.addEventListener("keydown",function(event){
+    if(event.key === "Escape"){
+      closeMenu();
+      closeSearch();
+      modals.forEach(function(modal){
+        modal.classList.remove("is-open");
+        modal.setAttribute("aria-hidden", "true");
+      });
+      document.body.classList.remove("modal-open");
+    }
+  });
+
   document.addEventListener("click",function(event){
-    if(navigation && menuToggle &&
-       !navigation.contains(event.target) &&
-       !menuToggle.contains(event.target)){
+    const navigationEl = document.getElementById("main-navigation");
+    const toggleEl = document.getElementById("menu-toggle");
+    if(navigationEl && toggleEl &&
+       !navigationEl.contains(event.target) &&
+       !toggleEl.contains(event.target)){
       closeMenu();
     }
     if(searchPanel && searchToggle &&
        searchPanel.classList.contains("is-open") &&
        !searchPanel.contains(event.target) &&
        !searchToggle.contains(event.target)){
-      closeSearch();
-    }
-  });
-
-  document.addEventListener("keydown",function(event){
-    if(event.key === "Escape"){
-      closeMenu();
       closeSearch();
     }
   });
