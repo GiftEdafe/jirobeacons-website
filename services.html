@@ -6,7 +6,7 @@
 
   <title>Services | Jiro-BEACONS Engineering</title>
 
-  <meta name="description" content="Jiro-BEACONS engineering services including Integrated AEC Professional Teams, Digital QA/QC, Complete Digital Engineering Package, engineering documentation, and geospatial workflows.">
+  <meta name="description" content="Jiro-BEACONS engineering services including Integrated AEC Professional Teams, Digital QA/QC, Signature Digital Engineering Package, and infrastructure delivery support.">
   <meta name="theme-color" content="#2B0714">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,7 +48,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    body.menu-open, body.search-open, body.discover-modal-open {
+    body.menu-open, body.search-open {
       overflow: hidden;
     }
 
@@ -186,90 +186,6 @@
       color: var(--wine);
     }
 
-    /* MODAL OVERLAY FOR DISCOVER PROJECT */
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 20000;
-      background: rgba(11, 15, 20, 0.85);
-      backdrop-filter: blur(5px);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 30px 20px;
-      overflow-y: auto;
-    }
-    .modal-overlay.is-open {
-      display: flex;
-    }
-    .modal-container {
-      background: var(--off-white);
-      color: var(--text);
-      width: min(1100px, 100%);
-      max-height: 90vh;
-      border-radius: 4px;
-      border-top: 5px solid var(--gold);
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 25px 50px rgba(0,0,0,0.4);
-      overflow: hidden;
-    }
-    .modal-header {
-      background: var(--wine);
-      color: var(--white);
-      padding: 24px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .modal-header h3 {
-      color: var(--white);
-      font-size: 22px;
-    }
-    .modal-close {
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.4);
-      color: var(--white);
-      width: 36px;
-      height: 36px;
-      border-radius: 2px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      transition: background 0.2s;
-    }
-    .modal-close:hover {
-      background: var(--gold);
-      color: var(--wine);
-      border-color: var(--gold);
-    }
-    .modal-body {
-      padding: 35px 30px;
-      overflow-y: auto;
-    }
-
-    .modal-content-block h4 {
-      color: var(--wine);
-      font-size: 20px;
-      margin-top: 20px;
-      margin-bottom: 10px;
-    }
-    .modal-content-block p {
-      font-size: 15px;
-      color: var(--muted);
-      margin-bottom: 15px;
-      line-height: 1.7;
-    }
-    .modal-content-block ul {
-      margin-left: 20px;
-      margin-bottom: 15px;
-      color: var(--muted);
-    }
-    .modal-content-block li {
-      margin-bottom: 8px;
-    }
-
     /* SOLID WINE HEADER & ORIGINAL DESKTOP 3-COLUMN GRID */
     .site-header {
       position: fixed;
@@ -316,12 +232,6 @@
       letter-spacing: 1px;
     }
     .brand img { width: 220px; max-height: 60px; object-fit: contain; }
-    .brand span {
-      display: block;
-      color: var(--gold);
-      font-size: 9px;
-      letter-spacing: 3px;
-    }
 
     .header-right-group {
       justify-self: end;
@@ -437,20 +347,12 @@
       z-index: 0;
     }
 
-    .desktop-video {
-      display: block;
-    }
-    .mobile-video {
-      display: none;
-    }
+    .desktop-video { display: block; }
+    .mobile-video { display: none; }
 
     @media (max-width: 767px) {
-      .desktop-video {
-        display: none;
-      }
-      .mobile-video {
-        display: block;
-      }
+      .desktop-video { display: none; }
+      .mobile-video { display: block; }
     }
 
     .hero-overlay {
@@ -737,7 +639,7 @@
       color: var(--gold);
     }
 
-    /* RESPONSIVE STYLES & MOBILE DRAWER TOGGLE FIX */
+    /* RESPONSIVE STYLES */
     @media(min-width:1101px){
       .nav-dropdown:hover .nav-dropdown-menu,
       .nav-dropdown:focus-within .nav-dropdown-menu{display:grid}
@@ -755,10 +657,8 @@
       .header-inner .brand img{ width: 130px; max-height: 38px; }
       .header-tools { grid-column: 3; justify-self: end; }
 
-      /* HIDE DESKTOP RIGHT NAV ON MOBILE */
       .desktop-right-nav { display: none !important; }
 
-      /* MOBILE DRAWER: HIDDEN BY DEFAULT, ONLY SHOWN WHEN .is-open IS ACTIVE */
       .main-nav{
         position:absolute; top:100%; left:0; right:0; z-index:11500;
         display: none !important; 
@@ -770,12 +670,9 @@
         -webkit-overflow-scrolling: touch;
         gap: 16px;
       }
-      .main-nav.is-open {
-        display: flex !important;
-      }
+      .main-nav.is-open { display: flex !important; }
       .menu-toggle{display:flex}
 
-      /* MOBILE-ONLY NAV LINKS */
       .mobile-only-nav {
         display: flex;
         flex-direction: column;
@@ -792,7 +689,6 @@
         gap: 16px;
       }
 
-      /* EXACT FONT & STYLE MATCH FOR EXTRA NAV LINKS */
       .mobile-only-nav a {
         color: rgba(255,255,255,.94);
         font-size: .7rem;
@@ -806,7 +702,6 @@
         color: var(--gold-light);
       }
 
-      /* MOBILE DROPDOWN STYLING */
       .nav-dropdown { width: 100%; }
       .nav-dropdown-toggle { width: 100%; justify-content: space-between; padding: 0; }
       
@@ -857,6 +752,7 @@
         <div class="nav-dropdown-menu" id="services-menu">
           <div class="nav-dropdown-group">
             <h2 class="nav-dropdown-heading">Core Infrastructure Engineering</h2>
+            <a href="services.html#integrated-teams">Integrated AEC Professional Teams</a>
             <a href="services.html#surveying">Surveying &amp; Geospatial</a>
             <a href="services.html#quantity-surveying">Quantity Surveying &amp; Cost Support</a>
             <a href="services.html#engineering-coordination">Engineering &amp; Project Coordination</a>
@@ -873,7 +769,6 @@
       </div>
       <a href="solutions.html">Solutions</a>
       
-      <!-- MOBILE-ONLY EXTRA NAV LINKS -->
       <div class="mobile-only-nav">
         <a href="projects.html">Projects</a>
         <a href="insights.html">Insights</a>
@@ -921,36 +816,30 @@
 <main>
 
 <section class="page-hero">
-  <!-- Desktop / Landscape Video -->
   <video class="hero-video desktop-video" autoplay muted loop playsinline preload="auto">
     <source src="https://raw.githubusercontent.com/GiftEdafe/jirobeacons-website/main/videos/crane-1.mp4" type="video/mp4">
-    Your browser does not support the video tag.
   </video>
 
-  <!-- Mobile / Portrait Video -->
   <video class="hero-video mobile-video" autoplay muted loop playsinline preload="auto">
     <source src="https://raw.githubusercontent.com/GiftEdafe/jirobeacons-website/main/videos/crane-2.mp4" type="video/mp4">
-    Your browser does not support the video tag.
   </video>
 
-  <!-- Neutral transparent dark overlay -->
   <div class="hero-overlay"></div>
 
   <div class="container hero-content">
     <p class="eyebrow" style="color:var(--gold-light);">OUR SERVICES</p>
     <h1>Integrated professional capacity &amp; technical execution.</h1>
     <p>
-      Jiro-BEACONS provides clients with direct access to coordinated multidisciplinary AEC professional teams 
-      alongside specialized digital engineering workflows to support projects from early planning through handover.
+      Jiro-BEACONS brings multidisciplinary AEC professionals, infrastructure delivery support and digital engineering workflows together to support projects from planning and execution through handover.
     </p>
     <div style="margin-top: 25px;">
-      <button class="btn btn-gold" id="open-discover-modal" type="button">Discover Your Project <span aria-hidden="true">&rarr;</span></button>
+      <a href="contact.html" class="btn btn-gold">Discuss Your Project &rarr;</a>
     </div>
   </div>
 </section>
 
-<!-- PILLAR 1: INTEGRATED AEC PROFESSIONAL TEAMS & DISCIPLINES -->
-<section class="aec-section">
+<!-- CORE INFRASTRUCTURE ENGINEERING & AEC TEAMS -->
+<section class="aec-section" id="integrated-teams">
   <div class="container">
     <p class="eyebrow">WORKFORCE &amp; ENGAGEMENT MODEL</p>
     <h2>Integrated AEC Professional Teams</h2>
@@ -1000,21 +889,68 @@
   </div>
 </section>
 
-<!-- PILLAR 2: SPECIALIZED TECHNICAL DELIVERABLES & DIGITAL ENGINEERING -->
-<section class="dep">
+<!-- CORE INFRASTRUCTURE SERVICES GRID -->
+<section class="section" style="background: var(--off-white);" id="core-services">
   <div class="container">
-    <p class="eyebrow">TECHNICAL DELIVERABLES</p>
-    <h2>Complete Digital Engineering Package</h2>
+    <p class="eyebrow">CORE INFRASTRUCTURE ENGINEERING</p>
+    <h2>Comprehensive Project &amp; Engineering Services</h2>
     <p class="intro">
-      Beyond team deployment, our specialized Digital Engineering Package (DEP) brings together 
-      the critical technical data generated during project execution into a single unified deliverable.
+      Core capabilities clients can engage Jiro-BEACONS to deliver across physical infrastructure development:
+    </p>
+
+    <div class="service-grid">
+      <div class="service" id="surveying">
+        <div class="number">01</div>
+        <h3>Surveying &amp; Geospatial</h3>
+        <p>Land, topographic and engineering surveys; spatial data capture and existing-site evaluation.</p>
+      </div>
+
+      <div class="service" id="quantity-surveying">
+        <div class="number">02</div>
+        <h3>Quantity Surveying &amp; Cost Support</h3>
+        <p>Measured quantity take-offs based on available information, BOQs, cost estimates and commercial support, subject to the agreed scope.</p>
+      </div>
+
+      <div class="service" id="engineering-coordination">
+        <div class="number">03</div>
+        <h3>Engineering &amp; Project Coordination</h3>
+        <p>Technical interfaces, multidisciplinary coordination, project controls and delivery support.</p>
+      </div>
+
+      <div class="service" id="construction-delivery">
+        <div class="number">04</div>
+        <h3>Construction Delivery Support</h3>
+        <p>Site coordination, progress monitoring and construction execution support within the agreed engagement scope.</p>
+      </div>
+
+      <div class="service" id="quality-assurance">
+        <div class="number">05</div>
+        <h3>QA/QC, Inspection &amp; Testing</h3>
+        <p>Inspection and test records, quality documentation, verification activities and non-conformance tracking.</p>
+      </div>
+
+      <div class="service" id="information-management">
+        <div class="number">06</div>
+        <h3>Engineering Information Management</h3>
+        <p>Document control, technical registers, structured records and digital handover.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNATURE DEP SECTION -->
+<section class="dep" id="dep">
+  <div class="container">
+    <p class="eyebrow">SIGNATURE DIGITAL DELIVERY</p>
+    <h2>Our Signature Digital Engineering Package</h2>
+    <p class="intro">
+      Jiro-BEACONS’ signature Digital Engineering Package structures project quality records, technical documentation, as-built information and agreed digital deliverables into a coordinated handover package.
     </p>
 
     <div class="dep-box">
       <h2>Digital Engineering Package (DEP)</h2>
       <p>
-        Engineered for projects requiring complete traceability from site to handover, DEP connects 
-        quality evidence, technical documentation, as-builts, and reality capture into a structured digital asset.
+        Developed progressively during project execution, DEP helps project teams organise engineering evidence and prepare asset information for downstream use, aligned with the agreed deliverables.
       </p>
 
       <div class="dep-items">
@@ -1039,54 +975,34 @@
           High-accuracy spatial datasets supporting verification.
         </div>
         <div class="dep-item">
-          <strong>Scan-to-BIM</strong>
-          Point-cloud processing and intelligent 3D asset modeling.
+          <strong>Scan-to-BIM &amp; Digital Twins</strong>
+          Point-cloud processing and intelligent 3D asset modeling, where scope is defined.
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section">
+<!-- SMART BUILDING & COMPLIANCE ANALYTICS (DEVELOPING CAPABILITIES) -->
+<section class="section" id="smart-building">
   <div class="container">
-    <p class="eyebrow">TECHNICAL EXECUTION CAPABILITIES</p>
-    <h2>Specialized Technical Workflows</h2>
+    <p class="eyebrow">DEVELOPING CAPABILITIES</p>
+    <h2>Smart Building &amp; Compliance Analytics</h2>
+    <p class="intro">
+      Developing data-led capabilities for building telemetry, energy performance visibility and structured environmental reporting.
+    </p>
 
     <div class="service-grid">
-      <div class="service" id="quality-assurance">
+      <div class="service" id="automation">
         <div class="number">01</div>
-        <h3>Digital QA/QC Frameworks</h3>
-        <p>Independent quality assurance systems, digital inspection tracking, and testing evidence registers.</p>
+        <h3>Smart Building Telemetry &amp; Integration</h3>
+        <p>Building systems data integration and monitoring workflows, subject to project scope and available systems.</p>
       </div>
 
-      <div class="service" id="information-management">
+      <div class="service" id="edgecarbon">
         <div class="number">02</div>
-        <h3>Engineering Document Control</h3>
-        <p>EDMS administration, technical transmittals, drawing indexing, and structured handover logging.</p>
-      </div>
-
-      <div class="service" id="asset-information">
-        <div class="number">03</div>
-        <h3>Digital Asset Information</h3>
-        <p>Structuring component registries and as-built parameters for downstream facility management.</p>
-      </div>
-
-      <div class="service" id="surveying">
-        <div class="number">04</div>
-        <h3>Geospatial &amp; Land Surveying</h3>
-        <p>Precision geodetic surveys, mobile LiDAR data capture, and spatial auditing workflows.</p>
-      </div>
-
-      <div class="service" id="scan-to-bim">
-        <div class="number">05</div>
-        <h3>Scan-to-BIM &amp; Digital Twins</h3>
-        <p>Point-cloud capture, parametric modeling, and operational digital twins for existing assets.</p>
-      </div>
-
-      <div class="service" id="engineering-coordination">
-        <div class="number">06</div>
-        <h3>Multidisciplinary Technical Support</h3>
-        <p>Targeted engineering coordination and technical problem-solving across active project stages.</p>
+        <h3>EdgeCarbon Compliance &amp; ESG Data Platforms</h3>
+        <p>Developing approaches to energy, carbon and ESG data capture, analysis and reporting.</p>
       </div>
     </div>
   </div>
@@ -1098,8 +1014,7 @@
     <h2>Make project information useful after construction.</h2>
     <p>
       The value of project documentation does not end when construction finishes. 
-      Our integrated teams and digital workflows ensure your asset data remains structured, traceable, 
-      and operationally valuable for the life of the facility.
+      Our integrated teams and digital workflows help maintain structured asset information for future use and operational value over the life of the facility.
     </p>
     <a class="button" href="contact.html">
       Discuss Your Project
@@ -1110,50 +1025,12 @@
 </main>
 
 
-<!-- DISCOVER YOUR PROJECT MODAL -->
-<div class="modal-overlay" id="discover-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="discover-modal-title">
-  <div class="modal-container">
-    <div class="modal-header">
-      <h3 id="discover-modal-title">Discover Your Project | Strategic Insights &amp; Execution Framework</h3>
-      <button class="modal-close" id="close-discover-modal" aria-label="Close discover modal">&times;</button>
-    </div>
-    <div class="modal-body modal-content-block">
-      
-      <span class="eyebrow">Project Intelligence &amp; Risk Mitigation</span>
-      
-      <h4>Why You Need to Discover Your Project</h4>
-      <p>Modern infrastructure and real estate ventures face critical challenges related to data fragmentation, compliance oversight, and operational blind spots. Discovering your project through Jiro-BEACONS' structured diagnostic and technical framework unlocks complete transparency across physical execution and digital asset intelligence.</p>
-
-      <h4>1. Diagnostic Auditing &amp; Risk Visibility</h4>
-      <p>Uncover hidden compliance gaps, geometric discrepancies, and material quality bottlenecks before they escalate into costly rework or legal disputes. Our independent audits establish a rigorous baseline of your project's current status.</p>
-
-      <h4>2. Streamlined Multidisciplinary Integration</h4>
-      <p>Eliminate silos between architectural design, geospatial surveying, structural engineering, and cost control. Discovering your project aligns all stakeholders around a single source of verified truth, optimizing resource allocation and project timelines.</p>
-
-      <h4>3. Future-Proof Digital Handover (DEP)</h4>
-      <p>Transition from scattered paperwork and unverified as-builts to a fully structured Digital Engineering Package. Equip facility operators with real-time telemetry-ready data registries, maintenance tracking, and audit-ready compliance ledgers.</p>
-
-      <h4>4. Optimized Capital &amp; Lifecycle Efficiency</h4>
-      <p>Gain exact quantity take-offs, robust BOQ cost planning, and intelligent energy/carbon compliance tracking to protect your capital investment from conception through ongoing facility management.</p>
-
-      <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
-        <p style="margin: 0; font-size: 14px;">Ready to execute your project with absolute clarity and control?</p>
-        <a href="contact.html" class="btn btn-gold" style="min-height: 44px; padding: 10px 20px; font-size: 13px;">Initiate Project Consultation →</a>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-
 <footer class="site-footer">
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
         <a href="index.html" aria-label="Jiro-BEACONS Engineering home">
-          <img src="images/logo-white.png"
-               alt="Jiro-BEACONS Engineering"
-               onerror="this.onerror=null;this.src='images/logo.png';">
+          <img src="images/logo-white.png" alt="Jiro-BEACONS Engineering" onerror="this.onerror=null;this.src='images/logo.png';">
         </a>
         <p>
           Engineering better information for smarter infrastructure
@@ -1166,7 +1043,7 @@
         <h4>Explore</h4>
         <ul class="footer-links">
           <li><a href="about.html">About Us</a></li>
-          <li><a href="services.html">Services</a></li>
+          <li><a href="services.html" class="active" style="color:var(--gold);">Services</a></li>
           <li><a href="solutions.html">Solutions</a></li>
           <li><a href="projects.html">Projects</a></li>
           <li><a href="insights.html">Insights</a></li>
@@ -1178,20 +1055,13 @@
         <ul class="footer-links">
           <li><a href="careers.html">Careers</a></li>
           <li><a href="contact.html">Contact Us</a></li>
-          <li>
-            <a href="mailto:giftedafe@jirobeacons.com">
-              Email Jiro-BEACONS
-            </a>
-          </li>
+          <li><a href="mailto:giftedafe@jirobeacons.com">Email Jiro-BEACONS</a></li>
         </ul>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <p>
-        © <span id="currentYear"></span>
-        Jiro-BEACONS Engineering Nigeria Limited. All rights reserved.
-      </p>
+      <p>© <span id="currentYear"></span> Jiro-BEACONS Engineering Nigeria Limited. All rights reserved.</p>
       <a href="index.html">Engineering better information.</a>
     </div>
   </div>
@@ -1212,35 +1082,6 @@
   const searchInput = document.getElementById("site-search-input");
   const searchForm = document.getElementById("search-form");
   const searchFeedback = document.getElementById("search-feedback");
-
-  // Discover Project Modal elements
-  const openDiscoverModalBtn = document.getElementById("open-discover-modal");
-  const closeDiscoverModalBtn = document.getElementById("close-discover-modal");
-  const discoverModal = document.getElementById("discover-modal");
-
-  function openDiscoverModal(){
-    if(discoverModal){
-      discoverModal.classList.add("is-open");
-      discoverModal.setAttribute("aria-hidden","false");
-      document.body.classList.add("discover-modal-open");
-    }
-  }
-
-  function closeDiscoverModal(){
-    if(discoverModal){
-      discoverModal.classList.remove("is-open");
-      discoverModal.setAttribute("aria-hidden","true");
-      document.body.classList.remove("discover-modal-open");
-    }
-  }
-
-  if(openDiscoverModalBtn) openDiscoverModalBtn.addEventListener("click", openDiscoverModal);
-  if(closeDiscoverModalBtn) closeDiscoverModalBtn.addEventListener("click", closeDiscoverModal);
-  if(discoverModal){
-    discoverModal.addEventListener("click", function(e){
-      if(e.target === discoverModal) closeDiscoverModal();
-    });
-  }
 
   function closeServices(){
     if(servicesMenu) servicesMenu.classList.remove("is-open");
@@ -1278,7 +1119,7 @@
       event.stopPropagation();
       const open = !servicesMenu.classList.contains("is-open");
       servicesMenu.classList.toggle("is-open",open);
-      servicesToggle.setAttribute("aria-expanded","true");
+      servicesToggle.setAttribute("aria-expanded",String(open));
     });
   }
 
@@ -1351,7 +1192,6 @@
     if(event.key === "Escape"){
       closeMenu();
       closeSearch();
-      closeDiscoverModal();
     }
   });
 
