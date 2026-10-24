@@ -6,7 +6,7 @@
 
   <title>Contact Us | Jiro-BEACONS Engineering</title>
 
-  <meta name="description" content="Contact Jiro-BEACONS Engineering for project inquiries, general information, and career opportunities in infrastructure quality assurance, geospatial data, and digital twins.">
+  <meta name="description" content="Contact Jiro-BEACONS Engineering Nigeria Limited for integrated engineering, surveying, construction delivery support, QA/QC, and digital engineering solutions.">
   <meta name="theme-color" content="#2B0714">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,8 +16,6 @@
   <style>
     :root {
       --wine: #2B0714;
-      --wine-light: #2B0714;
-      --wine-deep: #2B0714;
       --gold: #D4AF37;
       --gold-light: #E8D28A;
       --white: #FFFFFF;
@@ -171,7 +169,7 @@
       color: var(--wine);
     }
 
-    /* SOLID WINE HEADER & ORIGINAL DESKTOP 3-COLUMN GRID */
+    /* SOLID WINE HEADER & ALIGNED GRID */
     .site-header {
       position: fixed;
       z-index: 10000;
@@ -313,7 +311,7 @@
     .search-feedback { margin: 10px 0 0; color: rgba(255,255,255,.8); font-size: .84rem; }
     .search-feedback a { color: var(--gold-light); }
 
-    /* PAGE HERO SECTION WITH COMPLETED ARCHITECTURAL BACKGROUND & WINE OVERLAY */
+    /* PAGE HERO SECTION WITH WINE-TRANSPARENT OVERLAY */
     .page-hero {
       position: relative;
       background: #0b0f14;
@@ -470,14 +468,19 @@
       min-height: 140px;
     }
 
+    .form-privacy-note {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 15px;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
     /* Form Status & Success Feedback */
     #form-status {
       display: none;
       margin-top: 20px;
       padding: 15px;
-      background: #ecfdf5;
-      border: 1px solid #10b981;
-      color: #065f46;
       font-size: 14px;
       border-radius: 2px;
     }
@@ -557,7 +560,7 @@
       color: var(--gold);
     }
 
-    /* RESPONSIVE STYLES & MOBILE DRAWER TOGGLE FIX */
+    /* RESPONSIVE STYLES */
     @media(min-width:1101px){
       .nav-dropdown:hover .nav-dropdown-menu,
       .nav-dropdown:focus-within .nav-dropdown-menu{display:grid}
@@ -588,9 +591,7 @@
         -webkit-overflow-scrolling: touch;
         gap: 16px;
       }
-      .main-nav.is-open {
-        display: flex !important;
-      }
+      .main-nav.is-open { display: flex !important; }
       .menu-toggle{display:flex}
 
       .mobile-only-nav {
@@ -669,6 +670,7 @@
         <div class="nav-dropdown-menu" id="services-menu">
           <div class="nav-dropdown-group">
             <h2 class="nav-dropdown-heading">Core Infrastructure Engineering</h2>
+            <a href="services.html#integrated-teams">Integrated AEC Professional Teams</a>
             <a href="services.html#surveying">Surveying &amp; Geospatial</a>
             <a href="services.html#quantity-surveying">Quantity Surveying &amp; Cost Support</a>
             <a href="services.html#engineering-coordination">Engineering &amp; Project Coordination</a>
@@ -685,7 +687,6 @@
       </div>
       <a href="solutions.html">Solutions</a>
       
-      <!-- MOBILE-ONLY EXTRA NAV LINKS -->
       <div class="mobile-only-nav">
         <a href="projects.html">Projects</a>
         <a href="insights.html">Insights</a>
@@ -738,10 +739,9 @@
 
   <div class="container hero-content">
     <p class="eyebrow" style="color:var(--gold-light);">GET IN TOUCH</p>
-    <h1>Connect with our engineering and project teams.</h1>
+    <h1>Let’s Discuss Your Project.</h1>
     <p>
-      Reach out to Jiro-BEACONS Engineering Nigeria Limited for project consultations, technical inquiries, 
-      or career opportunities across our spatial data, digital twin, and infrastructure QA/QC services.
+      Connect with Jiro-BEACONS for integrated engineering, surveying, construction delivery support and digital engineering solutions—from early project requirements through execution and handover.
     </p>
   </div>
 </section>
@@ -759,8 +759,8 @@
         </div>
 
         <div class="contact-card">
-          <h3>General Information &amp; Support</h3>
-          <p>For general inquiries, corporate communications, and administrative correspondence.</p>
+          <h3>General Inquiries</h3>
+          <p>For corporate communications, general information, and administrative correspondence.</p>
           <a href="mailto:info@jirobeacons.com">info@jirobeacons.com</a>
         </div>
 
@@ -773,16 +773,15 @@
         <div class="contact-card">
           <h3>Headquarters</h3>
           <p>Nigeria</p>
-          <p style="margin-top: 5px; font-size: 13px;">Spatial Data &amp; Engineering Consultancy</p>
+          <p style="margin-top: 5px; font-size: 13px;">Integrated Engineering &amp; Project Delivery Consultancy</p>
         </div>
       </div>
 
       <!-- Cloudflare Pages Function Backend Contact Form -->
       <div class="contact-form-col">
         <h2>Send Us a Message</h2>
-        <p>Complete the form below and select your target department. Your message will be sent instantly without opening your mail app.</p>
+        <p>Complete the form below and select your inquiry type. Your message will be sent securely to our team.</p>
         
-        <!-- Form configured for AJAX submission to Cloudflare /contact endpoint -->
         <form id="ajax-contact-form">
           <div class="form-group">
             <label for="name">Full Name</label>
@@ -795,11 +794,16 @@
           </div>
 
           <div class="form-group">
-            <label for="department">Target Department / Mail Alias</label>
+            <label for="organization">Organization (Optional)</label>
+            <input type="text" id="organization" name="organization" placeholder="Enter company or institution name">
+          </div>
+
+          <div class="form-group">
+            <label for="department">What is your inquiry about?</label>
             <select id="department" name="department">
-              <option value="info@jirobeacons.com">General Information (info@jirobeacons.com)</option>
-              <option value="projects@jirobeacons.com">Project Inquiries (projects@jirobeacons.com)</option>
-              <option value="careers@jirobeacons.com">Careers &amp; Recruitment (careers@jirobeacons.com)</option>
+              <option value="projects@jirobeacons.com">Project Inquiry &amp; Proposals</option>
+              <option value="info@jirobeacons.com">General Inquiry</option>
+              <option value="careers@jirobeacons.com">Careers &amp; Recruitment</option>
             </select>
           </div>
 
@@ -808,9 +812,11 @@
             <textarea id="message" name="message" required placeholder="Provide project details or inquiry context..."></textarea>
           </div>
 
+          <p class="form-privacy-note">We use the information provided solely to respond to your inquiry in accordance with our communication standards.</p>
+
           <button type="submit" id="submit-btn" class="btn btn-gold" style="width: 100%;">Send Message →</button>
           
-          <div id="form-status"></div>
+          <div id="form-status" role="status" aria-live="polite"></div>
         </form>
       </div>
 
@@ -852,7 +858,7 @@
         <h4>Connect</h4>
         <ul class="footer-links">
           <li><a href="careers.html">Careers</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="contact.html" class="active" style="color:var(--gold);">Contact Us</a></li>
           <li>
             <a href="mailto:giftedafe@jirobeacons.com">
               Email Jiro-BEACONS
@@ -877,7 +883,6 @@
 (function(){
   "use strict";
 
-  // Navigation & Search Handlers
   const menuToggle = document.getElementById("menu-toggle");
   const navigation = document.getElementById("main-navigation");
   const servicesToggle = document.getElementById("services-toggle");
@@ -925,7 +930,7 @@
       event.stopPropagation();
       const open = !servicesMenu.classList.contains("is-open");
       servicesMenu.classList.toggle("is-open",open);
-      servicesToggle.setAttribute("aria-expanded","true");
+      servicesToggle.setAttribute("aria-expanded",String(open));
     });
   }
 
@@ -1001,7 +1006,7 @@
     }
   });
 
-  // Cloudflare Pages Function Form Submitter Handler
+  // AJAX Form Submitter with Secure textContent Feedback
   const contactForm = document.getElementById("ajax-contact-form");
   const formStatus = document.getElementById("form-status");
   const submitBtn = document.getElementById("submit-btn");
@@ -1015,6 +1020,7 @@
       const formData = {
         name: document.getElementById("name").value,
         email: document.getElementById("email").value,
+        organization: document.getElementById("organization").value,
         department: document.getElementById("department").value,
         message: document.getElementById("message").value
       };
@@ -1031,9 +1037,9 @@
         
         if (response.ok && result.success) {
           formStatus.style.background = "#ecfdf5";
-          formStatus.style.borderColor = "#10b981";
+          formStatus.style.border = "1px solid #10b981";
           formStatus.style.color = "#065f46";
-          formStatus.innerHTML = "Thank you! Your message has been sent successfully to the selected department.";
+          formStatus.textContent = "Thank you! Your message has been sent successfully to our team.";
           contactForm.reset();
         } else {
           throw new Error(result.error || "Failed to send message");
@@ -1043,9 +1049,9 @@
       }).catch(error => {
         formStatus.style.display = "block";
         formStatus.style.background = "#fef2f2";
-        formStatus.style.borderColor = "#ef4444";
+        formStatus.style.border = "1px solid #ef4444";
         formStatus.style.color = "#991b1b";
-        formStatus.innerHTML = "Oops! " + (error.message || "Something went wrong. Please email us directly.");
+        formStatus.textContent = "Oops! " + (error.message || "Something went wrong. Please email us directly.");
         submitBtn.textContent = "Send Message →";
         submitBtn.disabled = false;
       });
