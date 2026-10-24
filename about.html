@@ -15,8 +15,6 @@
   <style>
     :root {
       --wine: #2B0714;
-      --wine-light: #2B0714;
-      --wine-deep: #2B0714;
       --gold: #D4AF37;
       --gold-light: #E8D28A;
       --white: #FFFFFF;
@@ -31,9 +29,9 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; scroll-padding-top: 120px; }
     body { font-family: "DM Sans", sans-serif; color: var(--text); background: var(--white); line-height: 1.7; -webkit-font-smoothing: antialiased; }
-    body.menu-open, body.search-open, body.team-modal-open, body.about-modal-open, body.service-modal-open { overflow: hidden; }
+    body.menu-open, body.search-open, body.team-modal-open { overflow: hidden; }
 
-    img { display: block; max-width: 100%; width: 100%; }
+    img, video { display: block; max-width: 100%; width: 100%; }
     a { color: inherit; text-decoration: none; }
     button, a { -webkit-tap-highlight-color: transparent; }
     button { font: inherit; cursor: pointer; }
@@ -139,8 +137,20 @@
     .search-feedback { margin: 10px 0 0; color: rgba(255,255,255,.8); font-size: .84rem; }
     .search-feedback a { color: var(--gold-light); }
 
-    /* PAGE HERO */
-    .page-hero { background: var(--wine); color: var(--white); padding: 160px 0 80px; }
+    /* PAGE HERO WITH WINE OVERLAY */
+    .page-hero {
+      position: relative; background: #0b0f14; color: var(--white); padding: 180px 0 120px; overflow: hidden;
+    }
+    .hero-video {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: 0;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(90deg, rgba(43, 7, 20, 0.92) 0%, rgba(43, 7, 20, 0.78) 55%, rgba(43, 7, 20, 0.55) 100%),
+                  linear-gradient(0deg, rgba(11, 15, 20, 0.6), rgba(11, 15, 20, 0.2) 60%);
+      z-index: 1;
+    }
+    .hero-content { position: relative; z-index: 2; }
     .page-hero h1 { color: #fff; margin-bottom: 20px; }
     .page-hero p { color: rgba(255,255,255,0.85); font-size: 1.15rem; max-width: 750px; }
 
@@ -289,9 +299,14 @@
   </header>
 
   <main>
-    <!-- PAGE HERO -->
+    <!-- PAGE HERO WITH CONST-3.MP4 & WINE OVERLAY -->
     <section class="page-hero">
-      <div class="container">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto">
+        <source src="videos/Const-3.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
         <span class="eyebrow" style="color:var(--gold-light);">Corporate Overview</span>
         <h1>Integrated expertise. Physical delivery. Intelligent infrastructure.</h1>
         <p>Jiro-BEACONS Engineering Nigeria Limited unites multidisciplinary engineering and construction expertise with digital delivery to create infrastructure supported by reliable project information and lasting asset intelligence.</p>
@@ -302,7 +317,7 @@
       </div>
     </section>
 
-    <!-- SECTION 1: WHO WE ARE & OUR MULTIDISCIPLINARY AEC TEAMS -->
+    <!-- SECTION 1: WHO WE ARE & OUR MULTIDISCIPLINARY AEC TEAMS (Team.jpg) -->
     <section class="section about-section" id="who-we-are">
       <div class="container">
         <div class="about-grid">
@@ -318,13 +333,13 @@
             </ul>
           </div>
           <div class="about-img-col">
-            <img src="images/site-4.jpg" alt="Jiro-BEACONS engineering team coordination" loading="lazy">
+            <img src="images/Team.jpg" alt="Jiro-BEACONS engineering team coordination" loading="lazy">
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 2: ENGINEERING, CONSTRUCTION & EPCIC DELIVERY -->
+    <!-- SECTION 2: ENGINEERING, CONSTRUCTION & EPCIC DELIVERY (site-1.jpg) -->
     <section class="section about-section" id="epcic">
       <div class="container">
         <div class="about-grid reverse">
@@ -336,13 +351,13 @@
             <a href="solutions.html#construction" class="btn btn-gold" style="margin-top:20px; background:var(--wine); color:#fff;">Explore Lifecycle Solutions &rarr;</a>
           </div>
           <div class="about-img-col">
-            <img src="images/Bess-4.jpg" alt="Construction and EPCIC delivery site" loading="lazy">
+            <img src="images/site-1.jpg" alt="Construction and EPCIC delivery site" loading="lazy">
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 3: SIGNATURE DIGITAL ENGINEERING PACKAGE (DEP) -->
+    <!-- SECTION 3: SIGNATURE DIGITAL ENGINEERING PACKAGE (DEP) (about-C.jpg) -->
     <section class="section about-section" id="dep">
       <div class="container">
         <div class="about-grid">
@@ -358,13 +373,13 @@
             </ul>
           </div>
           <div class="about-img-col">
-            <img src="images/scene-03-digital-engineering.mp4" alt="Digital engineering package workflow" loading="lazy" onerror="this.onerror=null;this.src='images/imo-city-computer-village-hub.jpg';">
+            <img src="images/about-C.jpg" alt="Digital engineering package workflow" loading="lazy">
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 4: DIGITAL QA/QC & INTELLIGENT ASSET INFORMATION -->
+    <!-- SECTION 4: DIGITAL QA/QC & INTELLIGENT ASSET INFORMATION (Bess.jpg) -->
     <section class="section about-section" id="qaqc">
       <div class="container">
         <div class="about-grid reverse">
@@ -376,7 +391,7 @@
             <a href="services.html#quality-assurance" class="btn btn-gold" style="margin-top:20px; background:var(--wine); color:#fff;">View QA/QC Services &rarr;</a>
           </div>
           <div class="about-img-col">
-            <img src="images/imo-city-computer-village-hb.jpg" alt="Digital QA/QC and asset information" loading="lazy">
+            <img src="images/Bess.jpg" alt="Digital QA/QC and asset information" loading="lazy">
           </div>
         </div>
       </div>
@@ -407,7 +422,7 @@
       </div>
     </section>
 
-    <!-- SECTION 6: SECTORS, PARTNERSHIPS & PROJECT EXPERIENCE -->
+    <!-- SECTION 6: SECTORS, PARTNERSHIPS & PROJECT EXPERIENCE (site-3.jpg) -->
     <section class="section about-section" id="sectors">
       <div class="container">
         <div class="about-grid">
@@ -415,11 +430,11 @@
             <span class="eyebrow">06 / Application &amp; Proven Experience</span>
             <h2>Sectors, Partnerships &amp; Project Experience</h2>
             <p>We deploy our multidisciplinary capabilities across real estate developments, civil infrastructure, energy, oil &amp; gas, industrial facilities, and smart building environments.</p>
-            <p>Through strategic professional networks, collaborative co-founder initiatives, and incubator participation such as Start GBC in Ontario, we continuously innovate in smart building design and digital twin operations.</p>
+            <p>Through strategic professional networks and collaborative co-founder initiatives, we continuously innovate in smart building design and digital twin operations.</p>
             <a href="projects.html" class="btn btn-gold" style="margin-top:20px; background:var(--wine); color:#fff;">View Project Experience &rarr;</a>
           </div>
           <div class="about-img-col">
-            <img src="images/imo-city-computer-village-hub.jpg" alt="Sectors and project experience" loading="lazy">
+            <img src="images/site-3.jpg" alt="Sectors and project experience" loading="lazy">
           </div>
         </div>
       </div>
@@ -514,7 +529,7 @@
           <ul class="footer-links">
             <li><a href="careers.html">Careers</a></li>
             <li><a href="contact.html">Contact Us</a></li>
-            <li><a href="mailto:giftedafe@jirobeacons.com">Email Jiro-BEACONS</a></li>
+            <li><a href="mailto:projects@jirobeacons.com">Email Jiro-BEACONS</a></li>
           </ul>
         </div>
       </div>
