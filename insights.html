@@ -171,7 +171,7 @@
       color: var(--wine);
     }
 
-    /* SIGNATURE DESKTOP HEADER (LOGO LEFT, NAV CENTER, TOOLS RIGHT) */
+    /* SIGNATURE DESKTOP HEADER (3-COLUMN LAYOUT) */
     .site-header {
       position: fixed;
       z-index: 10000;
@@ -188,7 +188,7 @@
       width: 100%;
       min-height: 76px;
       display: grid;
-      grid-template-columns: auto 1fr auto;
+      grid-template-columns: 1fr auto 1fr;
       align-items: center;
       gap: 20px;
       padding: 0 25px;
@@ -198,9 +198,16 @@
       box-shadow: 0 12px 30px rgba(24, 4, 11, 0.25);
     }
 
+    .header-left-nav {
+      justify-self: start;
+      display: flex;
+      align-items: center;
+      gap: clamp(14px, 2vw, 28px);
+    }
+
     .brand { 
-      grid-column: 1;
-      justify-self: start; 
+      grid-column: 2;
+      justify-self: center; 
       display: inline-flex; 
       align-items: center; 
       text-decoration: none; 
@@ -209,22 +216,19 @@
       font-size: 20px;
       letter-spacing: 1px;
     }
-    .brand img { width: 180px; max-height: 50px; object-fit: contain; }
+    .brand img { width: 220px; max-height: 60px; object-fit: contain; }
 
-    .header-center-nav {
-      grid-column: 2;
-      justify-self: center;
+    .header-right-group {
+      justify-self: end;
       display: flex;
       align-items: center;
       gap: clamp(14px, 2vw, 28px);
     }
 
-    .header-right-group {
-      grid-column: 3;
-      justify-self: end;
+    .header-right-nav {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: clamp(14px, 2vw, 28px);
     }
 
     .main-nav>a,.nav-dropdown-toggle {
@@ -233,7 +237,7 @@
     }
     .main-nav>a:hover,.main-nav>a.active,.nav-dropdown-toggle:hover { color: var(--gold-light); }
 
-    .nav-dropdown { position: relative; }
+    .nav-dropdown { position: static; }
     .nav-dropdown-toggle {
       display: inline-flex; align-items: center; gap: 4px; padding: 12px 0;
       background: transparent; border: 0; white-space: nowrap; cursor: pointer;
@@ -243,29 +247,31 @@
     .nav-dropdown-menu {
       position: absolute;
       top: 100%;
-      left: -20px;
-      width: 340px;
+      left: 0;
+      right: 0;
+      width: 100%;
       z-index: 11000;
       display: none;
-      grid-template-columns: 1fr;
-      gap: 20px;
-      padding: 25px;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      padding: 35px 40px;
       background: var(--wine);
       border-radius: 0 0 4px 4px;
       box-shadow: 0 20px 40px rgba(24, 4, 11, 0.35);
     }
     .nav-dropdown-menu.is-open { display: grid; }
-    .nav-dropdown-group { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+    .nav-dropdown-group { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+    .nav-dropdown-group:last-child { justify-self: end; align-items: flex-end; text-align: right; }
     
     .nav-dropdown-heading {
-      margin: 0 0 2px; color: var(--gold-light); font-size: .7rem;
+      margin: 0 0 4px; color: var(--gold-light); font-size: .72rem;
       font-weight: 800; letter-spacing: .06em; line-height: 1.4; text-transform: uppercase;
     }
-    .nav-dropdown-menu a {
-      color: rgba(255,255,255,.84); font-size: .85rem; font-weight: 500;
+    .header-left-nav .nav-dropdown-menu a {
+      color: rgba(255,255,255,.84); font-size: .88rem; font-weight: 500;
       letter-spacing: 0; line-height: 1.4; text-transform: none; text-decoration: none;
     }
-    .nav-dropdown-menu a:hover { color: var(--gold-light); text-decoration: none; }
+    .header-left-nav .nav-dropdown-menu a:hover { color: var(--gold-light); text-decoration: none; }
 
     .header-tools { display: flex; align-items: center; gap: 10px; }
     .icon-button {
@@ -696,7 +702,7 @@
 
       .desktop-right-nav { display: none !important; }
 
-      .header-center-nav{
+      .main-nav{
         position:absolute; top:100%; left:0; right:0; z-index:11500;
         display:none !important; flex-direction:column; align-items:flex-start;
         padding:20px 24px; background:var(--wine);
@@ -705,7 +711,7 @@
         overflow-y: auto;
         gap: 16px;
       }
-      .header-center-nav.is-open{display:flex !important;}
+      .main-nav.is-open{display:flex !important;}
       .menu-toggle{display:flex}
 
       .mobile-only-nav {
@@ -729,22 +735,25 @@
         color: var(--gold-light);
       }
 
-      .nav-dropdown { width: 100%; }
-      .nav-dropdown-toggle { width: 100%; justify-content: space-between; padding: 0; }
+      .header-left-nav { display: flex; flex-direction: column; align-items: flex-start; width: 100%; gap: 16px; }
+
+      .nav-dropdown { width: 100%; position: relative; }
+      .nav-dropdown-toggle { width: 100%; justify-content: space-between; }
 
       .nav-dropdown-menu {
-        position: static;
-        display: none;
-        grid-template-columns: 1fr;
-        gap: 15px;
-        padding: 10px 0 10px 15px;
-        background: transparent;
-        box-shadow: none;
-        width: 100%;
+        position: static !important;
+        display: none !important;
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+        padding: 10px 0 10px 15px !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        width: 100% !important;
         border-left: 2px solid var(--gold);
       }
-      .nav-dropdown-menu.is-open { display: flex; flex-direction: column; }
-      .nav-dropdown-group { width: 100%; align-items: flex-start !important; text-align: left !important; }
+      .nav-dropdown-menu.is-open { display: flex !important; flex-direction: column !important; }
+      .nav-dropdown-group { width: 100% !important; align-items: flex-start !important; text-align: left !important; }
+      .nav-dropdown-group:last-child { justify-self: auto !important; align-items: flex-start !important; text-align: left !important; }
 
       .articles-grid, .featured-article {
         grid-template-columns: 1fr;
@@ -769,11 +778,7 @@
 
 <header class="site-header">
   <div class="header-inner">
-    <a class="brand" href="index.html" aria-label="Jiro-BEACONS Engineering home">
-      <img src="images/logo-white.png" alt="Jiro-BEACONS Engineering" onerror="this.onerror=null;this.src='images/logo.png';">
-    </a>
-
-    <nav class="main-nav header-center-nav" id="main-navigation" aria-label="Main navigation">
+    <nav class="main-nav header-left-nav" id="main-navigation" aria-label="Main navigation">
       <a href="about.html">About</a>
       <div class="nav-dropdown">
         <button class="nav-dropdown-toggle" id="services-toggle" aria-expanded="false" aria-controls="services-menu" type="button">
@@ -782,6 +787,7 @@
         <div class="nav-dropdown-menu" id="services-menu">
           <div class="nav-dropdown-group">
             <h2 class="nav-dropdown-heading">Core Infrastructure Engineering</h2>
+            <a href="about.html#who-we-are">Integrated AEC Professional Teams</a>
             <a href="services.html#surveying">Surveying &amp; Geospatial</a>
             <a href="services.html#quantity-surveying">Quantity Surveying &amp; Cost Support</a>
             <a href="services.html#engineering-coordination">Engineering &amp; Project Coordination</a>
@@ -797,17 +803,25 @@
         </div>
       </div>
       <a href="solutions.html">Solutions</a>
-      <a href="projects.html">Projects</a>
-      <a href="insights.html" class="active" style="color:var(--gold-light);">Insights</a>
-      <a href="careers.html">Careers</a>
       
       <!-- MOBILE-ONLY EXTRA NAV LINKS -->
       <div class="mobile-only-nav">
-        <a href="contact.html">Contact Us</a>
+        <a href="projects.html">Projects</a>
+        <a href="insights.html" class="active" style="color:var(--gold-light);">Insights</a>
+        <a href="careers.html">Careers</a>
       </div>
     </nav>
 
+    <a class="brand" href="index.html" aria-label="Jiro-BEACONS Engineering home">
+      <img src="images/logo-white.png" alt="Jiro-BEACONS Engineering" onerror="this.onerror=null;this.src='images/logo.png';">
+    </a>
+
     <div class="header-right-group">
+      <nav class="main-nav header-right-nav desktop-right-nav" aria-label="Secondary navigation">
+        <a href="projects.html">Projects</a>
+        <a href="insights.html" class="active" style="color:var(--gold-light);">Insights</a>
+        <a href="careers.html">Careers</a>
+      </nav>
       <div class="header-tools">
         <button class="icon-button" id="search-toggle" type="button" aria-label="Open search" aria-expanded="false" aria-controls="search-panel">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
