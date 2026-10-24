@@ -171,7 +171,7 @@
       color: var(--wine);
     }
 
-    /* HEADER - ALIGNED SITE-WIDE (LOGO LEFT, NAV CENTER, TOOLS RIGHT) */
+    /* SIGNATURE DESKTOP HEADER (LOGO LEFT, NAV CENTER, TOOLS RIGHT) */
     .site-header {
       position: fixed;
       z-index: 10000;
@@ -676,7 +676,7 @@
       color: var(--gold);
     }
 
-    /* RESPONSIVE STYLES & MOBILE MENU FIXES */
+    /* RESPONSIVE STYLES & MOBILE MENU FIXes */
     @media(min-width:1101px){
       .nav-dropdown:hover .nav-dropdown-menu,
       .nav-dropdown:focus-within .nav-dropdown-menu{display:grid}
@@ -690,6 +690,12 @@
         align-items: center; gap: 10px; min-height: 64px; padding: 0 12px;
         background: var(--wine);
       }
+      .header-inner .brand { grid-column: 1; justify-self: start; margin-left: 0; }
+      .header-inner .brand img{ width: 130px; max-height: 38px; }
+      .header-tools { grid-column: 3; justify-self: end; }
+
+      .desktop-right-nav { display: none !important; }
+
       .header-center-nav{
         position:absolute; top:100%; left:0; right:0; z-index:11500;
         display:none !important; flex-direction:column; align-items:flex-start;
@@ -1140,7 +1146,7 @@
       event.stopPropagation();
       const open = !servicesMenu.classList.contains("is-open");
       servicesMenu.classList.toggle("is-open",open);
-      servicesToggle.setAttribute("aria-expanded","true");
+      servicesToggle.setAttribute("aria-expanded",String(open));
     });
   }
 
