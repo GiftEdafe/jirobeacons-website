@@ -39,6 +39,17 @@
       scroll-padding-top: 120px;
     }
 
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+
     body {
       font-family: "DM Sans", sans-serif;
       color: var(--text);
@@ -70,6 +81,11 @@
     button {
       font: inherit;
       cursor: pointer;
+    }
+
+    a:focus-visible, button:focus-visible, input:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
     }
 
     .container {
@@ -111,7 +127,7 @@
     }
 
     h1 {
-      font-size: clamp(42px, 5.2vw, 72px);
+      font-size: clamp(38px, 4.8vw, 64px);
       font-weight: 800;
     }
 
@@ -196,7 +212,7 @@
       color: var(--white);
     }
 
-    /* SOLID WINE HEADER & ORIGINAL DESKTOP 3-COLUMN GRID */
+    /* SIGNATURE WINE HEADER (LOGO LEFT, NAV CENTER, TOOLS RIGHT) */
     .site-header {
       position: fixed;
       z-index: 10000;
@@ -261,7 +277,7 @@
     .nav-dropdown { position: static; }
     .nav-dropdown-toggle {
       display: inline-flex; align-items: center; gap: 4px; padding: 12px 0;
-      background: transparent; border: 0; white-space: nowrap;
+      background: transparent; border: 0; white-space: nowrap; cursor: pointer;
     }
     .dropdown-caret { color: var(--gold-light); font-size: .85rem; line-height: 1; }
 
@@ -306,7 +322,7 @@
       display: inline-flex; align-items: center; justify-content: center;
       width: 38px; height: 38px; padding: 0; color: #fff;
       background: transparent; border: 1px solid rgba(255,255,255,.35);
-      border-radius: 2px;
+      border-radius: 2px; cursor: pointer;
     }
     .icon-button:hover,.icon-button:focus-visible { color: var(--gold-light); border-color: var(--gold); }
     .icon-button svg { width: 18px; height: 18px; }
@@ -314,7 +330,7 @@
     .menu-toggle {
       display: none; flex-direction: column; justify-content:space-between;
       width: 38px; height: 38px; padding: 9px; background: transparent;
-      border: 1px solid rgba(255,255,255,.35); border-radius: 2px;
+      border: 1px solid rgba(255,255,255,.35); border-radius: 2px; cursor: pointer;
     }
     .menu-toggle span { display: block; width: 100%; height: 2px; background: #fff; transition: transform .2s; }
 
@@ -384,10 +400,17 @@
       max-width: 780px;
       margin-bottom: 25px;
       color: var(--white);
+      font-size: clamp(38px, 4.8vw, 64px);
+      font-weight: 800;
     }
 
     .hero-content h1 span {
       color: var(--gold);
+      font-size: clamp(22px, 2.8vw, 34px);
+      display: block;
+      margin-top: 10px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
     }
 
     .hero-content > p {
@@ -470,104 +493,6 @@
       transform: translateX(4px);
     }
 
-    /* IMAGE FEATURE */
-    .people-section {
-      background: var(--off-white);
-    }
-
-    .people-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 70px;
-      align-items: center;
-    }
-
-    .people-image-wrap {
-      position: relative;
-      min-height: 450px;
-      background: #E5DFDC;
-      overflow: hidden;
-    }
-
-    .people-image-wrap img {
-      position: absolute;
-      inset: 0;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s ease;
-    }
-
-    .people-image-wrap:hover img {
-      transform: scale(1.035);
-    }
-
-    .image-caption {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      max-width: 270px;
-      padding: 21px 25px;
-      background: var(--wine);
-      color: var(--white);
-      font-size: 13px;
-      font-weight: 600;
-      line-height: 1.6;
-    }
-
-    .image-caption::before {
-      content: "";
-      display: block;
-      width: 27px;
-      height: 3px;
-      margin-bottom: 11px;
-      background: var(--gold);
-    }
-
-    .people-copy h2 {
-      margin-bottom: 23px;
-      color: var(--wine);
-    }
-
-    .people-copy > p {
-      margin-bottom: 27px;
-      font-size: 16px;
-    }
-
-    .value-list {
-      list-style: none;
-      display: grid;
-      gap: 18px;
-      margin-top: 28px;
-    }
-
-    .value-list li {
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-    }
-
-    .gold-square {
-      flex: 0 0 9px;
-      width: 9px;
-      height: 9px;
-      margin-top: 8px;
-      background: var(--gold);
-    }
-
-    .value-list strong {
-      display: block;
-      margin-bottom: 4px;
-      color: var(--wine);
-      font-size: 14px;
-    }
-
-    .value-list span {
-      display: block;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.7;
-    }
-
     /* RECRUITMENT SECTION STYLES */
     .recruitment-section {
       background: var(--off-white);
@@ -612,6 +537,33 @@
       font-size: 32px;
       color: var(--wine);
       margin-bottom: 15px;
+    }
+
+    .job-summary-box {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      background: var(--off-white);
+      padding: 24px;
+      margin: 25px 0;
+      border-left: 4px solid var(--gold);
+    }
+
+    .summary-item .label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .summary-item .value {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--wine);
     }
 
     .job-meta-list {
@@ -745,56 +697,6 @@
 
     .disciplines-note p {
       color: var(--text);
-    }
-
-    /* CULTURE IMAGE */
-    .culture-section {
-      padding: 0 0 100px;
-    }
-
-    .culture-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      min-height: 430px;
-      background: var(--wine);
-    }
-
-    .culture-image {
-      min-height: 430px;
-      overflow: hidden;
-    }
-
-    .culture-image img {
-      height: 100%;
-      min-height: 430px;
-      object-fit: cover;
-    }
-
-    .culture-copy {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 55px;
-      color: var(--white);
-    }
-
-    .culture-copy .eyebrow {
-      color: var(--white);
-    }
-
-    .culture-copy h2 {
-      margin-bottom: 20px;
-      color: var(--white);
-    }
-
-    .culture-copy p {
-      color: rgba(255, 255, 255, 0.78);
-      font-size: 15px;
-    }
-
-    .culture-copy .btn {
-      margin-top: 27px;
     }
 
     /* APPLICATION PROCESS */
@@ -1032,25 +934,25 @@
         color: var(--gold-light);
       }
 
-      .nav-dropdown { width: 100%; }
+      .nav-dropdown { width: 100%; position: relative; }
       .nav-dropdown-toggle { width: 100%; justify-content: space-between; padding: 0; }
       
       .nav-dropdown-menu {
-        position: static;
-        display: none;
-        grid-template-columns: 1fr;
-        gap: 15px;
-        padding: 10px 0 10px 15px;
-        background: transparent;
-        box-shadow: none;
-        width: 100%;
+        position: static !important;
+        display: none !important;
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+        padding: 10px 0 10px 15px !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        width: 100% !important;
         border-left: 2px solid var(--gold);
       }
-      .nav-dropdown-menu.is-open { display: flex; flex-direction: column; }
-      .nav-dropdown-group { width: 100%; align-items: flex-start !important; text-align: left !important; }
-      .nav-dropdown-group:last-child { justify-self: start; align-items: flex-start; text-align: left; }
+      .nav-dropdown-menu.is-open { display: flex !important; flex-direction: column !important; }
+      .nav-dropdown-group { width: 100% !important; align-items: flex-start !important; text-align: left !important; }
+      .nav-dropdown-group:last-child { justify-self: auto !important; align-items: flex-start !important; text-align: left !important; }
 
-      .intro-grid, .people-grid, .culture-grid, .discipline-grid, .process-grid, .network-grid, .job-meta-list { grid-template-columns: 1fr; }
+      .intro-grid, .culture-grid, .discipline-grid, .process-grid, .network-grid, .job-meta-list, .job-summary-box { grid-template-columns: 1fr; }
       .cta-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
       .footer-top { grid-template-columns: 1fr 1fr; gap: 20px; }
     }
@@ -1079,6 +981,7 @@
           <div class="nav-dropdown-menu" id="services-menu">
             <div class="nav-dropdown-group">
               <h2 class="nav-dropdown-heading">Core Infrastructure Engineering</h2>
+              <a href="about.html#who-we-are">Integrated AEC Professional Teams</a>
               <a href="services.html#surveying">Surveying &amp; Geospatial</a>
               <a href="services.html#quantity-surveying">Quantity Surveying &amp; Cost Support</a>
               <a href="services.html#engineering-coordination">Engineering &amp; Project Coordination</a>
@@ -1155,18 +1058,17 @@
         <span class="eyebrow" style="color:var(--gold-light);">Careers &amp; Partnerships</span>
 
         <h1>
-          Build what's next with us.<br>
-          <span>Connect professional expertise with engineering, construction and digital innovation.</span>
+          Build What's Next With Us.<br>
+          <span>Engineering expertise. Commercial initiative. Better project delivery.</span>
         </h1>
 
         <p>
-          We collaborate with capable business developers, project-based professionals, and technical associates 
-          to support integrated engineering and intelligent project-delivery solutions.
+          Connect with Jiro-BEACONS through active recruitment, multidisciplinary project assignments and technical collaboration across engineering, construction and digital delivery.
         </p>
 
         <div class="hero-actions">
           <a class="btn btn-gold" href="#opportunities">
-            Explore Career Areas <span aria-hidden="true">→</span>
+            Explore Opportunities <span aria-hidden="true">→</span>
           </a>
 
           <a class="btn btn-outline" href="#apply">
@@ -1224,83 +1126,6 @@
     </section>
 
 
-    <!-- PEOPLE AND CULTURE -->
-    <section class="section people-section">
-      <div class="container people-grid">
-
-        <div class="people-image-wrap">
-          <img src="images/career-image-2.jpg"
-               alt="Engineering colleagues collaborating on technical information"
-               loading="lazy">
-
-          <div class="image-caption">
-            Better collaboration. Stronger project outcomes.
-          </div>
-        </div>
-
-        <div class="people-copy">
-          <span class="eyebrow">How we work</span>
-
-          <h2>Bring expertise. Share knowledge. Create lasting value.</h2>
-
-          <p>
-            Good engineering depends on more than individual technical
-            ability. It requires people who can collaborate across
-            disciplines, communicate evidence clearly and take responsibility
-            for the quality of their work.
-          </p>
-
-          <ul class="value-list">
-            <li>
-              <span class="gold-square" aria-hidden="true"></span>
-              <div>
-                <strong>Professional integrity</strong>
-                <span>
-                  Work responsibly, respect confidentiality and maintain
-                  reliable technical records.
-                </span>
-              </div>
-            </li>
-
-            <li>
-              <span class="gold-square" aria-hidden="true"></span>
-              <div>
-                <strong>Collaboration across disciplines</strong>
-                <span>
-                  Connect site experience, engineering judgement, project
-                  coordination and digital workflows.
-                </span>
-              </div>
-            </li>
-
-            <li>
-              <span class="gold-square" aria-hidden="true"></span>
-              <div>
-                <strong>Continuous development</strong>
-                <span>
-                  Strengthen practical skills, improve processes and stay
-                  open to better ways of working.
-                </span>
-              </div>
-            </li>
-
-            <li>
-              <span class="gold-square" aria-hidden="true"></span>
-              <div>
-                <strong>Evidence-led delivery</strong>
-                <span>
-                  Support traceable decisions through accurate information,
-                  quality evidence and organized project records.
-                </span>
-              </div>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-    </section>
-
-
     <!-- ACTIVE RECRUITMENT & OPPORTUNITIES -->
     <section class="recruitment-section" id="opportunities">
       <div class="container">
@@ -1317,13 +1142,33 @@
         <div class="featured-job-card" id="business-development-partner">
           <div class="job-badge-wrap">
             <span class="job-badge highlight">Active Recruitment</span>
-            <span class="job-badge">Remote · Global · Commission-Based</span>
+            <span class="job-badge">Remote · Global</span>
           </div>
 
           <h3>Global Business Development Partner</h3>
           <p>
             Engineering | Construction | Integrated AEC Professional Teams | Digital Engineering
           </p>
+
+          <!-- QUICK SUMMARY BOX (RECOMMENDATION 3A) -->
+          <div class="job-summary-box">
+            <div class="summary-item">
+              <span class="label">Location</span>
+              <span class="value">Remote · Global</span>
+            </div>
+            <div class="summary-item">
+              <span class="label">Engagement</span>
+              <span class="value">Independent Partnership</span>
+            </div>
+            <div class="summary-item">
+              <span class="label">Compensation</span>
+              <span class="value">Commission-Based</span>
+            </div>
+            <div class="summary-item">
+              <span class="label">Primary Objective</span>
+              <span class="value">Generate &amp; Convert B2B Opportunities</span>
+            </div>
+          </div>
           
           <div class="job-meta-list">
             <div><strong>Company:</strong> Jiro-BEACONS Engineering Nigeria Limited</div>
@@ -1331,7 +1176,7 @@
             <div><strong>Engagement Type:</strong> Independent, performance-based commercial partnership</div>
             <div><strong>Compensation:</strong> Commission-based; no guaranteed base salary at initial stage</div>
             <div><strong>Market Focus:</strong> Nigeria initially, with opportunities to develop international markets</div>
-            <div><strong>Reports To:</strong> Director</div>
+            <div><strong>Reports To:</strong> Director, Jiro-BEACONS Engineering</div>
           </div>
 
           <div class="job-details-block">
@@ -1406,8 +1251,7 @@
             <h4>Compensation &amp; Commercial Terms</h4>
             <p>
               This is an initial commission-based independent business development partnership, not a salaried employment position. 
-              There is no guaranteed base salary at the initial stage. Commission rates and payment terms will be discussed and agreed in writing before the engagement begins. 
-              The written agreement will define eligible transactions, commission calculation, timing, repeat business, and confidentiality terms.
+              There is no guaranteed base salary at the initial stage. Commission rates, payment terms, lead attribution, repeat business rules, representation scope, confidentiality, and termination conditions will be defined and agreed in a written agreement before the engagement begins.
             </p>
           </div>
 
@@ -1418,7 +1262,7 @@
               <p style="margin: 0; font-size: 13px;">Please submit your CV/LinkedIn profile, summary of experience, target markets, examples of past commercial results, and a 90-day strategy outline.</p>
             </div>
             <a class="btn btn-gold" href="mailto:giftedafe@jirobeacons.com?subject=Application%3A%20Global%20Business%20Development%20Partner&amp;body=Hello%20Jiro-BEACONS%20Team,%0A%0APlease%20find%20my%20application%20for%20the%20Global%20Business%20Development%20Partner%20role.%0A%0AFull%20Name:%0ALinkedIn%20Profile%20/%20CV%20Attached:%0AB2B%20Experience%20Summary:%0ATarget%20Markets%20&%20Industries:%0APast%20Commercial%20Results%20Examples:%0A90-Day%20Strategy%20Outline:%0A%0AKind%20regards,">
-              Apply via Email <span aria-hidden="true">→</span>
+              Apply for This Role <span aria-hidden="true">→</span>
             </a>
           </div>
 
@@ -1571,40 +1415,8 @@
             <strong>Important:</strong> These are areas of professional
             interest, not a list of confirmed vacancies. Any engagement
             depends on actual project requirements, role availability,
-            qualifications and the agreed working arrangement.
+            qualifications and the agreed working arrangement. Regulated professional work is subject to appropriate qualifications, registrations, and jurisdictional requirements.
           </p>
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- WORKING TOGETHER -->
-    <section class="culture-section">
-      <div class="container culture-grid">
-
-        <div class="culture-image">
-          <img src="images/career-image-3.jpg"
-               alt="Project professionals working together toward an engineering objective"
-               loading="lazy">
-        </div>
-
-        <div class="culture-copy">
-          <span class="eyebrow" style="color:var(--gold-light);">A connected team</span>
-
-          <h2>Engineering expertise that works together.</h2>
-
-          <p>
-            Our integrated approach connects people and information across
-            surveying, planning, construction, quality assurance and digital
-            delivery. Depending on the project, collaboration may involve
-            site-based, office-based or remote contributions where the scope
-            and working arrangement support them.
-          </p>
-
-          <a class="btn btn-gold" href="#apply">
-            Connect With Our Team <span aria-hidden="true">→</span>
-          </a>
         </div>
 
       </div>
@@ -1767,6 +1579,16 @@
       if(servicesToggle) servicesToggle.setAttribute("aria-expanded","false");
     }
 
+    function closeSearch(){
+      if(!searchPanel) return;
+      searchPanel.classList.remove("is-open");
+      if(searchToggle){
+        searchToggle.setAttribute("aria-expanded","false");
+        searchToggle.setAttribute("aria-label","Open search");
+      }
+      document.body.classList.remove("search-open");
+    }
+
     function closeMenu(){
       if(navigation) navigation.classList.remove("is-open");
       if(menuToggle){
@@ -1780,12 +1602,12 @@
     if(menuToggle && navigation){
       menuToggle.addEventListener("click",function(){
         const open = !navigation.classList.contains("is-open");
+        if(open) closeSearch();
         navigation.classList.toggle("is-open",open);
         menuToggle.setAttribute("aria-expanded",String(open));
         menuToggle.setAttribute("aria-label",open ? "Close navigation menu" : "Open navigation menu");
         document.body.classList.toggle("menu-open",open);
         if(!open) closeServices();
-        if(open && searchPanel) searchPanel.classList.remove("is-open");
       });
 
       navigation.querySelectorAll("a").forEach(function(link){
@@ -1798,26 +1620,22 @@
         event.stopPropagation();
         const open = !servicesMenu.classList.contains("is-open");
         servicesMenu.classList.toggle("is-open",open);
-        servicesToggle.setAttribute("aria-expanded","true");
+        servicesToggle.setAttribute("aria-expanded", String(open));
       });
     }
 
     function openSearch(){
       if(!searchPanel) return;
-      searchPanel.classList.add("is-open");
-      if(searchToggle) searchToggle.setAttribute("aria-expanded","true");
-      document.body.classList.add("search-open");
       closeMenu();
+      searchPanel.classList.add("is-open");
+      if(searchToggle){
+        searchToggle.setAttribute("aria-expanded","true");
+        searchToggle.setAttribute("aria-label","Close search");
+      }
+      document.body.classList.add("search-open");
       window.setTimeout(function(){
         if(searchInput) searchInput.focus();
       },50);
-    }
-
-    function closeSearch(){
-      if(!searchPanel) return;
-      searchPanel.classList.remove("is-open");
-      if(searchToggle) searchToggle.setAttribute("aria-expanded","false");
-      document.body.classList.remove("search-open");
     }
 
     if(searchToggle){
@@ -1856,7 +1674,8 @@
     document.addEventListener("click",function(event){
       if(navigation && menuToggle &&
          !navigation.contains(event.target) &&
-         !menuToggle.contains(event.target)){
+         !menuToggle.contains(event.target) &&
+         (!servicesMenu || !servicesMenu.contains(event.target))){
         closeMenu();
       }
       if(searchPanel && searchToggle &&
