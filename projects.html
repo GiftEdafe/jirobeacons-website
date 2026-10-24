@@ -677,6 +677,10 @@
       .projects-grid {
         grid-template-columns: 1fr;
       }
+      .dark .container {
+        grid-template-columns: 1fr !important;
+        gap: 25px !important;
+      }
       .footer-top { grid-template-columns: 1fr 1fr; gap: 20px; }
     }
     @media(max-width:767px){
@@ -704,6 +708,7 @@
         <div class="nav-dropdown-menu" id="services-menu">
           <div class="nav-dropdown-group">
             <h2 class="nav-dropdown-heading">Core Infrastructure Engineering</h2>
+            <a href="services.html#integrated-teams">Integrated AEC Professional Teams</a>
             <a href="services.html#surveying">Surveying &amp; Geospatial</a>
             <a href="services.html#quantity-surveying">Quantity Surveying &amp; Cost Support</a>
             <a href="services.html#engineering-coordination">Engineering &amp; Project Coordination</a>
@@ -752,10 +757,10 @@
     </div>
   </div>
 
-  <div class="search-panel" id="search-panel" aria-label="Website search">
+  <div class="search-panel" id="search-panel" aria-label="Project search">
     <div class="container">
       <form class="search-form" id="search-form" role="search">
-        <input id="site-search-input" type="search" placeholder="Search project portfolio, locations..." aria-label="Search this website" required>
+        <input id="site-search-input" type="search" placeholder="Search project portfolio, locations..." aria-label="Search project portfolio" required>
         <button class="btn btn-gold" type="submit">Search</button>
         <button class="btn btn-outline" id="search-close" type="button">Close</button>
       </form>
@@ -784,24 +789,24 @@
 
     <!-- FILTER BUTTONS -->
     <div class="filter-bar" role="region" aria-label="Project categories">
-      <button class="filter-btn active" data-filter="all">All Projects</button>
-      <button class="filter-btn" data-filter="infrastructure">Infrastructure &amp; Energy</button>
-      <button class="filter-btn" data-filter="commercial">Commercial &amp; Smart Buildings</button>
-      <button class="filter-btn" data-filter="digital">Digital Engineering &amp; QA/QC</button>
+      <button class="filter-btn active" data-filter="all" aria-pressed="true">All Projects</button>
+      <button class="filter-btn" data-filter="infrastructure" aria-pressed="false">Infrastructure &amp; Energy</button>
+      <button class="filter-btn" data-filter="commercial" aria-pressed="false">Commercial &amp; Smart Buildings</button>
+      <button class="filter-btn" data-filter="digital" aria-pressed="false">Digital Engineering &amp; QA/QC</button>
     </div>
 
     <!-- PROJECTS GRID -->
     <div class="projects-grid" id="projects-grid">
 
-      <!-- Project 1 -->
+      <!-- Project 1: Ongoing Commercial Hub -->
       <article class="project-card" data-category="commercial">
         <div class="project-meta-top">
-          <span class="project-sector">Commercial Hub</span>
+          <span class="project-sector">Commercial Hub &middot; Ongoing</span>
           <span class="project-location">Imo State, Nigeria</span>
         </div>
-        <h3>Imo Digital City Computer Village Hub</h3>
+        <h3>Imo City Computer Village Hub</h3>
         <p>
-          Configured comprehensive SharePoint document libraries, site navigation, news web parts, and granular access permissions to establish a centralized digital information repository for hub stakeholders.
+          Executing ongoing SharePoint site administration, document library architecture, and granular access permissions to structure project records and completion-phase documentation.
         </p>
         <div class="project-deliverables">
           <h4>Key Technical Deliverables</h4>
@@ -813,62 +818,62 @@
         </div>
       </article>
 
-      <!-- Project 2 -->
+      <!-- Project 2: Completed Substation Expansion -->
       <article class="project-card" data-category="infrastructure">
         <div class="project-meta-top">
-          <span class="project-sector">Infrastructure Assurance</span>
-          <span class="project-location">Regional / Nigeria</span>
+          <span class="project-sector">Infrastructure &middot; Completed</span>
+          <span class="project-location">Nigeria</span>
         </div>
-        <h3>Independent Infrastructure QA/QC Audit Program</h3>
+        <h3>132/33kV Substation Expansion — Digital Handover</h3>
         <p>
-          Executed rigorous pre-pour inspections, material documentation tracking, and compressive strength data indexing to ensure full regulatory and engineering standard compliance across project sites.
+          Provided independent quality assurance, inspection testing support, and progressive digital engineering documentation for critical electrical infrastructure asset expansion.
         </p>
         <div class="project-deliverables">
           <h4>Key Technical Deliverables</h4>
           <ul class="deliverables-list">
-            <li>Material Traceability Logs</li>
-            <li>Non-Conformance Reporting</li>
-            <li>Digital Handover Test Packs</li>
+            <li>Inspection Test Packs</li>
+            <li>As-Built Drawing Registers</li>
+            <li>DEP Handover Package</li>
           </ul>
         </div>
       </article>
 
-      <!-- Project 3 -->
+      <!-- Project 3: Completed Estate Assignment -->
       <article class="project-card" data-category="digital">
         <div class="project-meta-top">
-          <span class="project-sector">Digital Engineering</span>
-          <span class="project-location">South-East Nigeria</span>
+          <span class="project-sector">Digital Engineering &middot; Completed</span>
+          <span class="project-location">Abuja-FCT, Nigeria</span>
         </div>
-        <h3>Scan-to-BIM &amp; Existing Asset Surveying</h3>
+        <h3>Abuja-FCT Estate — Digital As-Built &amp; QA/QC Records</h3>
         <p>
-          Deployed mobile LiDAR scanning and precise spatial measurement workflows to generate reliable as-built baseline models for complex brownfield expansion and renovation projects.
+          Conducted precise site surveying, as-built documentation verification, material testing record indexing, and compliance-risk reviews for residential estate development.
         </p>
         <div class="project-deliverables">
           <h4>Key Technical Deliverables</h4>
           <ul class="deliverables-list">
-            <li>Mobile LiDAR Capture</li>
-            <li>BIM Integration</li>
-            <li>As-Built Spatial Models</li>
+            <li>Cadastral &amp; Topographic Surveying</li>
+            <li>Material Test Records</li>
+            <li>Digital As-Built Indexing</li>
           </ul>
         </div>
       </article>
 
-      <!-- Project 4 -->
+      <!-- Project 4: Developing Capability -->
       <article class="project-card" data-category="commercial">
         <div class="project-meta-top">
-          <span class="project-sector">Smart Buildings</span>
-          <span class="project-location">Ontario, Canada / Remote</span>
+          <span class="project-sector">Smart Buildings &middot; Developing Capability</span>
+          <span class="project-location">Ontario, Canada</span>
         </div>
-        <h3>Smart Building Telemetry &amp; Compliance Integration</h3>
+        <h3>Smart Building Telemetry &amp; EdgeCarbon Integration</h3>
         <p>
-          Integrated building automation systems, IoT telemetry sensors, and EdgeCarbon ESG data workflows to track operational efficiency and streamline facility compliance.
+          Advancing building automation telemetry, BACnet/Modbus IoT hardware integration, and EdgeCarbon ESG data workflow capabilities for future intelligent facility deployments.
         </p>
         <div class="project-deliverables">
           <h4>Key Technical Deliverables</h4>
           <ul class="deliverables-list">
-            <li>IoT Sensor Telemetry</li>
-            <li>EdgeCarbon ESG Tracking</li>
-            <li>Facility Automation Logs</li>
+            <li>IoT Hardware Integration</li>
+            <li>BACnet / Modbus Telemetry</li>
+            <li>EdgeCarbon Platform Architecture</li>
           </ul>
         </div>
       </article>
@@ -1038,21 +1043,25 @@
       if(match){
         closeSearch();
         match.scrollIntoView({behavior:"smooth",block:"start"});
-        if(searchFeedback) searchFeedback.textContent = "Found a matching project on this page.";
+        if(searchFeedback) searchFeedback.textContent = "Found a matching project in portfolio.";
       }else{
         if(searchFeedback) searchFeedback.textContent = "No matching projects found.";
       }
     });
   }
 
-  // Category Filtering Logic
+  // Category Filtering Logic with aria-pressed support
   const filterBtns = document.querySelectorAll(".filter-btn");
   const projectCards = document.querySelectorAll(".project-card");
 
   filterBtns.forEach(function(btn){
     btn.addEventListener("click", function(){
-      filterBtns.forEach(function(b){ b.classList.remove("active"); });
+      filterBtns.forEach(function(b){ 
+        b.classList.remove("active"); 
+        b.setAttribute("aria-pressed", "false");
+      });
       this.classList.add("active");
+      this.setAttribute("aria-pressed", "true");
 
       const filter = this.getAttribute("data-filter");
 
