@@ -130,11 +130,28 @@
     .menu-toggle { display: none; flex-direction: column; justify-content: space-between; width: 36px; height: 36px; padding: 8px; background: transparent; border: 1px solid rgba(255,255,255,.35); border-radius: 2px; }
     .menu-toggle span { display: block; width: 100%; height: 2px; background: #fff; }
 
-    .search-panel { position: absolute; top: calc(100% + 15px); left: 0; right: 0; z-index: 12000; display: none; padding: 18px 0; background: var(--wine); box-shadow: 0 15px 30px rgba(0,0,0,.25); }
+    /* SEARCH PANEL & RESULTS DROPDOWN STYLING */
+    .search-panel { 
+      position: absolute; top: calc(100% + 10px); left: 0; right: 0; width: 100%; z-index: 12000; display: none; 
+      padding: 16px; background: var(--wine); border-radius: 4px; box-shadow: 0 15px 30px rgba(0,0,0,.35); 
+    }
     .search-panel.is-open { display: block; }
-    .search-form { display: flex; gap: 10px; max-width: 760px; margin: auto; }
-    .search-form input { flex: 1; padding: 10px 14px; color: var(--text); background: #fff; border: 1px solid #ddd; border-radius: 2px; font-size: 14px; }
-    .search-feedback { margin: 8px 0 0; color: rgba(255,255,255,.8); font-size: .82rem; }
+    .search-form { display: flex; gap: 8px; width: 100%; align-items: center; flex-wrap: nowrap; }
+    .search-form input { flex: 1; min-width: 0; padding: 10px 12px; color: var(--text); background: #fff; border: 1px solid #ddd; border-radius: 2px; font-size: 13px; }
+    .search-form .btn { padding: 10px 14px; min-height: 42px; font-size: 12px; white-space: nowrap; }
+    
+    .search-results-dropdown {
+      margin-top: 12px; max-height: 240px; overflow-y: auto; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15); border-radius: 2px; display: none;
+    }
+    .search-results-dropdown.is-active { display: block; }
+    .search-result-item {
+      display: block; padding: 10px 14px; color: #fff; font-size: 12.5px; border-bottom: 1px solid rgba(255,255,255,0.1); text-decoration: none; transition: background 0.2s ease;
+    }
+    .search-result-item:last-child { border-bottom: none; }
+    .search-result-item:hover { background: rgba(212, 175, 55, 0.2); color: var(--gold-light); }
+    .search-result-item strong { color: var(--gold-light); display: inline-block; margin-right: 6px; }
+
+    .search-feedback { margin: 8px 0 0; color: rgba(255,255,255,.8); font-size: .8rem; }
     .search-feedback a { color: var(--gold-light); }
 
     /* PAGE HERO WITH LIGHTER TRANSPARENT WINE OVERLAY */
@@ -236,6 +253,12 @@
     }
     @media(max-width:767px){
       .container{width:calc(100% - 20px); padding: 0 10px;}
+      .site-header { left: 10px; right: 10px; top: 10px; }
+      .header-inner { padding: 0 10px; }
+      .search-panel { padding: 12px 10px; left: 0; right: 0; width: 100%; }
+      .search-form { gap: 6px; }
+      .search-form input { padding: 8px 10px; font-size: 12px; }
+      .search-form .btn { padding: 8px 10px; min-height: 38px; font-size: 11px; }
       .footer-top { grid-template-columns: 1fr; gap: 20px; }
     }
   </style>
@@ -265,7 +288,6 @@
             </div>
             <div class="nav-dropdown-group">
               <h2 class="nav-dropdown-heading">Smart Building &amp; Compliance Analytics</h2>
-              <!-- AUDITED & CORRECTED: Pointing to services.html -->
               <a href="services.html#automation">Smart Building Telemetry &amp; Integration</a>
               <a href="services.html#edgecarbon">EdgeCarbon Compliance &amp; ESG Data Platforms</a>
             </div>
@@ -280,7 +302,6 @@
         </div>
       </nav>
 
-      <!-- Logo points correctly to index.html -->
       <a class="brand" href="index.html" aria-label="Jiro-BEACONS Engineering home">
         <img src="images/logo-white.png" alt="Jiro-BEACONS Engineering" onerror="this.onerror=null;this.src='images/logo.png';">
       </a>
@@ -303,13 +324,14 @@
     </div>
 
     <div class="search-panel" id="search-panel">
-      <div class="container">
+      <div class="container" style="width:100%; padding:0;">
         <form class="search-form" id="search-form" role="search">
-          <input id="site-search-input" type="search" placeholder="Search engineering, services, projects..." required>
+          <input id="site-search-input" type="search" placeholder="Search engineering, EdgeCarbon, services..." required autocomplete="off">
           <button class="btn btn-gold" type="submit">Search</button>
           <button class="btn btn-outline" id="search-close" type="button">Close</button>
         </form>
-        <p class="search-feedback" id="search-feedback" aria-live="polite">Search this page or continue to Insights for more information.</p>
+        <div class="search-results-dropdown" id="search-results-dropdown"></div>
+        <p class="search-feedback" id="search-feedback" aria-live="polite">Type a keyword to instantly find matching mentions across the site.</p>
       </div>
     </div>
   </header>
@@ -570,7 +592,6 @@
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
-          <!-- Footer Logo points correctly to index.html -->
           <a href="index.html" aria-label="Jiro-BEACONS Engineering home">
             <img src="images/logo-white.png" alt="Jiro-BEACONS Engineering" onerror="this.onerror=null;this.src='images/logo.png';">
           </a>
@@ -617,6 +638,7 @@
     const searchInput = document.getElementById("site-search-input");
     const searchForm = document.getElementById("search-form");
     const searchFeedback = document.getElementById("search-feedback");
+    const searchResultsDropdown = document.getElementById("search-results-dropdown");
 
     const openTeamModalBtn = document.getElementById("open-team-modal");
     const closeTeamModalBtn = document.getElementById("close-team-modal");
@@ -692,6 +714,7 @@
       if(!searchPanel) return;
       searchPanel.classList.remove("is-open");
       document.body.classList.remove("search-open");
+      if(searchResultsDropdown) searchResultsDropdown.classList.remove("is-active");
     }
 
     if(searchToggle) searchToggle.addEventListener("click", function(){
@@ -700,49 +723,65 @@
     });
     if(searchClose) searchClose.addEventListener("click", closeSearch);
 
-    // Smart Global Search Router Implementation
+    // Comprehensive Site Search Index & Live Multi-Match Router
+    const siteIndex = [
+      { term: "edgecarbon", title: "EdgeCarbon Compliance & ESG Data Platforms", url: "services.html#edgecarbon", page: "Services" },
+      { term: "edgecarbon", title: "EdgeCarbon Platform (Solutions)", url: "solutions.html#edgecarbon", page: "Solutions" },
+      { term: "survey", title: "Surveying & Geospatial", url: "services.html#surveying", page: "Services" },
+      { term: "quantity surveying", title: "Quantity Surveying & Cost Support", url: "services.html#quantity-surveying", page: "Services" },
+      { term: "aec", title: "Integrated AEC Professional Teams", url: "services.html#integrated-teams", page: "Services" },
+      { term: "aec", title: "Who We Are & Multidisciplinary Teams", url: "about.html#who-we-are", page: "About" },
+      { term: "qa/qc", title: "QA/QC, Inspection & Testing", url: "services.html#quality-assurance", page: "Services" },
+      { term: "qa/qc", title: "Digital QA/QC & Intelligent Asset Information", url: "about.html#qaqc", page: "About" },
+      { term: "dep", title: "Digital Engineering Package (DEP)", url: "solutions.html#dep", page: "Solutions" },
+      { term: "dep", title: "Signature Digital Engineering Package", url: "about.html#dep", page: "About" },
+      { term: "smart building", title: "Smart Building Telemetry & Integration", url: "services.html#automation", page: "Services" },
+      { term: "project", title: "Imo City Computer Village Hub Project", url: "projects.html", page: "Projects" },
+      { term: "imo", title: "Imo City Computer Village Hub", url: "projects.html", page: "Projects" },
+      { term: "insight", title: "Engineering Insights & Articles", url: "insights.html", page: "Insights" },
+      { term: "career", title: "Careers & Open Roles", url: "careers.html", page: "Careers" },
+      { term: "contact", title: "Contact Us & Inquiries", url: "contact.html", page: "Contact" }
+    ];
+
+    if(searchInput && searchResultsDropdown){
+      searchInput.addEventListener("input", function(){
+        const query = searchInput.value.trim().toLocaleLowerCase();
+        if(query.length < 2){
+          searchResultsDropdown.innerHTML = "";
+          searchResultsDropdown.classList.remove("is-active");
+          if(searchFeedback) searchFeedback.textContent = "Type at least 2 characters to search across the site.";
+          return;
+        }
+
+        const matches = siteIndex.filter(item => item.title.toLocaleLowerCase().includes(query) || item.term.includes(query) || item.page.toLocaleLowerCase().includes(query));
+        
+        if(matches.length > 0){
+          let html = "";
+          matches.forEach(m => {
+            html += `<a href="${m.url}" class="search-result-item"><strong>[${m.page}]</strong> ${m.title}</a>`;
+          });
+          searchResultsDropdown.innerHTML = html;
+          searchResultsDropdown.classList.add("is-active");
+          if(searchFeedback) searchFeedback.textContent = `Found ${matches.length} matching result(s). Click any to navigate.`;
+        } else {
+          searchResultsDropdown.innerHTML = `<div class="search-result-item" style="color:rgba(255,255,255,0.7);">No exact matches found. Press Search to check Insights.</div>`;
+          searchResultsDropdown.classList.add("is-active");
+          if(searchFeedback) searchFeedback.textContent = "No direct matches found.";
+        }
+      });
+    }
+
     if(searchForm && searchInput){
       searchForm.addEventListener("submit", function(event){
         event.preventDefault();
         const query = searchInput.value.trim().toLocaleLowerCase();
         if(!query) return;
 
-        // Global Keyword Routing across pages and sections
-        if(query.includes("survey") || query.includes("geospatial") || query.includes("lidar") || query.includes("cadastral")){
-          window.location.href = "services.html#surveying";
-        } else if(query.includes("quantity") || query.includes("cost") || query.includes("boq") || query.includes("estimation")){
-          window.location.href = "services.html#quantity-surveying";
-        } else if(query.includes("aec") || query.includes("professional teams") || query.includes("multidisciplinary") || query.includes("who we are")){
-          window.location.href = "services.html#integrated-teams";
-        } else if(query.includes("qa/qc") || query.includes("inspection") || query.includes("testing") || query.includes("quality")){
-          window.location.href = "services.html#quality-assurance";
-        } else if(query.includes("dep") || query.includes("digital engineering package") || query.includes("handover")){
-          window.location.href = "solutions.html#dep";
-        } else if(query.includes("smart building") || query.includes("telemetry") || query.includes("automation") || query.includes("bacnet")){
-          window.location.href = "solutions.html#automation";
-        } else if(query.includes("edgecarbon") || query.includes("esg") || query.includes("carbon") || query.includes("compliance")){
-          window.location.href = "solutions.html#edgecarbon";
-        } else if(query.includes("project") || query.includes("imo") || query.includes("computer village")){
-          window.location.href = "projects.html";
-        } else if(query.includes("insight") || query.includes("article") || query.includes("knowledge")){
-          window.location.href = "insights.html";
-        } else if(query.includes("career") || query.includes("job") || query.includes("recruit")){
-          window.location.href = "careers.html";
-        } else if(query.includes("contact") || query.includes("email") || query.includes("reach")){
-          window.location.href = "contact.html";
+        const match = siteIndex.find(item => item.title.toLocaleLowerCase().includes(query) || item.term.includes(query));
+        if(match){
+          window.location.href = match.url;
         } else {
-          // Fallback to local page search/scroll or Insights redirect
-          const sectionsArr = Array.from(document.querySelectorAll("main section"));
-          const match = sectionsArr.find(function(section){
-            return section.innerText.toLocaleLowerCase().includes(query);
-          });
-          if(match){
-            closeSearch();
-            match.scrollIntoView({behavior:"smooth", block:"start"});
-            if(searchFeedback) searchFeedback.textContent = "Found matching section on this page.";
-          } else {
-            window.location.href = "insights.html?search=" + encodeURIComponent(query);
-          }
+          window.location.href = "insights.html?search=" + encodeURIComponent(query);
         }
       });
     }
