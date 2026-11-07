@@ -8,9 +8,9 @@
   <meta name="description" content="Jiro-BEACONS Engineering delivers independent infrastructure quality assurance, spatial data integration, smart building telemetry, and digital twin development.">
   <meta name="theme-color" content="#2B0714">
 
-  <!-- Favicon Implementation -->
-  <link rel="icon" type="image/png" href="images/favicon-square.png" sizes="48x48">
-  <link rel="apple-touch-icon" href="images/favicon-square.png">
+  <!-- Favicon Implementation (Updated to .jpg extension) -->
+  <link rel="icon" type="image/jpeg" href="images/favicon-square.jpg?v=2" sizes="48x48">
+  <link rel="apple-touch-icon" href="images/favicon-square.jpg?v=2">
 
   <!-- Organization Schema Markup for Brand Logo in Search Results -->
   <script type="application/ld+json">
@@ -19,7 +19,7 @@
     "@type": "Organization",
     "name": "Jiro-BEACONS Engineering Nigeria Limited",
     "url": "https://jirobeacons.com",
-    "logo": "https://jirobeacons.com/images/favicon-square.png",
+    "logo": "https://jirobeacons.com/images/favicon-square.jpg",
     "sameAs": [
       "https://www.linkedin.com/in/gift-edafe-135235135"
     ]
@@ -177,6 +177,9 @@
       .search-form { gap: 6px; }
       .search-form input { padding: 8px 10px; font-size: 12px; }
       .search-form .btn { padding: 8px 10px; min-height: 38px; font-size: 11px; }
+      
+      /* Mobile Header Emblem Override */
+      .header-inner .brand img { width: 38px !important; max-height: 38px !important; border-radius: 4px; object-fit: cover; }
     }
 
     /* STICKY STACKING SECTIONS */
@@ -301,7 +304,7 @@
       .site-header { top: 0; left: 0; right: 0; }
       .header-inner{ max-width: 100%; width: 100%; border-radius: 0; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 10px; min-height: 60px; padding: 0 12px; background: var(--wine); }
       .header-inner .brand { grid-column: 1; justify-self: start; margin-left: 0; }
-      .header-inner .brand img{ width: 120px; max-height: 35px; }
+      .header-inner .brand img{ width: 38px; max-height: 38px; border-radius: 4px; object-fit: cover; }
       .header-tools { grid-column: 3; justify-self: end; }
       .desktop-right-nav { display: none !important; }
       .main-nav{ position:absolute; top:100%; left:0; right:0; z-index:11500; display: none !important; flex-direction:column; align-items:flex-start; padding:18px 20px; background:var(--wine); box-shadow:0 15px 30px rgba(0,0,0,.4); max-height: calc(100vh - 65px); overflow-y: auto; gap: 14px; }
@@ -385,8 +388,9 @@
         </div>
       </nav>
 
+      <!-- BRAND LOGO (Using favicon-square.jpg for both desktop and mobile logo mark) -->
       <a class="brand" href="index.html" aria-label="Jiro-BEACONS Engineering home">
-        <img src="images/logo-white.png" alt="Jiro-BEACONS Engineering" onerror="this.onerror=null;this.src='images/logo.png';">
+        <img src="images/favicon-square.jpg" alt="Jiro-BEACONS Engineering" style="border-radius: 4px;">
       </a>
 
       <div class="header-right-group">
@@ -771,7 +775,7 @@
       <div class="footer-top">
         <div class="footer-brand">
           <a href="index.html" aria-label="Jiro-BEACONS Engineering home">
-            <img src="images/logo-white.png" alt="Jiro-BEACONS Engineering" onerror="this.onerror=null;this.src='images/logo.png';">
+            <img src="images/favicon-square.jpg" alt="Jiro-BEACONS Engineering" style="border-radius: 4px;">
           </a>
           <p>Engineering better information for smarter infrastructure and businesses. Connecting engineering expertise, project delivery and intelligent digital information.</p>
         </div>
